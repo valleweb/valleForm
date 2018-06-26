@@ -7,5 +7,5 @@ export default field => {
 			placeholder = { field.id }
 			{ ...normalizeCaseProp(field.case) }
 		/>
-	)
+	);
 };

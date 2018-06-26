@@ -21,7 +21,7 @@ class valleForm extends Component {
   }
 
   render() {
-    return <div> { this.state.$rows } </div>;
+  return (<div> { this.state.$rows } </div>);
   }
 
 }

@@ -6,9 +6,9 @@ import makeSelectField from './makeSelectField';
 export default rows => rows.map(row => {
 
 	const $fields = row
-										.filter(field => field.visible)
-										.map(field => isSelect(field.element) ? makeSelectField(field) : makeInputField(field));
+		.filter(field => field.visible)
+		.map(field => isSelect(field.element) ? makeSelectField(field) : makeInputField(field));
 
-	return <div> { $fields } </div>;
+	return <div> {$fields} </div>;
 
 });

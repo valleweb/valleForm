@@ -1,0 +1,29 @@
+{
+  "name": "valleform",
+  "description": "Valle forms made with easy.",
+  "main": "dist/Main.js",
+  "authors": [
+    "afonsopacifer"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "component",
+    "es6",
+    "storybook",
+    "babel",
+    "webpack"
+  ],
+  "homepage": "https://github.com/valleweb/valleForm",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "valle-input": "^0.5.0",
+    "valle-select": "^0.4.0"
+  }
+}

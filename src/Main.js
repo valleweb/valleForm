@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import makeJsxRows from './makeJsxRows';
 
-class valleForm extends Component {
+class ValleForm extends Component {
 
   constructor() {
     super();
@@ -26,4 +26,4 @@ class valleForm extends Component {
 
 }
 
-export default valleForm;
+export default ValleForm;

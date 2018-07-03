@@ -1,6 +1,6 @@
 import React from 'react';
-import makeInputField from './makeInputField';
 import isSelect from './isSelect';
+import makeInputField from './makeInputField';
 import makeSelectField from './makeSelectField';
 
 export default rows => rows.map(row => {

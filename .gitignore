@@ -11,6 +11,9 @@ coverage/
 # build
 .out
 
+# external dependencies
+bower_components/
+
 # Runtime data
 pids
 *.pid

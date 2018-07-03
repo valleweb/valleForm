@@ -3,9 +3,11 @@ import normalizeCaseProp from './normalizeCaseProp';
 
 export default field => {
 	return (
-		<input
-			placeholder = { field.id }
+		<valle-input
+		type="text"
+			label = { field.id }
 			{ ...normalizeCaseProp(field.case) }
-		/>
+		></valle-input>
+
 	);
 };

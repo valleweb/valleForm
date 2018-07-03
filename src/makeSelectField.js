@@ -1,3 +1,9 @@
 import React from 'react';
 
-export default field => <select><option>{field.id}</option></select>;
+export default field => {
+	return (
+		<valle-select>
+			<valle-option value="dsdsd">dssd</valle-option>
+		</valle-select>
+	)
+}

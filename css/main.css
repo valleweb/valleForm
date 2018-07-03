@@ -1,3 +1,43 @@
-h1 {
-    font-size: 50px;
+.valleForm__row {
+  display: flex;
+  height:100px;
+}
+
+@media screen and (max-width: 600px) {
+  .valleForm__row {
+    flex-wrap: wrap;
+    height: auto;
+  }
+}
+
+.valleForm__input {
+  width: calc(100% - 10px);
+  min-width: 0;
+  margin: 0 5px;
+  padding: 0;
+  border-width: 0;
+}
+
+.valleForm__input--small {
+  max-width: 300px;
+}
+
+.valleForm__select {
+  width: calc(100% - 10px);
+  margin: 0 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 400px;
+}
+
+@media screen and (max-width: 600px) {
+  .valleForm-select {
+    max-width: 100%;
+  }
+}
+
+.valleForm__select--big {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
 }

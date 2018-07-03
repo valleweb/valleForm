@@ -4,10 +4,12 @@ import normalizeCaseProp from './normalizeCaseProp';
 export default field => {
 	return (
 		<valle-input
-		type="text"
-			label = { field.id }
+			class="valleForm__input"
+			type="text"
+			label = { field.label }
+			maxlength ={ field.maxlength }
 			{ ...normalizeCaseProp(field.case) }
-		></valle-input>
-
+		>
+		</valle-input>
 	);
 };

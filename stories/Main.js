@@ -1,7 +1,17 @@
 import React from 'react';
 import ValleForm from '../src/Main'; // This is our component
-import { storiesOf } from '@storybook/react';
+import { setAddon, storiesOf } from '@storybook/react';
+import JSXAddon from 'storybook-addon-jsx';
 
-storiesOf('Hello', module)
-    .add('with lyef name', () => <ValleForm name="lyef" />)
-    .add('with another name', () => <ValleForm name="another" />)
+setAddon(JSXAddon);
+
+storiesOf('ValleForm', module)
+    .addWithJSX('Estados', () => {
+        return <ValleForm api="http://localhost:3000/data"/>
+    })
+    .addWithJSX('Plano de contas', () => {
+        return <ValleForm api="http://localhost:3000/data"/>
+    })
+    .addWithJSX('CFO', () => {
+        return <ValleForm api="http://localhost:3000/data"/>
+    })

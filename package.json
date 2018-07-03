@@ -43,6 +43,7 @@
   "license": "MIT",
   "devDependencies": {
     "@personare/react-storybook-decorator-github-corner": "^0.1.4",
+    "@storybook/addon-notes": "^3.4.8",
     "@storybook/react": "^3.2.6",
     "@storybook/storybook-deployer": "^2.0.0",
     "assert-equal-jsx": "^1.0.3",
@@ -70,6 +71,7 @@
     "rimraf": "^2.5.3",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
+    "storybook-addon-jsx": "^5.3.0",
     "style-loader": "^0.13.1",
     "uglify-js": "^2.7.0"
   },

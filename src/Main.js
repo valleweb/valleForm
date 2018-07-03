@@ -13,7 +13,7 @@ class ValleForm extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3000/data')
+      .get(this.props.api)
       .then(res => {
         const firstTabRows = res.data[0].fields;
         this.setState({ $rows: makeJsxRows(firstTabRows) });
@@ -21,7 +21,7 @@ class ValleForm extends Component {
   }
 
   render() {
-  return (<div> { this.state.$rows } </div>);
+    return <div> { this.state.$rows } </div>;
   }
 
 }

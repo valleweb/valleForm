@@ -31,9 +31,9 @@ render() {
 
 ## Props
 
-- `prop` (type) - description
-- `prop` (type) - description
-- `prop` (type) - description
+- `rows` (array) - All form rows with valle data structure.
+- `baseApi` (string) - Base API url for RESTFul.
+- `canonicalApi` (string) - Canonial API url for RESTFul.
 
 ## Architecture
 

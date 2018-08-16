@@ -1,5 +1,6 @@
 import React from 'react';
 import normalizeCaseProp from './normalizeCaseProp';
+import normalizeFieldName from './normalizeFieldName';
 
 export default field => {
 
@@ -18,6 +19,7 @@ export default field => {
 			class = "valleForm__input"
 			type = "text"
 			label = { field.label }
+			data-valle-field = { normalizeFieldName(field.name) }
 			maxlength = { field.maxlength }
 			{ ...normalizeCaseProp(field.case) }
 		>

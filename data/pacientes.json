@@ -23,7 +23,7 @@
 					"pattern": " ",
 					"is_PK": false,
 					"visible": true,
-					"visible_screen": true,
+					"visible_screen": false,
 					"required": true,
 					"readonly": false,
 					"exists": true

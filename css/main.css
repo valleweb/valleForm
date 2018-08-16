@@ -1,6 +1,20 @@
+.valleForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.valleForm__switch {
+  margin-left: auto;
+}
+
+.valleForm__button {
+  margin-top: 16px;
+  margin-left: auto;
+}
+
 .valleForm__row {
   display: flex;
-  height:100px;
+  width: 100%;
 }
 
 @media screen and (max-width: 600px) {

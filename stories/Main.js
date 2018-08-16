@@ -7,7 +7,7 @@ import pacientes from '../data/pacientes.json';
 setAddon(JSXAddon);
 
 const rows = pacientes.tabs[0].lines;
-const baseApi ='http://localhost:3000/data';
+const baseApi = 'http://localhost:3000/data';
 const canonicalApi = pacientes.api;
 
 storiesOf('ValleForm', module)
@@ -16,6 +16,7 @@ storiesOf('ValleForm', module)
       <ValleForm 
         rows = { rows } 
         baseApi = { baseApi } 
-        canonicalApi = { canonicalApi } />
+        canonicalApi = { canonicalApi } 
+        params = { {id: ''} } />
     )
-  })
+  });

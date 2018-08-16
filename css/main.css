@@ -1,6 +1,7 @@
 .valleForm {
   display: flex;
   flex-wrap: wrap;
+  font-family: 'Roboto', sans-serif;
 }
 
 .valleForm__switch {

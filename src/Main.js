@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import makeJsxRows from './makeJsxRows';
-import post from './post';
+import makeSpeedDialActions from './makeSpeedDialActions';
 
 class ValleForm extends Component {
 
@@ -8,7 +8,8 @@ class ValleForm extends Component {
 		super()
 		this.state = {
 			filterByVisibleScreen: false,
-			readOnly: false
+			readOnly: false,
+			editable: false
 		}
 	}
 
@@ -22,6 +23,18 @@ class ValleForm extends Component {
 		this.state.filterByVisibleScreen
 			? this.setState({filterByVisibleScreen: false})
 			: this.setState({filterByVisibleScreen: true})
+	}
+
+	makeFieldsEditable() {
+		this.setState({ readOnly: false });
+		this.setState({ editable: true });
+		this.refs.valleSpeedDial.open = false;
+	}
+
+	cancelFieldsEditable() {
+		this.setState({ readOnly: true });
+		this.setState({ editable: false });
+		this.refs.valleSpeedDial.open = false;
 	}
 
 	render() {
@@ -44,13 +57,18 @@ class ValleForm extends Component {
 
 				{ $rows }
 
-				<valle-fab
-					class = 'valleForm__button'
-					onClick = { () => {
-						post(this.props.baseApi,
-								 this.props.canonicalApi,
-								 this.props.params)} }>
-				</valle-fab>
+				<valle-speed-dial ref = 'valleSpeedDial' class = 'valleForm__button'>
+	
+					{ 
+						makeSpeedDialActions({
+							states: this.state,
+							props: this.props,
+							editCb: this.makeFieldsEditable.bind(this),
+							cancelCb: this.cancelFieldsEditable.bind(this)
+						}) 
+					}
+
+				</valle-speed-dial>
 
 			</div>
 		)

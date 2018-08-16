@@ -32,7 +32,7 @@ storiesOf('ValleForm', module)
       />
     )
   })
-  .addWithJSX('Equipamentos - Visualização', () => {
+  .addWithJSX('Equipamentos - Consulta', () => {
     return (
       <ValleForm 
         rows = { equipamentosEdit.tabs[0].lines } 

@@ -14,6 +14,7 @@ export default (field, customClass = '', readOnly = false) => {
 			data-valle-field = { normalizeFieldName(field.name) }
 			maxlength = { field.maxlength }
 			placeholder = { txt }
+			value = { field.value }
 			{ ...normalizeReadOnly(readOnly) }
 		>
 

@@ -20,6 +20,7 @@ export default (field, readOnly = false) => {
 			class = "valleForm__input"
 			type = "text"
 			label = { field.label }
+			value = { field.value }
 			data-valle-field = { normalizeFieldName(field.name) }
 			maxlength = { field.maxlength }
 			{ ...normalizeReadOnly(readOnly) }

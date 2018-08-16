@@ -1,8 +1,9 @@
 import React from 'react';
 import normalizeCaseProp from './normalizeCaseProp';
 import normalizeFieldName from './normalizeFieldName';
+import normalizeReadOnly from './normalizeReadOnly';
 
-export default field => {
+export default (field, readOnly = false) => {
 
 	const _fetchData = () => {
 
@@ -21,6 +22,7 @@ export default field => {
 			label = { field.label }
 			data-valle-field = { normalizeFieldName(field.name) }
 			maxlength = { field.maxlength }
+			{ ...normalizeReadOnly(readOnly) }
 			{ ...normalizeCaseProp(field.case) }
 		>
 		</valle-input>

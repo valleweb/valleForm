@@ -7,7 +7,14 @@ class ValleForm extends Component {
 	constructor() {
 		super()
 		this.state = {
-			filterByVisibleScreen: false
+			filterByVisibleScreen: false,
+			readOnly: false
+		}
+	}
+
+	componentDidMount() {
+		if(this.props.readOnly) {
+			this.setState({ readOnly: true })
 		}
 	}
 
@@ -21,7 +28,8 @@ class ValleForm extends Component {
 
 		const $rows = makeJsxRows(
 			this.props.rows, 
-			this.state.filterByVisibleScreen
+			this.state.filterByVisibleScreen,
+			this.state.readOnly
 		);
 
 		return (
@@ -30,6 +38,7 @@ class ValleForm extends Component {
 				<valle-switch 
 					class = "valleForm__switch"
 					label-left="Limitar campos"
+					disabled = { this.state.readOnly }
 					onClick = { () => this.changeVisibleScreen() }>
 				</valle-switch>
 

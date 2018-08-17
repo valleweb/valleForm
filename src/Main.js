@@ -57,7 +57,7 @@ class ValleForm extends Component {
 
 				{ $rows }
 
-				<valle-speed-dial ref = 'valleSpeedDial' class = 'valleForm__button'>
+				<valle-speed-dial ref = 'valleSpeedDial' class = 'valleForm__speedDial'>
 	
 					{ 
 						makeSpeedDialActions({

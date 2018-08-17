@@ -8,9 +8,26 @@
   margin-left: auto;
 }
 
-.valleForm__button {
+.valleForm__speedDial {
   margin-top: 16px;
   margin-left: auto;
+  font-size: 14px;
+}
+
+.valleForm__speedDial__save {
+  --valle-speed-dial-action-fab-color: #7bcc02;
+}
+
+.valleForm__speedDial__edit {
+  --valle-speed-dial-action-fab-color: #ff6a00;
+}
+
+.valleForm__speedDial__delete {
+  --valle-speed-dial-action-fab-color: #ff0043;
+}
+
+.valleForm__speedDial__cancel {
+  --valle-speed-dial-action-fab-color: #4c4c48;
 }
 
 .valleForm__row {

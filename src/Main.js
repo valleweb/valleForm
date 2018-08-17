@@ -50,12 +50,14 @@ class ValleForm extends Component {
 
 				<valle-switch 
 					class = "valleForm__switch"
-					label-left="Limitar campos"
+					label-left = "Limitar campos"
 					disabled = { this.state.readOnly }
 					onClick = { () => this.changeVisibleScreen() }>
 				</valle-switch>
 
 				{ $rows }
+
+				<span className = "valleForm__sub"> * Campos obrigatórios </span>
 
 				<valle-speed-dial ref = 'valleSpeedDial' class = 'valleForm__speedDial'>
 	

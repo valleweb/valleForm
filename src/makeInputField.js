@@ -2,6 +2,7 @@ import React from 'react';
 import normalizeCaseProp from './normalizeCaseProp';
 import normalizeFieldName from './normalizeFieldName';
 import normalizeReadOnly from './normalizeReadOnly';
+import normalizeRequired from './normalizeRequired';
 
 export default (field, readOnly = false) => {
 
@@ -23,6 +24,7 @@ export default (field, readOnly = false) => {
 			value = { field.value }
 			data-valle-field = { normalizeFieldName(field.name) }
 			maxlength = { field.maxlength }
+			{ ...normalizeRequired(field.required) }
 			{ ...normalizeReadOnly(readOnly) }
 			{ ...normalizeCaseProp(field.case) }
 		>

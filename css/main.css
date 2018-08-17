@@ -8,6 +8,13 @@
   margin-left: auto;
 }
 
+.valleForm__sub {
+  margin-top: 32px;
+  margin-right: auto;
+  font-size: 12px;
+  color: rgb(80, 177, 186);
+}
+
 .valleForm__speedDial {
   margin-top: 16px;
   margin-left: auto;

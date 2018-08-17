@@ -1,23 +1,23 @@
 import axios from 'axios';
+import getFieldsParams from './getFieldsParams';
 
 export default (baseApi, canonicalApi, customParams = {}, _id) => {
 
-	const apiPath = `${baseApi}${canonicalApi}/${_id}`;
-	const params = Object.assign(customParams, getFieldsParams());
+	const fieldsParams = getFieldsParams();
 
-	axios.put(apiPath, params)
-		.then(res => console.log(res))
-		.catch(err => console.log(err))
+	if (fieldsParams) {
 
-}
+		const apiPath = `${baseApi}${canonicalApi}/${_id}`;
+		const params = Object.assign(customParams, getFieldsParams());
 
-const getFieldsParams = () => {
-	const allFields = document.querySelectorAll('[data-valle-field]');
+		axios.put(apiPath, params)
+			.then(res => console.log(res))
+			.catch(err => console.log(err))
 
-	const fieldsParams = {};
-	allFields.forEach(field => {
-		fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
-	})
+	} else {
 
-	return fieldsParams;
+		console.log('error')
+
+	}
+
 }

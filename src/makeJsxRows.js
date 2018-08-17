@@ -3,7 +3,10 @@ import isSelect from './isSelect';
 import makeInputField from './makeInputField';
 import makeSelectField from './makeSelectField';
 
-export default (rows, filterByVisibleScreen = false, readOnly = false) => rows.map(row => {
+export default (
+	rows, 
+	filterByVisibleScreen = false, 
+	readOnly = false) => rows.map(row => {
 
 	const $fields = row
 		.filter(field => field.visible)

@@ -2,6 +2,7 @@ import React from 'react';
 import makeOptions from './makeOptions';
 import normalizeFieldName from './normalizeFieldName';
 import normalizeReadOnly from './normalizeReadOnly';
+import normalizeRequired from './normalizeRequired';
 
 export default (field, customClass = '', readOnly = false) => {
 
@@ -15,6 +16,7 @@ export default (field, customClass = '', readOnly = false) => {
 			maxlength = { field.maxlength }
 			placeholder = { txt }
 			value = { field.value }
+			{ ...normalizeRequired(field.required) }
 			{ ...normalizeReadOnly(readOnly) }
 		>
 

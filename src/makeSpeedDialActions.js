@@ -1,5 +1,7 @@
 import React from 'react';
 import apiCreate from './apiCreate';
+import apiUpdate from './apiUpdate'
+import apiDelete from './apiDelete'
 
 export default data => {
 
@@ -16,7 +18,7 @@ export default data => {
 					sloted
 					label = "Salvar" 
 					label-direction = "left" 
-					onClick = { () => { apiCreate(data.props.baseApi, data.props.canonicalApi, data.props.params) } }>
+					onClick = { () => apiCreate(data.props.baseApi, data.props.canonicalApi, data.props.params) }>
 
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<path fill="none" d="M0 0h24v24H0z"/>
@@ -68,7 +70,7 @@ export default data => {
 					sloted
 					label = "Salvar&nbsp;alteraçōes" 
 					label-direction = "left"
-					onClick = { () => { console.log("Salvar alteraçōes") }}>
+					onClick = { () => apiUpdate(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id) }>
 
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<path fill="none" d="M0 0h24v24H0z"/>
@@ -82,7 +84,7 @@ export default data => {
 					sloted
 					label = "Excluir" 
 					label-direction = "left"
-					onClick = { () => { console.log("Excluir") }}>
+					onClick = { () =>  apiDelete(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id) }>
 
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<path fill="none" d="M0 0h24v24H0V0z"/>

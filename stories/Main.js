@@ -37,8 +37,9 @@ storiesOf('ValleForm', module)
       <ValleForm 
         rows = { equipamentosEdit.tabs[0].lines } 
         baseApi = { 'http://localhost:3000/data' } 
-        canonicalApi = { equipamentosEdit.api } 
+        canonicalApi = { equipamentosEdit.api }
         params = { {id: ''} }
+        _id = { '234' }
         readOnly = { true }
       />
     )

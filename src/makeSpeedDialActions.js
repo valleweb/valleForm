@@ -63,7 +63,7 @@ export default data => {
 
 	if(!data.states.readOnly && data.states.editable) {
 		return (
-			<span>
+			<span className = "valleForm__speedDial__actions">
 
 				<valle-speed-dial-action 
 					class = "valleForm__speedDial__save"

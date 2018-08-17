@@ -14,6 +14,10 @@
   font-size: 14px;
 }
 
+.valleForm__speedDial__actions {
+  text-align: right;
+}
+
 .valleForm__speedDial__save {
   --valle-speed-dial-action-fab-color: #7bcc02;
 }

@@ -14,7 +14,7 @@ export default () => {
 		// Global required validation
 		if(field.required && !field.value || field.value == '') {
 			hasError = true
-			field.error = true
+			field.setAttribute('error', 'true')
 		}
 
 		fieldsParams[field.dataset.valleField] = field.value ? field.value : '';

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import makeJsxRows from './makeJsxRows';
 import makeSpeedDialActions from './makeSpeedDialActions';
-import Snackbar from './Snackbar'
+import Snackbar from './Snackbar';
+import apiCreate from './apiCreate';
 
 class ValleForm extends Component {
 
@@ -9,6 +10,7 @@ class ValleForm extends Component {
 		super()
 		this.state = {
 			filterByVisibleScreen: false,
+			rows: [],
 			readOnly: false,
 			editable: false,
 			feedback: {
@@ -24,6 +26,8 @@ class ValleForm extends Component {
 	// -----------
 
 	componentDidMount() {
+		this.setState({ rows: this.props.rows })
+
 		if(this.props.readOnly) {
 			this.setState({ readOnly: true })
 		}
@@ -67,6 +71,26 @@ class ValleForm extends Component {
 
 	}
 
+	// -----------
+	// Control keyboard actions
+	// -----------
+
+	handleKeyboard(event) {
+
+		const pressEnter = event.which === 13 || event.keyCode === 13;
+
+		if (pressEnter) {
+			event.preventDefault();
+			apiCreate(
+				this.props.baseApi, 
+				this.props.canonicalApi, 
+				this.props.params, 
+				this.showFeedback.bind(this)
+			)
+		}
+
+	}
+
 	render() {
 
 		// -----------
@@ -74,7 +98,7 @@ class ValleForm extends Component {
 		// -----------
 
 		const $rows = makeJsxRows(
-			this.props.rows, 
+			this.state.rows, 
 			this.state.filterByVisibleScreen,
 			this.state.readOnly
 		);
@@ -86,7 +110,7 @@ class ValleForm extends Component {
 		const $feedback = this.state.feedback.open ? <Snackbar report = { this.state.feedback.text } type = { this.state.feedback.type }/> : null;
 
 		return (
-			<div className = "valleForm">
+			<div className = "valleForm" onKeyPress = { this.handleKeyboard.bind(this) }>
 
 				{/* ------- Header ------- */}
 

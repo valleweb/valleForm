@@ -5,7 +5,18 @@ export default () => {
 	let hasError = false;
 
 	allFields.forEach(field => {
-		if(field.error) hasError = true
+
+		// Individual validation
+		if(field.error) {
+			hasError = true
+		}
+
+		// Global required validation
+		if(field.required && !field.value || field.value == '') {
+			hasError = true
+			field.error = true
+		}
+
 		fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
 	})
 

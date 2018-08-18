@@ -23,6 +23,7 @@ export default (field, readOnly = false) => {
 			label = { field.label }
 			value = { field.value }
 			data-valle-field = { normalizeFieldName(field.name) }
+			type = { field.type.toLowerCase() }
 			maxlength = { field.maxlength }
 			{ ...normalizeRequired(field.required) }
 			{ ...normalizeReadOnly(readOnly) }

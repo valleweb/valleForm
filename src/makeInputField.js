@@ -25,6 +25,7 @@ export default (field, readOnly = false) => {
 			data-valle-field = { normalizeFieldName(field.name) }
 			type = { field.type.toLowerCase() }
 			maxlength = { field.maxlength }
+			pattern = { field.pattern == ' ' ? null : field.pattern }
 			{ ...normalizeRequired(field.required) }
 			{ ...normalizeReadOnly(readOnly) }
 			{ ...normalizeCaseProp(field.case) }

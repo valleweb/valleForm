@@ -4,42 +4,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* ------- Header ------- */
+
 .valleForm__switch {
   margin-left: auto;
 }
 
-.valleForm__sub {
-  margin-top: 32px;
-  margin-right: auto;
-  font-size: 12px;
-  color: rgb(80, 177, 186);
-}
-
-.valleForm__speedDial {
-  margin-top: 16px;
-  margin-left: auto;
-  font-size: 14px;
-}
-
-.valleForm__speedDial__actions {
-  text-align: right;
-}
-
-.valleForm__speedDial__save {
-  --valle-speed-dial-action-fab-color: #7bcc02;
-}
-
-.valleForm__speedDial__edit {
-  --valle-speed-dial-action-fab-color: #ff6a00;
-}
-
-.valleForm__speedDial__delete {
-  --valle-speed-dial-action-fab-color: #ff0043;
-}
-
-.valleForm__speedDial__cancel {
-  --valle-speed-dial-action-fab-color: #4c4c48;
-}
+/* ------- Main ------- */
 
 .valleForm__row {
   display: flex;
@@ -83,4 +54,87 @@
   display: block;
   min-width: 100%;
   max-width: 100%;
+}
+
+/* ------- Footer ------- */
+
+.valleForm__sub {
+  margin-top: 32px;
+  margin-right: auto;
+  font-size: 12px;
+  color: rgb(80, 177, 186);
+}
+
+.valleForm__speedDial {
+  margin-top: 16px;
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.valleForm__speedDial__actions {
+  text-align: right;
+}
+
+.valleForm__speedDial__save {
+  --valle-speed-dial-action-fab-color: #7bcc02;
+}
+
+.valleForm__speedDial__edit {
+  --valle-speed-dial-action-fab-color: #ff6a00;
+}
+
+.valleForm__speedDial__delete {
+  --valle-speed-dial-action-fab-color: #ff0043;
+}
+
+.valleForm__speedDial__cancel {
+  --valle-speed-dial-action-fab-color: #4c4c48;
+}
+
+.valleForm__snackbar {
+  --width: 568px;
+  align-items: center;
+  background: #323232;
+  border-radius: 2px;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #fff;
+  display: none;
+  font-size: 14px;
+  height: 48px;
+  left: calc(50% - calc(var(--width) / 2));
+  max-width: var(--width);
+  padding: 0 24px;
+  position: fixed;
+  transform: translateY(48px);
+  width: 100%;
+  z-index: 999;
+}
+
+@media screen and (max-width: 600px) {
+  .valleForm__snackbar {
+    --width: 300px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .valleForm__snackbar {
+    --width: 250px;
+  }
+}
+
+.valleForm__snackbar--open {
+  animation: show 5s;
+  display: flex;
+}
+
+.valleForm__snackbar__icon {
+  margin-right: 12px;
+}
+
+@keyframes show {
+  0%  { transform: translateY(48px); }
+  20% { transform: translateY(0); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(48px); display: none; }
 }

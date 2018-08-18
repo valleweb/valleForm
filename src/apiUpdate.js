@@ -1,7 +1,7 @@
 import axios from 'axios';
 import getFieldsParams from './getFieldsParams';
 
-export default (baseApi, canonicalApi, customParams = {}, _id) => {
+export default (baseApi, canonicalApi, customParams = {}, _id, feedbackCb) => {
 
 	const fieldsParams = getFieldsParams();
 
@@ -11,12 +11,12 @@ export default (baseApi, canonicalApi, customParams = {}, _id) => {
 		const params = Object.assign(customParams, getFieldsParams());
 
 		axios.put(apiPath, params)
-			.then(res => console.log(res))
-			.catch(err => console.log(err))
+				 .then(res => feedbackCb('Dados atualizados com sucesso', 'success'))
+				 .catch(err => feedbackCb('Erro interno no servidor', 'error'))
 
 	} else {
 
-		console.log('error')
+		feedbackCb('Erro ao preencher o formulário', 'error');
 
 	}
 

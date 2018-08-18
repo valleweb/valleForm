@@ -16,6 +16,8 @@ export default (field, customClass = '', readOnly = false) => {
 			maxlength = { field.maxlength }
 			placeholder = { txt }
 			value = { field.value }
+			key = { field.id }
+			id = { field.id }
 			{ ...normalizeRequired(field.required) }
 			{ ...normalizeReadOnly(readOnly) }
 		>

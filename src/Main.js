@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import makeJsxRows from './makeJsxRows';
 import makeSpeedDialActions from './makeSpeedDialActions';
 import Snackbar from './Snackbar';
+import Switch from './Switch';
 import apiCreate from './apiCreate';
 
 class ValleForm extends Component {
@@ -48,7 +49,7 @@ class ValleForm extends Component {
 	// -----------
 
 	changeVisibleScreen() {
-		this.state.filterByVisibleScreen
+			this.state.filterByVisibleScreen
 			? this.setState({filterByVisibleScreen: false})
 			: this.setState({filterByVisibleScreen: true})
 	}
@@ -114,12 +115,7 @@ class ValleForm extends Component {
 
 				{/* ------- Header ------- */}
 
-				<valle-switch 
-					class = "valleForm__switch"
-					label-left = "Limitar campos"
-					disabled = { this.state.readOnly }
-					onClick = { () => this.changeVisibleScreen() }>
-				</valle-switch>
+				<Switch label = "Limitar campos" onChange = { () => this.changeVisibleScreen() } />
 
 				{/* ------- Main ------- */}
 

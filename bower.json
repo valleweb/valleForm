@@ -25,7 +25,6 @@
   "dependencies": {
     "valle-input": "^0.5.0",
     "valle-select": "^0.4.0",
-    "valle-switch": "^0.1.0",
     "valle-fab": "^1.2.0",
     "valle-speed-dial": "^1.2.0"
   }

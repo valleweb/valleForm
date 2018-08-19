@@ -138,3 +138,52 @@
   80% { transform: translateY(0); }
   100% { transform: translateY(48px); display: none; }
 }
+
+.valleForm__switch {
+  display: block;
+}
+
+.valleForm__switch__label {
+  margin: 0 10px;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: var(--valle-label-switch-color, #666666);
+}
+
+.valleForm__switch__input {
+  display: none;
+}
+
+.valleForm__switch__toggle {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  width: 36px;
+  height: 12px;
+  background-color: var(--valle-switch-background, #dddddd);
+  border-radius: 30px;
+  transition: background-color .4s;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.valleForm__switch__toggle::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--valle-switch-toggle, #81898a);
+  border-radius: 50%;
+  transition: transform .4s, background-color .4s;
+}
+
+.valleForm__switch__input:checked + .valleForm__switch__toggle {
+  background-color: var(--valle-switch-background-checked, #cbefd8);
+}
+
+.valleForm__switch__input:checked + .valleForm__switch__toggle::after {
+  transform: translateX(16px);
+  background-color: var(--valle-switch-toggle-checked, #62aeb3);
+}

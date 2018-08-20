@@ -2,6 +2,19 @@
 
 *[React](https://reactjs.org/) component for convert the valle [screens-api data structure](https://github.com/valleweb/screens-api) to web component based forms.*
 
+***Write***
+
+```jsx
+<valleForm 
+    rows = { [...] } 
+    baseApi = '' 
+    canonicalApi = '' 
+    params = { {...} } 
+/>
+```
+
+***... and build:***
+
 ![valleForm overview](docs/overview.gif)
 
 ## Table of contents

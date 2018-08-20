@@ -40,7 +40,7 @@ storiesOf('ValleForm', module)
         canonicalApi = { equipamentosEdit.api }
         params = { {id: ''} }
         _id = { '234' }
-        readOnly = { true }
+        readOnly
       />
     )
   })

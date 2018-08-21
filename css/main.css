@@ -1,7 +1,13 @@
+/* TODO: Remove container styles */
+
 .valleForm {
   display: flex;
   flex-wrap: wrap;
   font-family: 'Roboto', sans-serif;
+  background-color: #ffffff; /* TODO: Remove this */
+  padding: 20px; /* TODO: Remove this */
+  border-radius: 6px; /* TODO: Remove this */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* TODO: Remove this */
 }
 
 /* ------- Header ------- */
@@ -15,6 +21,10 @@
 .valleForm__row {
   display: flex;
   width: 100%;
+}
+
+.valle-form-container {
+  margin: 10px 15px; /* TODO: Remove this */
 }
 
 @media screen and (max-width: 600px) {

@@ -11,7 +11,6 @@ class ValleForm extends Component {
 		super()
 		this.state = {
 			filterByVisibleScreen: false,
-			rows: [],
 			readOnly: false,
 			editable: false,
 			feedback: {
@@ -27,8 +26,6 @@ class ValleForm extends Component {
 	// -----------
 
 	componentDidMount() {
-		this.setState({ rows: this.props.rows })
-
 		if(this.props.readOnly) {
 			this.setState({ readOnly: true })
 		}
@@ -61,7 +58,7 @@ class ValleForm extends Component {
 	showFeedback(text, type) {
 
 		// Clear old feedback
-		this.setState({ feedback: {  open: false } }) 
+		this.setState({ feedback: {  open: false } })
 
 		// Trick for second state change
 		setTimeout(() => {
@@ -83,9 +80,9 @@ class ValleForm extends Component {
 		if (pressEnter) {
 			event.preventDefault();
 			apiCreate(
-				this.props.baseApi, 
-				this.props.canonicalApi, 
-				this.props.params, 
+				this.props.baseApi,
+				this.props.canonicalApi,
+				this.props.params,
 				this.showFeedback.bind(this)
 			)
 		}
@@ -95,11 +92,26 @@ class ValleForm extends Component {
 	render() {
 
 		// -----------
+		// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
+		// Controls default values
+		// -----------
+
+		if (this.props.values) {
+			const allFields = document.querySelectorAll('[data-valle-field]');
+
+			allFields.forEach(field => {
+				const fieldKey = field.dataset.valleField;
+				field.value = this.props.values[fieldKey];
+			})
+
+		}
+
+		// -----------
 		// Control rows
 		// -----------
 
 		const $rows = makeJsxRows(
-			this.state.rows, 
+			this.props.rows,
 			this.state.filterByVisibleScreen,
 			this.state.readOnly
 		);
@@ -126,15 +138,15 @@ class ValleForm extends Component {
 				<span className = "valleForm__sub"> * Campos obrigatórios </span>
 
 				<valle-speed-dial ref = "valleSpeedDial" class = "valleForm__speedDial">
-	
-					{ 
+
+					{
 						makeSpeedDialActions({
 							states: this.state,
 							props: this.props,
 							editCb: this.makeFieldsEditable.bind(this),
 							cancelCb: this.cancelFieldsEditable.bind(this),
 							feedbackCb: this.showFeedback.bind(this)
-						}) 
+						})
 					}
 
 				</valle-speed-dial>

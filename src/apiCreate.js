@@ -1,5 +1,6 @@
 import axios from 'axios';
 import getFieldsParams from './getFieldsParams';
+import cleanFields from './cleanFields'
 
 export default (baseApi, canonicalApi, customParams = {}, feedbackCb) => {
 
@@ -9,9 +10,12 @@ export default (baseApi, canonicalApi, customParams = {}, feedbackCb) => {
 
 		const apiPath = `${baseApi}${canonicalApi}`;
 		const params = Object.assign(customParams, fieldsParams);
-	
+
 		axios.post(apiPath, params)
-				 .then(res => feedbackCb('Dados salvos com sucesso', 'success'))
+				 .then(res => {
+					 feedbackCb('Dados salvos com sucesso', 'success');
+					 cleanFields();
+					})
 				 .catch(err => feedbackCb('Erro interno no servidor', 'error'))
 
 	} else {

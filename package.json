@@ -1,6 +1,6 @@
 {
-  "name": "valleForm",
-  "version": "0.1.0",
+  "name": "valleform",
+  "version": "0.1.1",
   "description": "Valle forms made with easy.",
   "main": "dist/Main.js",
   "scripts": {

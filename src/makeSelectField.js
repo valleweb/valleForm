@@ -9,13 +9,12 @@ export default (field, customClass = '', readOnly = false) => {
 	const [val, txt] = field.element_options[0].split(';;'); // Normalize the API result (split value and text)
 
 	return (
-		<valle-select 
+		<valle-select
 			class = {`valleForm__select ${customClass}`}
 			label = { field.label }
 			data-valle-field = { normalizeFieldName(field.name) }
 			maxlength = { field.maxlength }
 			placeholder = { txt }
-			value = { field.value }
 			key = { field.id }
 			id = { field.id }
 			{ ...normalizeRequired(field.required) }

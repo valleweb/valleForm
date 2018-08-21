@@ -13,6 +13,7 @@ class ValleForm extends Component {
 			filterByVisibleScreen: false,
 			readOnly: false,
 			editable: false,
+			valleSpeedDialRef: null,
 			feedback: {
 				open: false,
 				text: '',
@@ -26,19 +27,42 @@ class ValleForm extends Component {
 	// -----------
 
 	componentDidMount() {
+
 		if(this.props.readOnly) {
 			this.setState({ readOnly: true })
 		}
+
+		// -----------
+		// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
+		// Controls default values
+		// -----------
+
+		if (this.props.values) {
+			const allFields = document.querySelectorAll('[data-valle-field]');
+
+			allFields.forEach(field => {
+				const fieldKey = field.dataset.valleField;
+				field.value = this.props.values[fieldKey];
+			})
+
+		}
+
+		// -----------
+		// TODO: Remove this. Use a React memory reference instead.
+		// -----------
+
+		this.setState({ valleSpeedDialRef: document.getElementById('valleSpeedDial') })
+
 	}
 
 	makeFieldsEditable() {
 		this.setState({ readOnly: false, editable: true });
-		this.refs.valleSpeedDial.open = false;
+		this.state.valleSpeedDialRef.open = false;
 	}
 
 	cancelFieldsEditable() {
 		this.setState({ readOnly: true, editable: false });
-		this.refs.valleSpeedDial.open = false;
+		this.state.valleSpeedDialRef.open = false;
 	}
 
 	// -----------
@@ -65,8 +89,7 @@ class ValleForm extends Component {
 			this.setState({ feedback: { open: true, text: text, type: type } })
 		}, 100);
 
-		// TODO: Remove this. Use a memory reference instead.
-		document.getElementById('valleSpeedDial').open = false;
+		this.state.valleSpeedDialRef.open = false;
 
 	}
 
@@ -91,21 +114,6 @@ class ValleForm extends Component {
 	}
 
 	render() {
-
-		// -----------
-		// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
-		// Controls default values
-		// -----------
-
-		if (this.props.values) {
-			const allFields = document.querySelectorAll('[data-valle-field]');
-
-			allFields.forEach(field => {
-				const fieldKey = field.dataset.valleField;
-				field.value = this.props.values[fieldKey];
-			})
-
-		}
 
 		// -----------
 		// Control rows

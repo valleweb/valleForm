@@ -65,7 +65,8 @@ class ValleForm extends Component {
 			this.setState({ feedback: { open: true, text: text, type: type } })
 		}, 100);
 
-		this.refs.valleSpeedDial.open = false;
+		// TODO: Remove this. Use a memory reference instead.
+		document.getElementById('valleSpeedDial').open = false;
 
 	}
 
@@ -137,7 +138,7 @@ class ValleForm extends Component {
 
 				<span className = "valleForm__sub"> * Campos obrigatórios </span>
 
-				<valle-speed-dial class = "valleForm__speedDial">
+				<valle-speed-dial id = "valleSpeedDial" class = "valleForm__speedDial">
 
 					{
 						makeSpeedDialActions({

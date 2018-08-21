@@ -7,7 +7,7 @@ import JSXAddon from 'storybook-addon-jsx';
 
 import pacientes from '../data/pacientes.json';
 import equipamentos from '../data/equipamentos.json';
-import equipamentosEdit from '../data/equipamentos-edit.json';
+import equipamentosValues from '../data/equipamentos-values.json';
 import procedimentos from '../data/procedimentos.json';
 
 setAddon(JSXAddon);
@@ -36,11 +36,12 @@ storiesOf('ValleForm', module)
   .addWithJSX('Equipamentos - Consulta', () => {
     return (
       <ValleForm
-        rows = { equipamentosEdit.tabs[0].lines }
+        rows = { equipamentos.tabs[0].lines }
         baseApi = { 'http://localhost:3000/data' }
-        canonicalApi = { equipamentosEdit.api }
+        canonicalApi = { equipamentos.api }
         params = { {id: ''} }
         _id = { '234' }
+        values = { equipamentosValues }
         readOnly
       />
     )
@@ -49,7 +50,7 @@ storiesOf('ValleForm', module)
     return (
       <ValleForm
         rows = { procedimentos.tabs[0].lines }
-        baseApi = { 'http://localhost:3000' }
+        baseApi = { 'http://localhost:3000/' }
         canonicalApi = { '/api/procedimentos' }
       />
     )

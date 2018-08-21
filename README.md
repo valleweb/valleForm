@@ -5,11 +5,11 @@
 ***Write***
 
 ```jsx
-<valleForm 
-    rows = { [...] } 
-    baseApi = '' 
-    canonicalApi = '' 
-    params = { {...} } 
+<valleForm
+    rows = { [...] }
+    baseApi = ''
+    canonicalApi = ''
+    params = { {...} }
 />
 ```
 
@@ -97,11 +97,11 @@ import valleForm from './<path>/valleForm';
 ...
 render() {
     return (
-        <valleForm 
-            rows = { equipamentos.lines } 
-            baseApi = 'http://localhost:3000/' 
-            canonicalApi = 'api/equipamentos' 
-            params = { {empresa: '', estabelecimento: ''} } 
+        <valleForm
+            rows = { equipamentos.lines }
+            baseApi = 'http://localhost:3000/'
+            canonicalApi = 'api/equipamentos'
+            params = { {empresa: '', estabelecimento: ''} }
         />
     );
 }
@@ -125,11 +125,12 @@ import valleForm from './<path>/valleForm';
 ...
 render() {
     return (
-        <valleForm 
-            rows = { equipamentos.lines } 
-            baseApi = 'http://localhost:3000/' 
-            canonicalApi = 'api/equipamentos' 
-            params = { {empresa: '', estabelecimento: ''} } 
+        <valleForm
+            rows = { equipamentos.lines }
+            baseApi = 'http://localhost:3000/'
+            canonicalApi = 'api/equipamentos'
+            params = { {empresa: '', estabelecimento: ''} }
+            values = { {valuesObj} }
             _id = '123'
             readOnly
         />
@@ -155,13 +156,14 @@ import valleForm from './<path>/valleForm';
 ...
 render() {
     return (
-        <valleForm 
-            rows = { equipamentos.lines } 
-            baseApi = 'http://localhost:3000/' 
-            canonicalApi = 'api/equipamentos' 
-            params = { {empresa: '', estabelecimento: ''} } 
+        <valleForm
+            rows = { equipamentos.lines }
+            baseApi = 'http://localhost:3000/'
+            canonicalApi = 'api/equipamentos'
+            params = { {empresa: '', estabelecimento: ''} }
+            values = { {valuesObj} }
             _id = '123'
-            readOnly 
+            readOnly
         />
     );
 }
@@ -180,6 +182,7 @@ render() {
 - `baseApi` (string) - Base API url for RESTFul.
 - `canonicalApi` (string) - Canonial API url for RESTFul.
 - `params` (object) - Custom params that are added to all requests.
+- `values` (object) - All values for populate a view/edit form.
 - `_id` (string) - Unique Identifier for `UPDATE` and `DELETE`.
 - `readOnly` (boolean) - Make all fiels read only.
 

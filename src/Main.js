@@ -4,6 +4,7 @@ import makeSpeedDialActions from './makeSpeedDialActions';
 import Snackbar from './Snackbar';
 import Switch from './Switch';
 import apiCreate from './apiCreate';
+import addFieldsValues from './addFieldsValues'
 
 class ValleForm extends Component {
 
@@ -14,6 +15,7 @@ class ValleForm extends Component {
 			readOnly: false,
 			editable: false,
 			valleSpeedDialRef: null,
+			defaultFieldsValues: null,
 			feedback: {
 				open: false,
 				text: '',
@@ -32,19 +34,9 @@ class ValleForm extends Component {
 			this.setState({ readOnly: true })
 		}
 
-		// -----------
-		// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
-		// Controls default values
-		// -----------
-
 		if (this.props.values) {
-			const allFields = document.querySelectorAll('[data-valle-field]');
-
-			allFields.forEach(field => {
-				const fieldKey = field.dataset.valleField;
-				field.value = this.props.values[fieldKey];
-			})
-
+			addFieldsValues(this.props.values)
+			this.setState({ defaultFieldsValues: this.props.values });
 		}
 
 		// -----------
@@ -63,6 +55,7 @@ class ValleForm extends Component {
 	cancelFieldsEditable() {
 		this.setState({ readOnly: true, editable: false });
 		this.state.valleSpeedDialRef.open = false;
+		addFieldsValues(this.state.defaultFieldsValues);
 	}
 
 	// -----------

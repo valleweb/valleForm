@@ -46,7 +46,6 @@ var ValleForm = function (_Component) {
 
 		_this.state = {
 			filterByVisibleScreen: false,
-			rows: [],
 			readOnly: false,
 			editable: false,
 			feedback: {
@@ -66,8 +65,6 @@ var ValleForm = function (_Component) {
 		key: 'componentDidMount',
 		value: function () {
 			function componentDidMount() {
-				this.setState({ rows: this.props.rows });
-
 				if (this.props.readOnly) {
 					this.setState({ readOnly: true });
 				}
@@ -160,10 +157,24 @@ var ValleForm = function (_Component) {
 				var _this3 = this;
 
 				// -----------
+				// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
+				// Controls default values
+				// -----------
+
+				if (this.props.values) {
+					var allFields = document.querySelectorAll('[data-valle-field]');
+
+					allFields.forEach(function (field) {
+						var fieldKey = field.dataset.valleField;
+						field.value = _this3.props.values[fieldKey];
+					});
+				}
+
+				// -----------
 				// Control rows
 				// -----------
 
-				var $rows = (0, _makeJsxRows2['default'])(this.state.rows, this.state.filterByVisibleScreen, this.state.readOnly);
+				var $rows = (0, _makeJsxRows2['default'])(this.props.rows, this.state.filterByVisibleScreen, this.state.readOnly);
 
 				// -----------
 				// Control feedbacks reports
@@ -189,7 +200,7 @@ var ValleForm = function (_Component) {
 					),
 					_react2['default'].createElement(
 						'valle-speed-dial',
-						{ ref: 'valleSpeedDial', 'class': 'valleForm__speedDial' },
+						{ 'class': 'valleForm__speedDial' },
 						(0, _makeSpeedDialActions2['default'])({
 							states: this.state,
 							props: this.props,

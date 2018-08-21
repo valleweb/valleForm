@@ -6,6 +6,10 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _cleanFields = require('./cleanFields');
+
+var _cleanFields2 = _interopRequireDefault(_cleanFields);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (baseApi, canonicalApi) {
@@ -17,7 +21,8 @@ exports['default'] = function (baseApi, canonicalApi) {
 	var apiPath = '' + String(baseApi) + String(canonicalApi) + '/' + String(_id);
 
 	_axios2['default']['delete'](apiPath, customParams).then(function (res) {
-		return feedbackCb('Dados apagados com sucesso', 'success');
+		feedbackCb('Dados apagados com sucesso', 'success');
+		(0, _cleanFields2['default'])();
 	})['catch'](function (err) {
 		return feedbackCb('Erro interno no servidor', 'error');
 	});

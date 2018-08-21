@@ -10,6 +10,10 @@ var _getFieldsParams = require('./getFieldsParams');
 
 var _getFieldsParams2 = _interopRequireDefault(_getFieldsParams);
 
+var _cleanFields = require('./cleanFields');
+
+var _cleanFields2 = _interopRequireDefault(_cleanFields);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (baseApi, canonicalApi) {
@@ -25,7 +29,8 @@ exports['default'] = function (baseApi, canonicalApi) {
 		var params = Object.assign(customParams, fieldsParams);
 
 		_axios2['default'].post(apiPath, params).then(function (res) {
-			return feedbackCb('Dados salvos com sucesso', 'success');
+			feedbackCb('Dados salvos com sucesso', 'success');
+			(0, _cleanFields2['default'])();
 		})['catch'](function (err) {
 			return feedbackCb('Erro interno no servidor', 'error');
 		});

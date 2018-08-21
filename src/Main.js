@@ -137,7 +137,7 @@ class ValleForm extends Component {
 
 				<span className = "valleForm__sub"> * Campos obrigatórios </span>
 
-				<valle-speed-dial ref = "valleSpeedDial" class = "valleForm__speedDial">
+				<valle-speed-dial class = "valleForm__speedDial">
 
 					{
 						makeSpeedDialActions({

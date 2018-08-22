@@ -2,6 +2,9 @@
 
 *[React](https://reactjs.org/) component for convert the valle [screens-api data structure](https://github.com/valleweb/screens-api) to web component based forms.*
 
+[![npm](https://img.shields.io/npm/v/valleform.svg)](https://www.npmjs.com/package/valleform)
+[![dependencies Status](https://david-dm.org/valleweb/valleform/status.svg)](https://david-dm.org/valleweb/valleform)
+
 ***Write***
 
 ```jsx
@@ -194,10 +197,10 @@ render() {
 
 * `npm start` - launch storybook to develop your component.
 * `npm run build` - build component to external use.
-* <s>`npm run pub` - build and publish the component to npm.</s>
+* `npm run pub` - build and publish the component to npm.
 * `npm run storybook` - launch storybook to develop your component.
 * `npm run build-storybook` - build an static storybook to `.out` folder.
-* <s>`npm run deploy-storybook` - build and deploy a storybook with component to gh-pages.</s>
+* `npm run deploy-storybook` - build and deploy a storybook with component to gh-pages.
 * <s>`npm run test` - run all specs.</s>
 * <s>`npm run test:tdd` - run all specs and watch.</s>
 * <s>`npm run test:coverage` - run all specs and coverage.</s>

@@ -127,14 +127,20 @@ class ValleForm extends Component {
 		// Control feedbacks reports
 		// -----------
 
-		const $feedback = this.state.feedback.open ? <Snackbar report = { this.state.feedback.text } type = { this.state.feedback.type }/> : null;
+		const $feedback =
+			this.state.feedback.open
+			? <Snackbar report = { this.state.feedback.text } type = { this.state.feedback.type }/>
+			: null;
 
 		return (
 			<div className = "valleForm" onKeyPress = { this.handleKeyboard.bind(this) }>
 
 				{/* ------- Header ------- */}
 
-				<Switch label = "Limitar campos" onChange = { () => this.changeVisibleScreen() } />
+				<Switch 
+					label = "Limitar campos"
+					readOnly = { this.state.readOnly }
+					onChange = { () => this.changeVisibleScreen() } />
 
 				{/* ------- Main ------- */}
 

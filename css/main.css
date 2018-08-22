@@ -164,6 +164,10 @@
   display: none;
 }
 
+.valleForm__switch--disabled .valleForm__switch__label {
+  color: rgba(0, 0, 0, .38);
+}
+
 .valleForm__switch__toggle {
   position: relative;
   cursor: pointer;
@@ -179,6 +183,10 @@
   vertical-align: middle;
 }
 
+.valleForm__switch--disabled .valleForm__switch__toggle {
+  --valle-switch-background: #eae9e9;
+}
+
 .valleForm__switch__toggle::after {
   content: "";
   display: block;
@@ -187,6 +195,10 @@
   background-color: var(--valle-switch-toggle, #81898a);
   border-radius: 50%;
   transition: transform .4s, background-color .4s;
+}
+
+.valleForm__switch--disabled .valleForm__switch__toggle::after {
+  --valle-switch-toggle: #d2d2d2;
 }
 
 .valleForm__switch__input:checked + .valleForm__switch__toggle {

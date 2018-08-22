@@ -112,6 +112,21 @@ exports['default'] = function (data) {
 			_react2['default'].createElement(
 				'valle-speed-dial-action',
 				{
+					'class': 'valleForm__speedDial__cancel',
+					sloted: true,
+					label: 'Cancelar',
+					'label-direction': 'left',
+					onClick: data.cancelCb },
+				_react2['default'].createElement(
+					'svg',
+					{ xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
+					_react2['default'].createElement('path', { d: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z', fill: '#fff' }),
+					_react2['default'].createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' })
+				)
+			),
+			_react2['default'].createElement(
+				'valle-speed-dial-action',
+				{
 					'class': 'valleForm__speedDial__delete',
 					sloted: true,
 					label: 'Excluir',
@@ -129,21 +144,6 @@ exports['default'] = function (data) {
 					_react2['default'].createElement('path', { fill: 'none', d: 'M0 0h24v24H0V0z' }),
 					_react2['default'].createElement('path', { d: 'M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z', fill: '#fff' }),
 					_react2['default'].createElement('path', { fill: 'none', d: 'M0 0h24v24H0z' })
-				)
-			),
-			_react2['default'].createElement(
-				'valle-speed-dial-action',
-				{
-					'class': 'valleForm__speedDial__cancel',
-					sloted: true,
-					label: 'Cancelar',
-					'label-direction': 'left',
-					onClick: data.cancelCb },
-				_react2['default'].createElement(
-					'svg',
-					{ xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
-					_react2['default'].createElement('path', { d: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z', fill: '#fff' }),
-					_react2['default'].createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' })
 				)
 			)
 		);

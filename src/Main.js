@@ -132,43 +132,55 @@ class ValleForm extends Component {
 			? <Snackbar report = { this.state.feedback.text } type = { this.state.feedback.type }/>
 			: null;
 
-		return (
-			<div className = "valleForm" onKeyPress = { this.handleKeyboard.bind(this) }>
+		if (this.props.rows.length > 0) { // Await the rows for renderize all component
 
-				{/* ------- Header ------- */}
+			return (
+				<div className = "valleForm" onKeyPress = { this.handleKeyboard.bind(this) }>
 
-				<Switch 
-					label = "Limitar campos"
-					readOnly = { this.state.readOnly }
-					onChange = { () => this.changeVisibleScreen() } />
+					{/* ------- Header ------- */}
 
-				{/* ------- Main ------- */}
+					<Switch
+						label = "Limitar campos"
+						readOnly = { this.state.readOnly }
+						onChange = { () => this.changeVisibleScreen() } />
 
-				{ $rows }
+					{/* ------- Main ------- */}
 
-				{/* ------- Footer ------- */}
+					{ $rows }
 
-				<span className = "valleForm__sub"> * Campos obrigatórios </span>
+					{/* ------- Footer ------- */}
 
-				<valle-speed-dial id = "valleSpeedDial" class = "valleForm__speedDial">
+					<span className = "valleForm__sub"> * Campos obrigatórios </span>
 
-					{
-						makeSpeedDialActions({
-							states: this.state,
-							props: this.props,
-							editCb: this.makeFieldsEditable.bind(this),
-							cancelCb: this.cancelFieldsEditable.bind(this),
-							feedbackCb: this.showFeedback.bind(this),
-							formCb: this.removeFieldsEditable.bind(this)
-						})
-					}
+					<valle-speed-dial id = "valleSpeedDial" class = "valleForm__speedDial">
 
-				</valle-speed-dial>
+						{
+							makeSpeedDialActions({
+								states: this.state,
+								props: this.props,
+								editCb: this.makeFieldsEditable.bind(this),
+								cancelCb: this.cancelFieldsEditable.bind(this),
+								feedbackCb: this.showFeedback.bind(this),
+								formCb: this.removeFieldsEditable.bind(this)
+							})
+						}
 
-				{ $feedback }
+					</valle-speed-dial>
 
-			</div>
-		)
+					{ $feedback }
+
+				</div>
+			)
+
+		} else {
+
+		// -----------
+		// TODO: Add loading.
+		// -----------
+
+			return <span></span>
+
+		}
 
 	}
 

@@ -197,39 +197,50 @@ var ValleForm = function (_Component) {
 
 				var $feedback = this.state.feedback.open ? _react2['default'].createElement(_Snackbar2['default'], { report: this.state.feedback.text, type: this.state.feedback.type }) : null;
 
-				return _react2['default'].createElement(
-					'div',
-					{ className: 'valleForm', onKeyPress: this.handleKeyboard.bind(this) },
-					_react2['default'].createElement(_Switch2['default'], {
-						label: 'Limitar campos',
-						readOnly: this.state.readOnly,
-						onChange: function () {
-							function onChange() {
-								return _this3.changeVisibleScreen();
-							}
+				if (this.props.rows.length > 0) {
+					// Await the rows for renderize all component
 
-							return onChange;
-						}() }),
-					$rows,
-					_react2['default'].createElement(
-						'span',
-						{ className: 'valleForm__sub' },
-						' * Campos obrigat\xF3rios '
-					),
-					_react2['default'].createElement(
-						'valle-speed-dial',
-						{ id: 'valleSpeedDial', 'class': 'valleForm__speedDial' },
-						(0, _makeSpeedDialActions2['default'])({
-							states: this.state,
-							props: this.props,
-							editCb: this.makeFieldsEditable.bind(this),
-							cancelCb: this.cancelFieldsEditable.bind(this),
-							feedbackCb: this.showFeedback.bind(this),
-							formCb: this.removeFieldsEditable.bind(this)
-						})
-					),
-					$feedback
-				);
+					return _react2['default'].createElement(
+						'div',
+						{ className: 'valleForm', onKeyPress: this.handleKeyboard.bind(this) },
+						_react2['default'].createElement(_Switch2['default'], {
+							label: 'Limitar campos',
+							readOnly: this.state.readOnly,
+							onChange: function () {
+								function onChange() {
+									return _this3.changeVisibleScreen();
+								}
+
+								return onChange;
+							}() }),
+						$rows,
+						_react2['default'].createElement(
+							'span',
+							{ className: 'valleForm__sub' },
+							' * Campos obrigat\xF3rios '
+						),
+						_react2['default'].createElement(
+							'valle-speed-dial',
+							{ id: 'valleSpeedDial', 'class': 'valleForm__speedDial' },
+							(0, _makeSpeedDialActions2['default'])({
+								states: this.state,
+								props: this.props,
+								editCb: this.makeFieldsEditable.bind(this),
+								cancelCb: this.cancelFieldsEditable.bind(this),
+								feedbackCb: this.showFeedback.bind(this),
+								formCb: this.removeFieldsEditable.bind(this)
+							})
+						),
+						$feedback
+					);
+				} else {
+
+					// -----------
+					// TODO: Add loading.
+					// -----------
+
+					return _react2['default'].createElement('span', null);
+				}
 			}
 
 			return render;

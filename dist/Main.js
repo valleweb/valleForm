@@ -28,6 +28,10 @@ var _apiCreate = require('./apiCreate');
 
 var _apiCreate2 = _interopRequireDefault(_apiCreate);
 
+var _addFieldsValues = require('./addFieldsValues');
+
+var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48,6 +52,8 @@ var ValleForm = function (_Component) {
 			filterByVisibleScreen: false,
 			readOnly: false,
 			editable: false,
+			valleSpeedDialRef: null,
+			defaultFieldsValues: null,
 			feedback: {
 				open: false,
 				text: '',
@@ -65,9 +71,21 @@ var ValleForm = function (_Component) {
 		key: 'componentDidMount',
 		value: function () {
 			function componentDidMount() {
+
 				if (this.props.readOnly) {
 					this.setState({ readOnly: true });
 				}
+
+				if (this.props.values) {
+					(0, _addFieldsValues2['default'])(this.props.values);
+					this.setState({ defaultFieldsValues: this.props.values });
+				}
+
+				// -----------
+				// TODO: Remove this. Use a React memory reference instead.
+				// -----------
+
+				this.setState({ valleSpeedDialRef: document.getElementById('valleSpeedDial') });
 			}
 
 			return componentDidMount;
@@ -77,17 +95,28 @@ var ValleForm = function (_Component) {
 		value: function () {
 			function makeFieldsEditable() {
 				this.setState({ readOnly: false, editable: true });
-				this.refs.valleSpeedDial.open = false;
+				this.state.valleSpeedDialRef.open = false;
 			}
 
 			return makeFieldsEditable;
+		}()
+	}, {
+		key: 'removeFieldsEditable',
+		value: function () {
+			function removeFieldsEditable() {
+				this.setState({ readOnly: true, editable: false });
+				this.state.valleSpeedDialRef.open = false;
+			}
+
+			return removeFieldsEditable;
 		}()
 	}, {
 		key: 'cancelFieldsEditable',
 		value: function () {
 			function cancelFieldsEditable() {
 				this.setState({ readOnly: true, editable: false });
-				this.refs.valleSpeedDial.open = false;
+				this.state.valleSpeedDialRef.open = false;
+				(0, _addFieldsValues2['default'])(this.state.defaultFieldsValues);
 			}
 
 			return cancelFieldsEditable;
@@ -125,7 +154,7 @@ var ValleForm = function (_Component) {
 					_this2.setState({ feedback: { open: true, text: text, type: type } });
 				}, 100);
 
-				this.refs.valleSpeedDial.open = false;
+				this.state.valleSpeedDialRef.open = false;
 			}
 
 			return showFeedback;
@@ -157,20 +186,6 @@ var ValleForm = function (_Component) {
 				var _this3 = this;
 
 				// -----------
-				// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
-				// Controls default values
-				// -----------
-
-				if (this.props.values) {
-					var allFields = document.querySelectorAll('[data-valle-field]');
-
-					allFields.forEach(function (field) {
-						var fieldKey = field.dataset.valleField;
-						field.value = _this3.props.values[fieldKey];
-					});
-				}
-
-				// -----------
 				// Control rows
 				// -----------
 
@@ -185,7 +200,10 @@ var ValleForm = function (_Component) {
 				return _react2['default'].createElement(
 					'div',
 					{ className: 'valleForm', onKeyPress: this.handleKeyboard.bind(this) },
-					_react2['default'].createElement(_Switch2['default'], { label: 'Limitar campos', onChange: function () {
+					_react2['default'].createElement(_Switch2['default'], {
+						label: 'Limitar campos',
+						readOnly: this.state.readOnly,
+						onChange: function () {
 							function onChange() {
 								return _this3.changeVisibleScreen();
 							}
@@ -200,13 +218,14 @@ var ValleForm = function (_Component) {
 					),
 					_react2['default'].createElement(
 						'valle-speed-dial',
-						{ 'class': 'valleForm__speedDial' },
+						{ id: 'valleSpeedDial', 'class': 'valleForm__speedDial' },
 						(0, _makeSpeedDialActions2['default'])({
 							states: this.state,
 							props: this.props,
 							editCb: this.makeFieldsEditable.bind(this),
 							cancelCb: this.cancelFieldsEditable.bind(this),
-							feedbackCb: this.showFeedback.bind(this)
+							feedbackCb: this.showFeedback.bind(this),
+							formCb: this.removeFieldsEditable.bind(this)
 						})
 					),
 					$feedback

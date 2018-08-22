@@ -3,6 +3,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports['default'] = function () {
+
+	// -----------
+	// TODO: Remove this. Use a React memory reference instead.
+	// -----------
+
 	var allFields = document.querySelectorAll('[data-valle-field]');
 
 	var fieldsParams = {};

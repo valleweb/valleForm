@@ -97,7 +97,7 @@ exports['default'] = function (data) {
 					'label-direction': 'left',
 					onClick: function () {
 						function onClick() {
-							return (0, _apiUpdate2['default'])(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb);
+							return (0, _apiUpdate2['default'])(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb, data.formCb);
 						}
 
 						return onClick;
@@ -118,7 +118,7 @@ exports['default'] = function (data) {
 					'label-direction': 'left',
 					onClick: function () {
 						function onClick() {
-							return (0, _apiDelete2['default'])(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb);
+							return (0, _apiDelete2['default'])(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb, data.formCb);
 						}
 
 						return onClick;

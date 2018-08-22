@@ -16,6 +16,7 @@ exports['default'] = function (baseApi, canonicalApi) {
 	var customParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	var _id = arguments[3];
 	var feedbackCb = arguments[4];
+	var formCb = arguments[5];
 
 
 	var fieldsParams = (0, _getFieldsParams2['default'])();
@@ -26,7 +27,8 @@ exports['default'] = function (baseApi, canonicalApi) {
 		var params = Object.assign(customParams, (0, _getFieldsParams2['default'])());
 
 		_axios2['default'].put(apiPath, params).then(function (res) {
-			return feedbackCb('Dados atualizados com sucesso', 'success');
+			feedbackCb('Dados atualizados com sucesso', 'success');
+			formCb();
 		})['catch'](function (err) {
 			return feedbackCb('Erro interno no servidor', 'error');
 		});

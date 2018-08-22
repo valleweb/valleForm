@@ -46,7 +46,6 @@ exports['default'] = function (field) {
 		'class': 'valleForm__input',
 		type: 'text',
 		label: field.label,
-		value: field.value,
 		'data-valle-field': (0, _normalizeFieldName2['default'])(field.name)
 	}, _defineProperty(_extends2, 'type', field.type.toLowerCase()), _defineProperty(_extends2, 'maxlength', field.maxlength), _defineProperty(_extends2, 'key', field.id), _defineProperty(_extends2, 'id', field.id), _defineProperty(_extends2, 'pattern', field.pattern == ' ' ? null : field.pattern), _extends2), (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(readOnly), (0, _normalizeCaseProp2['default'])(field['case'])));
 };

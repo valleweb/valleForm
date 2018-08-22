@@ -3,7 +3,6 @@ import getFieldsParams from './getFieldsParams';
 
 export default (baseApi, canonicalApi, customParams = {}, _id, feedbackCb, formCb) => {
 
-	console.log(formCb)
 	const fieldsParams = getFieldsParams();
 
 	if (fieldsParams) {

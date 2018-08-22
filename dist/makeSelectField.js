@@ -45,7 +45,6 @@ exports['default'] = function (field) {
 			'data-valle-field': (0, _normalizeFieldName2['default'])(field.name),
 			maxlength: field.maxlength,
 			placeholder: txt,
-			value: field.value,
 			key: field.id,
 			id: field.id
 		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(readOnly)),

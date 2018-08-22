@@ -16,6 +16,7 @@ exports['default'] = function (baseApi, canonicalApi) {
 	var customParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	var _id = arguments[3];
 	var feedbackCb = arguments[4];
+	var formCb = arguments[5];
 
 
 	var apiPath = '' + String(baseApi) + String(canonicalApi) + '/' + String(_id);
@@ -23,6 +24,7 @@ exports['default'] = function (baseApi, canonicalApi) {
 	_axios2['default']['delete'](apiPath, customParams).then(function (res) {
 		feedbackCb('Dados apagados com sucesso', 'success');
 		(0, _cleanFields2['default'])();
+		formCb();
 	})['catch'](function (err) {
 		return feedbackCb('Erro interno no servidor', 'error');
 	});

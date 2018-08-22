@@ -184,6 +184,7 @@
 }
 
 .valleForm__switch--disabled .valleForm__switch__toggle {
+  cursor: default;
   --valle-switch-background: #eae9e9;
 }
 

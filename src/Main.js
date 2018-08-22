@@ -52,6 +52,11 @@ class ValleForm extends Component {
 		this.state.valleSpeedDialRef.open = false;
 	}
 
+	removeFieldsEditable() {
+		this.setState({ readOnly: true, editable: false });
+		this.state.valleSpeedDialRef.open = false;
+	}
+
 	cancelFieldsEditable() {
 		this.setState({ readOnly: true, editable: false });
 		this.state.valleSpeedDialRef.open = false;
@@ -147,7 +152,8 @@ class ValleForm extends Component {
 							props: this.props,
 							editCb: this.makeFieldsEditable.bind(this),
 							cancelCb: this.cancelFieldsEditable.bind(this),
-							feedbackCb: this.showFeedback.bind(this)
+							feedbackCb: this.showFeedback.bind(this),
+							formCb: this.removeFieldsEditable.bind(this)
 						})
 					}
 

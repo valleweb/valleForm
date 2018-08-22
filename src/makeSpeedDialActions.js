@@ -16,8 +16,8 @@ export default data => {
 				<valle-speed-dial-action
 					class = "valleForm__speedDial__save"
 					sloted
-					label = "Salvar" 
-					label-direction = "left" 
+					label = "Salvar"
+					label-direction = "left"
 					onClick = { () => apiCreate(data.props.baseApi, data.props.canonicalApi, data.props.params, data.feedbackCb) }>
 
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -39,10 +39,10 @@ export default data => {
 		return (
 			<span>
 
-				<valle-speed-dial-action 
+				<valle-speed-dial-action
 					class = "valleForm__speedDial__edit"
 					sloted
-					label = "Editar" 
+					label = "Editar"
 					label-direction = "left"
 					onClick = { data.editCb }>
 
@@ -65,12 +65,12 @@ export default data => {
 		return (
 			<span className = "valleForm__speedDial__actions">
 
-				<valle-speed-dial-action 
+				<valle-speed-dial-action
 					class = "valleForm__speedDial__save"
 					sloted
-					label = "Salvar&nbsp;alteraçōes" 
+					label = "Salvar&nbsp;alteraçōes"
 					label-direction = "left"
-					onClick = { () => apiUpdate(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb) }>
+					onClick = { () => apiUpdate(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb, data.formCb) }>
 
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<path fill="none" d="M0 0h24v24H0z"/>
@@ -79,12 +79,12 @@ export default data => {
 
 				</valle-speed-dial-action>
 
-				<valle-speed-dial-action 
+				<valle-speed-dial-action
 					class = "valleForm__speedDial__delete"
 					sloted
-					label = "Excluir" 
+					label = "Excluir"
 					label-direction = "left"
-					onClick = { () =>  apiDelete(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb) }>
+					onClick = { () =>  apiDelete(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb, data.formCb) }>
 
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 						<path fill="none" d="M0 0h24v24H0V0z"/>
@@ -94,10 +94,10 @@ export default data => {
 
 				</valle-speed-dial-action>
 
-				<valle-speed-dial-action 
+				<valle-speed-dial-action
 					class = "valleForm__speedDial__cancel"
 					sloted
-					label = "Cancelar" 
+					label = "Cancelar"
 					label-direction = "left"
 					onClick = { data.cancelCb }>
 

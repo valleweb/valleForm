@@ -1,6 +1,6 @@
 # valleForm
 
-*[React](https://reactjs.org/) component for convert the valle [screens-api data structure](https://github.com/valleweb/screens-api) to web component based forms.*
+*[React](https://reactjs.org/) component for convert the valle [screens-api data structure](https://github.com/valleweb/valle-screen-data-structure) to web component based forms.*
 
 [![npm](https://img.shields.io/npm/v/valleform.svg)](https://www.npmjs.com/package/valleform)
 [![dependencies Status](https://david-dm.org/valleweb/valleform/status.svg)](https://david-dm.org/valleweb/valleform)
@@ -181,7 +181,7 @@ render() {
 
 ### Props
 
-- `rows` (array) - All form rows with [valle data structure](https://github.com/valleweb/screens-api).
+- `rows` (array) - All form rows with [valle data structure](https://github.com/valleweb/valle-screen-data-structure).
 - `baseApi` (string) - Base API url for RESTFul.
 - `canonicalApi` (string) - Canonial API url for RESTFul.
 - `params` (object) - Custom params that are added to all requests.

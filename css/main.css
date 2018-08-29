@@ -15,10 +15,7 @@
 .valleForm__row {
   display: flex;
   width: 100%;
-}
-
-.valle-form-container {
-  margin: 10px 15px; /* TODO: Remove this */
+  min-height: 87px; /* For fix issue #15 in desktop devices */
 }
 
 @media screen and (max-width: 600px) {

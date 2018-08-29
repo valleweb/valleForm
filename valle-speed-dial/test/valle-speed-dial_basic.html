@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>valle-speed-dial basic tests</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../valle-speed-dial.html">
+  </head>
+  <body>
+
+    <test-fixture id="basicSpeedDial">
+      <template>
+        <valle-speed-dial></valle-speed-dial>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="backdropSpeedDial">
+      <template>
+        <valle-speed-dial backdrop></valle-speed-dial>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="toogleSpeedDial">
+      <template>
+        <valle-speed-dial></valle-speed-dial>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="openSpeedDial">
+      <template>
+        <valle-speed-dial open></valle-speed-dial>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('valle-speed-dial', () => {
+
+        let basicSpeedDial,
+            backdropSpeedDial,
+            toogleSpeedDial,
+            openSpeedDial;
+
+        setup(() => {
+          basicSpeedDial = fixture('basicSpeedDial');
+          backdropSpeedDial = fixture('backdropSpeedDial');
+          toogleSpeedDial = fixture('toogleSpeedDial');
+          openSpeedDial = fixture('openSpeedDial');
+        });
+
+        test('Should render a default FAB Speed Dial', () => {
+
+          const fab = basicSpeedDial.shadowRoot.querySelector('valle-fab');
+          const speedDial = basicSpeedDial.shadowRoot.querySelector('ul');
+          const hasClass = basicSpeedDial.classList.contains('backdrop');
+          const hasProperty = basicSpeedDial.backdrop;
+
+          expect(fab.nodeName).to.be.equal('VALLE-FAB');
+          expect(speedDial.nodeName).to.be.equal('UL');
+          expect(speedDial.style.display).to.be.equal('none');
+          assert.isFalse(hasProperty);
+          assert.isFalse(hasClass);
+
+        });
+
+        test('Should render a FAB Speed Dial with backdrop', () => {
+
+          const hasProperty = backdropSpeedDial.backdrop;
+          assert.isTrue(hasProperty);
+
+        });
+
+        test('Should add and remove .backdrop class when click', () => {
+
+          const fab = backdropSpeedDial.shadowRoot.querySelector('valle-fab');
+          const hasClassBeforeClick = backdropSpeedDial.classList.contains('backdrop');
+
+          assert.isFalse(hasClassBeforeClick);
+
+          fab.click();
+
+          const hasClassAfterClick = backdropSpeedDial.classList.contains('backdrop');
+          assert.isTrue(hasClassAfterClick);
+
+        });
+
+        test('Should show and hide (Toggle) the Speed Dial when click', () => {
+
+          const fab = toogleSpeedDial.shadowRoot.querySelector('valle-fab');
+          const speedDial = toogleSpeedDial.shadowRoot.querySelector('ul');
+
+          expect(speedDial.style.display).to.be.equal('none');
+
+          fab.click();
+
+          expect(speedDial.style.display).to.be.equal('flex');
+
+          fab.click();
+
+          expect(speedDial.style.display).to.be.equal('none');
+
+        });
+
+        test('Should render a open Speed Dial', () => {
+
+          const speedDial = openSpeedDial.shadowRoot.querySelector('ul');
+
+          assert.isTrue(openSpeedDial.open);
+          expect(speedDial.style.display).to.be.equal('flex');
+
+        });
+
+        test('Should toggle open state using the javascript API', () => {
+
+          const speedDial = basicSpeedDial.shadowRoot.querySelector('ul');
+
+          basicSpeedDial.open = true;
+
+          assert.isTrue(basicSpeedDial.hasAttribute('open'));
+          expect(speedDial.style.display).to.be.equal('flex');
+
+          basicSpeedDial.open = false;
+
+          assert.isFalse(basicSpeedDial.hasAttribute('open'));
+          expect(speedDial.style.display).to.be.equal('none');
+
+        });
+
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>valle-speed-dial a11y tests</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../valle-speed-dial.html">
+  </head>
+  <body>
+
+    <test-fixture id="basicSpeedDial">
+      <template>
+        <valle-speed-dial label="awesome fab"></valle-speed-dial>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('valle-speed-dial', () => {
+
+        let basicSpeedDial;
+
+        setup(() => {
+          basicSpeedDial = fixture('basicSpeedDial');
+        });
+
+        test('Should render a FAB Speed Dial component with correct aria role', () => {
+
+          expect(basicSpeedDial.getAttribute('role')).to.be.equal('navigation');
+
+        });
+
+        test('Should render a FAB (button) with correct aria property', () => {
+
+          const fab = basicSpeedDial.shadowRoot.querySelector('valle-fab');
+          expect(fab.getAttribute('aria-haspopup')).to.be.equal('true');
+
+        });
+
+        a11ySuite('basicSpeedDial');
+
+      });
+    </script>
+
+  </body>
+</html>

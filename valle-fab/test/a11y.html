@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>A11y valle-fab test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../valle-fab.html">
+  </head>
+  <body>
+
+    <test-fixture id="labeledFab">
+      <template>
+        <valle-fab label="awesome"></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="defaultToggleFab">
+      <template>
+        <valle-fab label="awesome" toggle></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="pressedFab">
+      <template>
+        <valle-fab label="awesome" toggle pressed></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="clickToggleFab">
+      <template>
+        <valle-fab toggle></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="noToggleFab">
+      <template>
+        <valle-fab></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="svgFab">
+      <template>
+        <valle-fab label="awesome icon"></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="clickToggleFab">
+      <template>
+        <valle-fab toggle label="awesome icon"></valle-fab>
+      </template>
+    </test-fixture>
+
+    <script>
+
+      suite('a11y', () => {
+
+        let f1, f2, f3, f4, f5, f6, f7;
+
+        setup(() => {
+          f1 = fixture('labeledFab');
+          f2 = fixture('defaultToggleFab');
+          f3 = fixture('pressedFab');
+          f4 = fixture('clickToggleFab');
+          f5 = fixture('noToggleFab');
+          f6 = fixture('svgFab');
+          f7 = fixture('clickToggleFab');
+        });
+
+        test('Should render a custom icon FAB button with a11y label', () => {
+
+          const img = f1.shadowRoot.querySelector('button img');
+          expect(img.alt).to.be.equal('awesome');
+
+        });
+
+        test('Should render a FAB toggle button with default attributes', () => {
+
+          const button = f2.shadowRoot.querySelector('button');
+
+          assert.isTrue(f2.hasAttribute('toggle'));
+          assert.isFalse(f2.hasAttribute('pressed'));
+
+          assert.isTrue(button.hasAttribute('aria-pressed'));
+          expect(button.getAttribute('aria-pressed')).to.be.equal('false')
+
+        });
+
+        test('Should render a pressed FAB toggle button', () => {
+
+          const button = f3.shadowRoot.querySelector('button');
+
+          assert.isTrue(f3.hasAttribute('pressed'));
+
+          //expect(button.getAttribute('aria-pressed')).to.be.equal('true')
+
+        });
+
+        test('Can be triggered toggle with click', () => {
+
+          const button = f4.shadowRoot.querySelector('button');
+
+          expect(button.getAttribute('aria-pressed')).to.be.equal('false')
+
+          button.click();
+
+          expect(button.getAttribute('aria-pressed')).to.be.equal('true')
+
+        });
+
+        test('Should render a default FAB button (no toggle)', () => {
+
+          const button = f5.shadowRoot.querySelector('button');
+
+          assert.isFalse(button.hasAttribute('aria-pressed'));
+
+        });
+
+        test('Should render a default FAB button with a labeled SVG icon', () => {
+
+          const svgTitle = f6.shadowRoot.querySelector('svg title');
+          expect(svgTitle.nodeName).to.be.equal('title');
+          expect(svgTitle.textContent).to.be.equal('awesome icon')
+
+        });
+
+        test('Should toggle aria-pressed values when click', () => {
+
+          const button = f7.shadowRoot.querySelector('button');
+
+          expect(button.getAttribute('aria-pressed')).to.be.equal('false');
+
+          button.click();
+          expect(button.getAttribute('aria-pressed')).to.be.equal('true');
+
+          button.click();
+          expect(button.getAttribute('aria-pressed')).to.be.equal('false');
+
+        });
+
+        test('Should toggle aria-pressed using the javascript API', () => {
+
+          const button = f7.shadowRoot.querySelector('button');
+
+          expect(button.getAttribute('aria-pressed')).to.be.equal('false');
+
+          f7.pressed = true;
+
+          expect(button.getAttribute('aria-pressed')).to.be.equal('true');
+
+        });
+
+        a11ySuite('labeledFab');
+        a11ySuite('defaultToggleFab');
+        a11ySuite('pressedFab');
+
+      });
+
+    </script>
+
+  </body>
+</html>

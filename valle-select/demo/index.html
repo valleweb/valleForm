@@ -1,0 +1,219 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <title>valle-select demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../valle-select.html">
+    <link rel="import" href="../valle-option.html">
+  </head>
+
+  <body>
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+          max-width: 500px;
+        }
+      </style>
+    </custom-style>
+
+    <main class="vertical-section-container centered">
+      <h1>valle-select demo</h1>
+
+            <!-- Open - demo
+      ========================= -->
+
+      <h2>Open</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" open>
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+      
+      <!-- Default - demo
+      ========================= -->
+
+      <h2>Default</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select>
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Label - demo
+      ========================= -->
+
+      <h2>Label</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples">
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Disabled - demo
+      ========================= -->
+
+      <h2>Disabled</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" disabled>
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Placeholder - demo
+      ========================= -->
+
+      <h2>Placeholder</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" placeholder="Select your name">
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Selected - demo
+      ========================= -->
+
+      <h2>Selected</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples">
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2" selected>Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- helpertext - demo
+      ========================= -->
+
+      <h2>helpertext</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" helpertext="Choose your name">
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Required - demo
+      ========================= -->
+
+      <h2>Required</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" required>
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Errortext - demo
+      ========================= -->
+
+      <h2>Errortext</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" required errortext="Please choose your name">
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Error - demo
+      ========================= -->
+
+      <h2>Error</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" required errortext="Please choose your name" error>
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Errortext and Helper Text - demo
+      ========================= -->
+
+      <h2>Errortext and Helpertext</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-select label="Examples" required errortext="Please choose your name" helpertext="Choose correct name" error>
+            <valle-option value="option 1">Example 1</valle-option>
+            <valle-option value="option 2">Example 2</valle-option>
+            <valle-option value="option 3">Example 3</valle-option>
+          </valle-select>
+
+        </template>
+      </demo-snippet>
+
+    </main>
+
+  </body>
+</html>

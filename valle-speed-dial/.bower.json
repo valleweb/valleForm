@@ -1,0 +1,44 @@
+{
+  "name": "valle-speed-dial",
+  "description": "Awesome valle FAB with Speed Dial",
+  "version": "1.2.0",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "authors": [
+    "valleweb"
+  ],
+  "main": "valle-speed-dial.html",
+  "homepage": "https://github.com/valleweb/valle-speed-dial",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/valleweb/valle-speed-dial"
+  },
+  "license": "https://github.com/valleweb/valle-speed-dial/blob/master/LICENSE.md",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "demos": {
+    "demo": "demo/index.html"
+  },
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0",
+    "valle-fab": "^1.2.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0"
+  },
+  "_release": "1.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.0",
+    "commit": "825107ebc807000130335d918c6829db3922057e"
+  },
+  "_source": "https://github.com/valleweb/valle-speed-dial.git",
+  "_target": "^1.2.0",
+  "_originalSource": "valle-speed-dial"
+}

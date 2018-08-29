@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <title>valle-fab demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../valle-fab.html">
+  </head>
+
+  <body>
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+          max-width: 500px;
+        }
+      </style>
+    </custom-style>
+
+    <main class="vertical-section-container centered">
+      <h1>valle-fab demo</h1>
+
+      <!-- Default - demo
+      ========================= -->
+
+      <h2>Default</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <valle-fab></valle-fab>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Elevations - demo
+      ========================= -->
+
+      <h2>Elevations</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <valle-fab></valle-fab>
+        <valle-fab elevation="2"></valle-fab>
+        <valle-fab elevation="3"></valle-fab>
+        <valle-fab elevation="4"></valle-fab>
+        <valle-fab elevation="5"></valle-fab>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Inactive - demo
+      ========================= -->
+
+      <h2>Inactive</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <valle-fab disabled>
+        </valle-fab>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Mini - demo
+      ========================= -->
+
+      <h2>Mini</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <valle-fab mini>
+        </valle-fab>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Custom icon - demo
+      ========================= -->
+
+      <h2>Custom icon</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <style is="custom-style">
+          .burguer {
+            --valle-fab-color: #ffeb00;
+          }
+        </style>
+
+        <valle-fab
+          class="burguer"
+          icon="https://uploaddeimagens.com.br/images/001/071/867/full/iconmonstr-fast-food-3-32.png">
+        </valle-fab>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Custom style - demo
+      ========================= -->
+
+      <h2>Custom style</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <style is="custom-style">
+          .unicorn {
+            --valle-fab-color: #42c8f4;
+          }
+        </style>
+
+        <valle-fab class="unicorn">
+        </valle-fab>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Toggle - demo
+      ========================= -->
+
+      <h2>Toggle</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <valle-fab toggle>
+        </valle-fab>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Default - demo
+      ========================= -->
+
+      <h2>Inline icon</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+        <valle-fab sloted>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="#fff"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </valle-fab>
+
+        </template>
+      </demo-snippet>
+
+    </main>
+
+  </body>
+</html>

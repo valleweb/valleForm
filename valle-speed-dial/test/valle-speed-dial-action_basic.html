@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>valle-speed-dial-action basic tests</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../valle-speed-dial-action.html">
+  </head>
+  <body>
+
+    <test-fixture id="basicSpeedDialAction">
+      <template>
+        <valle-speed-dial-action label="awesome"></valle-speed-dial-action>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('valle-speed-dial-action', () => {
+
+        let basicSpeedDial;
+
+        setup(() => {
+          basicSpeedDialAction = fixture('basicSpeedDialAction');
+        });
+
+        test('Should render a default FAB Speed Dial Action', () => {
+
+          const fab = basicSpeedDialAction.shadowRoot.querySelector('valle-fab');
+          const label = basicSpeedDialAction.shadowRoot.querySelector('span');
+
+          expect(fab.nodeName).to.be.equal('VALLE-FAB');
+          expect(label.nodeName).to.be.equal('SPAN');
+
+          expect(label.textContent).to.be.equal('awesome');
+
+        });
+
+      });
+    </script>
+
+  </body>
+</html>

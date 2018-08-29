@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>valle-speed-dial-action a11y tests</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../valle-speed-dial-action.html">
+  </head>
+  <body>
+
+    <test-fixture id="basicSpeedDialAction">
+      <template>
+        <valle-speed-dial-action label="awesome"></valle-speed-dial-action>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('valle-speed-dial-action', () => {
+
+        let basicSpeedDial;
+
+        setup(() => {
+          basicSpeedDialAction = fixture('basicSpeedDialAction');
+        });
+
+        test('Should render a FAB Speed Dial Action with correct aria role', () => {
+
+          expect(basicSpeedDialAction.getAttribute('role')).to.be.equal('listitem');
+
+        });
+
+        a11ySuite('basicSpeedDialAction', ['ariaRoleNotScoped']);
+
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "name": "valle-select",
+  "description": "Awesome valle salect Web Component using Polymer 2x",
+  "version": "0.4.0",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "valleweb",
+    "valle"
+  ],
+  "authors": [
+    "valleweb"
+  ],
+  "main": "valle-select.html",
+  "homepage": "https://github.com/valleweb/valle-select",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/valleweb/valle-select"
+  },
+  "license": "https://github.com/valleweb/valle-select/blob/master/LICENSE.md",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "demos": {
+    "demo": "demo/index.html"
+  },
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "iron-test-helpers": "^2.0.0"
+  },
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "22568e3aacec76e86fe830da7d74f5f908cb2f60"
+  },
+  "_source": "https://github.com/valleweb/valle-select.git",
+  "_target": "^0.4.0",
+  "_originalSource": "valle-select"
+}

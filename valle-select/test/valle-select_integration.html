@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>valle-select integrations tests</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <link rel="import" href="../../iron-test-helpers/mock-interactions.html">
+
+    <link rel="import" href="../../polymer/polymer.html">
+
+    <link rel="import" href="../valle-select.html">
+    <link rel="import" href="../valle-option.html">
+
+  </head>
+  <body>
+
+    <test-fixture id="default">
+      <template>
+        <valle-select>
+          <valle-option value="option 1">Option 1</valle-option>
+          <valle-option value="option 2">Option 2</valle-option>
+          <valle-option value="option 3">Option 3</valle-option>
+        </valle-select>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="withDefaultOption">
+      <template>
+        <valle-select>
+          <valle-option value="option 1">Option 1</valle-option>
+          <valle-option value="option 2">Option 2</valle-option>
+          <valle-option selected value="option 3">Option 3</valle-option>
+        </valle-select>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="open">
+      <template>
+        <valle-select>
+          <valle-option value="option 1">Option 1</valle-option>
+          <valle-option value="option 2">Option 2</valle-option>
+          <valle-option selected value="option 3">Option 3</valle-option>
+          <valle-option value="option 4">Option 4</valle-option>
+          <valle-option value="option 5">Option 5</valle-option>
+        </valle-select>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="required">
+      <template>
+        <valle-select required>
+          <valle-option value="option 1">Option 1</valle-option>
+          <valle-option value="option 2">Option 2</valle-option>
+          <valle-option value="option 3">Option 3</valle-option>
+        </valle-select>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('Integration - basic', () => {
+
+        let selectDefault,
+            options,
+            selectwithDefaultOption;
+
+        setup(() => {
+          selectDefault = fixture('default');
+          options = selectDefault.querySelectorAll('valle-option');
+
+          selectwithDefaultOption = fixture('withDefaultOption');
+        });
+
+        test('Should add the dynamic id in all options', () => {
+          
+          assert.equal(options[0].id, 'listbox0');
+          assert.equal(options[1].id, 'listbox1');
+          assert.equal(options[2].id, 'listbox2');
+
+        });
+
+        test('When clicked, set the correct activedescendant in listbox', (done) => {
+
+          const listbox = selectDefault.shadowRoot.querySelector('#listbox');
+
+          assert.equal(listbox.getAttribute('aria-activedescendant'), null);
+
+          options[1].click();
+          assert.equal(listbox.getAttribute('aria-activedescendant'), options[1].id);
+
+          options[0].click();
+          assert.equal(listbox.getAttribute('aria-activedescendant'), options[0].id);
+
+          done();
+
+        });
+
+        test('When clicked, get the option value and add on input and button', (done) => {
+      
+          const input = selectDefault.shadowRoot.querySelector('#input');
+          const button = selectDefault.shadowRoot.querySelector('#button');
+
+          options[0].click();
+          assert.equal(input.value, options[0].value);
+
+          options[2].click();
+          assert.equal(input.value, options[2].value);
+
+          done();
+
+        });
+
+        test('When clicked should toggle the selected state', (done) => {
+
+          assert.isFalse(options[0].hasAttribute('selected'));
+          assert.isFalse(options[1].hasAttribute('selected'));
+          assert.isFalse(options[2].hasAttribute('selected'));
+
+          options[0].click();
+          assert.isTrue(options[0].hasAttribute('selected'));
+          assert.isFalse(options[1].hasAttribute('selected'));
+          assert.isFalse(options[2].hasAttribute('selected'));
+
+          options[2].click();
+          assert.isFalse(options[0].hasAttribute('selected'));
+          assert.isFalse(options[1].hasAttribute('selected'));
+          assert.isTrue(options[2].hasAttribute('selected'));
+
+          options[1].click();
+          assert.isFalse(options[0].hasAttribute('selected'));
+          assert.isTrue(options[1].hasAttribute('selected'));
+          assert.isFalse(options[2].hasAttribute('selected'));
+
+          done();
+
+        });
+
+        test('Should render a select with default option', () => {
+          
+          const input = selectwithDefaultOption.shadowRoot.querySelector('#input');
+          const button = selectwithDefaultOption.shadowRoot.querySelector('#button');
+          const listbox = selectwithDefaultOption.shadowRoot.querySelector('#listbox');
+          const selectedOption = selectwithDefaultOption.querySelector('valle-option[selected]');
+          
+          assert.equal(input.value, selectedOption.value);
+          assert.equal(listbox.getAttribute('aria-activedescendant'), selectedOption.id);
+
+        });
+
+        test('When open, if no default option, should move the focus for the first option', () => {
+
+          selectDefault.open = true;
+          assert.equal(document.activeElement.value, 'option 1');
+
+        });
+
+        test('When open, should move the focus for the selected option', () => {
+
+          selectwithDefaultOption.open = true;
+          assert.equal(document.activeElement.value, 'option 3');
+
+        });
+
+        test('Should get the value from Javascript API', () => {
+
+          assert.equal(selectwithDefaultOption.value, 'option 3');
+
+        });
+
+        test('Should get all options from Javascript API', () => {
+
+          assert.equal(selectwithDefaultOption.options.length, 3);
+
+          assert.equal(selectwithDefaultOption.options[0].textContent, options[0].textContent);
+          assert.equal(selectwithDefaultOption.options[1].textContent, options[1].textContent);
+          assert.equal(selectwithDefaultOption.options[2].textContent, options[2].textContent);
+
+        });
+
+      });
+
+      suite('Integration - keyboard and close controls', () => {
+
+        let openedSelect,
+            allOptions,
+            option1,
+            option2,
+            option3;
+
+        setup(() => {
+          openedSelect = fixture('open');
+          openedSelect.open = true;
+
+          allOptions = openedSelect.querySelectorAll('valle-option');
+          option1 = allOptions[0];
+          option2 = allOptions[1];
+          option3 = allOptions[2];
+          option4 = allOptions[3];
+          option5 = allOptions[4];
+        });
+
+        test('When press up arrow should move the focus for back option', () => {
+
+          assert.equal(document.activeElement.value, 'option 3');
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 38);
+
+          assert.equal(document.activeElement.value, 'option 2');
+
+        });
+
+        test('When press down arrow should move the focus for next option', () => {
+
+          assert.equal(document.activeElement.value, 'option 3');
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 40);
+
+          assert.equal(document.activeElement.value, 'option 4');
+
+        });
+
+        test('When press home should move the focus for first option', () => {
+
+          assert.equal(document.activeElement.value, 'option 3');
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 36);
+
+          assert.equal(document.activeElement.value, 'option 1');
+        });
+
+
+        test('When press end should move the focus for last option', () => {
+
+          assert.equal(document.activeElement.value, 'option 3');
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 35);
+
+          assert.equal(document.activeElement.value, 'option 5');
+
+        });
+
+        test('When press page up should move the focus for first option', () => {
+
+          assert.equal(document.activeElement.value, 'option 3');
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 33);
+
+          assert.equal(document.activeElement.value, 'option 1');
+
+        });
+
+        test('When press page down should move the focus for last option', () => {
+
+          assert.equal(document.activeElement.value, 'option 3');
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 34);
+
+          assert.equal(document.activeElement.value, 'option 5');
+
+        });
+        
+        test('When press esc should close the select', () => {
+
+          assert.isTrue(openedSelect.open);
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 27);
+
+          assert.isFalse(openedSelect.open);
+
+        });
+
+        test('When press enter should close the select', () => {
+
+          assert.isTrue(openedSelect.open);
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 13);
+
+          assert.isFalse(openedSelect.open);
+
+        });
+
+        test('When press space should close the select', () => {
+
+          assert.isTrue(openedSelect.open);
+
+          MockInteractions.pressAndReleaseKeyOn(option3, 32);
+
+          assert.isFalse(openedSelect.open);
+
+        });
+
+        test('When click in any option should close the select', () => {
+
+          assert.isTrue(openedSelect.hasAttribute('open'));
+
+          option3.click();
+          
+          assert.isFalse(openedSelect.hasAttribute('open'));
+
+        });
+
+      });
+
+      suite('Integration - required', () => {
+
+        let selectWithRequired;
+
+        setup(() => {
+          selectWithRequired = fixture('required');
+        });
+
+        test('Should render a semantic required select', () => {
+          assert.isTrue(selectWithRequired.hasAttribute('aria-required'));
+        });
+
+        test('Should send the error with blur (if input is empty)', () => {
+
+          const button = selectWithRequired.shadowRoot.querySelector('#button');
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+
+          MockInteractions.blur(button);
+
+          assert.isTrue(selectWithRequired.hasAttribute('error'));
+
+        });
+        
+        test('Dont send the error with blur (if input has any content)', () => {
+
+          const button = selectWithRequired.shadowRoot.querySelector('#button');
+          const input = selectWithRequired.shadowRoot.querySelector('#input');
+
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+
+          input.value = "Exemplo";
+
+          MockInteractions.blur(button);
+
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+
+        });
+
+        test('Should remove the error with any option is selected', () => {
+
+          const button = selectWithRequired.shadowRoot.querySelector('#button');
+          MockInteractions.blur(button);
+
+          assert.isTrue(selectWithRequired.hasAttribute('error'));
+
+          const option = selectWithRequired.querySelectorAll('valle-option')[1];
+
+          option.click();
+
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+          
+        });
+
+      });
+
+      suite('Integration - current', () => {
+
+        let selectWithDefaultOption,
+            allOptions;
+
+        setup(() => {
+          selectWithDefaultOption = fixture('withDefaultOption');
+          allOptions = selectWithDefaultOption.querySelectorAll('valle-option');
+        });
+
+        test('Should return the current (selected) option via javascript api', () => {
+          assert.equal(selectWithDefaultOption.current, allOptions[2]);
+        });
+
+        test('Should set the current (selected) option via javascript api', () => {
+
+          const input = selectWithDefaultOption.shadowRoot.querySelector('#input');
+          const button = selectWithDefaultOption.shadowRoot.querySelector('#button');
+
+          assert.isFalse(allOptions[0].hasAttribute('selected'));
+
+          selectWithDefaultOption.current = allOptions[0];
+
+          assert.equal(input.value, allOptions[0].value);
+
+          //assert.isTrue(allOptions[0].hasAttribute('selected'));
+
+        });
+
+      });
+
+      suite('Integration - required', () => {
+
+        let selectWithRequired;
+
+        setup(() => {
+          selectWithRequired = fixture('required');
+        });
+
+        test('Should render a semantic required select', () => {
+          assert.isTrue(selectWithRequired.hasAttribute('aria-required'));
+        });
+
+        test('Should send the error with blur (if input is empty)', () => {
+
+          const button = selectWithRequired.shadowRoot.querySelector('#button');
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+
+          MockInteractions.blur(button);
+
+          assert.isTrue(selectWithRequired.hasAttribute('error'));
+
+        });
+        
+        test('Dont send the error with blur (if input has any content)', () => {
+
+          const button = selectWithRequired.shadowRoot.querySelector('#button');
+          const input = selectWithRequired.shadowRoot.querySelector('#input');
+
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+
+          input.value = "Exemplo";
+
+          MockInteractions.blur(button);
+
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+
+        });
+
+        test('Should remove the error with any option is selected', () => {
+
+          const button = selectWithRequired.shadowRoot.querySelector('#button');
+          MockInteractions.blur(button);
+
+          assert.isTrue(selectWithRequired.hasAttribute('error'));
+
+          const option = selectWithRequired.querySelectorAll('valle-option')[1];
+
+          option.click();
+
+          assert.isFalse(selectWithRequired.hasAttribute('error'));
+          
+        });
+
+      });
+
+      suite('Integration - current', () => {
+
+        let selectWithDefaultOption,
+            allOptions;
+
+        setup(() => {
+          selectWithDefaultOption = fixture('withDefaultOption');
+          allOptions = selectWithDefaultOption.querySelectorAll('valle-option');
+        });
+
+        test('Should return the current (selected) option via javascript api', () => {
+          assert.equal(selectWithDefaultOption.current, allOptions[2]);
+        });
+
+        test('Should set the current (selected) option via javascript api', () => {
+
+          const input = selectWithDefaultOption.shadowRoot.querySelector('#input');
+          const button = selectWithDefaultOption.shadowRoot.querySelector('#button');
+
+          assert.isFalse(allOptions[0].hasAttribute('selected'));
+
+          selectWithDefaultOption.current = allOptions[0];
+
+          assert.equal(input.value, allOptions[0].value);
+
+          assert.isTrue(allOptions[0].hasAttribute('selected'));
+
+        });
+
+      });
+
+      suite('Integration - backdrop', () => {
+
+        let selectDefault,
+            backdrop;
+
+        setup(() => {
+          selectDefault = fixture('default');
+          backdrop = selectDefault.shadowRoot.querySelector('#backdrop');
+        });
+
+        test('When open Should render a backdrop', () => {
+
+          const backdropStyle = window.getComputedStyle(backdrop, null);
+
+          assert.equal(backdropStyle.getPropertyValue('position'), 'fixed');
+          assert.equal(backdropStyle.getPropertyValue('top'), '0px');
+          assert.equal(backdropStyle.getPropertyValue('left'), '0px');
+          assert.equal(backdropStyle.getPropertyValue('width'), '100%');
+          assert.equal(backdropStyle.getPropertyValue('height'), '100%');
+          assert.equal(backdropStyle.getPropertyValue('z-index'), '2');
+
+          assert.equal(backdrop.style.display, 'none');
+
+        });
+
+        test('When open Should render a backdrop', () => {
+          
+          assert.equal(backdrop.style.display, 'none');
+
+          selectDefault.open = true;
+          
+          assert.equal(backdrop.style.display, 'block');
+
+        });
+
+        test('When click in backdrop, should close the select', () => {
+
+          selectDefault.open = true;
+          
+          backdrop.click();
+
+          assert.equal(selectDefault.open, false);
+
+        });
+
+      });
+
+      a11ySuite('default', ['badAriaAttributeValue']);
+      a11ySuite('required', ['badAriaAttributeValue']);
+      
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "valle-fab",
+  "description": "Awesome valle FAB",
+  "version": "1.2.0",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "valle",
+    "FAB"
+  ],
+  "authors": [
+    "valleweb"
+  ],
+  "main": "valle-fab.html",
+  "homepage": "https://github.com/valleweb/valle-fab",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/valleweb/valle-fab"
+  },
+  "license": "https://github.com/valleweb/valle-fab/blob/master/LICENSE.md",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "demos": {
+    "demo": "demo/index.html"
+  },
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0"
+  }
+}

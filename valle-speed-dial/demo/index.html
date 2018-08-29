@@ -1,0 +1,137 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <title>valle-speed-dial demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../valle-speed-dial.html">
+    <link rel="import" href="../valle-speed-dial-action.html">
+  </head>
+
+  <body>
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+          max-width: 500px;
+        }
+      </style>
+    </custom-style>
+
+    <main class="vertical-section-container centered">
+      <h1>valle-speed-dial demo</h1>
+
+      <!-- Direction down - demo
+      ========================= -->
+
+      <h2>Direction down</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <style is="custom-style">
+            .unicorn {
+              --valle-speed-dial-action-fab-color: #d4f442;
+            }
+          </style>
+
+          <valle-speed-dial direction="down" backdrop>
+
+            <valle-speed-dial-action
+              label="copy"
+              label-direction="right"
+              icon="https://uploaddeimagens.com.br/images/001/071/867/full/iconmonstr-fast-food-3-32.png"
+              class="unicorn">
+            </valle-speed-dial-action>
+
+            <valle-speed-dial-action
+              label="print"
+              label-direction="right"
+              icon="https://uploaddeimagens.com.br/images/001/071/867/full/iconmonstr-fast-food-3-32.png"
+              class="unicorn">
+            </valle-speed-dial-action>
+
+          </valle-speed-dial>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Direction up - demo
+      ========================= -->
+
+      <h2>Direction up</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-speed-dial direction="up">
+            <valle-speed-dial-action label="copy" label-direction="left"></valle-speed-dial-action>
+            <valle-speed-dial-action label="print" label-direction="left"></valle-speed-dial-action>
+          </valle-speed-dial>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Direction left - demo
+      ========================= -->
+
+      <h2>Direction left</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-speed-dial direction="left">
+            <valle-speed-dial-action></valle-speed-dial-action>
+            <valle-speed-dial-action></valle-speed-dial-action>
+          </valle-speed-dial>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Direction right - demo
+      ========================= -->
+
+      <h2>Direction right</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-speed-dial direction="right">
+            <valle-speed-dial-action></valle-speed-dial-action>
+            <valle-speed-dial-action></valle-speed-dial-action>
+          </valle-speed-dial>
+
+        </template>
+      </demo-snippet>
+
+      <!-- Inline icon - demo
+      ========================= -->
+
+      <h2>Inline icon</h2>
+
+      <demo-snippet class="centered-demo">
+        <template>
+
+          <valle-speed-dial direction="right">
+            <valle-speed-dial-action sloted>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="#fff"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+              </svg>
+            </valle-speed-dial-action>
+            <valle-speed-dial-action></valle-speed-dial-action>
+          </valle-speed-dial>
+
+        </template>
+      </demo-snippet>
+
+
+    </main>
+
+  </body>
+</html>

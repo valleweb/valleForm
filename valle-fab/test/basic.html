@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Basic valle-fab test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../valle-fab.html">
+  </head>
+  <body>
+
+    <test-fixture id="defaultFab">
+      <template>
+        <valle-fab></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="disabledFab">
+      <template>
+        <valle-fab disabled></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="miniFab">
+      <template>
+        <valle-fab mini></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="customFab">
+      <template>
+        <valle-fab icon="fake-icon-path.svg"></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="toggleFab">
+      <template>
+        <valle-fab toggle></valle-fab>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="pressedFab">
+      <template>
+        <valle-fab toggle pressed></valle-fab>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('Basic', () => {
+
+        let f1, f2, f3, f4, f5, f6;
+
+        setup(() => {
+          f1 = fixture('defaultFab');
+          f2 = fixture('disabledFab');
+          f3 = fixture('miniFab');
+          f4 = fixture('customFab');
+          f5 = fixture('toggleFab');
+          f6 = fixture('pressedFab');
+        });
+
+        test('Should render a FAB button with a default icon', () => {
+
+          const button = f1.shadowRoot.querySelector('button');
+          const svg = f1.shadowRoot.querySelector('button svg');
+          const img = f1.shadowRoot.querySelector('button img');
+          const buttonHeight = window.getComputedStyle(button, null).getPropertyValue('height');
+          const buttonWidth = window.getComputedStyle(button, null).getPropertyValue('width');
+
+          expect(svg.style.display).to.be.equal('inline-block');
+          expect(img.style.display).to.be.equal('none');
+          expect(button.nodeName).to.be.equal('BUTTON');
+          expect(svg.nodeName).to.be.equal('svg');
+          expect(buttonHeight).to.be.equal('56px');
+          expect(buttonWidth).to.be.equal('56px');
+
+        });
+
+        test('Should disable the button using the javascript API', () => {
+
+          const button = f1.shadowRoot.querySelector('button');
+
+          assert.isFalse(f1.hasAttribute('disabled'));
+          assert.isFalse(button.hasAttribute('disabled'));
+
+          f1.disabled = true;
+
+          assert.isTrue(f1.hasAttribute('disabled'));
+          assert.isTrue(button.hasAttribute('disabled'));
+
+        });
+
+        test('Should render a disabled FAB button', () => {
+
+          const button = f2.shadowRoot.querySelector('button');
+
+          assert.isTrue(button.disabled);
+
+        });
+
+        test('Should render a mini FAB button', () => {
+
+          const button = f3.shadowRoot.querySelector('button');
+
+          const buttonHeight = window.getComputedStyle(button, null).getPropertyValue('height');
+          const buttonWidth = window.getComputedStyle(button, null).getPropertyValue('width');
+
+          expect(buttonHeight).to.be.equal('40px');
+          expect(buttonWidth).to.be.equal('40px');
+
+        });
+
+        test('Should render a FAB button with a custom icon', () => {
+
+          const img = f4.shadowRoot.querySelector('button img');
+          const imgPath = img.src.replace(/^.*[\\\/]/, '');
+          const svg = f4.shadowRoot.querySelector('button svg');
+
+          expect(img.style.display).to.be.equal('inline-block');
+          expect(svg.style.display).to.be.equal('none');
+          expect(imgPath).to.be.equal('fake-icon-path.svg');
+
+        });
+
+        test('Should toggle press when click', () => {
+
+          const button = f5.shadowRoot.querySelector('button');
+
+          assert.isFalse(f5.pressed);
+
+          button.click();
+          assert.isTrue(f5.pressed);
+
+          button.click();
+          assert.isFalse(f5.pressed);
+
+        });
+
+        test('Should press the button using the javascript API', () => {
+
+          const button = f5.shadowRoot.querySelector('button');
+
+          assert.isFalse(f5.hasAttribute('pressed'));
+
+          f5.pressed = true;
+
+          assert.isTrue(f5.hasAttribute('pressed'));
+
+        });
+
+        test('Should render a pressed toggle button', () => {
+
+          const button = f6.shadowRoot.querySelector('button');
+
+          assert.isTrue(f6.pressed);
+
+        });
+
+      });
+
+    </script>
+
+  </body>
+</html>

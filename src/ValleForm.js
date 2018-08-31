@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import makeJsxRows from './makeJsxRows';
-import makeSpeedDialActions from './makeSpeedDialActions';
-import Snackbar from './Snackbar';
-import Switch from './Switch';
-import apiCreate from './apiCreate';
-import addFieldsValues from './addFieldsValues'
+import makeJsxRows from './makeElements/makeJsxRows';
+import makeSpeedDialActions from './makeElements/makeWebcomponents/makeSpeedDialActions';
+import Snackbar from './components/Snackbar';
+import Switch from './components/Switch';
+import apiCreate from './rest/apiCreate';
+import addFieldsValues from './fieldsControl/addFieldsValues'
 
 class ValleForm extends Component {
 

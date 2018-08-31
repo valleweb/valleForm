@@ -2,11 +2,11 @@
   "name": "valleform",
   "version": "0.2.1",
   "description": "Valle forms made with easy.",
-  "main": "dist/Main.js",
+  "main": "dist/ValleForm.js",
   "scripts": {
     "build": "npm run clean && npm run babel && npm run minify",
     "babel": "./node_modules/.bin/babel src -d dist",
-    "minify": "./node_modules/.bin/uglifyjs -c -m -o dist/Main.min.js dist/Main.js",
+    "minify": "./node_modules/.bin/uglifyjs -c -m -o dist/ValleForm.min.js dist/ValleForm.js",
     "pub": "npm run build && npm publish",
     "clean": "rimraf dist",
     "serve": "./node_modules/.bin/json-server ./data/fakeData.json",

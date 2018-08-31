@@ -1,5 +1,5 @@
 import React from 'react';
-import ValleForm from '../src/Main'; // This is our component
+import ValleForm from '../src/ValleForm'; // This is our component
 import { setAddon, storiesOf } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import makeOptions from './makeOptions';
-import normalizeReadOnly from './normalizeReadOnly';
-import normalizeRequired from './normalizeRequired';
+import normalizeReadOnly from '../../helpers/normalizeReadOnly';
+import normalizeRequired from '../../helpers/normalizeRequired';
 
 export default (field, customClass = '', readOnly = false) => {
 

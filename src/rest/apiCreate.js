@@ -1,6 +1,6 @@
 import axios from 'axios';
-import getFieldsParams from './getFieldsParams';
-import cleanFields from './cleanFields'
+import getFieldsParams from '../fieldsControl/getFieldsParams';
+import cleanFields from '../fieldsControl/cleanFields'
 
 export default (baseApi, canonicalApi, customParams = {}, feedbackCb) => {
 

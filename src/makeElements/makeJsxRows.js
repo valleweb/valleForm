@@ -1,7 +1,7 @@
 import React from 'react';
-import isSelect from './isSelect';
-import makeInputField from './makeInputField';
-import makeSelectField from './makeSelectField';
+import isSelect from '../helpers/isSelect';
+import makeInputField from './makeWebcomponents/makeInputField';
+import makeSelectField from './makeWebcomponents/makeSelectField';
 
 export default (
 	rows, 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import getFieldsParams from './getFieldsParams';
+import getFieldsParams from '../fieldsControl/getFieldsParams';
 
 export default (baseApi, canonicalApi, customParams = {}, _id, feedbackCb, formCb) => {
 

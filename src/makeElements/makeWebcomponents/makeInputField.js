@@ -1,8 +1,8 @@
 import React from 'react';
-import normalizeCaseProp from './normalizeCaseProp';
-import normalizeReadOnly from './normalizeReadOnly';
-import normalizeRequired from './normalizeRequired';
-import normalizeMask from './normalizeMask';
+import normalizeCaseProp from '../../helpers/normalizeCaseProp';
+import normalizeReadOnly from '../../helpers/normalizeReadOnly';
+import normalizeRequired from '../../helpers/normalizeRequired';
+import normalizeMask from '../../helpers/normalizeMask';
 
 export default (field, readOnly = false) => {
 

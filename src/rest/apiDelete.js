@@ -1,5 +1,5 @@
 import axios from 'axios';
-import cleanFields from './cleanFields'
+import cleanFields from '../fieldsControl/cleanFields'
 
 export default (baseApi, canonicalApi, customParams = {}, _id, feedbackCb, formCb) => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import apiCreate from './apiCreate';
-import apiUpdate from './apiUpdate';
-import apiDelete from './apiDelete';
+import apiCreate from '../../rest/apiCreate';
+import apiUpdate from '../../rest/apiUpdate';
+import apiDelete from '../../rest/apiDelete';
 
 export default data => {
 

@@ -1,7 +1,7 @@
 {
   "name": "valleform",
   "description": "Valle forms made with easy.",
-  "main": "dist/Main.js",
+  "main": "dist/ValleForm.js",
   "authors": [
     "afonsopacifer"
   ],

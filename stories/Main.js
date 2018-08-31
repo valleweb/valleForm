@@ -4,54 +4,30 @@ import { setAddon, storiesOf } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
 
 // Mocks API requests
-
-import pacientes from '../data/pacientes.json';
-import equipamentos from '../data/equipamentos.json';
-import equipamentosValues from '../data/equipamentos-values.json';
-import procedimentos from '../data/procedimentos.json';
+import form_0 from '../data/form-0.json';
+import form_0_values from '../data/form-0-values.json';
 
 setAddon(JSXAddon);
 
 storiesOf('ValleForm', module)
-  .addWithJSX('Pacientes', () => {
+  .addWithJSX('Form 0 - insert mode', () => {
     return (
       <ValleForm
-        rows = { pacientes.tabs[0].lines }
-        baseApi = { 'http://localhost:3000/data' }
-        canonicalApi = { pacientes.api }
-        params = { {id: ''} }
+        rows = { form_0.tabs[0].lines }
+        baseApi = { 'http://localhost:3000' }
+        canonicalApi = { form_0.tabs[0].api }
       />
     )
   })
-  .addWithJSX('Equipamentos - Inserção', () => {
+  .addWithJSX('Form 0 - view mode', () => {
     return (
       <ValleForm
-        rows = { equipamentos.tabs[0].lines }
-        baseApi = { 'http://localhost:3000/data' }
-        canonicalApi = { equipamentos.api }
-        params = { {id: ''} }
-      />
-    )
-  })
-  .addWithJSX('Equipamentos - Consulta', () => {
-    return (
-      <ValleForm
-        rows = { equipamentos.tabs[0].lines }
-        baseApi = { 'http://localhost:3000/data' }
-        canonicalApi = { equipamentos.api }
-        params = { {id: ''} }
-        _id = { '234' }
-        values = { equipamentosValues }
+        rows = { form_0.tabs[0].lines }
+        baseApi = { 'http://localhost:3000' }
+        canonicalApi = { form_0.tabs[0].api }
+        _id = { '123' }
+        values = { form_0_values }
         readOnly
-      />
-    )
-  })
-  .addWithJSX('Procedimentos - Post', () => {
-    return (
-      <ValleForm
-        rows = { procedimentos.tabs[0].lines }
-        baseApi = { 'http://localhost:3000/' }
-        canonicalApi = { '/api/procedimentos' }
       />
     )
   })

@@ -30,7 +30,7 @@ class ValleForm extends Component {
 
 	componentDidMount() {
 
-		if(this.props.readOnly) {
+		if (this.props.readOnly) {
 			this.setState({ readOnly: true })
 		}
 

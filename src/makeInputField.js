@@ -1,8 +1,8 @@
 import React from 'react';
 import normalizeCaseProp from './normalizeCaseProp';
-import normalizeFieldName from './normalizeFieldName';
 import normalizeReadOnly from './normalizeReadOnly';
 import normalizeRequired from './normalizeRequired';
+import normalizeMask from './normalizeMask';
 
 export default (field, readOnly = false) => {
 
@@ -19,17 +19,20 @@ export default (field, readOnly = false) => {
 	return (
 		<valle-input
 			class = "valleForm__input"
-			type = "text"
+			type = { field.type }
 			label = { field.label }
-			data-valle-field = { normalizeFieldName(field.name) }
-			type = { field.type.toLowerCase() }
+			placeholder = { field.placeholder }
+			helpertext = { field.helper_text }
+			errortext = { field.error_text }
+			data-valle-field = { field.id }
 			maxlength = { field.maxlength }
 			key = { field.id }
 			id = { field.id }
-			pattern = { field.pattern == ' ' ? null : field.pattern }
+			pattern = { field.pattern }
 			{ ...normalizeRequired(field.required) }
-			{ ...normalizeReadOnly(readOnly) }
+			{ ...normalizeReadOnly(readOnly ? true : field.readonly) }
 			{ ...normalizeCaseProp(field.case) }
+			{ ...normalizeMask(field.mask) }
 		>
 		</valle-input>
 	);

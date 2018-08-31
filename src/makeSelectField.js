@@ -1,27 +1,25 @@
 import React from 'react';
 import makeOptions from './makeOptions';
-import normalizeFieldName from './normalizeFieldName';
 import normalizeReadOnly from './normalizeReadOnly';
 import normalizeRequired from './normalizeRequired';
 
 export default (field, customClass = '', readOnly = false) => {
 
-	const [val, txt] = field.element_options[0].split(';;'); // Normalize the API result (split value and text)
-
 	return (
 		<valle-select
 			class = {`valleForm__select ${customClass}`}
 			label = { field.label }
-			data-valle-field = { normalizeFieldName(field.name) }
-			maxlength = { field.maxlength }
-			placeholder = { txt }
+			data-valle-field = { field.id }
+			placeholder = { field.placeholder }
+			helpertext = { field.helper_text }
+			errortext = { field.error_text }
 			key = { field.id }
 			id = { field.id }
 			{ ...normalizeRequired(field.required) }
-			{ ...normalizeReadOnly(readOnly) }
+			{ ...normalizeReadOnly(readOnly ? true : field.readonly) }
 		>
 
-			{makeOptions(field.element_options)}
+			{ makeOptions(field.options) }
 
 		</valle-select>
 	)

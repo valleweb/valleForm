@@ -1,0 +1,31 @@
+{
+	"lines": [
+		[
+			{
+				"id": "sizes",
+				"label": "Sizes",
+				"placeholder": "You sizes",
+				"element": "select",
+				"required": true,
+				"readonly": false,
+				"helper_text": "All sizes available",
+				"error_text": "Required field",
+				"visible_screen": true,
+				"options": [
+					{
+						"value": "example1",
+						"text": "Example 1"
+					},
+					{
+						"value": "example2",
+						"text": "Example 2"
+					},
+					{
+						"value": "example3",
+						"text": "Example 3"
+					}
+				]
+			}
+		]
+	]
+}

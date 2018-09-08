@@ -1,0 +1,26 @@
+{
+	"lines": [
+		[
+			{
+				"id": "firstfield",
+				"label": null,
+				"placeholder": null,
+				"element": "input",
+				"type": "number",
+				"required": true,
+				"maxlength": 7,
+				"case": null,
+				"mask": "cpf",
+				"pattern": null,
+				"readonly": false,
+				"helper_text": null,
+				"error_text": null,
+				"visible_screen": true,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			}
+		]
+	]
+}

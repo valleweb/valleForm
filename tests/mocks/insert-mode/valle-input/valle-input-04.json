@@ -2,17 +2,17 @@
 	"lines": [
 		[
 			{
-				"id": "firstfield",
+				"id": "fourthfield",
 				"label": null,
 				"placeholder": null,
 				"element": "input",
-				"type": null,
+				"type": "text",
 				"required": false,
-				"maxlength": 7,
-				"case": null,
+				"maxlength": null,
+				"case": "uppercase",
 				"mask": null,
 				"pattern": null,
-				"readonly": true,
+				"readonly": false,
 				"helper_text": null,
 				"error_text": null,
 				"visible_screen": true,

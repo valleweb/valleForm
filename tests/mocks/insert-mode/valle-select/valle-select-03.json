@@ -2,8 +2,8 @@
 	"lines": [
 		[
 			{
-				"id": "firstSelect",
-				"label": "First Select",
+				"id": "thirdSelect",
+				"label": "Third Select",
 				"placeholder": "You options",
 				"element": "select",
 				"required": true,
@@ -15,6 +15,14 @@
 					{
 						"value": "example1",
 						"text": "Example 1"
+					},
+					{
+						"value": "example2",
+						"text": "Example 2"
+					},
+					{
+						"value": "example3",
+						"text": "Example 3"
 					}
 				]
 			}

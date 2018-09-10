@@ -1,0 +1,43 @@
+{
+	"lines": [
+		[
+			{
+				"id": "firstSelect",
+				"label": "First Select",
+				"placeholder": "You options",
+				"element": "select",
+				"required": true,
+				"readonly": false,
+				"helper_text": "All options available",
+				"error_text": "Required field",
+				"visible_screen": true,
+				"options": [
+					{
+						"value": "example1",
+						"text": "Example 1"
+					}
+				]
+			},
+			{
+				"id": "secondfield",
+				"label": null,
+				"placeholder": null,
+				"element": "input",
+				"type": null,
+				"required": false,
+				"maxlength": 7,
+				"case": null,
+				"mask": null,
+				"pattern": null,
+				"readonly": true,
+				"helper_text": null,
+				"error_text": null,
+				"visible_screen": true,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			}
+		]
+	]
+}

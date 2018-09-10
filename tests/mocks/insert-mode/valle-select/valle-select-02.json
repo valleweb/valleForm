@@ -1,0 +1,23 @@
+{
+	"lines": [
+		[
+			{
+				"id": "secondSelect",
+				"label": null,
+				"placeholder": null,
+				"element": "select",
+				"required": false,
+				"readonly": true,
+				"helper_text": null,
+				"error_text": null,
+				"visible_screen": true,
+				"options": [
+					{
+						"value": "example1",
+						"text": "Example 1"
+					}
+				]
+			}
+		]
+	]
+}

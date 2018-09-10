@@ -7,7 +7,7 @@ import valleInput02Data from '../../mocks/insert-mode/valle-input/valle-input-02
 import valleInput03Data from '../../mocks/insert-mode/valle-input/valle-input-03.json';
 import valleInput04Data from '../../mocks/insert-mode/valle-input/valle-input-04.json';
 
-describe('valle-input', () => {
+describe('Insert Mode: valle-input', () => {
 
   // =============== 
   // setup
@@ -37,6 +37,7 @@ describe('valle-input', () => {
   it('Should render a single valle-input', () => {
     expect(valleInput01).to.have.length(1);
     expect(valleInput01.type()).to.equal('valle-input');
+    expect(valleInput02.type()).to.equal('valle-input');
   });
 
   // ===============
@@ -49,6 +50,7 @@ describe('valle-input', () => {
 
   it('Should render a valle-input with type', () => {
     expect(valleInput01.props().type).to.equal('text');
+    expect(valleInput03.props().type).to.equal('number');
   });
 
   // ===============

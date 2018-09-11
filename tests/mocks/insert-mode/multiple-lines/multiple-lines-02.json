@@ -1,0 +1,181 @@
+{
+	"lines": [
+		[
+			{
+				"id": "field1_1",
+				"label": "First field",
+				"placeholder": "Text here",
+				"element": "input",
+				"type": "text",
+				"required": true,
+				"maxlength": 7,
+				"case": "ProperCase",
+				"mask": null,
+				"pattern": "Olaaar",
+				"readonly": false,
+				"helper_text": "Full name",
+				"error_text": "Required field",
+				"visible_screen": false,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			},
+			{
+				"id": "field1_2",
+				"label": null,
+				"placeholder": null,
+				"element": "input",
+				"type": null,
+				"required": false,
+				"maxlength": 7,
+				"case": null,
+				"mask": null,
+				"pattern": null,
+				"readonly": true,
+				"helper_text": null,
+				"error_text": null,
+				"visible_screen": true,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			},
+			{
+				"id": "field1_3",
+				"label": "First Select",
+				"placeholder": "You options",
+				"element": "select",
+				"required": true,
+				"readonly": false,
+				"helper_text": "All options available",
+				"error_text": "Required field",
+				"visible_screen": true,
+				"options": [
+					{
+						"value": "example1",
+						"text": "Example 1"
+					}
+				]
+			}
+		],
+		[
+			{
+				"id": "field2_1",
+				"label": "First field",
+				"placeholder": "Text here",
+				"element": "input",
+				"type": "text",
+				"required": true,
+				"maxlength": 7,
+				"case": "ProperCase",
+				"mask": null,
+				"pattern": "Olaaar",
+				"readonly": false,
+				"helper_text": "Full name",
+				"error_text": "Required field",
+				"visible_screen": true,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			},
+			{
+				"id": "field2_2",
+				"label": null,
+				"placeholder": null,
+				"element": "input",
+				"type": null,
+				"required": false,
+				"maxlength": 7,
+				"case": null,
+				"mask": null,
+				"pattern": null,
+				"readonly": true,
+				"helper_text": null,
+				"error_text": null,
+				"visible_screen": false,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			},
+			{
+				"id": "field2_3",
+				"label": "First Select",
+				"placeholder": "You options",
+				"element": "select",
+				"required": true,
+				"readonly": false,
+				"helper_text": "All options available",
+				"error_text": "Required field",
+				"visible_screen": false,
+				"options": [
+					{
+						"value": "example1",
+						"text": "Example 1"
+					}
+				]
+			}
+		],
+		[
+			{
+				"id": "field3_1",
+				"label": "First field",
+				"placeholder": "Text here",
+				"element": "input",
+				"type": "text",
+				"required": true,
+				"maxlength": 7,
+				"case": "ProperCase",
+				"mask": null,
+				"pattern": "Olaaar",
+				"readonly": false,
+				"helper_text": "Full name",
+				"error_text": "Required field",
+				"visible_screen": true,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			},
+			{
+				"id": "field3_2",
+				"label": null,
+				"placeholder": null,
+				"element": "input",
+				"type": null,
+				"required": false,
+				"maxlength": 7,
+				"case": null,
+				"mask": null,
+				"pattern": null,
+				"readonly": true,
+				"helper_text": null,
+				"error_text": null,
+				"visible_screen": true,
+				"autocomplete": false,
+				"is_PK": false,
+				"is_PK_exist_api": null,
+				"search_complete_api": null
+			},
+			{
+				"id": "field3_3",
+				"label": "First Select",
+				"placeholder": "You options",
+				"element": "select",
+				"required": true,
+				"readonly": false,
+				"helper_text": "All options available",
+				"error_text": "Required field",
+				"visible_screen": false,
+				"options": [
+					{
+						"value": "example1",
+						"text": "Example 1"
+					}
+				]
+			}
+		]
+	]
+}

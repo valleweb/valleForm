@@ -12,7 +12,7 @@ export default (
 		.filter(field => isVisibleScreen(field, filterByVisibleScreen))
 		.map(field => isSelect(field.element) ? resolveSelectSize(row, field, readOnly) : makeInputField(field, readOnly));
 
-	return <div className="valleForm__row" key = { index }> {$fields} </div>;
+	return <div className="valleForm__row" key = { index }>{$fields}</div>;
 
 });
 

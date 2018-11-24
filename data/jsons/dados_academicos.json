@@ -1,0 +1,102 @@
+{
+	"form": "pacientes",
+	"title": "Cadastro Técnico",
+	"tabs": [{
+		"title": "Dados Acadêmicos",
+		"slug": "slug-maroto",
+		"lines": [
+			[
+				{
+					"line": 1,
+					"order": 1,
+					"id": "FORMADO_EM",
+					"name": "hsomFORMADO_EM",
+					"label": "Formado em",
+          "placeholder": "Selecione o ano",
+					"element": "select",
+          "element_options": [
+            " ;;Selecione o ano",
+            "2018;;2018",
+            "2017;;2017",
+            "2016;;2016",
+            "2015;;2015",
+            "2014;;2014"
+          ],
+					"maxlength": 80,
+					"case": " ",
+					"pattern": " ",
+					"is_PK": false,
+					"visible": true,
+					"visible_screen": true,
+					"required": true,
+					"readonly": false,
+					"exists": true
+				},
+        {
+          "line": 1,
+          "order": 2,
+          "id": "SEMESTRE_FORMATURA",
+          "name": "hsomSEMESTRE_FORMATURA",
+          "label": "Semestre da Formatura",
+          "placeholder": "Selecione o semestre",
+          "element": "select",
+          "element_options": [
+            " ;;Selecione o semestre",
+            "1;;Primeiro",
+            "2;;Segundo"
+          ],
+          "maxlength": 80,
+          "case": " ",
+          "pattern": " ",
+          "is_PK": false,
+          "visible": true,
+          "visible_screen": true,
+          "required": true,
+          "readonly": false,
+          "exists": true
+        },
+        {
+          "line": 1,
+          "order": 3,
+          "id": "INSTITUICAO",
+          "name": "hitINSTITUICAO",
+          "label": "Instituição",
+          "placeholder": "Insira aqui sua instituição acadêmica",
+          "type_jsp": "hit",
+          "element": "input#text",
+          "maxlength": 80,
+          "case": "LowerCase",
+          "pattern": " ",
+          "is_PK": false,
+          "visible": true,
+          "visible_screen": true,
+          "required": true,
+          "readonly": false,
+          "exists": true
+        }
+			],
+			[
+				{
+					"line": 2,
+					"order": 1,
+					"top": 35,
+					"left": 20,
+					"id": "curso",
+					"label": "Curso",
+					"placeholder": "Insira aqui o curso realizado",
+					"type_jsp": "hit",
+					"element": "input#text",
+					"maxlength": 80,
+					"case": "LowerCase",
+					"pattern": " ",
+					"is_PK": false,
+					"visible": true,
+					"visible_screen": true,
+					"required": true,
+					"readonly": false,
+					"exists": true
+				}
+			]
+		]}
+	]
+}

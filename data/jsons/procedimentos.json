@@ -1,0 +1,125 @@
+{
+	"api": "/api/procedimentos",
+	"form": "procedimentos",
+	"title": "Procedimentos",
+	"tabs": [{
+	 "title": "Título da ABA",
+	 "slug": "slug-maroto",
+	 "lines": [
+			[
+				{
+					"line": 1,
+					"order": 1,
+					"top": 35,
+					"left": 20,
+					"id": "CODIGOPROCEDIMENTO",
+					"name": "hitCODIGOPROCEDIMENTO",
+					"label": "Código de Procedimento",
+					"type": "String",
+					"type_jsp": "hit",
+					"element": "input#text",
+					"maxlength": 7,
+					"case": "ProperCase",
+					"pattern": " ",
+					"is_PK": false,
+					"visible": true,
+					"visible_screen": true,
+					"required": true,
+					"readonly": false,
+					"exists": true
+				},
+				{
+					"line": 1,
+					"order": 2,
+					"top": 35,
+					"left": 20,
+					"id": "PROCEDIMENTO",
+					"name": "hitPROCEDIMENTO",
+					"label": "Procedimento",
+					"type": "String",
+					"type_jsp": "hit",
+					"element": "input#text",
+					"maxlength": 7,
+					"case": "ProperCase",
+					"pattern": " ",
+					"is_PK": false,
+					"visible": true,
+					"visible_screen": true,
+					"required": true,
+					"readonly": false,
+					"exists": true
+				}
+			],
+			[
+				{
+					"line": 2,
+					"order": 1,
+					"top": 35,
+					"left": 20,
+					"id": "DESCRICAOPROCEDIMENTO",
+					"name": "hitDESCRICAOPROCEDIMENTO",
+					"label": "Descrição do Procedimento",
+					"type": "String",
+					"type_jsp": "hit",
+					"element": "input#text",
+					"maxlength": 200,
+					"case": "ProperCase",
+					"pattern": " ",
+					"is_PK": false,
+					"visible": true,
+					"visible_screen": true,
+					"required": true,
+					"readonly": false,
+					"exists": true
+				}
+			],
+			[
+				{
+					"line": 3,
+					"order": 1,
+					"top": 35,
+					"left": 20,
+					"id": "EQUIPAMENTOSRELACIONADOS",
+					"name": "hitEQUIPAMENTOSRELACIONADOS",
+					"label": "Equipamentos Relacionados",
+					"type": "String",
+					"type_jsp": "hit",
+					"element": "input#text",
+					"maxlength": 200,
+					"case": "ProperCase",
+					"pattern": " ",
+					"is_PK": true,
+					"visible": true,
+					"visible_screen": true,
+					"required": true,
+					"readonly": false,
+					"exists": true
+				}
+			],
+			[
+				{
+					"line": 4,
+					"order": 1,
+					"top": 35,
+					"left": 20,
+					"id": "SALASRELACIONADAS",
+					"name": "hitSALASRELACIONADAS",
+					"label": "Salas Relacionadas",
+					"type": "String",
+					"type_jsp": "hit",
+					"element": "input#text",
+					"maxlength": 20,
+					"case": "ProperCase",
+					"pattern": " ",
+					"is_PK": true,
+					"visible": true,
+					"visible_screen": true,
+					"required": true,
+					"readonly": false,
+					"exists": true
+				}
+			]
+		]
+	 }
+	]
+ }

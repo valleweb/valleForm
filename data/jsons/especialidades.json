@@ -1,0 +1,81 @@
+{
+	"api": "/api/especialidades",
+	"form": "especialidades",
+	"title": "Cadastro Especialidade",
+	"tabs": [{
+		"title": "Título da ABA",
+		"slug": "slug-maroto",
+		"lines": [
+      [
+        {
+          "line": 1,
+          "order": 1,
+          "top": 35,
+          "left": 20,
+          "id": "POSSUIESPECIALIDADE",
+          "name": "hitPOSSUIESPECIALIDADE",
+          "label": "Possui Especialidade",
+          "type": "String",
+          "type_jsp": "hsom",
+          "element": "select",
+          "element_options": [
+            "Selecione;;Selecione...",
+            "Sim;;Sim",
+            "Não;;Não"
+          ],
+          "maxlength": 7,
+          "case": "ProperCase",
+          "pattern": " ",
+          "is_PK": false,
+          "visible": true,
+          "visible_screen": true,
+          "required": true,
+          "readonly": false,
+          "exists": true
+        },
+        {
+          "line": 1,
+          "order": 2,
+          "top": 35,
+          "left": 20,
+          "id": "AREAATUACAO",
+          "name": "hitAREAATUACAO",
+          "label": "Área Atuação",
+          "type": "String",
+          "type_jsp": "hit",
+          "element": "input#text",
+          "maxlength": 80,
+          "case": "ProperCase",
+          "pattern": " ",
+          "is_PK": false,
+          "visible": true,
+          "visible_screen": true,
+          "required": true,
+          "readonly": false,
+          "exists": true
+        },
+        {
+          "line": 1,
+          "order": 2,
+          "top": 35,
+          "left": 20,
+          "id": "ESPECIALIDADE",
+          "name": "hitESPECIALIDADE",
+          "label": "Especialidade",
+          "type": "String",
+          "type_jsp": "hit",
+          "element": "input#text",
+          "maxlength": 80,
+          "case": "ProperCase",
+          "pattern": " ",
+          "is_PK": false,
+          "visible": true,
+          "visible_screen": true,
+          "required": true,
+          "readonly": false,
+          "exists": true
+        }
+      ]]
+		}
+	]
+}

@@ -1,7 +1,7 @@
 {
-	"form": "frmEstados",
-	"title": "IMP - Manutenção dos PoEstadosrtos - ARO - 00 - Arossat",
-	"tabs": [{
+	"form": "estados",
+	"title": "IND - Manutenï¿½ï¿½o de Estados - ARO - 00 - Arossat",
+	"tabs": {
 		"title": "Form 0 title",
 		"form": "form_0",
 		"id": "form_0",
@@ -10,7 +10,6 @@
 		"edit_btn": true,
 		"save_btn": true,
 		"delete_btn": true,
-		
 		"lines": [
 			[
 				{
@@ -193,5 +192,5 @@
 				}
 			]
 		]
-	}]
+	}
 }

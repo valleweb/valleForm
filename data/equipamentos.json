@@ -1,0 +1,143 @@
+﻿{
+  "api": "/api/equipamentos",
+  "form": "equipamentos",
+  "title": "Equipamentos",
+  "tabs": [{
+    "title": "Título da ABA",
+    "slug": "slug-maroto",
+    "lines": [
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "NOMEEQUIPAMENTO",
+          "is_PK": false,
+          "label": "Nome do Equipamento",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "TIPOEQUIPAMENTO",
+          "is_PK": false,
+          "label": "Tipo do Equipamento",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "DATADACOMPRA",
+          "is_PK": false,
+          "label": "Data da Compra",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "date",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "DATADAGARANTIA",
+          "is_PK": false,
+          "label": "Data da Garantia",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "date",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "INFORMACOESEXTRAS",
+          "is_PK": false,
+          "label": "Informações Extras",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "PROCEDIMENTOSRELACIONADOS",
+          "is_PK": false,
+          "label": "Procedimentos Relacionados",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "SALASRELACIONADAS",
+          "is_PK": true,
+          "label": "Salas Relacionadas",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ]
+    ]
+  }
+  ]
+}

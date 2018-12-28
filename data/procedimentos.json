@@ -1,0 +1,106 @@
+﻿{
+  "api": "/api/procedimentos",
+  "form": "procedimentos",
+  "title": "Procedimentos",
+  "tabs": [{
+    "title": "Título da ABA",
+    "slug": "slug-maroto",
+    "lines": [
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "CODIGOPROCEDIMENTO",
+          "is_PK": false,
+          "label": "Código de Procedimento",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "PROCEDIMENTO",
+          "is_PK": false,
+          "label": "Nome do Procedimento",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "type_jsp": "hit",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "DESCRICAOPROCEDIMENTO",
+          "is_PK": false,
+          "label": "Descrição do Procedimento",
+          "mask": null,
+          "maxlength": 200,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "EQUIPAMENTOSRELACIONADOS",
+          "is_PK": true,
+          "label": "Equipamentos Relacionados",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "SALASRELACIONADAS",
+          "is_PK": true,
+          "label": "Salas Relacionadas",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ]
+    ]
+  }
+  ]
+}

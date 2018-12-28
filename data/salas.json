@@ -1,0 +1,127 @@
+﻿{
+  "title": "Salas",
+  "tabs": [{
+    "title": "Título da ABA",
+    "form": "salas",
+    "id": "salas",
+    "slug": "slug-maroto",
+    "api": "/api/salas",
+		"edit_btn": true,
+		"save_btn": true,
+		"delete_btn": true,
+    "lines": [
+      [
+        {
+          "case": "ProperCase",
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": "Digite o número ou nome da sala",
+          "id": "NOMENUMEROSALA",
+          "is_PK": false,
+          "label": "Nome ou Número da Sala",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": "Placeholder here",
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "BLOCONUMEROPREDIO",
+          "is_PK": false,
+          "label": "Bloco ou Número do Prédio",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "QUANTIDADELUGARES",
+          "is_PK": false,
+          "label": "Quantidade de Lugares",
+          "mask": null,
+          "maxlength": null,
+          "max": 3,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "INFORMACOESEXTRAS",
+          "is_PK": false,
+          "label": "Informações Extras",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "EQUIPAMENTOSSRELACIONADOS",
+          "is_PK": false,
+          "label": "Equipamentos Relacionados",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "PROCEDIMENTOSRELACIONADOS",
+          "is_PK": false,
+          "label": "Procedimentos Relacionados",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ]
+    ]
+  }
+  ]
+}

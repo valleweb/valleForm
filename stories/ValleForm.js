@@ -9,6 +9,7 @@ import form_0_values from '../data/form-0-values.json';
 import salas from '../data/salas.json';
 import procedimentos from '../data/procedimentos.json';
 import equipamentos from '../data/equipamentos.json';
+import pacientes from '../data/pacientes.json';
 
 setAddon(JSXAddon);
 
@@ -58,6 +59,15 @@ storiesOf('ValleForm', module)
         rows = { equipamentos.tabs[0].lines }
         baseApi = { 'http://localhost:3000' }
         canonicalApi = { equipamentos.tabs[0].api }
+      />
+    )
+  })
+  .addWithJSX('Pacientes', () => {
+    return (
+      <ValleForm
+        rows = { pacientes.tabs[0].lines }
+        baseApi = { 'http://localhost:3000' }
+        canonicalApi = { pacientes.tabs[0].api }
       />
     )
   })

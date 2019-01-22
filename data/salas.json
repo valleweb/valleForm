@@ -6,9 +6,9 @@
     "id": "salas",
     "slug": "slug-maroto",
     "api": "/api/salas",
-		"edit_btn": true,
-		"save_btn": true,
-		"delete_btn": true,
+    "edit_btn": true,
+    "save_btn": true,
+    "delete_btn": true,
     "lines": [
       [
         {

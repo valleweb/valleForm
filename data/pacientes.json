@@ -1,0 +1,1154 @@
+﻿{
+  "title": "Pacientes",
+  "tabs": [{
+    "title": "Título da ABA",
+    "form": "pacientes",
+    "id": "pacientes",
+    "slug": "slug-maroto",
+    "api": "/api/pacientes",
+    "edit_btn": true,
+    "save_btn": true,
+    "delete_btn": true,
+    "lines": [
+      [
+        {
+          "case": "ProperCase",
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": "",
+          "id": "NOME",
+          "is_PK": false,
+          "label": "Primeiro nome",
+          "mask": null,
+          "maxlength": 80,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": "ProperCase",
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "SOBRENOME",
+          "is_PK": false,
+          "label": "Sobrenome",
+          "mask": null,
+          "maxlength": 80,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "APELIDO",
+          "is_PK": false,
+          "label": "Apelido",
+          "mask": null,
+          "maxlength": 80,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "NOMEINDICACAO",
+          "is_PK": false,
+          "label": "Indicado por",
+          "mask": null,
+          "maxlength": 80,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "TELEFONE",
+          "is_PK": false,
+          "label": "Nº. Telefone",
+          "mask": null,
+          "maxlength": 20,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "CELULAR",
+          "is_PK": false,
+          "label": "Nº. Celular",
+          "mask": null,
+          "maxlength": 20,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "TELCOMPLEMENTAR",
+          "is_PK": false,
+          "label": "Nº. Telefone Complementar",
+          "mask": null,
+          "maxlength": 20,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "number",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "EMAIL",
+          "is_PK": false,
+          "label": "Email",
+          "mask": null,
+          "maxlength": 120,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "email",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "select",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "ESTADOCIVIL",
+          "is_PK": false,
+          "label": "Estado Civil",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "Solteiro",
+              "text": "Solteiro"
+            },
+            {
+              "value": "Casado",
+              "text": "Casado"
+            },
+            {
+              "value": "Separado",
+              "text": "Separado"
+            },
+            {
+              "value": "Divorciado",
+              "text": "Divorciado"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "select",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "SEXO",
+          "is_PK": false,
+          "label": "Sexo",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "Homem",
+              "text": "Homem"
+            },
+            {
+              "value": "Mulher",
+              "text": "Mulher"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "RG",
+          "is_PK": false,
+          "label": "RG",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "select",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "ORGAOEXPEDIDOR",
+          "is_PK": false,
+          "label": "Orgão Expedidor",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "SSP",
+              "text": "SSP"
+            },
+            {
+              "value": "PM",
+              "text": "PM"
+            },
+            {
+              "value": "PC",
+              "text": "PC"
+            },
+            {
+              "value": "IFP",
+              "text": "IFP"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "select",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "ESTADOORGAOEXPEDIDOR",
+          "is_PK": false,
+          "label": "Estado",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "AC",
+              "text": "AC"
+            },
+            {
+              "value": "AL",
+              "text": "AL"
+            },
+            {
+              "value": "AM",
+              "text": "AM"
+            },
+            {
+              "value": "AP",
+              "text": "AP"
+            }
+            ,
+            {
+              "value": "BA",
+              "text": "BA"
+            },
+            {
+              "value": "CE",
+              "text": "CE"
+            },
+            {
+              "value": "DF",
+              "text": "DF"
+            },
+            {
+              "value": "ES",
+              "text": "ES"
+            },
+            {
+              "value": "GO",
+              "text": "GO"
+            },
+            {
+              "value": "MA",
+              "text": "MA"
+            },
+            {
+              "value": "MG",
+              "text": "MG"
+            },
+            {
+              "value": "MS",
+              "text": "MS"
+            },
+            {
+              "value": "MT",
+              "text": "MT"
+            },
+            {
+              "value": "PA",
+              "text": "PA"
+            },
+            {
+              "value": "PB",
+              "text": "PB"
+            },
+            {
+              "value": "PE",
+              "text": "PE"
+            },
+            {
+              "value": "PI",
+              "text": "PI"
+            },
+            {
+              "value": "PR",
+              "text": "PR"
+            },
+            {
+              "value": "RJ",
+              "text": "RJ"
+            },
+            {
+              "value": "RN",
+              "text": "RN"
+            },
+            {
+              "value": "RS",
+              "text": "RS"
+            },
+            {
+              "value": "RO",
+              "text": "RO"
+            },
+            {
+              "value": "RR",
+              "text": "RR"
+            },
+            {
+              "value": "SC",
+              "text": "SC"
+            },
+            {
+              "value": "SP",
+              "text": "SP"
+            },
+            {
+              "value": "SE",
+              "text": "SE"
+            },
+            {
+              "value": "TO",
+              "text": "TO"
+            },
+            {
+              "value": "SVAN",
+              "text": "SVAN"
+            },
+            {
+              "value": "SCAN",
+              "text": "SCAN"
+            },
+            {
+              "value": "SVRS",
+              "text": "SVRS"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "CPF",
+          "is_PK": false,
+          "label": "CPF",
+          "mask": "cpf",
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "NATURALIDADE",
+          "is_PK": false,
+          "label": "Naturalidade",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "NACIONALIDADE",
+          "is_PK": false,
+          "label": "Nacionalidade",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "CEP",
+          "is_PK": false,
+          "label": "CEP",
+          "mask": "cep",
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "ENDERECO",
+          "is_PK": false,
+          "label": "Endereço",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "NUMEROENDERECO",
+          "is_PK": false,
+          "label": "Nº.",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "number",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "COMPLEMENTO",
+          "is_PK": false,
+          "label": "Complemento",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "BAIRRO",
+          "is_PK": false,
+          "label": "Bairro",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "CIDADE",
+          "is_PK": false,
+          "label": "Cidade",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "select",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "ORGAOEXPEDIDOR",
+          "is_PK": false,
+          "label": "Orgão Expedidor",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "SSP",
+              "text": "SSP"
+            },
+            {
+              "value": "PM",
+              "text": "PM"
+            },
+            {
+              "value": "PC",
+              "text": "PC"
+            },
+            {
+              "value": "IFP",
+              "text": "IFP"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "select",
+          "error_text": "Campo obrigatório",
+          "helper_text": null,
+          "id": "ESTADOENDERECO",
+          "is_PK": false,
+          "label": "Estado",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "AC",
+              "text": "AC"
+            },
+            {
+              "value": "AL",
+              "text": "AL"
+            },
+            {
+              "value": "AM",
+              "text": "AM"
+            },
+            {
+              "value": "AP",
+              "text": "AP"
+            }
+            ,
+            {
+              "value": "BA",
+              "text": "BA"
+            },
+            {
+              "value": "CE",
+              "text": "CE"
+            },
+            {
+              "value": "DF",
+              "text": "DF"
+            },
+            {
+              "value": "ES",
+              "text": "ES"
+            },
+            {
+              "value": "GO",
+              "text": "GO"
+            },
+            {
+              "value": "MA",
+              "text": "MA"
+            },
+            {
+              "value": "MG",
+              "text": "MG"
+            },
+            {
+              "value": "MS",
+              "text": "MS"
+            },
+            {
+              "value": "MT",
+              "text": "MT"
+            },
+            {
+              "value": "PA",
+              "text": "PA"
+            },
+            {
+              "value": "PB",
+              "text": "PB"
+            },
+            {
+              "value": "PE",
+              "text": "PE"
+            },
+            {
+              "value": "PI",
+              "text": "PI"
+            },
+            {
+              "value": "PR",
+              "text": "PR"
+            },
+            {
+              "value": "RJ",
+              "text": "RJ"
+            },
+            {
+              "value": "RN",
+              "text": "RN"
+            },
+            {
+              "value": "RS",
+              "text": "RS"
+            },
+            {
+              "value": "RO",
+              "text": "RO"
+            },
+            {
+              "value": "RR",
+              "text": "RR"
+            },
+            {
+              "value": "SC",
+              "text": "SC"
+            },
+            {
+              "value": "SP",
+              "text": "SP"
+            },
+            {
+              "value": "SE",
+              "text": "SE"
+            },
+            {
+              "value": "TO",
+              "text": "TO"
+            },
+            {
+              "value": "SVAN",
+              "text": "SVAN"
+            },
+            {
+              "value": "SCAN",
+              "text": "SCAN"
+            },
+            {
+              "value": "SVRS",
+              "text": "SVRS"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": true,
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "select",
+          "error_text": null,
+          "helper_text": null,
+          "id": "PLANODESAUDE",
+          "is_PK": false,
+          "label": "Plano de saúde",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "AMIL",
+              "text": "AMIL"
+            },
+            {
+              "value": "BRADESCO",
+              "text": "BRADESCO"
+            },
+            {
+              "value": "PORTO SEGURO",
+              "text": "PORTO SEGURO"
+            },
+            {
+              "value": "SUL AMÉRICA",
+              "text": "SUL AMÉRICA"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "DEPENDENTE",
+          "is_PK": false,
+          "label": "Dependente",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "CNS",
+          "is_PK": false,
+          "label": "CNS",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "PLANODESAUDE",
+          "is_PK": false,
+          "label": "Plano de Saude",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "select",
+          "error_text": null,
+          "helper_text": null,
+          "id": "ESCOLARIDADE",
+          "is_PK": false,
+          "label": "ESCOLARIDADE",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "ENSINO SUPERIOR",
+              "text": "ENSINO SUPERIOR"
+            },
+            {
+              "value": "ENSINO MÉDIO",
+              "text": "ENSINO MÉDIO"
+            },
+            {
+              "value": "ENSINO FUNDAMENTAL",
+              "text": "ENSINO FUNDAMENTAL"
+            },
+            {
+              "value": "SEM ESCOLARIDADE",
+              "text": "SEM ESCOLARIDADE"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "select",
+          "error_text": null,
+          "helper_text": null,
+          "id": "PROFISSAO",
+          "is_PK": false,
+          "label": "Profissão",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "PROFISSÃO X",
+              "text": "PROFISSÃO X"
+            },
+            {
+              "value": "PROFISSÃO Y",
+              "text": "PROFISSÃO Y"
+            },
+            {
+              "value": "PROFISSÃO Z",
+              "text": "PROFISSÃO Z"
+            },
+            {
+              "value": "PROFISSÃO W",
+              "text": "PROFISSÃO W"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "select",
+          "error_text": null,
+          "helper_text": null,
+          "id": "FILIACAO",
+          "is_PK": false,
+          "label": "Filiação (Pai/Mãe)",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "PAI",
+              "text": "PAI"
+            },
+            {
+              "value": "MÃE",
+              "text": "MÃE"
+            },
+            {
+              "value": "PAI/MÃE",
+              "text": "PAI/MÃE"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "NOMEPAI",
+          "is_PK": false,
+          "label": "Nome do Pai",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "NOMEMAE",
+          "is_PK": false,
+          "label": "Nome da Mãe",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "select",
+          "error_text": null,
+          "helper_text": null,
+          "id": "NOMERESPONSAVEL",
+          "is_PK": false,
+          "label": "Nome Responsável",
+          "mask": null,
+          "maxlength": null,
+          "options": [
+            {
+              "value": "Selecione",
+              "text": "Selecione"
+            },
+            {
+              "value": "RESPONSÁVEL X",
+              "text": "RESPONSÁVEL X"
+            },
+            {
+              "value": "RESPONSÁVEL Y",
+              "text": "RESPONSÁVEL Y"
+            },
+            {
+              "value": "RESPONSÁVEL Z",
+              "text": "RESPONSÁVEL Z"
+            }
+          ],
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "CPFRESPONSAVEL",
+          "is_PK": false,
+          "label": "CPF Responsável",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "number",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "EMAILRESPONSAVEL",
+          "is_PK": false,
+          "label": "Email Responsável",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "email",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "NUMEROTELEFONERESPONSAVEL",
+          "is_PK": false,
+          "label": "Nº. Telefone Responsável",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "number",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "CLINICARESPONSAVEL",
+          "is_PK": false,
+          "label": "Clinica Responsável",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        },
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "ULTIMADATAATENDIMENTO",
+          "is_PK": false,
+          "label": "Última data de atendimento",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "date",
+          "visible_screen": true
+        }
+      ],
+      [
+        {
+          "case": null,
+          "element": "input",
+          "error_text": null,
+          "helper_text": null,
+          "id": "ATENCOESESPECIAIS",
+          "is_PK": false,
+          "label": "Atenções Especiais",
+          "mask": null,
+          "maxlength": null,
+          "pattern": null,
+          "placeholder": null,
+          "readonly": false,
+          "required": false,
+          "type": "text",
+          "visible_screen": true
+        }
+      ]
+    ]}
+  ]
+}

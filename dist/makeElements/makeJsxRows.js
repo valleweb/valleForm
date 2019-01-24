@@ -6,15 +6,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _isSelect = require('./isSelect');
+var _isSelect = require('../helpers/isSelect');
 
 var _isSelect2 = _interopRequireDefault(_isSelect);
 
-var _makeInputField = require('./makeInputField');
+var _makeInputField = require('./makeWebcomponents/makeInputField');
 
 var _makeInputField2 = _interopRequireDefault(_makeInputField);
 
-var _makeSelectField = require('./makeSelectField');
+var _makeSelectField = require('./makeWebcomponents/makeSelectField');
 
 var _makeSelectField2 = _interopRequireDefault(_makeSelectField);
 
@@ -26,8 +26,6 @@ exports['default'] = function (rows) {
 	return rows.map(function (row, index) {
 
 		var $fields = row.filter(function (field) {
-			return field.visible;
-		}).filter(function (field) {
 			return isVisibleScreen(field, filterByVisibleScreen);
 		}).map(function (field) {
 			return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly) : (0, _makeInputField2['default'])(field, readOnly);
@@ -36,9 +34,7 @@ exports['default'] = function (rows) {
 		return _react2['default'].createElement(
 			'div',
 			{ className: 'valleForm__row', key: index },
-			' ',
-			$fields,
-			' '
+			$fields
 		);
 	});
 };

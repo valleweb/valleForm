@@ -8,27 +8,27 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _makeJsxRows = require('./makeJsxRows');
+var _makeJsxRows = require('./makeElements/makeJsxRows');
 
 var _makeJsxRows2 = _interopRequireDefault(_makeJsxRows);
 
-var _makeSpeedDialActions = require('./makeSpeedDialActions');
+var _makeSpeedDialActions = require('./makeElements/makeWebcomponents/makeSpeedDialActions');
 
 var _makeSpeedDialActions2 = _interopRequireDefault(_makeSpeedDialActions);
 
-var _Snackbar = require('./Snackbar');
+var _Snackbar = require('./components/Snackbar');
 
 var _Snackbar2 = _interopRequireDefault(_Snackbar);
 
-var _Switch = require('./Switch');
+var _Switch = require('./components/Switch');
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
-var _apiCreate = require('./apiCreate');
+var _apiCreate = require('./rest/apiCreate');
 
 var _apiCreate2 = _interopRequireDefault(_apiCreate);
 
-var _addFieldsValues = require('./addFieldsValues');
+var _addFieldsValues = require('./fieldsControl/addFieldsValues');
 
 var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
 

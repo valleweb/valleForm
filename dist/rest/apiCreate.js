@@ -6,11 +6,11 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _getFieldsParams = require('./getFieldsParams');
+var _getFieldsParams = require('../fieldsControl/getFieldsParams');
 
 var _getFieldsParams2 = _interopRequireDefault(_getFieldsParams);
 
-var _cleanFields = require('./cleanFields');
+var _cleanFields = require('../fieldsControl/cleanFields');
 
 var _cleanFields2 = _interopRequireDefault(_cleanFields);
 

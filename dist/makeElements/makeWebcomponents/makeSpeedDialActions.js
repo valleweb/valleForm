@@ -6,15 +6,15 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _apiCreate = require('./apiCreate');
+var _apiCreate = require('../../rest/apiCreate');
 
 var _apiCreate2 = _interopRequireDefault(_apiCreate);
 
-var _apiUpdate = require('./apiUpdate');
+var _apiUpdate = require('../../rest/apiUpdate');
 
 var _apiUpdate2 = _interopRequireDefault(_apiUpdate);
 
-var _apiDelete = require('./apiDelete');
+var _apiDelete = require('../../rest/apiDelete');
 
 var _apiDelete2 = _interopRequireDefault(_apiDelete);
 

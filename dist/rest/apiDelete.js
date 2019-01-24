@@ -6,7 +6,7 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _cleanFields = require('./cleanFields');
+var _cleanFields = require('../fieldsControl/cleanFields');
 
 var _cleanFields2 = _interopRequireDefault(_cleanFields);
 

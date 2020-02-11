@@ -12,13 +12,14 @@ const Textarea = ({
   // Global required validation
   // -------------
 
-  const textAreaRef = React.createRef();
-
   useEffect(() => {
+
     const textArea = textAreaRef.current;
     (textArea.dataset.valleError === 'true') ? setErr(true) : setErr(false) 
+
   });
 
+  const textAreaRef = React.createRef();
   
   // --------------
   // Custom UI
@@ -43,10 +44,14 @@ const Textarea = ({
   // -------------
 
   const validate = () => {
+
+    const textAreaRef = React.createRef();
+
     if (field.required) {
       const textArea = textAreaRef.current;
       return textArea.value ? setErr(false) : setErr(true)
     }
+    
   }
 
 	return (

@@ -37,6 +37,10 @@
   max-width: 300px;
 }
 
+.valleForm__input--description {
+  min-width: calc(50% - 10px);
+}
+
 .valleForm__select {
   width: calc(100% - 10px);
   margin: 0 5px;

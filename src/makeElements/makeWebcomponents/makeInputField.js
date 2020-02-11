@@ -16,9 +16,13 @@ export default (field, readOnly = false) => {
 
 	// }
 
+	const customDescriptionStyle = (field.label == 'Descrição')
+		? 'valleForm__input--description'
+		: ''
+
 	return (
 		<valle-input
-			class = "valleForm__input"
+			class = {`valleForm__input ${customDescriptionStyle}`}
 			type = { field.type }
 			label = { field.label }
 			placeholder = { field.placeholder }

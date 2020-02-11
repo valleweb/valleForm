@@ -38,8 +38,10 @@ exports['default'] = function (field) {
 
 	// }
 
+	var customDescriptionStyle = field.label == 'Descrição' ? 'valleForm__input--description' : '';
+
 	return _react2['default'].createElement('valle-input', _extends({
-		'class': 'valleForm__input',
+		'class': 'valleForm__input ' + customDescriptionStyle,
 		type: field.type,
 		label: field.label,
 		placeholder: field.placeholder,

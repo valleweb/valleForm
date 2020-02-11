@@ -18,6 +18,10 @@ var _makeSelectField = require('./makeWebcomponents/makeSelectField');
 
 var _makeSelectField2 = _interopRequireDefault(_makeSelectField);
 
+var _Textarea = require('../components/Textarea');
+
+var _Textarea2 = _interopRequireDefault(_Textarea);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (rows) {
@@ -28,6 +32,22 @@ exports['default'] = function (rows) {
 		var $fields = row.filter(function (field) {
 			return isVisibleScreen(field, filterByVisibleScreen);
 		}).map(function (field) {
+
+			// --------------
+			// Resolve react component
+			// --------------
+
+			if (field.element === 'textarea') {
+				return _react2['default'].createElement(_Textarea2['default'], {
+					field: field,
+					readOnly: readOnly
+				});
+			}
+
+			// --------------
+			// Resolve form webcomponents
+			// --------------
+
 			return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly) : (0, _makeInputField2['default'])(field, readOnly);
 		});
 

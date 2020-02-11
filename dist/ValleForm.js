@@ -32,6 +32,10 @@ var _addFieldsValues = require('./fieldsControl/addFieldsValues');
 
 var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
 
+var _cleanFields = require('./fieldsControl/cleanFields');
+
+var _cleanFields2 = _interopRequireDefault(_cleanFields);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -161,6 +165,22 @@ var ValleForm = function (_Component) {
 		}()
 
 		// -----------
+		// Set form to insert mode
+		// -----------
+
+	}, {
+		key: 'makeFieldsDefault',
+		value: function () {
+			function makeFieldsDefault() {
+				(0, _cleanFields2['default'])();
+				this.setState({ readOnly: false, editable: false });
+				this.state.valleSpeedDialRef.open = false;
+			}
+
+			return makeFieldsDefault;
+		}()
+
+		// -----------
 		// Control keyboard actions
 		// -----------
 
@@ -169,12 +189,18 @@ var ValleForm = function (_Component) {
 		value: function () {
 			function handleKeyboard(event) {
 
-				var pressEnter = event.which === 13 || event.keyCode === 13;
+				// const pressEnter = event.which === 13 || event.keyCode === 13;
 
-				if (pressEnter) {
-					event.preventDefault();
-					(0, _apiCreate2['default'])(this.props.baseApi, this.props.canonicalApi, this.props.params, this.showFeedback.bind(this));
-				}
+				// if (pressEnter) {
+				// 	event.preventDefault();
+				// 	apiCreate(
+				// 		this.props.baseApi,
+				// 		this.props.canonicalApi,
+				// 		this.props.params,
+				// 		this.showFeedback.bind(this)
+				// 	)
+				// }
+
 			}
 
 			return handleKeyboard;
@@ -228,6 +254,7 @@ var ValleForm = function (_Component) {
 								editCb: this.makeFieldsEditable.bind(this),
 								cancelCb: this.cancelFieldsEditable.bind(this),
 								feedbackCb: this.showFeedback.bind(this),
+								newCB: this.makeFieldsDefault.bind(this),
 								formCb: this.removeFieldsEditable.bind(this)
 							})
 						),

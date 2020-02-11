@@ -193,6 +193,16 @@ render() {
 
 ## Development
 
+### Install dependencies
+
+```sh
+$ npm install
+```
+
+```sh
+$ bower install
+```
+
 ### Tasks
 
 * `npm start` - launch storybook to develop your component.

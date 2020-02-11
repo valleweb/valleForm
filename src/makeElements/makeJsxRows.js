@@ -2,6 +2,7 @@ import React from 'react';
 import isSelect from '../helpers/isSelect';
 import makeInputField from './makeWebcomponents/makeInputField';
 import makeSelectField from './makeWebcomponents/makeSelectField';
+import Textarea from '../components/Textarea';
 
 export default (
 	rows, 
@@ -10,7 +11,30 @@ export default (
 
 	const $fields = row
 		.filter(field => isVisibleScreen(field, filterByVisibleScreen))
-		.map(field => isSelect(field.element) ? resolveSelectSize(row, field, readOnly) : makeInputField(field, readOnly));
+		.map(field => {
+
+			// --------------
+			// Resolve react component
+			// --------------
+
+			if(field.element === 'textarea') {
+				return (
+					<Textarea
+						field = { field }
+						readOnly = { readOnly }
+					/>
+				)
+			}
+
+			// --------------
+			// Resolve form webcomponents
+			// --------------
+
+			return isSelect(field.element) 
+			? resolveSelectSize(row, field, readOnly)
+			: makeInputField(field, readOnly)
+		
+		})
 
 	return <div className="valleForm__row" key = { index }>{$fields}</div>;
 

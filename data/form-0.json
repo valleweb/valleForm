@@ -56,7 +56,29 @@
 						}
 					]
 				}
-			]
+			],
+      [
+        {
+          "id": "textarea",
+          "label": "Description field",
+          "placeholder": "Long text here",
+          "element": "textarea",
+          "type": "text",
+          "required": true,
+          "maxlength": 7,
+          "case": "ProperCase",
+          "mask": null,
+          "pattern": null,
+          "readonly": false,
+          "helper_text": "Full name",
+          "error_text": "Required field",
+          "visible_screen": true,
+          "autocomplete": false,
+          "is_PK": false,
+          "is_PK_exist_api": null,
+          "search_complete_api": null
+        }
+      ]
 		]
 	 }
 	]

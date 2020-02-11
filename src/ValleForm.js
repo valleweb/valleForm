@@ -97,17 +97,17 @@ class ValleForm extends Component {
 
 	handleKeyboard(event) {
 
-		const pressEnter = event.which === 13 || event.keyCode === 13;
+		// const pressEnter = event.which === 13 || event.keyCode === 13;
 
-		if (pressEnter) {
-			event.preventDefault();
-			apiCreate(
-				this.props.baseApi,
-				this.props.canonicalApi,
-				this.props.params,
-				this.showFeedback.bind(this)
-			)
-		}
+		// if (pressEnter) {
+		// 	event.preventDefault();
+		// 	apiCreate(
+		// 		this.props.baseApi,
+		// 		this.props.canonicalApi,
+		// 		this.props.params,
+		// 		this.showFeedback.bind(this)
+		// 	)
+		// }
 
 	}
 

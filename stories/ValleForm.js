@@ -16,6 +16,7 @@ storiesOf('ValleForm', module)
         rows = { form_0.tabs[0].lines }
         baseApi = { 'http://localhost:3000' }
         canonicalApi = { form_0.tabs[0].api }
+        buttons = { form_0.tabs[0].buttons }
       />
     )
   })
@@ -25,6 +26,7 @@ storiesOf('ValleForm', module)
         rows = { form_0.tabs[0].lines }
         baseApi = { 'http://localhost:3000' }
         canonicalApi = { form_0.tabs[0].api }
+        buttons = { form_0.tabs[0].buttons }
         _id = { '123' }
         values = { form_0_values }
         readOnly

@@ -5,6 +5,7 @@ import Snackbar from './components/Snackbar';
 import Switch from './components/Switch';
 import apiCreate from './rest/apiCreate';
 import addFieldsValues from './fieldsControl/addFieldsValues'
+import cleanFields from './fieldsControl/cleanFields';
 
 class ValleForm extends Component {
 
@@ -92,6 +93,16 @@ class ValleForm extends Component {
 	}
 
 	// -----------
+	// Set form to insert mode
+	// -----------
+
+	makeFieldsDefault() {
+		cleanFields();
+		this.setState({ readOnly: false, editable: false });
+		this.state.valleSpeedDialRef.open = false;
+	}
+
+	// -----------
 	// Control keyboard actions
 	// -----------
 
@@ -161,6 +172,7 @@ class ValleForm extends Component {
 								editCb: this.makeFieldsEditable.bind(this),
 								cancelCb: this.cancelFieldsEditable.bind(this),
 								feedbackCb: this.showFeedback.bind(this),
+								newCB:  this.makeFieldsDefault.bind(this),
 								formCb: this.removeFieldsEditable.bind(this)
 							})
 						}

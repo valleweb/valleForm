@@ -149,18 +149,27 @@
 
 .valleForm__speedDial__save {
   --valle-speed-dial-action-fab-color: #7bcc02;
+  white-space: nowrap;
 }
 
 .valleForm__speedDial__edit {
   --valle-speed-dial-action-fab-color: #ff6a00;
+  white-space: nowrap;
 }
 
 .valleForm__speedDial__delete {
   --valle-speed-dial-action-fab-color: #ff0043;
+  white-space: nowrap;
 }
 
 .valleForm__speedDial__cancel {
   --valle-speed-dial-action-fab-color: #4c4c48;
+  white-space: nowrap;
+}
+
+.valleForm__speedDial__new {
+  --valle-speed-dial-action-fab-color: #7cc705;
+  white-space: nowrap;
 }
 
 .valleForm__snackbar {

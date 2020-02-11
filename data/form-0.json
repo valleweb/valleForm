@@ -4,11 +4,58 @@
 		"title": "Form 0 title",
 		"form": "form_0",
 		"id": "form_0",
-		"slug": "slug-demo",
 		"api": "/api/form-0",
-		"edit_btn": true,
-		"save_btn": true,
-		"delete_btn": true,
+		"buttons": [
+			{
+				"text": "Salvar",
+				"action": "save",
+				"type": "",
+				"icon": "",
+				"status": "create"
+			},
+			{
+				"text": "Novo cadastro",
+				"action": "new",
+				"type": "",
+				"icon": "",
+				"status": "retrieval"
+			},
+			{
+				"text": "Editar",
+				"action": "edit",
+				"type": "",
+				"icon": "",
+				"status": "retrieval"
+			},
+			{
+				"text": "Salvar alteraçōes",
+				"action": "update",
+				"type": "",
+				"icon": "",
+				"status": "update"
+			},
+			{
+				"text": "Cancelar",
+				"action": "cancel",
+				"type": "",
+				"icon": "",
+				"status": "update"
+			},
+			{
+				"text": "Excluir",
+				"action": "delete",
+				"type": "",
+				"icon": "",
+				"status": "update"
+			},
+			{
+				"text": "Customizado",
+				"action": "",
+				"type": "",
+				"icon": "",
+				"status": "create"
+			}
+		],
 		"lines": [
 			[
 				{
@@ -28,8 +75,16 @@
 					"visible_screen": true,
 					"autocomplete": false,
 					"is_PK": false,
-					"is_PK_exist_api": null,
-					"search_complete_api": null
+					"actions" : [
+						{
+							"action": "exists",
+							"data": null
+						},
+						{
+							"action": "find",
+							"data": null
+						}
+					]
 				},
 				{
 					"id": "sizes",
@@ -41,6 +96,16 @@
 					"helper_text": "All sizes available",
 					"error_text": "Required field",
 					"visible_screen": true,
+					"actions" : [
+						{
+							"action": "exists",
+							"data": null
+						},
+						{
+							"action": "find",
+							"data": null
+						}
+					],
 					"options": [
 						{
 							"value": "example1",
@@ -72,11 +137,7 @@
           "readonly": false,
           "helper_text": "Full name",
           "error_text": "Required field",
-          "visible_screen": true,
-          "autocomplete": false,
-          "is_PK": false,
-          "is_PK_exist_api": null,
-          "search_complete_api": null
+          "visible_screen": true
         }
       ]
 		]

@@ -26,12 +26,13 @@ var Textarea = function Textarea(_ref) {
   // Global required validation
   // -------------
 
-  var textAreaRef = _react2['default'].createRef();
-
   (0, _react.useEffect)(function () {
+
     var textArea = textAreaRef.current;
     textArea.dataset.valleError === 'true' ? setErr(true) : setErr(false);
   });
+
+  var textAreaRef = _react2['default'].createRef();
 
   // --------------
   // Custom UI
@@ -55,6 +56,9 @@ var Textarea = function Textarea(_ref) {
   // -------------
 
   var validate = function validate() {
+
+    var textAreaRef = _react2['default'].createRef();
+
     if (field.required) {
       var textArea = textAreaRef.current;
       return textArea.value ? setErr(false) : setErr(true);

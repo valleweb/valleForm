@@ -27,9 +27,16 @@ exports['default'] = function (field) {
 	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
 
+	//let select = React.createRef();
+
+	//useEffect(() => {
+	//    select.current.value = field.value;
+	//}, [])
+
 	return _react2['default'].createElement(
 		'valle-select',
 		_extends({
+			// ref = { select }
 			'class': 'valleForm__select ' + String(customClass),
 			label: field.label,
 			'data-valle-field': field.id,

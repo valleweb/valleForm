@@ -26,13 +26,13 @@ var Textarea = function Textarea(_ref) {
   // Global required validation
   // -------------
 
+  var textAreaRef = _react2['default'].createRef();
+
   (0, _react.useEffect)(function () {
 
     var textArea = textAreaRef.current;
     textArea.dataset.valleError === 'true' ? setErr(true) : setErr(false);
   });
-
-  var textAreaRef = _react2['default'].createRef();
 
   // --------------
   // Custom UI
@@ -57,8 +57,6 @@ var Textarea = function Textarea(_ref) {
 
   var validate = function validate() {
 
-    var textAreaRef = _react2['default'].createRef();
-
     if (field.required) {
       var textArea = textAreaRef.current;
       return textArea.value ? setErr(false) : setErr(true);
@@ -68,17 +66,21 @@ var Textarea = function Textarea(_ref) {
   return _react2['default'].createElement(
     'span',
     { className: 'valleForm__textarea ' + disabledStyle + ' ' + errorStyle, key: field.id },
-    _react2['default'].createElement('textarea', {
-      className: 'valleForm__textarea__input',
-      placeholder: field.placeholder,
-      'data-valle-field': field.id,
-      id: field.id,
-      disabled: readOnly,
-      onBlur: validate,
-      ref: textAreaRef,
-      'data-valle-error': err,
-      'data-valle-required': field.required
-    }),
+    _react2['default'].createElement(
+      'textarea',
+      {
+        className: 'valleForm__textarea__input',
+        placeholder: field.placeholder,
+        'data-valle-field': field.id,
+        id: field.id,
+        disabled: readOnly,
+        onBlur: validate,
+        ref: textAreaRef,
+        'data-valle-error': err,
+        'data-valle-required': field.required
+      },
+      field.value ? field.value : null
+    ),
     _react2['default'].createElement(
       'label',
       { id: 'inputLabel', className: 'valleForm__textarea__label' },

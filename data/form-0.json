@@ -54,12 +54,73 @@
 				"type": "",
 				"icon": "",
 				"status": "create"
+			},
+			{
+				"text": "Customizado",
+				"action": "",
+				"type": "",
+				"icon": "",
+				"status": "create"
+			},			{
+				"text": "Customizado",
+				"action": "",
+				"type": "",
+				"icon": "",
+				"status": "create"
+			},
+			{
+				"text": "Customizado",
+				"action": "",
+				"type": "",
+				"icon": "",
+				"status": "create"
+			},{
+				"text": "Customizado",
+				"action": "",
+				"type": "",
+				"icon": "",
+				"status": "create"
+			}
+			,{
+				"text": "Customizado",
+				"action": "",
+				"type": "",
+				"icon": "",
+				"status": "create"
 			}
 		],
 		"lines": [
 			[
 				{
 					"id": "firstfield",
+					"label": "Descrição",
+					"placeholder": "Text here",
+					"element": "input",
+					"type": "text",
+					"required": true,
+					"maxlength": 7,
+					"case": "ProperCase",
+					"mask": null,
+					"pattern": null,
+					"readonly": true,
+					"helper_text": "Full name",
+					"error_text": "Required field",
+					"visible_screen": true,
+					"autocomplete": false,
+					"is_PK": false,
+					"actions" : [
+						{
+							"action": "exists",
+							"data": null
+						},
+						{
+							"action": "find",
+							"data": null
+						}
+					]
+				},
+				{
+					"id": "firstfield2",
 					"label": "First field",
 					"placeholder": "Text here",
 					"element": "input",
@@ -69,7 +130,7 @@
 					"case": "ProperCase",
 					"mask": null,
 					"pattern": null,
-					"readonly": false,
+					"readonly": true,
 					"helper_text": "Full name",
 					"error_text": "Required field",
 					"visible_screen": true,

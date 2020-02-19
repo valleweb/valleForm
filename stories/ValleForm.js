@@ -6,6 +6,7 @@ import JSXAddon from 'storybook-addon-jsx';
 // Mocks API requests
 import form_0 from '../data/form-0.json';
 import form_0_values from '../data/form-0-values.json';
+import form_0_populated from '../data/form-0-populated.json';
 
 setAddon(JSXAddon);
 
@@ -30,6 +31,16 @@ storiesOf('ValleForm', module)
         _id = { '123' }
         values = { form_0_values }
         readOnly
+      />
+    )
+  })
+  .addWithJSX('Form 0 - insert mode with values', () => {
+    return (
+      <ValleForm
+        rows = { form_0_populated.tabs[0].lines }
+        baseApi = { 'http://localhost:3000' }
+        canonicalApi = { form_0_populated.tabs[0].api }
+        buttons = { form_0_populated.tabs[0].buttons }
       />
     )
   })

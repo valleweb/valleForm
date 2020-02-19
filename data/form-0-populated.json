@@ -1,0 +1,171 @@
+{
+	"title": "Form 0",
+	"tabs": [{
+		"title": "Form 0 title",
+		"form": "form_0",
+		"id": "form_0",
+		"api": "/api/form-0",
+		"buttons": [
+			{
+				"text": "Salvar",
+				"action": "save",
+				"type": "",
+				"icon": "",
+				"status": "create"
+			},
+			{
+				"text": "Novo cadastro",
+				"action": "new",
+				"type": "",
+				"icon": "",
+				"status": "retrieval"
+			},
+			{
+				"text": "Editar",
+				"action": "edit",
+				"type": "",
+				"icon": "",
+				"status": "retrieval"
+			},
+			{
+				"text": "Salvar alteraçōes",
+				"action": "update",
+				"type": "",
+				"icon": "",
+				"status": "update"
+			},
+			{
+				"text": "Cancelar",
+				"action": "cancel",
+				"type": "",
+				"icon": "",
+				"status": "update"
+			},
+			{
+				"text": "Excluir",
+				"action": "delete",
+				"type": "",
+				"icon": "",
+				"status": "update"
+			}
+		],
+		"lines": [
+			[
+				{
+					"id": "firstfield",
+					"label": "Descrição",
+					"placeholder": "Text here",
+					"element": "input",
+					"type": "text",
+					"required": true,
+					"maxlength": 7,
+					"case": "ProperCase",
+					"mask": null,
+					"pattern": null,
+					"readonly": false,
+					"helper_text": "Full name",
+					"error_text": "Required field",
+					"visible_screen": true,
+					"autocomplete": false,
+          "is_PK": false,
+          "value": "example input",
+					"actions" : [
+						{
+							"action": "exists",
+							"data": null
+						},
+						{
+							"action": "find",
+							"data": null
+						}
+					]
+				},
+				{
+					"id": "firstfield2",
+					"label": "First field",
+					"placeholder": "Text here",
+					"element": "input",
+					"type": "text",
+					"required": true,
+					"maxlength": 7,
+					"case": "ProperCase",
+					"mask": null,
+					"pattern": null,
+					"readonly": false,
+					"helper_text": "Full name",
+					"error_text": "Required field",
+					"visible_screen": true,
+					"autocomplete": false,
+          "is_PK": false,
+          "value": "example input 2",
+					"actions" : [
+						{
+							"action": "exists",
+							"data": null
+						},
+						{
+							"action": "find",
+							"data": null
+						}
+					]
+				},
+				{
+					"id": "sizes",
+					"label": "Sizes",
+					"placeholder": "You sizes",
+					"element": "select",
+					"required": true,
+					"readonly": false,
+					"helper_text": "All sizes available",
+					"error_text": "Required field",
+          "visible_screen": true,
+          "value": "example1",
+					"actions" : [
+						{
+							"action": "exists",
+							"data": null
+						},
+						{
+							"action": "find",
+							"data": null
+						}
+					],
+					"options": [
+						{
+							"value": "example1",
+							"text": "Example 1"
+						},
+						{
+							"value": "example2",
+							"text": "Example 2"
+						},
+						{
+							"value": "example3",
+							"text": "Example 3"
+						}
+					]
+				}
+			],
+      [
+        {
+          "id": "textarea",
+          "label": "Description field",
+          "placeholder": "Long text here",
+          "element": "textarea",
+          "type": "text",
+          "required": true,
+          "maxlength": 7,
+          "case": "ProperCase",
+          "mask": null,
+          "pattern": null,
+          "readonly": false,
+          "helper_text": "Full name",
+          "error_text": "Required field",
+          "visible_screen": true,
+          "value": "example textarea"
+        }
+      ]
+		]
+	 }
+	]
+ }

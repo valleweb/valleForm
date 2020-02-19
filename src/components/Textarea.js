@@ -66,6 +66,7 @@ const Textarea = ({
         data-valle-error = { err }
         data-valle-required = { field.required }
       >
+        { field.value ? field.value : null }
       </textarea>
 
       <label id="inputLabel" className="valleForm__textarea__label">

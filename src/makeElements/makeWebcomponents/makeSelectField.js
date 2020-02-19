@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import makeOptions from './makeOptions';
 import normalizeReadOnly from '../../helpers/normalizeReadOnly';
 import normalizeRequired from '../../helpers/normalizeRequired';
 
 export default (field, customClass = '', readOnly = false) => {
 
+	//let select = React.createRef();
+
+	//useEffect(() => {
+  //    select.current.value = field.value;
+	//}, [])
+
 	return (
 		<valle-select
+			// ref = { select }
 			class = {`valleForm__select ${customClass}`}
 			label = { field.label }
 			data-valle-field = { field.id }

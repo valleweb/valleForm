@@ -22,6 +22,7 @@ export default (field, readOnly = false) => {
 
 	return (
 		<valle-input
+			value = { field.value ? field.value : null }
 			class = {`valleForm__input ${customDescriptionStyle}`}
 			type = { field.type }
 			label = { field.label }

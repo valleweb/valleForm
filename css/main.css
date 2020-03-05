@@ -285,3 +285,50 @@
   transform: translateX(16px);
   background-color: var(--valle-switch-toggle-checked, #62aeb3);
 }
+
+.valleForm__input__container {
+  position: relative;
+}
+
+.valleForm__input__button {
+  border: 0;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+
+.valleForm__input__button {
+  border: 0;
+  background: transparent;
+  position: absolute;
+  right: 4px;
+  top: 30px;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  transition: background .3s;
+}
+
+.valleForm__input__button:hover {
+  cursor: pointer;
+  
+}
+
+.valleForm__input__button:focus {
+  background: #ecebeb;
+  outline: none;
+}
+
+.valleForm__input__button:active {
+  background: #c8c8c8;
+}
+
+.valleForm__input__icon {
+  width: 14px;
+  fill: rgba(0, 0, 0, .38);
+}
+
+.valleForm__input__button:hover .valleForm__input__icon {
+  fill: var(--valle-input-color, rgba(5, 159, 183, .87));
+}

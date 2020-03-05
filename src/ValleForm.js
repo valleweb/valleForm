@@ -26,6 +26,19 @@ class ValleForm extends Component {
 	}
 
 	// -----------
+	// Control dynamic values
+	// -----------
+
+	componentDidUpdate() {
+
+		if (this.props.values && !this.state.defaultFieldsValues) {
+			addFieldsValues(this.props.values)
+			this.setState({ defaultFieldsValues: this.props.values });
+		}
+
+	}
+
+	// -----------
 	// Control vizualization only and editable states
 	// -----------
 
@@ -33,11 +46,6 @@ class ValleForm extends Component {
 
 		if (this.props.readOnly) {
 			this.setState({ readOnly: true })
-		}
-
-		if (this.props.values) {
-			addFieldsValues(this.props.values)
-			this.setState({ defaultFieldsValues: this.props.values });
 		}
 
 		// -----------
@@ -59,9 +67,9 @@ class ValleForm extends Component {
 	}
 
 	cancelFieldsEditable() {
+		addFieldsValues(this.state.defaultFieldsValues);
 		this.setState({ readOnly: true, editable: false });
 		this.state.valleSpeedDialRef.open = false;
-		addFieldsValues(this.state.defaultFieldsValues);
 	}
 
 	// -----------

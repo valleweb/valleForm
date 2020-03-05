@@ -68,21 +68,34 @@ var ValleForm = function (_Component) {
 	}
 
 	// -----------
-	// Control vizualization only and editable states
+	// Control dynamic values
 	// -----------
 
 	_createClass(ValleForm, [{
+		key: 'componentDidUpdate',
+		value: function () {
+			function componentDidUpdate() {
+
+				if (this.props.values && !this.state.defaultFieldsValues) {
+					(0, _addFieldsValues2['default'])(this.props.values);
+					this.setState({ defaultFieldsValues: this.props.values });
+				}
+			}
+
+			return componentDidUpdate;
+		}()
+
+		// -----------
+		// Control vizualization only and editable states
+		// -----------
+
+	}, {
 		key: 'componentDidMount',
 		value: function () {
 			function componentDidMount() {
 
 				if (this.props.readOnly) {
 					this.setState({ readOnly: true });
-				}
-
-				if (this.props.values) {
-					(0, _addFieldsValues2['default'])(this.props.values);
-					this.setState({ defaultFieldsValues: this.props.values });
 				}
 
 				// -----------
@@ -118,9 +131,9 @@ var ValleForm = function (_Component) {
 		key: 'cancelFieldsEditable',
 		value: function () {
 			function cancelFieldsEditable() {
+				(0, _addFieldsValues2['default'])(this.state.defaultFieldsValues);
 				this.setState({ readOnly: true, editable: false });
 				this.state.valleSpeedDialRef.open = false;
-				(0, _addFieldsValues2['default'])(this.state.defaultFieldsValues);
 			}
 
 			return cancelFieldsEditable;

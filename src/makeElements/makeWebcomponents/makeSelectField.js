@@ -14,6 +14,7 @@ export default (field, customClass = '', readOnly = false) => {
 	return (
 		<valle-select
 			// ref = { select }
+			value = { field.value ? field.value : null }
 			class = {`valleForm__select ${customClass}`}
 			label = { field.label }
 			data-valle-field = { field.id }

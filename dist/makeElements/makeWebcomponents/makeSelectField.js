@@ -37,6 +37,7 @@ exports['default'] = function (field) {
 		'valle-select',
 		_extends({
 			// ref = { select }
+			value: field.value ? field.value : null,
 			'class': 'valleForm__select ' + String(customClass),
 			label: field.label,
 			'data-valle-field': field.id,

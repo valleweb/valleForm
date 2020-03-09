@@ -150,7 +150,7 @@ var ValleForm = function ValleForm(_ref) {
     (0, _cleanFields2['default'])();
     setDynamicReadOnly(false);
     setEditable(false);
-    closeValleSpeedDial();
+    //closeValleSpeedDial();
   };
 
   /**

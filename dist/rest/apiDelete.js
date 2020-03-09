@@ -17,7 +17,7 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
 	var customParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 	var _id = arguments[3];
 	var feedbackCb = arguments[4];
-	var formCb = arguments[5];
+	var newCB = arguments[5];
 	var token = arguments[6];
 
 
@@ -67,8 +67,7 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
    */
 
 		feedbackCb(data.evento.mensagem, 'success');
-		(0, _cleanFields2['default'])();
-		formCb();
+		newCB();
 	})['catch'](function () {
 
 		/**

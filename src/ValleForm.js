@@ -1,209 +1,186 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import makeJsxRows from './makeElements/makeJsxRows';
 import makeSpeedDialActions from './makeElements/makeWebcomponents/makeSpeedDialActions';
+
 import Snackbar from './components/Snackbar';
 import Switch from './components/Switch';
-import apiCreate from './rest/apiCreate';
-import addFieldsValues from './fieldsControl/addFieldsValues'
+
+import addFieldsValues from './fieldsControl/addFieldsValues';
 import cleanFields from './fieldsControl/cleanFields';
 
-class ValleForm extends Component {
+/**
+ * TODO: Add JSDocs
+ * 
+ */
 
-	constructor() {
-		super()
-		this.state = {
-			filterByVisibleScreen: false,
-			readOnly: false,
-			editable: false,
-			valleSpeedDialRef: null,
-			defaultFieldsValues: null,
-			feedback: {
-				open: false,
-				text: '',
-				type: ''
-			}
-		}
+const ValleForm = ({
+  rows = [],
+  _id,
+  values = null,
+  readOnly = false,
+  baseApi,
+  canonicalApi,
+  params,
+  $loading = 'loading',
+  buttons = [] }) => {
+
+  const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
+  const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
+  const [filterByVisibleScreen, setFilterByVisibleScreen] = useState(false);
+  const [feedback, setFeedback] = useState({
+    open: false,
+    text: '',
+    type: ''
+  });
+
+  /**
+   * Control vizualization only and editable state
+   * 
+   */
+
+  useEffect(() => setDynamicReadOnly(readOnly), [readOnly]);
+
+  /**
+   * Control dynamic values
+   * 
+   */
+
+  useEffect(() => { if (values) cancelFieldsEditable() }, [values]);
+  
+  /**
+   * Control fields visibility
+   * 
+   */
+
+	const changeVisibleScreen = () => {
+    filterByVisibleScreen
+      ? setFilterByVisibleScreen(false)
+      : setFilterByVisibleScreen(true);
+  }
+
+  /**
+   * Control fields states
+   * 
+   */
+
+	const makeFieldsEditable = () => {
+    setDynamicReadOnly(false);
+    setEditable(true);
+  }
+  
+  const removeFieldsEditable = () => {
+    setDynamicReadOnly(true);
+    setEditable(false);
+  }
+  
+  const cancelFieldsEditable = () => {
+    addFieldsValues(values);
+    setDynamicReadOnly(true);
+    setEditable(false);
+  }
+  
+  const makeFieldsDefault = () => {
+    cleanFields();
+    setDynamicReadOnly(false);
+    setEditable(false);
 	}
 
-	// -----------
-	// Control dynamic values
-	// -----------
+  /**
+   * Control feedbacks status
+   * 
+   */
 
-	componentDidUpdate() {
+  const showFeedback = (text, type) => {
 
-		if (this.props.values && !this.state.defaultFieldsValues) {
-			addFieldsValues(this.props.values)
-			this.setState({ defaultFieldsValues: this.props.values });
-		}
-
-	}
-
-	// -----------
-	// Control vizualization only and editable states
-	// -----------
-
-	componentDidMount() {
-
-		if (this.props.readOnly) {
-			this.setState({ readOnly: true })
-		}
-
-		// -----------
-		// TODO: Remove this. Use a React memory reference instead.
-		// -----------
-
-		this.setState({ valleSpeedDialRef: document.getElementById('valleSpeedDial') })
-
-	}
-
-	makeFieldsEditable() {
-		this.setState({ readOnly: false, editable: true });
-		this.state.valleSpeedDialRef.open = false;
-	}
-
-	removeFieldsEditable() {
-		this.setState({ readOnly: true, editable: false });
-		this.state.valleSpeedDialRef.open = false;
-	}
-
-	cancelFieldsEditable() {
-		addFieldsValues(this.state.defaultFieldsValues);
-		this.setState({ readOnly: true, editable: false });
-		this.state.valleSpeedDialRef.open = false;
-	}
-
-	// -----------
-	// Control visible fields
-	// -----------
-
-	changeVisibleScreen() {
-			this.state.filterByVisibleScreen
-			? this.setState({filterByVisibleScreen: false})
-			: this.setState({filterByVisibleScreen: true})
-	}
-
-	// -----------
-	// Control feedbacks status
-	// -----------
-
-	showFeedback(text, type) {
-
-		// Clear old feedback
-		this.setState({ feedback: {  open: false } })
-
-		// Trick for second state change
+    setFeedback({ open: false }) // Clear old feedback
+		
 		setTimeout(() => {
-			this.setState({ feedback: { open: true, text: text, type: type } })
-		}, 100);
-
-		this.state.valleSpeedDialRef.open = false;
-
-	}
-
-	// -----------
-	// Set form to insert mode
-	// -----------
-
-	makeFieldsDefault() {
-		cleanFields();
-		this.setState({ readOnly: false, editable: false });
-		this.state.valleSpeedDialRef.open = false;
-	}
-
-	// -----------
-	// Control keyboard actions
-	// -----------
-
-	handleKeyboard(event) {
-
-		// const pressEnter = event.which === 13 || event.keyCode === 13;
-
-		// if (pressEnter) {
-		// 	event.preventDefault();
-		// 	apiCreate(
-		// 		this.props.baseApi,
-		// 		this.props.canonicalApi,
-		// 		this.props.params,
-		// 		this.showFeedback.bind(this)
-		// 	)
-		// }
+      setFeedback({
+        open: true,
+        text: text,
+        type: type
+      })
+		}, 100); // Trick for second state change
 
 	}
 
-	render() {
+  /**
+   * Make rows
+   * 
+   */
 
-		// -----------
-		// Control rows
-		// -----------
+  const $rows = makeJsxRows(rows, filterByVisibleScreen, dynamicReadOnly);
 
-		const $rows = makeJsxRows(
-			this.props.rows,
-			this.state.filterByVisibleScreen,
-			this.state.readOnly
-		);
+  /**
+   * UI feedbacks
+   * 
+   */
 
-		// -----------
-		// Control feedbacks reports
-		// -----------
+  const $feedback = feedback.open ? <Snackbar report = { feedback.text } type = { feedback.type }/> : null;
 
-		const $feedback =
-			this.state.feedback.open
-			? <Snackbar report = { this.state.feedback.text } type = { this.state.feedback.type }/>
-			: null;
+  /**
+   * Render ValleForm
+   * 
+   */
 
-		if (this.props.rows.length > 0) { // Await the rows for renderize all component
+  const rowsDataDone = (rows.length > 0);
 
-			return (
-				<div className = "valleForm" onKeyPress = { this.handleKeyboard.bind(this) }>
+  if (rowsDataDone) {
 
-					{/* ------- Header ------- */}
+    return (
+      <div className = "valleForm">
 
-					<Switch
-						label = "Limitar campos"
-						readOnly = { this.state.readOnly }
-						onChange = { () => this.changeVisibleScreen() } />
+        {/* ------- Header ------- */}
 
-					{/* ------- Main ------- */}
+        <Switch
+					label = "Limitar campos"
+					readOnly = { dynamicReadOnly }
+					onChange = { changeVisibleScreen }
+        />
 
-					{ $rows }
+        {/* ------- Main ------- */}
 
-					{/* ------- Footer ------- */}
+        { $rows }
 
-					<span className = "valleForm__sub"> * Campos obrigatórios </span>
+        {/* ------- Footer ------- */}
 
-					<valle-speed-dial id = "valleSpeedDial" class = "valleForm__speedDial">
+        <span className = "valleForm__sub">
+          * Campos obrigatórios
+        </span>
 
-						{
-							makeSpeedDialActions({
-								states: this.state,
-								props: this.props,
-								editCb: this.makeFieldsEditable.bind(this),
-								cancelCb: this.cancelFieldsEditable.bind(this),
-								feedbackCb: this.showFeedback.bind(this),
-								newCB:  this.makeFieldsDefault.bind(this),
-								formCb: this.removeFieldsEditable.bind(this)
-							})
-						}
+        <valle-speed-dial id = "valleSpeedDial" class = "valleForm__speedDial">
 
-					</valle-speed-dial>
+          {
+            makeSpeedDialActions({
+              buttons: buttons,
+              readOnly: dynamicReadOnly,
+              editable: editable,
+              baseApi: baseApi,
+              canonicalApi: canonicalApi,
+              params: params,
+              _id: _id,
+              feedbackCb: showFeedback,
+              editCb: makeFieldsEditable,
+              formCb: removeFieldsEditable,
+              cancelCb: cancelFieldsEditable,
+              newCB: makeFieldsDefault
+            })
+          }
 
-					{ $feedback }
+        </valle-speed-dial>
 
-				</div>
-			)
+        { $feedback }
 
-		} else {
+      </div>
+    );
 
-		// -----------
-		// TODO: Add loading.
-		// -----------
+  } else {
 
-			return <span></span>
+    return ( $loading );
 
-		}
-
-	}
-
+  }
+  
 }
 
 export default ValleForm;

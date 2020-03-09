@@ -1,29 +1,74 @@
 import React from 'react';
 import makeDefaultsSpeedDialActions from './makeDefaultsSpeedDialActions';
 
-export default data => {
+export default ({
+	buttons,
+	readOnly,
+	editable,
+	baseApi,
+	canonicalApi,
+	params,
+	_id,
+	feedbackCb,
+	editCb,
+	formCb,
+	cancelCb,
+	newCB }) => {
 
 	// --------------
 	// Filter actions by status
 	// --------------
 
-	const $createActions = data.props.buttons
+	const $createActions = buttons
 		.filter(button => button.status == "create")
-		.map(button => makeDefaultsSpeedDialActions(button, data))
+		.map(button => makeDefaultsSpeedDialActions({
+			button,
+			baseApi,
+			canonicalApi,
+			params,
+			feedbackCb,
+			editCb,
+			_id,
+			cancelCb,
+			formCb,
+			newCB
+		}))
 
-	const $retrievalActions = data.props.buttons
+	const $retrievalActions = buttons
 		.filter(button => button.status == "retrieval")
-		.map(button => makeDefaultsSpeedDialActions(button, data))
+		.map(button => makeDefaultsSpeedDialActions({
+			button,
+			baseApi,
+			canonicalApi,
+			params,
+			feedbackCb,
+			editCb,
+			_id,
+			cancelCb,
+			formCb,
+			newCB
+		}))
 
-	const $updateActions = data.props.buttons
+	const $updateActions = buttons
 		.filter(button => button.status == "update")
-		.map(button => makeDefaultsSpeedDialActions(button, data))
+		.map(button => makeDefaultsSpeedDialActions({
+			button,
+			baseApi,
+			canonicalApi,
+			params,
+			feedbackCb,
+			editCb,
+			_id,
+			cancelCb,
+			formCb,
+			newCB
+		}))
 
 	// --------------
 	// Ceate a new register state
 	// --------------
 
-	if (!data.states.readOnly && !data.states.editable) {
+	if (!readOnly && !editable) {
 		return (
 			<span className = "valleForm__speedDial__actions">
 				{ $createActions }
@@ -35,7 +80,7 @@ export default data => {
 	// Ready only state
 	// --------------
 
-	if (data.states.readOnly && !data.states.editable) {
+	if (readOnly && !editable) {
 		return (
 			<span className = "valleForm__speedDial__actions">
 				{ $retrievalActions }
@@ -47,7 +92,7 @@ export default data => {
 	// Editable only state
 	// --------------
 
-	if(!data.states.readOnly && data.states.editable) {
+	if(!readOnly && editable) {
 		return (
 			<span className = "valleForm__speedDial__actions">
 				{ $updateActions }

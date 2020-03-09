@@ -30,7 +30,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       _id = _ref._id,
       cancelCb = _ref.cancelCb,
       formCb = _ref.formCb,
-      newCB = _ref.newCB;
+      newCB = _ref.newCB,
+      token = _ref.token;
 
 
   if (button.action == 'save') {
@@ -43,7 +44,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb);
+            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token);
           }
 
           return onClick;
@@ -85,7 +86,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb);
+            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token);
           }
 
           return onClick;
@@ -127,7 +128,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb);
+            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token);
           }
 
           return onClick;

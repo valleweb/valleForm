@@ -24,7 +24,8 @@ exports['default'] = function (_ref) {
 	    editCb = _ref.editCb,
 	    formCb = _ref.formCb,
 	    cancelCb = _ref.cancelCb,
-	    newCB = _ref.newCB;
+	    newCB = _ref.newCB,
+	    token = _ref.token;
 
 
 	// --------------
@@ -44,7 +45,8 @@ exports['default'] = function (_ref) {
 			_id: _id,
 			cancelCb: cancelCb,
 			formCb: formCb,
-			newCB: newCB
+			newCB: newCB,
+			token: token
 		});
 	});
 
@@ -61,7 +63,8 @@ exports['default'] = function (_ref) {
 			_id: _id,
 			cancelCb: cancelCb,
 			formCb: formCb,
-			newCB: newCB
+			newCB: newCB,
+			token: token
 		});
 	});
 
@@ -78,7 +81,8 @@ exports['default'] = function (_ref) {
 			_id: _id,
 			cancelCb: cancelCb,
 			formCb: formCb,
-			newCB: newCB
+			newCB: newCB,
+			token: token
 		});
 	});
 

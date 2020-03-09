@@ -53,7 +53,9 @@ var ValleForm = function ValleForm(_ref) {
       _ref$$loading = _ref.$loading,
       $loading = _ref$$loading === undefined ? 'loading' : _ref$$loading,
       _ref$buttons = _ref.buttons,
-      buttons = _ref$buttons === undefined ? [] : _ref$buttons;
+      buttons = _ref$buttons === undefined ? [] : _ref$buttons,
+      _ref$token = _ref.token,
+      token = _ref$token === undefined ? '' : _ref$token;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -114,7 +116,7 @@ var ValleForm = function ValleForm(_ref) {
 
   var valleSpeedDialRef = _react2['default'].createRef();
 
-  var colseValleSpeedDial = function colseValleSpeedDial() {
+  var closeValleSpeedDial = function closeValleSpeedDial() {
     var valleSpeedDial = valleSpeedDialRef.current;
     valleSpeedDial.open = false;
   };
@@ -127,13 +129,13 @@ var ValleForm = function ValleForm(_ref) {
   var makeFieldsEditable = function makeFieldsEditable() {
     setDynamicReadOnly(false);
     setEditable(true);
-    colseValleSpeedDial();
+    closeValleSpeedDial();
   };
 
   var removeFieldsEditable = function removeFieldsEditable() {
     setDynamicReadOnly(true);
     setEditable(false);
-    colseValleSpeedDial();
+    //closeValleSpeedDial();
   };
 
   var cancelFieldsEditable = function cancelFieldsEditable() {
@@ -141,14 +143,14 @@ var ValleForm = function ValleForm(_ref) {
     (0, _addFieldsValues2['default'])(values);
     setDynamicReadOnly(true);
     setEditable(false);
-    colseValleSpeedDial();
+    closeValleSpeedDial();
   };
 
   var makeFieldsDefault = function makeFieldsDefault() {
     (0, _cleanFields2['default'])();
     setDynamicReadOnly(false);
     setEditable(false);
-    colseValleSpeedDial();
+    closeValleSpeedDial();
   };
 
   /**
@@ -167,8 +169,6 @@ var ValleForm = function ValleForm(_ref) {
         type: type
       });
     }, 100); // Trick for second state change
-
-    colseValleSpeedDial();
   };
 
   /**
@@ -223,7 +223,8 @@ var ValleForm = function ValleForm(_ref) {
           editCb: makeFieldsEditable,
           formCb: removeFieldsEditable,
           cancelCb: cancelFieldsEditable,
-          newCB: makeFieldsDefault
+          newCB: makeFieldsDefault,
+          token: token
         })
       ),
       $feedback

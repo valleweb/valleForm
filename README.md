@@ -193,6 +193,7 @@ render() {
 - `params` (object) - Custom params that are added to all requests.
 - `values` (object) - All values for populate a view/edit form.
 - `_id` (string) - Unique Identifier for `UPDATE` and `DELETE`.
+- `token` (string) - JWT for requests authorization.
 - `readOnly` (boolean) - Make all fiels read only.
 
 <hr>

@@ -23,7 +23,8 @@ const ValleForm = ({
   canonicalApi,
   params,
   $loading = 'loading',
-  buttons = [] }) => {
+  buttons = [],
+  token = ''}) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
   const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
@@ -120,8 +121,6 @@ const ValleForm = ({
       })
 		}, 100); // Trick for second state change
 
-		colseValleSpeedDial();
-
 	}
 
   /**
@@ -183,7 +182,8 @@ const ValleForm = ({
               editCb: makeFieldsEditable,
               formCb: removeFieldsEditable,
               cancelCb: cancelFieldsEditable,
-							newCB: makeFieldsDefault
+              newCB: makeFieldsDefault,
+              token
             })
           }
 

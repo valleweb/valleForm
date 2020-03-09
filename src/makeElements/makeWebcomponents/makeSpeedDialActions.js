@@ -13,7 +13,8 @@ export default ({
 	editCb,
 	formCb,
 	cancelCb,
-	newCB }) => {
+	newCB,
+	token }) => {
 
 	// --------------
 	// Filter actions by status
@@ -31,7 +32,8 @@ export default ({
 			_id,
 			cancelCb,
 			formCb,
-			newCB
+			newCB,
+			token
 		}))
 
 	const $retrievalActions = buttons
@@ -46,7 +48,8 @@ export default ({
 			_id,
 			cancelCb,
 			formCb,
-			newCB
+			newCB,
+			token
 		}))
 
 	const $updateActions = buttons
@@ -61,7 +64,8 @@ export default ({
 			_id,
 			cancelCb,
 			formCb,
-			newCB
+			newCB,
+			token
 		}))
 
 	// --------------

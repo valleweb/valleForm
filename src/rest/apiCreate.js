@@ -1,27 +1,98 @@
-import axios from 'axios';
 import getFieldsParams from '../fieldsControl/getFieldsParams';
-import cleanFields from '../fieldsControl/cleanFields'
+import cleanFields from '../fieldsControl/cleanFields';
 
-export default (baseApi, canonicalApi, customParams = {}, feedbackCb) => {
+/**
+ * TODO: Add JSDocs
+ * 
+ */
+
+const apiCreate = (
+	baseApi,
+	canonicalApi,
+	customParams = {},
+	feedbackCb,
+	token) => {
+
+	/**
+   * Get all form values
+   * 
+   */
 
 	const fieldsParams = getFieldsParams();
 
 	if (fieldsParams) {
 
+		/**
+		 * API url
+		 * 
+		 */
+
 		const apiPath = `${baseApi}${canonicalApi}`;
-		const params = Object.assign(customParams, fieldsParams);
 
-		axios.post(apiPath, params)
-				 .then(res => {
-					 feedbackCb('Dados salvos com sucesso', 'success');
-					 cleanFields();
-					})
-				 .catch(err => feedbackCb('Erro interno no servidor', 'error'))
+		/**
+		 * Request configs
+		 * 
+		 */
 
+		const method = 'POST';
+
+		const headers = new Headers({
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`
+		});
+
+		/**
+		 * Resquest data structure
+		 * 
+		 */
+
+		const body = JSON.stringify({
+			evento: {
+				...customParams,
+				dados: fieldsParams
+			}
+		});
+
+		/**
+		 * HTTP POST
+		 * 
+		 */
+
+		fetch(apiPath, { method, headers, body })
+			.then(res => res.json())
+			.then(data => {
+
+				/**
+				 * Request success
+				 * 
+				 */
+				
+				feedbackCb(data.evento.mensagem, 'success');
+				cleanFields();
+
+			})
+			.catch(() => {
+
+				/**
+				 * Request error
+				 * 
+				 */
+
+				feedbackCb(data.evento.mensagem, 'error');
+
+			});
+		
 	} else {
+
+		/**
+		 * Form error
+		 * 
+		 */
 
 		feedbackCb('Erro ao preencher o formulário', 'error');
 
 	}
 
 }
+
+export default apiCreate;

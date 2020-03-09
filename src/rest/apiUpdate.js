@@ -1,5 +1,9 @@
-import axios from 'axios';
 import getFieldsParams from '../fieldsControl/getFieldsParams';
+
+/**
+ * TODO: Add JSDocs
+ * 
+ */
 
 const apiUpdate = (
 	baseApi,
@@ -51,7 +55,7 @@ const apiUpdate = (
 		});
 
 		/**
-		 * HTTP POST
+		 * HTTP PUT
 		 * 
 		 */
 

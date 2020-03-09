@@ -1,16 +1,81 @@
-import axios from 'axios';
 import cleanFields from '../fieldsControl/cleanFields'
 
-export default (baseApi, canonicalApi, customParams = {}, _id, feedbackCb, formCb) => {
+/**
+ * TODO: Add JSDocs
+ * 
+ */
 
-	const apiPath = `${baseApi}${canonicalApi}/${_id}`;
+const apiDelete = (
+	baseApi,
+	canonicalApi,
+	customParams = {},
+	_id,
+	feedbackCb,
+	formCb,
+	token) => {
 
-	axios.delete(apiPath, customParams)
-			 .then(res => {
-					feedbackCb('Dados apagados com sucesso', 'success');
-					cleanFields();
-					formCb();
-				})
-			 .catch(err => feedbackCb('Erro interno no servidor', 'error'))
+		/**
+		 * API url
+		 * 
+		 */
+
+		const apiPath = `${baseApi}${canonicalApi}`;
+
+		/**
+		 * Request configs
+		 * 
+		 */
+
+		const method = 'DELETE';
+
+		const headers = new Headers({
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`
+		});
+
+		/**
+		 * Resquest data structure
+		 * 
+		 */
+
+		const body = JSON.stringify({
+			evento: {
+				...customParams,
+				action: 'delete',
+				dados: null
+			}
+		});
+
+		/**
+		 * HTTP DELETE
+		 * 
+		 */
+
+		fetch(apiPath, { method, headers, body })
+			.then(res => res.json())
+			.then(data => {
+
+				/**
+				 * Request success
+				 * 
+				 */
+				
+				feedbackCb(data.evento.mensagem, 'success');
+				cleanFields();
+				formCb();
+
+			})
+			.catch(() => {
+
+				/**
+				 * Request error
+				 * 
+				 */
+
+				feedbackCb('Erro interno no servidor', 'error')
+
+			});
 
 }
+
+export default apiDelete;

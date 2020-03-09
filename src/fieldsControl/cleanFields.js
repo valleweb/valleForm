@@ -5,6 +5,14 @@ export default () => {
 	// -----------
 
 	const allFields = document.querySelectorAll('[data-valle-field]');
-	allFields.forEach(field => field.value = '');
+
+	allFields.forEach(field => {
+
+		field.removeAttribute('error');
+		field.removeAttribute('data-valle-error');
+
+		field.value = '';
+
+	});
 
 }

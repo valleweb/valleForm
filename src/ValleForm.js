@@ -75,6 +75,7 @@ const ValleForm = ({
   }
   
   const cancelFieldsEditable = () => {
+		cleanFields();
     addFieldsValues(values);
     setDynamicReadOnly(true);
     setEditable(false);

@@ -17,7 +17,7 @@ export default () => {
 		}
 
 		// Global required validation
-		if((field.required || field['data-valle-required']) && !field.value || field.value == '') {
+		if((field.required || field.dataset.valleRequired) && (!field.value || field.value == '')) {
 			hasError = true;
 			field.setAttribute('error', 'true');
 			field.setAttribute('data-valle-error', 'true');

@@ -101,7 +101,7 @@ const ValleForm = ({
     cleanFields();
     setDynamicReadOnly(false);
 		setEditable(false);
-		closeValleSpeedDial();
+		//closeValleSpeedDial();
 	}
 
   /**

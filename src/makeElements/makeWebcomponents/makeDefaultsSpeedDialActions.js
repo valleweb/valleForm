@@ -95,7 +95,7 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () =>  apiDelete(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token) }>
+        onClick = { () =>  apiDelete(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token) }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0V0z"/>

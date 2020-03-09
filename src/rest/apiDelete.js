@@ -11,7 +11,7 @@ const apiDelete = (
 	customParams = {},
 	_id,
 	feedbackCb,
-	formCb,
+	newCB,
 	token) => {
 
 		/**
@@ -61,8 +61,7 @@ const apiDelete = (
 				 */
 				
 				feedbackCb(data.evento.mensagem, 'success');
-				cleanFields();
-				formCb();
+				newCB();
 
 			})
 			.catch(() => {

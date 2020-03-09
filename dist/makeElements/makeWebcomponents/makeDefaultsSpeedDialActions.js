@@ -20,7 +20,18 @@ var _apiDelete2 = _interopRequireDefault(_apiDelete);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDialActions(button, data) {
+exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDialActions(_ref) {
+  var button = _ref.button,
+      baseApi = _ref.baseApi,
+      canonicalApi = _ref.canonicalApi,
+      params = _ref.params,
+      feedbackCb = _ref.feedbackCb,
+      editCb = _ref.editCb,
+      _id = _ref._id,
+      cancelCb = _ref.cancelCb,
+      formCb = _ref.formCb,
+      newCB = _ref.newCB;
+
 
   if (button.action == 'save') {
     return _react2['default'].createElement(
@@ -32,7 +43,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiCreate2['default'])(data.props.baseApi, data.props.canonicalApi, data.props.params, data.feedbackCb);
+            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb);
           }
 
           return onClick;
@@ -54,7 +65,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         sloted: true,
         label: button.text,
         'label-direction': 'left',
-        onClick: data.editCb },
+        onClick: editCb },
       _react2['default'].createElement(
         'svg',
         { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
@@ -74,7 +85,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiUpdate2['default'])(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb, data.formCb);
+            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb);
           }
 
           return onClick;
@@ -96,7 +107,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         sloted: true,
         label: button.text,
         'label-direction': 'left',
-        onClick: data.cancelCb },
+        onClick: cancelCb },
       _react2['default'].createElement(
         'svg',
         { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
@@ -116,7 +127,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiDelete2['default'])(data.props.baseApi, data.props.canonicalApi, data.props.params, data.props._id, data.feedbackCb, data.formCb);
+            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb);
           }
 
           return onClick;
@@ -139,7 +150,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         sloted: true,
         label: button.text,
         'label-direction': 'left',
-        onClick: data.newCB },
+        onClick: newCB },
       _react2['default'].createElement(
         'svg',
         { xmlns: 'http://www.w3.org/2000/svg', width: '20', height: '20', viewBox: '0 0 24 24' },

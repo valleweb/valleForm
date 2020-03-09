@@ -1,8 +1,8 @@
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _react = require('react');
 
@@ -24,10 +24,6 @@ var _Switch = require('./components/Switch');
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
-var _apiCreate = require('./rest/apiCreate');
-
-var _apiCreate2 = _interopRequireDefault(_apiCreate);
-
 var _addFieldsValues = require('./fieldsControl/addFieldsValues');
 
 var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
@@ -38,256 +34,204 @@ var _cleanFields2 = _interopRequireDefault(_cleanFields);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/**
+ * TODO: Add JSDocs
+ * 
+ */
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var ValleForm = function ValleForm(_ref) {
+  var _ref$rows = _ref.rows,
+      rows = _ref$rows === undefined ? [] : _ref$rows,
+      _id = _ref._id,
+      _ref$values = _ref.values,
+      values = _ref$values === undefined ? null : _ref$values,
+      _ref$readOnly = _ref.readOnly,
+      readOnly = _ref$readOnly === undefined ? false : _ref$readOnly,
+      baseApi = _ref.baseApi,
+      canonicalApi = _ref.canonicalApi,
+      params = _ref.params,
+      _ref$$loading = _ref.$loading,
+      $loading = _ref$$loading === undefined ? 'loading' : _ref$$loading,
+      _ref$buttons = _ref.buttons,
+      buttons = _ref$buttons === undefined ? [] : _ref$buttons;
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      dynamicReadOnly = _useState2[0],
+      setDynamicReadOnly = _useState2[1];
 
-var ValleForm = function (_Component) {
-	_inherits(ValleForm, _Component);
+  var _useState3 = (0, _react.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      editable = _useState4[0],
+      setEditable = _useState4[1]; // For makeSpeedDialActionsl use
 
-	function ValleForm() {
-		_classCallCheck(this, ValleForm);
 
-		var _this = _possibleConstructorReturn(this, (ValleForm.__proto__ || Object.getPrototypeOf(ValleForm)).call(this));
+  var _useState5 = (0, _react.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      filterByVisibleScreen = _useState6[0],
+      setFilterByVisibleScreen = _useState6[1];
 
-		_this.state = {
-			filterByVisibleScreen: false,
-			readOnly: false,
-			editable: false,
-			valleSpeedDialRef: null,
-			defaultFieldsValues: null,
-			feedback: {
-				open: false,
-				text: '',
-				type: ''
-			}
-		};
-		return _this;
-	}
+  var _useState7 = (0, _react.useState)({
+    open: false,
+    text: '',
+    type: ''
+  }),
+      _useState8 = _slicedToArray(_useState7, 2),
+      feedback = _useState8[0],
+      setFeedback = _useState8[1];
 
-	// -----------
-	// Control dynamic values
-	// -----------
+  /**
+   * Control vizualization only and editable state
+   * 
+   */
 
-	_createClass(ValleForm, [{
-		key: 'componentDidUpdate',
-		value: function () {
-			function componentDidUpdate() {
+  (0, _react.useEffect)(function () {
+    return setDynamicReadOnly(readOnly);
+  }, [readOnly]);
 
-				if (this.props.values && !this.state.defaultFieldsValues) {
-					(0, _addFieldsValues2['default'])(this.props.values);
-					this.setState({ defaultFieldsValues: this.props.values });
-				}
-			}
+  /**
+   * Control dynamic values
+   * 
+   */
 
-			return componentDidUpdate;
-		}()
+  (0, _react.useEffect)(function () {
+    if (values) cancelFieldsEditable();
+  }, [values]);
 
-		// -----------
-		// Control vizualization only and editable states
-		// -----------
+  /**
+   * Control fields visibility
+   * 
+   */
 
-	}, {
-		key: 'componentDidMount',
-		value: function () {
-			function componentDidMount() {
+  var changeVisibleScreen = function changeVisibleScreen() {
+    filterByVisibleScreen ? setFilterByVisibleScreen(false) : setFilterByVisibleScreen(true);
+  };
 
-				if (this.props.readOnly) {
-					this.setState({ readOnly: true });
-				}
+  /**
+   * Control speed dial state
+   * 
+   */
 
-				// -----------
-				// TODO: Remove this. Use a React memory reference instead.
-				// -----------
+  var valleSpeedDialRef = _react2['default'].createRef();
 
-				this.setState({ valleSpeedDialRef: document.getElementById('valleSpeedDial') });
-			}
+  var colseValleSpeedDial = function colseValleSpeedDial() {
+    var valleSpeedDial = valleSpeedDialRef.current;
+    valleSpeedDial.open = false;
+  };
 
-			return componentDidMount;
-		}()
-	}, {
-		key: 'makeFieldsEditable',
-		value: function () {
-			function makeFieldsEditable() {
-				this.setState({ readOnly: false, editable: true });
-				this.state.valleSpeedDialRef.open = false;
-			}
+  /**
+   * Control fields states
+   * 
+   */
 
-			return makeFieldsEditable;
-		}()
-	}, {
-		key: 'removeFieldsEditable',
-		value: function () {
-			function removeFieldsEditable() {
-				this.setState({ readOnly: true, editable: false });
-				this.state.valleSpeedDialRef.open = false;
-			}
+  var makeFieldsEditable = function makeFieldsEditable() {
+    setDynamicReadOnly(false);
+    setEditable(true);
+    colseValleSpeedDial();
+  };
 
-			return removeFieldsEditable;
-		}()
-	}, {
-		key: 'cancelFieldsEditable',
-		value: function () {
-			function cancelFieldsEditable() {
-				(0, _addFieldsValues2['default'])(this.state.defaultFieldsValues);
-				this.setState({ readOnly: true, editable: false });
-				this.state.valleSpeedDialRef.open = false;
-			}
+  var removeFieldsEditable = function removeFieldsEditable() {
+    setDynamicReadOnly(true);
+    setEditable(false);
+    colseValleSpeedDial();
+  };
 
-			return cancelFieldsEditable;
-		}()
+  var cancelFieldsEditable = function cancelFieldsEditable() {
+    (0, _cleanFields2['default'])();
+    (0, _addFieldsValues2['default'])(values);
+    setDynamicReadOnly(true);
+    setEditable(false);
+    colseValleSpeedDial();
+  };
 
-		// -----------
-		// Control visible fields
-		// -----------
+  var makeFieldsDefault = function makeFieldsDefault() {
+    (0, _cleanFields2['default'])();
+    setDynamicReadOnly(false);
+    setEditable(false);
+    colseValleSpeedDial();
+  };
 
-	}, {
-		key: 'changeVisibleScreen',
-		value: function () {
-			function changeVisibleScreen() {
-				this.state.filterByVisibleScreen ? this.setState({ filterByVisibleScreen: false }) : this.setState({ filterByVisibleScreen: true });
-			}
+  /**
+   * Control feedbacks status
+   * 
+   */
 
-			return changeVisibleScreen;
-		}()
+  var showFeedback = function showFeedback(text, type) {
 
-		// -----------
-		// Control feedbacks status
-		// -----------
+    setFeedback({ open: false }); // Clear old feedback
 
-	}, {
-		key: 'showFeedback',
-		value: function () {
-			function showFeedback(text, type) {
-				var _this2 = this;
+    setTimeout(function () {
+      setFeedback({
+        open: true,
+        text: text,
+        type: type
+      });
+    }, 100); // Trick for second state change
 
-				// Clear old feedback
-				this.setState({ feedback: { open: false } });
+    colseValleSpeedDial();
+  };
 
-				// Trick for second state change
-				setTimeout(function () {
-					_this2.setState({ feedback: { open: true, text: text, type: type } });
-				}, 100);
+  /**
+   * Make rows
+   * 
+   */
 
-				this.state.valleSpeedDialRef.open = false;
-			}
+  var $rows = (0, _makeJsxRows2['default'])(rows, filterByVisibleScreen, dynamicReadOnly);
 
-			return showFeedback;
-		}()
+  /**
+   * UI feedbacks
+   * 
+   */
 
-		// -----------
-		// Set form to insert mode
-		// -----------
+  var $feedback = feedback.open ? _react2['default'].createElement(_Snackbar2['default'], { report: feedback.text, type: feedback.type }) : null;
 
-	}, {
-		key: 'makeFieldsDefault',
-		value: function () {
-			function makeFieldsDefault() {
-				(0, _cleanFields2['default'])();
-				this.setState({ readOnly: false, editable: false });
-				this.state.valleSpeedDialRef.open = false;
-			}
+  /**
+   * Render ValleForm
+   * 
+   */
 
-			return makeFieldsDefault;
-		}()
+  var rowsDataDone = rows.length > 0;
 
-		// -----------
-		// Control keyboard actions
-		// -----------
+  if (rowsDataDone) {
 
-	}, {
-		key: 'handleKeyboard',
-		value: function () {
-			function handleKeyboard(event) {
+    return _react2['default'].createElement(
+      'div',
+      { className: 'valleForm' },
+      _react2['default'].createElement(_Switch2['default'], {
+        label: 'Limitar campos',
+        readOnly: dynamicReadOnly,
+        onChange: changeVisibleScreen
+      }),
+      $rows,
+      _react2['default'].createElement(
+        'span',
+        { className: 'valleForm__sub' },
+        '* Campos obrigat\xF3rios'
+      ),
+      _react2['default'].createElement(
+        'valle-speed-dial',
+        { id: 'valleSpeedDial', 'class': 'valleForm__speedDial', ref: valleSpeedDialRef },
+        (0, _makeSpeedDialActions2['default'])({
+          buttons: buttons,
+          readOnly: dynamicReadOnly,
+          editable: editable,
+          baseApi: baseApi,
+          canonicalApi: canonicalApi,
+          params: params,
+          _id: _id,
+          feedbackCb: showFeedback,
+          editCb: makeFieldsEditable,
+          formCb: removeFieldsEditable,
+          cancelCb: cancelFieldsEditable,
+          newCB: makeFieldsDefault
+        })
+      ),
+      $feedback
+    );
+  } else {
 
-				// const pressEnter = event.which === 13 || event.keyCode === 13;
-
-				// if (pressEnter) {
-				// 	event.preventDefault();
-				// 	apiCreate(
-				// 		this.props.baseApi,
-				// 		this.props.canonicalApi,
-				// 		this.props.params,
-				// 		this.showFeedback.bind(this)
-				// 	)
-				// }
-
-			}
-
-			return handleKeyboard;
-		}()
-	}, {
-		key: 'render',
-		value: function () {
-			function render() {
-				var _this3 = this;
-
-				// -----------
-				// Control rows
-				// -----------
-
-				var $rows = (0, _makeJsxRows2['default'])(this.props.rows, this.state.filterByVisibleScreen, this.state.readOnly);
-
-				// -----------
-				// Control feedbacks reports
-				// -----------
-
-				var $feedback = this.state.feedback.open ? _react2['default'].createElement(_Snackbar2['default'], { report: this.state.feedback.text, type: this.state.feedback.type }) : null;
-
-				if (this.props.rows.length > 0) {
-					// Await the rows for renderize all component
-
-					return _react2['default'].createElement(
-						'div',
-						{ className: 'valleForm', onKeyPress: this.handleKeyboard.bind(this) },
-						_react2['default'].createElement(_Switch2['default'], {
-							label: 'Limitar campos',
-							readOnly: this.state.readOnly,
-							onChange: function () {
-								function onChange() {
-									return _this3.changeVisibleScreen();
-								}
-
-								return onChange;
-							}() }),
-						$rows,
-						_react2['default'].createElement(
-							'span',
-							{ className: 'valleForm__sub' },
-							' * Campos obrigat\xF3rios '
-						),
-						_react2['default'].createElement(
-							'valle-speed-dial',
-							{ id: 'valleSpeedDial', 'class': 'valleForm__speedDial' },
-							(0, _makeSpeedDialActions2['default'])({
-								states: this.state,
-								props: this.props,
-								editCb: this.makeFieldsEditable.bind(this),
-								cancelCb: this.cancelFieldsEditable.bind(this),
-								feedbackCb: this.showFeedback.bind(this),
-								newCB: this.makeFieldsDefault.bind(this),
-								formCb: this.removeFieldsEditable.bind(this)
-							})
-						),
-						$feedback
-					);
-				} else {
-
-					// -----------
-					// TODO: Add loading.
-					// -----------
-
-					return _react2['default'].createElement('span', null);
-				}
-			}
-
-			return render;
-		}()
-	}]);
-
-	return ValleForm;
-}(_react.Component);
+    return $loading;
+  }
+};
 
 exports['default'] = ValleForm;

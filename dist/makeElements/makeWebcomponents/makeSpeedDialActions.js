@@ -12,35 +12,81 @@ var _makeDefaultsSpeedDialActions2 = _interopRequireDefault(_makeDefaultsSpeedDi
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-exports['default'] = function (data) {
+exports['default'] = function (_ref) {
+	var buttons = _ref.buttons,
+	    readOnly = _ref.readOnly,
+	    editable = _ref.editable,
+	    baseApi = _ref.baseApi,
+	    canonicalApi = _ref.canonicalApi,
+	    params = _ref.params,
+	    _id = _ref._id,
+	    feedbackCb = _ref.feedbackCb,
+	    editCb = _ref.editCb,
+	    formCb = _ref.formCb,
+	    cancelCb = _ref.cancelCb,
+	    newCB = _ref.newCB;
+
 
 	// --------------
 	// Filter actions by status
 	// --------------
 
-	var $createActions = data.props.buttons.filter(function (button) {
+	var $createActions = buttons.filter(function (button) {
 		return button.status == "create";
 	}).map(function (button) {
-		return (0, _makeDefaultsSpeedDialActions2['default'])(button, data);
+		return (0, _makeDefaultsSpeedDialActions2['default'])({
+			button: button,
+			baseApi: baseApi,
+			canonicalApi: canonicalApi,
+			params: params,
+			feedbackCb: feedbackCb,
+			editCb: editCb,
+			_id: _id,
+			cancelCb: cancelCb,
+			formCb: formCb,
+			newCB: newCB
+		});
 	});
 
-	var $retrievalActions = data.props.buttons.filter(function (button) {
+	var $retrievalActions = buttons.filter(function (button) {
 		return button.status == "retrieval";
 	}).map(function (button) {
-		return (0, _makeDefaultsSpeedDialActions2['default'])(button, data);
+		return (0, _makeDefaultsSpeedDialActions2['default'])({
+			button: button,
+			baseApi: baseApi,
+			canonicalApi: canonicalApi,
+			params: params,
+			feedbackCb: feedbackCb,
+			editCb: editCb,
+			_id: _id,
+			cancelCb: cancelCb,
+			formCb: formCb,
+			newCB: newCB
+		});
 	});
 
-	var $updateActions = data.props.buttons.filter(function (button) {
+	var $updateActions = buttons.filter(function (button) {
 		return button.status == "update";
 	}).map(function (button) {
-		return (0, _makeDefaultsSpeedDialActions2['default'])(button, data);
+		return (0, _makeDefaultsSpeedDialActions2['default'])({
+			button: button,
+			baseApi: baseApi,
+			canonicalApi: canonicalApi,
+			params: params,
+			feedbackCb: feedbackCb,
+			editCb: editCb,
+			_id: _id,
+			cancelCb: cancelCb,
+			formCb: formCb,
+			newCB: newCB
+		});
 	});
 
 	// --------------
 	// Ceate a new register state
 	// --------------
 
-	if (!data.states.readOnly && !data.states.editable) {
+	if (!readOnly && !editable) {
 		return _react2['default'].createElement(
 			'span',
 			{ className: 'valleForm__speedDial__actions' },
@@ -52,7 +98,7 @@ exports['default'] = function (data) {
 	// Ready only state
 	// --------------
 
-	if (data.states.readOnly && !data.states.editable) {
+	if (readOnly && !editable) {
 		return _react2['default'].createElement(
 			'span',
 			{ className: 'valleForm__speedDial__actions' },
@@ -64,7 +110,7 @@ exports['default'] = function (data) {
 	// Editable only state
 	// --------------
 
-	if (!data.states.readOnly && data.states.editable) {
+	if (!readOnly && editable) {
 		return _react2['default'].createElement(
 			'span',
 			{ className: 'valleForm__speedDial__actions' },

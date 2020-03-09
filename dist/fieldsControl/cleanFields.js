@@ -9,7 +9,12 @@ exports['default'] = function () {
 	// -----------
 
 	var allFields = document.querySelectorAll('[data-valle-field]');
+
 	allFields.forEach(function (field) {
-		return field.value = '';
+
+		field.removeAttribute('error');
+		field.removeAttribute('data-valle-error');
+
+		field.value = '';
 	});
 };

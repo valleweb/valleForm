@@ -77,7 +77,6 @@
     "uglify-js": "^2.7.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "prop-types": "^15.5.10",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

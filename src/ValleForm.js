@@ -67,7 +67,7 @@ const ValleForm = ({
 
 	const valleSpeedDialRef = React.createRef();
 
-	const colseValleSpeedDial = () => {
+	const closeValleSpeedDial = () => {
 		const valleSpeedDial = valleSpeedDialRef.current;
 		valleSpeedDial.open = false;
 	}
@@ -80,13 +80,13 @@ const ValleForm = ({
 	const makeFieldsEditable = () => {
     setDynamicReadOnly(false);
 		setEditable(true);
-		colseValleSpeedDial();
+		closeValleSpeedDial();
   }
   
   const removeFieldsEditable = () => {
     setDynamicReadOnly(true);
 		setEditable(false);
-		colseValleSpeedDial();
+		//closeValleSpeedDial();
   }
   
   const cancelFieldsEditable = () => {
@@ -94,14 +94,14 @@ const ValleForm = ({
     addFieldsValues(values);
     setDynamicReadOnly(true);
 		setEditable(false);
-		colseValleSpeedDial();
+		closeValleSpeedDial();
   }
   
   const makeFieldsDefault = () => {
     cleanFields();
     setDynamicReadOnly(false);
 		setEditable(false);
-		colseValleSpeedDial();
+		closeValleSpeedDial();
 	}
 
   /**

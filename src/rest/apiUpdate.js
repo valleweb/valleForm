@@ -1,26 +1,95 @@
 import axios from 'axios';
 import getFieldsParams from '../fieldsControl/getFieldsParams';
 
-export default (baseApi, canonicalApi, customParams = {}, _id, feedbackCb, formCb) => {
+const apiUpdate = (
+	baseApi,
+	canonicalApi,
+	customParams = {},
+	_id,
+	feedbackCb,
+	formCb,
+	token) => {
+
+	/**
+   * Get all form values
+   * 
+   */
 
 	const fieldsParams = getFieldsParams();
 
 	if (fieldsParams) {
 
-		const apiPath = `${baseApi}${canonicalApi}/${_id}`;
-		const params = Object.assign(customParams, getFieldsParams());
+		/**
+		 * API url
+		 * 
+		 */
 
-		axios.put(apiPath, params)
-				 .then(res => {
-						feedbackCb('Dados atualizados com sucesso', 'success');
-						formCb();
-					})
-				 .catch(err => feedbackCb('Erro interno no servidor', 'error'))
+		const apiPath = `${baseApi}${canonicalApi}`;
+
+		/**
+		 * Request configs
+		 * 
+		 */
+
+		const method = 'PUT';
+
+		const headers = new Headers({
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`
+		});
+
+		/**
+		 * Resquest data structure
+		 * 
+		 */
+
+		const body = JSON.stringify({
+			evento: {
+				...customParams,
+				dados: fieldsParams
+			}
+		});
+
+		/**
+		 * HTTP POST
+		 * 
+		 */
+
+		fetch(apiPath, { method, headers, body })
+			.then(res => res.json())
+			.then(data => {
+
+				/**
+				 * Request success
+				 * 
+				 */
+				
+				feedbackCb(data.evento.mensagem, 'success');
+				formCb();
+
+			})
+			.catch(() => {
+
+				/**
+				 * Request error
+				 * 
+				 */
+
+				feedbackCb('Erro interno no servidor', 'error');
+
+			});
 
 	} else {
+
+		/**
+		 * Form error
+		 * 
+		 */
 
 		feedbackCb('Erro ao preencher o formulário', 'error');
 
 	}
 
 }
+
+export default apiUpdate;

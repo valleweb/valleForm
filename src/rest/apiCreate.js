@@ -78,7 +78,7 @@ const apiCreate = (
 				 * 
 				 */
 
-				feedbackCb(data.evento.mensagem, 'error');
+				feedbackCb('Erro interno no servidor', 'error');
 
 			});
 		

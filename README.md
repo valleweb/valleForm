@@ -10,6 +10,7 @@
 ```jsx
 <valleForm
     rows = { [...] }
+    buttons = { [...] }
     baseApi = ''
     canonicalApi = ''
     params = { {...} }
@@ -51,6 +52,7 @@
 - `Read only` automatic for all fields.
 - `a11y` forms (by valle web components).
 - `Responsive` forms.
+- Dynamic speed dial buttons.
 - Inherited features.
 	- All [valle-input](https://github.com/valleweb/valle-input) features.
 	- All [valle-select](https://github.com/valleweb/valle-select) features.
@@ -102,6 +104,7 @@ render() {
     return (
         <valleForm
             rows = { equipamentos.lines }
+            buttons = { equipamentos.buttons }
             baseApi = 'http://localhost:3000/'
             canonicalApi = 'api/equipamentos'
             params = { {empresa: '', estabelecimento: ''} }
@@ -130,6 +133,7 @@ render() {
     return (
         <valleForm
             rows = { equipamentos.lines }
+            buttons = { equipamentos.buttons }
             baseApi = 'http://localhost:3000/'
             canonicalApi = 'api/equipamentos'
             params = { {empresa: '', estabelecimento: ''} }
@@ -161,6 +165,7 @@ render() {
     return (
         <valleForm
             rows = { equipamentos.lines }
+            buttons = { equipamentos.buttons }
             baseApi = 'http://localhost:3000/'
             canonicalApi = 'api/equipamentos'
             params = { {empresa: '', estabelecimento: ''} }
@@ -182,6 +187,7 @@ render() {
 ### Props
 
 - `rows` (array) - All form rows with [valle data structure](https://github.com/valleweb/valle-screen-data-structure).
+- `buttons` (array) - All form buttons with [valle data structure](https://github.com/valleweb/valle-screen-data-structure).
 - `baseApi` (string) - Base API url for RESTFul.
 - `canonicalApi` (string) - Canonial API url for RESTFul.
 - `params` (object) - Custom params that are added to all requests.

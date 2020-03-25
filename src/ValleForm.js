@@ -9,8 +9,6 @@ import Switch from './components/Switch';
 import addFieldsValues from './fieldsControl/addFieldsValues';
 import cleanFields from './fieldsControl/cleanFields';
 
-import shortid from 'shortid';
-
 /**
  * TODO: Add JSDocs
  * 
@@ -147,7 +145,7 @@ const ValleForm = ({
 
     return (
       <button
-        key = { shortid.generate() }
+        key = { index }
         className = { `valleForm__tabs__title ${selectedTab}` }
         onClick = { () => showTab(index) }
       >
@@ -170,7 +168,7 @@ const ValleForm = ({
     const tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
   
     return (
-      <div key = { shortid.generate() } className = { `valleForm__tabs__tab ${tabVisibility}` }>
+      <div key = { index } className = { `valleForm__tabs__tab ${tabVisibility}` }>
         { $rows }
       </div>
     );

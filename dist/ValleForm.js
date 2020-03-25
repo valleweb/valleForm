@@ -32,10 +32,6 @@ var _cleanFields = require('./fieldsControl/cleanFields');
 
 var _cleanFields2 = _interopRequireDefault(_cleanFields);
 
-var _shortid = require('shortid');
-
-var _shortid2 = _interopRequireDefault(_shortid);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 /**
@@ -202,7 +198,7 @@ var ValleForm = function ValleForm(_ref) {
     return _react2['default'].createElement(
       'button',
       {
-        key: _shortid2['default'].generate(),
+        key: index,
         className: 'valleForm__tabs__title ' + selectedTab,
         onClick: function () {
           function onClick() {
@@ -230,7 +226,7 @@ var ValleForm = function ValleForm(_ref) {
 
     return _react2['default'].createElement(
       'div',
-      { key: _shortid2['default'].generate(), className: 'valleForm__tabs__tab ' + tabVisibility },
+      { key: index, className: 'valleForm__tabs__tab ' + tabVisibility },
       $rows
     );
   });

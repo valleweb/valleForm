@@ -3,7 +3,6 @@ import normalizeCaseProp from '../../helpers/normalizeCaseProp';
 import normalizeReadOnly from '../../helpers/normalizeReadOnly';
 import normalizeRequired from '../../helpers/normalizeRequired';
 import normalizeMask from '../../helpers/normalizeMask';
-import shortid from 'shortid';
 
 export default (field, readOnly = false) => {
 
@@ -40,7 +39,7 @@ export default (field, readOnly = false) => {
 				errortext = { field.error_text }
 				data-valle-field = { field.id }
 				maxlength = { field.maxlength }
-				key = { shortid.generate() }
+				key = { field.id }
 				id = { field.id }
 				// onBlur = { _fetchData }
 				pattern = { field.pattern }

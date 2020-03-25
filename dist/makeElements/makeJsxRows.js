@@ -22,10 +22,6 @@ var _Textarea = require('../components/Textarea');
 
 var _Textarea2 = _interopRequireDefault(_Textarea);
 
-var _shortid = require('shortid');
-
-var _shortid2 = _interopRequireDefault(_shortid);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (rows) {
@@ -43,7 +39,7 @@ exports['default'] = function (rows) {
 
 			if (field.element === 'textarea') {
 				return _react2['default'].createElement(_Textarea2['default'], {
-					key: _shortid2['default'].generate(),
+					key: index,
 					field: field,
 					readOnly: readOnly
 				});
@@ -58,7 +54,7 @@ exports['default'] = function (rows) {
 
 		return _react2['default'].createElement(
 			'div',
-			{ className: 'valleForm__row', key: _shortid2['default'].generate() },
+			{ className: 'valleForm__row', key: index },
 			$fields
 		);
 	});

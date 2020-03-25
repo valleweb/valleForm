@@ -24,10 +24,6 @@ var _normalizeMask = require('../../helpers/normalizeMask');
 
 var _normalizeMask2 = _interopRequireDefault(_normalizeMask);
 
-var _shortid = require('shortid');
-
-var _shortid2 = _interopRequireDefault(_shortid);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (field) {
@@ -65,7 +61,7 @@ exports['default'] = function (field) {
 			errortext: field.error_text,
 			'data-valle-field': field.id,
 			maxlength: field.maxlength,
-			key: _shortid2['default'].generate(),
+			key: field.id,
 			id: field.id
 			// onBlur = { _fetchData }
 			, pattern: field.pattern

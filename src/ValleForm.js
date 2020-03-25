@@ -15,7 +15,7 @@ import cleanFields from './fieldsControl/cleanFields';
  */
 
 const ValleForm = ({
-  rows = [],
+  tabs = [],
   _id,
   values = null,
   readOnly = false,
@@ -29,6 +29,7 @@ const ValleForm = ({
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
   const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
   const [filterByVisibleScreen, setFilterByVisibleScreen] = useState(false);
+  const [visibleTab, setVisibleTab] = useState(0);
   const [feedback, setFeedback] = useState({
     open: false,
     text: '',
@@ -121,14 +122,57 @@ const ValleForm = ({
       })
 		}, 100); // Trick for second state change
 
-	}
-
+  }
+  
   /**
-   * Make rows
+   * Control tabs visibility
    * 
    */
 
-  const $rows = makeJsxRows(rows, filterByVisibleScreen, dynamicReadOnly);
+  const showTab = index => {
+    setVisibleTab(index);
+  }
+
+  /**
+   * Make Tabs titles
+   * 
+   */
+
+  const $tabsTitles = tabs.map((tab, index) => {
+
+    const isSelected = (visibleTab === index);
+    const selectedTab = isSelected ? 'valleForm__tabs__title--selected' : '';
+
+    return (
+      <button
+        className = { `valleForm__tabs__title ${selectedTab}` }
+        onClick = { () => showTab(index) }
+      >
+        { tab.title }
+      </button>
+    );
+
+  });
+
+  /**
+   * Make Tabs
+   * 
+   */
+
+  const $tabs = tabs.map((tab , index) => {
+
+    const $rows = makeJsxRows(tab.lines , filterByVisibleScreen, dynamicReadOnly);
+
+    const isVisibleTab = (visibleTab === index);
+    const tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
+  
+    return (
+      <div className = { `valleForm__tabs__tab ${tabVisibility}` }>
+        { $rows }
+      </div>
+    );
+
+  });
 
   /**
    * UI feedbacks
@@ -142,7 +186,7 @@ const ValleForm = ({
    * 
    */
 
-  const rowsDataDone = (rows.length > 0);
+  const rowsDataDone = (tabs.length > 0);
 
   if (rowsDataDone) {
 
@@ -159,7 +203,15 @@ const ValleForm = ({
 
         {/* ------- Main ------- */}
 
-        { $rows }
+        { !(tabs.length === 1) ? (
+        
+          <div className = "valleForm__tabs__titles">
+            { $tabsTitles }
+          </div>
+        
+        ) : null }
+
+        { $tabs }
 
         {/* ------- Footer ------- */}
 

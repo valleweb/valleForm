@@ -1,0 +1,633 @@
+{
+  "title": "Manutenção de Estados",
+  "tabs": [
+    {
+      "title":"Manutenção de Estados",
+      "form": "frmEstados",
+      "id": "frmEstados",
+      "api": null,
+      "buttons": [
+        {
+          "text": "Salvar",
+          "action": "save",
+          "type": "",
+          "icon": "",
+          "status": "create"
+        },
+        {
+          "text": "Novo cadastro",
+          "action": "new",
+          "type": "",
+          "icon": "",
+          "status": "retrieval"
+        },
+        {
+          "text": "Editar",
+          "action": "edit",
+          "type": "",
+          "icon": "",
+          "status": "retrieval"
+        },
+        {
+          "text": "Salvar alteraçōes",
+          "action": "update",
+          "type": "",
+          "icon": "",
+          "status": "update"
+        },
+        {
+          "text": "Cancelar",
+          "action": "cancel",
+          "type": "",
+          "icon": "",
+          "status": "update"
+        },
+        {
+          "text": "Excluir",
+          "action": "delete",
+          "type": "",
+          "icon": "",
+          "status": "update"
+        }
+      ],
+      "lines":[
+        [
+          {
+            "case": null,
+
+            "id": "estadox",            
+            "label": "Estado",
+            "placeholder": null,
+            "element": "input",
+            "required": true,
+            "readonly": false,
+            "error_text": "Campo obrigatório",
+            "helper_text": "Texto aqui",
+            "visible_screen": true,
+            "type": "text",
+            "is_PK": false,
+            "mask": null,
+            "maxlength": 2,
+            "pattern": null,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [ 
+          {
+            "case": null,
+            "element": "input",
+            "error_text": "Campo obrigatório",
+            "helper_text": "Texto aqui",
+            "id": "descricao",
+            "is_PK": false,
+            "label": "Descrição",
+            "mask": null,
+            "maxlength": 50,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": true,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [ 
+          {
+            "case": null,
+            "element": "input",
+            "error_text": null,
+            "helper_text": null,
+            "id": "codigo_gia",
+            "is_PK": false,
+            "label": "Código GIA",
+            "mask": null,
+            "maxlength": 2,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          },
+          {
+            "case": null,
+            "element": "select",
+            "error_text": null,
+            "helper_text": null,
+            "id": "zfm_alc",
+            "is_PK": false,
+            "label": "ZFM/ALC",
+            "mask": null,
+            "maxlength": 10,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": true,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ],
+            "options": [
+              {
+                "value":"Selecione",
+                "text":"Selecione"
+              },
+              {
+                "value":"Sim",
+                "text":"Sim"
+              },
+              {
+                "value":"Não",
+                "text":"Não"
+              }
+            ]
+          },
+          {
+            "case": null,
+            "element": "input",
+            "error_text": null,
+            "helper_text": null,
+            "id": "regiao",
+            "is_PK": false,
+            "label": "Região",
+            "mask": null,
+            "maxlength": 20,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "textarea",
+            "label": "Descrição",
+            "placeholder": "Texto longo aqui",
+            "element": "textarea",
+            "type": "text",
+            "required": true,
+            "maxlength": 7,
+            "case": "ProperCase",
+            "mask": null,
+            "pattern": null,
+            "readonly": false,
+            "helper_text": "Texto completo",
+            "error_text": "Campo obrigatório",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [
+          {    
+            "case": null,
+            "element": "input",
+            "error_text": null,
+            "helper_text": null,
+            "id": "codigo_ibge",
+            "is_PK": false,
+            "label": "Código IBGE",
+            "mask": null,
+            "maxlength": 2,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]        
+          },
+          {
+            "case": null,
+            "element": "select",
+            "error_text": null,
+            "helper_text": null,
+            "id": "tipo_site",
+            "is_PK": false,
+            "label": "Tipo Site",
+            "mask": null,
+            "maxlength": 10,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ],
+            "options": [
+              {
+                "value":"Selecione",
+                "text":"..."
+              },
+              {
+                "value":"Sim",
+                "text":"Sim"
+              },
+              {
+                "value":"Não",
+                "text":"Não"
+              }
+            ]
+          }
+        ]
+      ]
+    } ,
+    {
+      "title":"Manutenção de Estados",
+      "form": "frmEstados",
+      "id": "frmEstados",
+      "api": null,
+      "buttons": [
+        {
+          "text": "Salvar",
+          "action": "save",
+          "type": "",
+          "icon": "",
+          "status": "create"
+        },
+        {
+          "text": "Novo cadastro",
+          "action": "new",
+          "type": "",
+          "icon": "",
+          "status": "retrieval"
+        },
+        {
+          "text": "Editar",
+          "action": "edit",
+          "type": "",
+          "icon": "",
+          "status": "retrieval"
+        },
+        {
+          "text": "Salvar alteraçōes",
+          "action": "update",
+          "type": "",
+          "icon": "",
+          "status": "update"
+        },
+        {
+          "text": "Cancelar",
+          "action": "cancel",
+          "type": "",
+          "icon": "",
+          "status": "update"
+        },
+        {
+          "text": "Excluir",
+          "action": "delete",
+          "type": "",
+          "icon": "",
+          "status": "update"
+        }
+      ],
+      "lines":[
+        [
+          {
+            "case": null,
+
+            "id": "estado",            
+            "label": "Estado",
+            "placeholder": null,
+            "element": "input",
+            "required": true,
+            "readonly": false,
+            "error_text": "Campo obrigatório",
+            "helper_text": "Texto aqui",
+            "visible_screen": true,
+            "type": "text",
+            "is_PK": false,
+            "mask": null,
+            "maxlength": 2,
+            "pattern": null,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [ 
+          {
+            "case": null,
+            "element": "input",
+            "error_text": "Campo obrigatório",
+            "helper_text": "Texto aqui",
+            "id": "descricao",
+            "is_PK": false,
+            "label": "Descrição",
+            "mask": null,
+            "maxlength": 50,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": true,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [ 
+          {
+            "case": null,
+            "element": "input",
+            "error_text": null,
+            "helper_text": null,
+            "id": "codigo_gia",
+            "is_PK": false,
+            "label": "Código GIA",
+            "mask": null,
+            "maxlength": 2,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "date",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          },
+          {
+            "case": null,
+            "element": "select",
+            "error_text": null,
+            "helper_text": null,
+            "id": "zfm_alc",
+            "is_PK": false,
+            "label": "ZFM/ALC",
+            "mask": null,
+            "maxlength": 10,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": true,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ],
+            "options": [
+              {
+                "value":"Selecione",
+                "text":"Selecione"
+              },
+              {
+                "value":"Sim",
+                "text":"Sim"
+              },
+              {
+                "value":"Não",
+                "text":"Não"
+              }
+            ]
+          },
+          {
+            "case": null,
+            "element": "input",
+            "error_text": null,
+            "helper_text": null,
+            "id": "regiao",
+            "is_PK": false,
+            "label": "Região",
+            "mask": null,
+            "maxlength": 20,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "textarea",
+            "label": "Descrição",
+            "placeholder": "Texto longo aqui",
+            "element": "textarea",
+            "type": "text",
+            "required": true,
+            "maxlength": 7,
+            "case": "ProperCase",
+            "mask": null,
+            "pattern": null,
+            "readonly": false,
+            "helper_text": "Texto completo",
+            "error_text": "Campo obrigatório",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]
+          }
+        ],
+        [
+          {    
+            "case": null,
+            "element": "input",
+            "error_text": null,
+            "helper_text": null,
+            "id": "codigo_ibge",
+            "is_PK": false,
+            "label": "Código IBGE",
+            "mask": null,
+            "maxlength": 2,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ]        
+          },
+          {
+            "case": null,
+            "element": "select",
+            "error_text": null,
+            "helper_text": null,
+            "id": "tipo_site",
+            "is_PK": false,
+            "label": "Tipo Site",
+            "mask": null,
+            "maxlength": 10,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+              {
+                "action": "exists",
+                "data": null
+              },
+              {
+                "action": "find",
+                "data": null
+              }
+            ],
+            "options": [
+              {
+                "value":"Selecione",
+                "text":"..."
+              },
+              {
+                "value":"Sim",
+                "text":"Sim"
+              },
+              {
+                "value":"Não",
+                "text":"Não"
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  ]
+}

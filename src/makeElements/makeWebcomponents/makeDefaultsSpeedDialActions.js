@@ -2,6 +2,7 @@ import React from 'react';
 import apiCreate from '../../rest/apiCreate';
 import apiUpdate from '../../rest/apiUpdate';
 import apiDelete from '../../rest/apiDelete';
+import shortid from 'shortid';
 
 export default makeDefaultsSpeedDialActions = ({
   button,
@@ -20,6 +21,7 @@ export default makeDefaultsSpeedDialActions = ({
     return (
       <valle-speed-dial-action
         class = "valleForm__speedDial__save"
+        key = { shortid.generate() }
         sloted
         label = { button.text }
         label-direction = "left"
@@ -38,6 +40,7 @@ export default makeDefaultsSpeedDialActions = ({
     return (
       <valle-speed-dial-action
         class = "valleForm__speedDial__edit"
+        key = { shortid.generate() }
         sloted
         label = { button.text }
         label-direction = "left"
@@ -56,6 +59,7 @@ export default makeDefaultsSpeedDialActions = ({
     return (
       <valle-speed-dial-action
         class = "valleForm__speedDial__save"
+        key = { shortid.generate() }
         sloted
         label = { button.text }
         label-direction = "left"
@@ -74,6 +78,7 @@ export default makeDefaultsSpeedDialActions = ({
     return (
       <valle-speed-dial-action
         class = "valleForm__speedDial__cancel"
+        key = { shortid.generate() }
         sloted
         label = { button.text }
         label-direction = "left"
@@ -92,6 +97,7 @@ export default makeDefaultsSpeedDialActions = ({
     return (
       <valle-speed-dial-action
         class = "valleForm__speedDial__delete"
+        key = { shortid.generate() }
         sloted
         label = { button.text }
         label-direction = "left"
@@ -111,6 +117,7 @@ export default makeDefaultsSpeedDialActions = ({
     return (
       <valle-speed-dial-action
         class = "valleForm__speedDial__new"
+        key = { shortid.generate() }
         sloted
         label = { button.text }
         label-direction = "left"
@@ -127,6 +134,7 @@ export default makeDefaultsSpeedDialActions = ({
   return (
     <valle-speed-dial-action
       class = ""
+      key = { shortid.generate() }
       sloted
       label = { button.text }
       label-direction = "left"

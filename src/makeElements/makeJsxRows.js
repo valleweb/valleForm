@@ -3,6 +3,7 @@ import isSelect from '../helpers/isSelect';
 import makeInputField from './makeWebcomponents/makeInputField';
 import makeSelectField from './makeWebcomponents/makeSelectField';
 import Textarea from '../components/Textarea';
+import shortid from 'shortid';
 
 export default (
 	rows, 
@@ -20,6 +21,7 @@ export default (
 			if(field.element === 'textarea') {
 				return (
 					<Textarea
+						key = { shortid.generate() }
 						field = { field }
 						readOnly = { readOnly }
 					/>
@@ -36,7 +38,7 @@ export default (
 		
 		})
 
-	return <div className="valleForm__row" key = { index }>{$fields}</div>;
+	return <div className="valleForm__row" key = { shortid.generate() }>{$fields}</div>;
 
 });
 

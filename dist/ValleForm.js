@@ -32,6 +32,10 @@ var _cleanFields = require('./fieldsControl/cleanFields');
 
 var _cleanFields2 = _interopRequireDefault(_cleanFields);
 
+var _shortid = require('shortid');
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 /**
@@ -40,8 +44,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  */
 
 var ValleForm = function ValleForm(_ref) {
-  var _ref$rows = _ref.rows,
-      rows = _ref$rows === undefined ? [] : _ref$rows,
+  var _ref$tabs = _ref.tabs,
+      tabs = _ref$tabs === undefined ? [] : _ref$tabs,
       _id = _ref._id,
       _ref$values = _ref.values,
       values = _ref$values === undefined ? null : _ref$values,
@@ -73,14 +77,19 @@ var ValleForm = function ValleForm(_ref) {
       filterByVisibleScreen = _useState6[0],
       setFilterByVisibleScreen = _useState6[1];
 
-  var _useState7 = (0, _react.useState)({
+  var _useState7 = (0, _react.useState)(0),
+      _useState8 = _slicedToArray(_useState7, 2),
+      visibleTab = _useState8[0],
+      setVisibleTab = _useState8[1];
+
+  var _useState9 = (0, _react.useState)({
     open: false,
     text: '',
     type: ''
   }),
-      _useState8 = _slicedToArray(_useState7, 2),
-      feedback = _useState8[0],
-      setFeedback = _useState8[1];
+      _useState10 = _slicedToArray(_useState9, 2),
+      feedback = _useState10[0],
+      setFeedback = _useState10[1];
 
   /**
    * Control vizualization only and editable state
@@ -172,11 +181,59 @@ var ValleForm = function ValleForm(_ref) {
   };
 
   /**
-   * Make rows
+   * Control tabs visibility
    * 
    */
 
-  var $rows = (0, _makeJsxRows2['default'])(rows, filterByVisibleScreen, dynamicReadOnly);
+  var showTab = function showTab(index) {
+    setVisibleTab(index);
+  };
+
+  /**
+   * Make Tabs titles
+   * 
+   */
+
+  var $tabsTitles = tabs.map(function (tab, index) {
+
+    var isSelected = visibleTab === index;
+    var selectedTab = isSelected ? 'valleForm__tabs__title--selected' : '';
+
+    return _react2['default'].createElement(
+      'button',
+      {
+        key: _shortid2['default'].generate(),
+        className: 'valleForm__tabs__title ' + selectedTab,
+        onClick: function () {
+          function onClick() {
+            return showTab(index);
+          }
+
+          return onClick;
+        }()
+      },
+      tab.title
+    );
+  });
+
+  /**
+   * Make Tabs
+   * 
+   */
+
+  var $tabs = tabs.map(function (tab, index) {
+
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly);
+
+    var isVisibleTab = visibleTab === index;
+    var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
+
+    return _react2['default'].createElement(
+      'div',
+      { key: _shortid2['default'].generate(), className: 'valleForm__tabs__tab ' + tabVisibility },
+      $rows
+    );
+  });
 
   /**
    * UI feedbacks
@@ -190,7 +247,7 @@ var ValleForm = function ValleForm(_ref) {
    * 
    */
 
-  var rowsDataDone = rows.length > 0;
+  var rowsDataDone = tabs.length > 0;
 
   if (rowsDataDone) {
 
@@ -202,7 +259,12 @@ var ValleForm = function ValleForm(_ref) {
         readOnly: dynamicReadOnly,
         onChange: changeVisibleScreen
       }),
-      $rows,
+      !(tabs.length === 1) ? _react2['default'].createElement(
+        'div',
+        { className: 'valleForm__tabs__titles' },
+        $tabsTitles
+      ) : null,
+      $tabs,
       _react2['default'].createElement(
         'span',
         { className: 'valleForm__sub' },

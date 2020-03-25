@@ -20,6 +20,10 @@ var _normalizeRequired = require('../../helpers/normalizeRequired');
 
 var _normalizeRequired2 = _interopRequireDefault(_normalizeRequired);
 
+var _shortid = require('shortid');
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (field) {
@@ -44,7 +48,7 @@ exports['default'] = function (field) {
 			placeholder: field.placeholder,
 			helpertext: field.helper_text,
 			errortext: field.error_text,
-			key: field.id,
+			key: _shortid2['default'].generate(),
 			id: field.id
 		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(readOnly ? true : field.readonly)),
 		(0, _makeOptions2['default'])(field.options)

@@ -18,6 +18,10 @@ var _apiDelete = require('../../rest/apiDelete');
 
 var _apiDelete2 = _interopRequireDefault(_apiDelete);
 
+var _shortid = require('shortid');
+
+var _shortid2 = _interopRequireDefault(_shortid);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDialActions(_ref) {
@@ -39,6 +43,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       'valle-speed-dial-action',
       {
         'class': 'valleForm__speedDial__save',
+        key: _shortid2['default'].generate(),
         sloted: true,
         label: button.text,
         'label-direction': 'left',
@@ -63,6 +68,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       'valle-speed-dial-action',
       {
         'class': 'valleForm__speedDial__edit',
+        key: _shortid2['default'].generate(),
         sloted: true,
         label: button.text,
         'label-direction': 'left',
@@ -81,6 +87,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       'valle-speed-dial-action',
       {
         'class': 'valleForm__speedDial__save',
+        key: _shortid2['default'].generate(),
         sloted: true,
         label: button.text,
         'label-direction': 'left',
@@ -105,6 +112,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       'valle-speed-dial-action',
       {
         'class': 'valleForm__speedDial__cancel',
+        key: _shortid2['default'].generate(),
         sloted: true,
         label: button.text,
         'label-direction': 'left',
@@ -123,6 +131,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       'valle-speed-dial-action',
       {
         'class': 'valleForm__speedDial__delete',
+        key: _shortid2['default'].generate(),
         sloted: true,
         label: button.text,
         'label-direction': 'left',
@@ -148,6 +157,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       'valle-speed-dial-action',
       {
         'class': 'valleForm__speedDial__new',
+        key: _shortid2['default'].generate(),
         sloted: true,
         label: button.text,
         'label-direction': 'left',
@@ -164,6 +174,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
     'valle-speed-dial-action',
     {
       'class': '',
+      key: _shortid2['default'].generate(),
       sloted: true,
       label: button.text,
       'label-direction': 'left',

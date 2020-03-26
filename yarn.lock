@@ -85,6 +85,13 @@
     react "^15.3.0"
     react-github-corner "^0.3.0"
 
+"@polymer/polymer@^3.0.0":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.3.1.tgz#9ad48992d2a96775f80b0673f3a615d6df8a3dfc"
+  integrity sha512-8KaB48tzyMjdsHdxo5KvCAaqmTe7rYDzQAoj/pyEfq9Fp4YfUaS+/xqwYj0GbiDAUNzwkmEQ7dw9cgnRNdKO8A==
+  dependencies:
+    "@webcomponents/shadycss" "^1.9.1"
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
@@ -307,19 +314,39 @@
     react-split-pane "^0.1.77"
     react-treebeard "^2.1.0"
 
-"@types/clone@^0.1.29":
-  version "0.1.30"
-  resolved "https://registry.yarnpkg.com/@types/clone/-/clone-0.1.30.tgz#e7365648c1b42136a59c7d5040637b3b5c83b614"
-
-"@types/node@*", "@types/node@^6.0.0":
-  version "6.0.113"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.113.tgz#4b41f38ad03e4b41f9dc259b3b58aecb22c9aebc"
-
-"@types/parse5@^2.2.32":
-  version "2.2.34"
-  resolved "https://registry.yarnpkg.com/@types/parse5/-/parse5-2.2.34.tgz#e3870a10e82735a720f62d71dcd183ba78ef3a9d"
+"@valle/valle-fab@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@valle/valle-fab/-/valle-fab-1.0.1.tgz#a6d18d747a8ee1e3ca68103893bb3efc6af5b9d9"
+  integrity sha512-h7Pn8v7I1t+ZdXkMQW6rGMu9vKi8IPGcGk2xwZnsCtHwz0MCb2hAKLbJ393ZlAPdbu4CJQ0upyGotIXU6wau4A==
   dependencies:
-    "@types/node" "*"
+    "@polymer/polymer" "^3.0.0"
+
+"@valle/valle-input@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.0.1.tgz#690d7eee23b77fcf7dcf7e51cf8abecedd2c4992"
+  integrity sha512-LKpO+QKgn7ia43Kjq6AnliTDPrRfCLCt4QR5vHJLi8Gx27OKvQ/ccdcPHHd8lLUGqYC12eCQnntifeMP+RQ78A==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@valle/valle-select@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@valle/valle-select/-/valle-select-1.2.1.tgz#b1cc508c37a14f576d755021e9652839bcc41833"
+  integrity sha512-0FxA4FI0mR+57VeMq+jn7oXGIhyommCGdwB+2CpcBzHUEv/js/iGL+p/OFMuPZ2EZQgRvxmKMCErK4hPj71qZg==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@valle/valle-speed-dial@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@valle/valle-speed-dial/-/valle-speed-dial-1.0.2.tgz#ca08c37be16965870aece21a9f164c70e6b60650"
+  integrity sha512-Cc3351tjVzmlA8h4sX/UyTumFv7DP7jVB/Jvp7tLBwA0k7HPYBUCioG8Ue7Mrehs3wfajUkTON9cfxf8H+dSxQ==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+    "@valle/valle-fab" "^1.0.1"
+
+"@webcomponents/shadycss@^1.9.1":
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.9.6.tgz#a8c5db867e49200a05cf8d5008029c09b7861979"
+  integrity sha512-5fFjvP0jQJZoXK6YzYeYcIDGJ5oEsdjr1L9VaYLw5yxNd4aRz4srMpwCwldeNG0A6Hvr9igbG7fCsBeiiCXd7A==
 
 abab@^1.0.3:
   version "1.0.4"
@@ -2277,10 +2304,6 @@ clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
 
-clone@^2.1.0:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
-
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -2977,16 +3000,6 @@ dom-walk@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
 
-dom5@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/dom5/-/dom5-2.3.0.tgz#f8204975bd0dacbbe5b58a8a93ffc1fed0ffcd2a"
-  dependencies:
-    "@types/clone" "^0.1.29"
-    "@types/node" "^6.0.0"
-    "@types/parse5" "^2.2.32"
-    clone "^2.1.0"
-    parse5 "^2.2.2"
-
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -3386,7 +3399,7 @@ eslint@^2.13.1:
     text-table "~0.2.0"
     user-home "^2.0.0"
 
-espree@^3.1.6, espree@^3.4.3:
+espree@^3.1.6:
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/espree/-/espree-3.5.4.tgz#b0f447187c8a8bed944b815a660bddf5deb5d1a7"
   dependencies:
@@ -4248,7 +4261,7 @@ html-entities@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
 
-html-loader@^0.5.1, html-loader@^0.5.5:
+html-loader@^0.5.5:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/html-loader/-/html-loader-0.5.5.tgz#6356dbeb0c49756d8ebd5ca327f16ff06ab5faea"
   dependencies:
@@ -6263,25 +6276,9 @@ parse-url@^1.3.0:
     is-ssh "^1.3.0"
     protocols "^1.4.0"
 
-parse5-utils@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/parse5-utils/-/parse5-utils-2.0.0.tgz#c926c1764e2431a450a5941f302db9beaec9d78a"
-  dependencies:
-    parse5 "^2.2.1"
-
 parse5@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-1.5.1.tgz#9b7f3b0de32be78dc2401b17573ccaf0f6f59d94"
-
-parse5@^2.2.1, parse5@^2.2.2:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/parse5/-/parse5-2.2.3.tgz#0c4fc41c1000c5e6b93d48b03f8083837834e9f6"
-
-parse5@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/parse5/-/parse5-3.0.3.tgz#042f792ffdd36851551cf4e9e066b3874ab45b5c"
-  dependencies:
-    "@types/node" "*"
 
 parseurl@~1.3.2:
   version "1.3.2"
@@ -6416,21 +6413,6 @@ pluralize@^1.2.1:
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
-
-polymer-webpack-loader@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/polymer-webpack-loader/-/polymer-webpack-loader-2.0.3.tgz#2a2d1c2ef05bff372b573d3b761628a3b4ad3e7f"
-  integrity sha512-3SR+/qVAGeVKltvsSMA+euGdLwj8ZZJnwd5NvXRvbdQ7yO57sdcTpRw3d34pTc9YTZxncW/kozuI/9bHjr/rdg==
-  dependencies:
-    css-selector-tokenizer "^0.7.0"
-    dom5 "^2.3.0"
-    espree "^3.4.3"
-    html-loader "^0.5.1"
-    loader-utils "^1.1.0"
-    parse5 "^3.0.2"
-    parse5-utils "^2.0.0"
-    postcss "^6.0.9"
-    source-map "^0.5.6"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -6758,7 +6740,7 @@ postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.17, postcss@^6.0.9:
+postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.17:
   version "6.0.23"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   dependencies:

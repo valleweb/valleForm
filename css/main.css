@@ -17,6 +17,7 @@
   border-bottom: 2px solid rgba(0,0,0,.12);
   margin: 8px 4px 0 4px;
   display: flex;
+  overflow-x: auto;
 }
 
 .valleForm__tabs__title {
@@ -29,11 +30,12 @@
   background-color: #efefef;
   margin: 0 6px -2px 0;
   position: relative;
+  white-space: nowrap;
 }
 
 .valleForm__tabs__title:hover {
   cursor: pointer;
-  color: var(--valle-input-color, rgb(5, 159, 183)); 
+  color: var(--highlight-color, rgb(5, 159, 183)); 
 }
 
 .valleForm__tabs__title:focus {
@@ -42,7 +44,7 @@
 
 .valleForm__tabs__title--selected {
   background-color: #fff;
-  color: var(--valle-input-color, rgb(5, 159, 183)); 
+  color: var(--highlight-color, rgb(5, 159, 183)); 
   border-bottom-color: #fff;
 }
 

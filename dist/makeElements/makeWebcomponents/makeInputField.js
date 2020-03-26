@@ -40,11 +40,16 @@ exports['default'] = function (field) {
 
 	// }
 
-	;var customDescriptionStyle = field.label == 'Descrição' ? 'valleForm__input--description' : '';
+	;var isDisabled = readOnly ? true : field.readonly;
+
+	var customDescriptionStyle = field.label == 'Descrição' ? 'valleForm__input--description' : '';
 
 	var $search = _react2['default'].createElement(
 		'button',
-		{ className: 'valleForm__input__button' },
+		{
+			className: 'valleForm__input__button ' + (isDisabled ? 'valleForm__input__button--disabled' : ''),
+			disabled: isDisabled
+		},
 		_react2['default'].createElement(
 			'svg',
 			{ className: 'valleForm__input__icon', xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
@@ -63,7 +68,7 @@ exports['default'] = function (field) {
 
 	return _react2['default'].createElement(
 		'span',
-		{ className: 'valleForm__input__container' },
+		{ className: 'valleForm__input__container', key: field.id },
 		_react2['default'].createElement('valle-input', _extends({
 			value: field.value ? field.value : null,
 			'class': 'valleForm__input ' + customDescriptionStyle,
@@ -74,11 +79,10 @@ exports['default'] = function (field) {
 			errortext: field.error_text,
 			'data-valle-field': field.id,
 			maxlength: field.maxlength,
-			key: field.id,
 			id: field.id
 			// onBlur = { _fetchData }
 			, pattern: field.pattern
-		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(readOnly ? true : field.readonly), (0, _normalizeCaseProp2['default'])(field['case']), (0, _normalizeMask2['default'])(field.mask))),
+		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled), (0, _normalizeCaseProp2['default'])(field['case']), (0, _normalizeMask2['default'])(field.mask))),
 		isFindAction ? $search : null
 	);
 };

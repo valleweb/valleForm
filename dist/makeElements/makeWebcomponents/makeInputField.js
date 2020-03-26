@@ -62,7 +62,7 @@ exports['default'] = function (field) {
 	if (Array.isArray(field.actions)) {
 
 		field.actions.forEach(function (current) {
-			if (current.action == 'find') isFindAction = true;
+			if (current.action == 'find' || current.action == 'exact_blur') isFindAction = true;
 		});
 	}
 

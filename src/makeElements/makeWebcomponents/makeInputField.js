@@ -40,7 +40,7 @@ export default (field, readOnly = false) => {
 	if (Array.isArray(field.actions)) {
 
 		field.actions.forEach(current => {
-			if(current.action == 'find') isFindAction = true
+			if(current.action == 'find' || current.action == 'exact_blur') isFindAction = true
 		});
 
 	}

@@ -162,7 +162,7 @@ const ValleForm = ({
 
   const $tabs = tabs.map((tab , index) => {
 
-    const $rows = makeJsxRows(tab.lines , filterByVisibleScreen, dynamicReadOnly);
+    const $rows = makeJsxRows(tab.lines , filterByVisibleScreen, dynamicReadOnly, editable);
 
     const isVisibleTab = (visibleTab === index);
     const tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';

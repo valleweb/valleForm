@@ -7,7 +7,8 @@ import Textarea from '../components/Textarea';
 export default (
 	rows, 
 	filterByVisibleScreen = false, 
-	readOnly = false) => rows.map((row, index) => {
+	readOnly = false,
+	editable) => rows.map((row, index) => {
 
 	const $fields = row
 		.filter(field => isVisibleScreen(field, filterByVisibleScreen))
@@ -23,6 +24,7 @@ export default (
 						key = { index }
 						field = { field }
 						readOnly = { readOnly }
+						editable = { editable }
 					/>
 				)
 			}
@@ -32,8 +34,8 @@ export default (
 			// --------------
 
 			return isSelect(field.element) 
-			? resolveSelectSize(row, field, readOnly)
-			: makeInputField(field, readOnly)
+			? resolveSelectSize(row, field, readOnly, editable)
+			: makeInputField(field, readOnly, editable)
 		
 		})
 
@@ -45,10 +47,10 @@ const isVisibleScreen = (field, filterByVisibleScreen) => {
 	return filterByVisibleScreen ? field.visible_screen : true
 }
 
-const resolveSelectSize = (row, field, readOnly = false) => {
+const resolveSelectSize = (row, field, readOnly = false, editable) => {
 	return (
 		(row.length === 1) // Verify if the select is a single field on row.
-		? makeSelectField(field, 'valleForm__select--big', readOnly) 
-		: makeSelectField(field, '', readOnly)
+		? makeSelectField(field, 'valleForm__select--big', readOnly, editable) 
+		: makeSelectField(field, '', readOnly, editable)
 	)
 }

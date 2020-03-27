@@ -3,10 +3,23 @@ import React, { useState, useEffect } from 'react';
 const Textarea = ({
   field,
   readOnly = false,
-  error = false
+  error = false,
+  editable
 }) => {
 
   const [err, setErr] = useState(error);
+
+  // --------------
+  // Control readOnly sate in editable mode
+  // -------------
+
+  let isDisabled;
+	
+	if(editable) {
+		isDisabled = readOnly ? true : field.is_PK;
+	} else {
+		isDisabled = readOnly;
+	}
 
   // --------------
   // Global required validation
@@ -26,7 +39,7 @@ const Textarea = ({
   // -------------
       
   const errorStyle = err ? 'valleForm__textarea--error' : '';
-  const disabledStyle = readOnly ? 'valleForm__textarea--disabled' : '';
+  const disabledStyle = isDisabled ? 'valleForm__textarea--disabled' : '';
 
   let $description = !err
     ? (
@@ -60,7 +73,7 @@ const Textarea = ({
         placeholder = { field.placeholder }
         data-valle-field = { field.id }
         id = { field.id }
-        disabled = { readOnly }
+        disabled = { isDisabled }
         onBlur = { validate }
         ref = { textAreaRef }
         data-valle-error = { err }

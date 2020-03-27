@@ -3,7 +3,7 @@ import makeOptions from './makeOptions';
 import normalizeReadOnly from '../../helpers/normalizeReadOnly';
 import normalizeRequired from '../../helpers/normalizeRequired';
 
-export default (field, customClass = '', readOnly = false) => {
+export default (field, customClass = '', readOnly = false, editable) => {
 
 	//let select = React.createRef();
 
@@ -11,6 +11,15 @@ export default (field, customClass = '', readOnly = false) => {
   //    select.current.value = field.value;
 	//}, [])
 
+
+	let isDisabled;
+	
+	if(editable) { // Verify editable mode
+		isDisabled = readOnly ? true : (field.is_PK || field.readonly);
+	} else {
+		isDisabled = readOnly ? true : field.readonly;
+	}
+	
 	return (
 		<valle-select
 			// ref = { select }
@@ -24,7 +33,7 @@ export default (field, customClass = '', readOnly = false) => {
 			key = { field.id }
 			id = { field.id }
 			{ ...normalizeRequired(field.required) }
-			{ ...normalizeReadOnly(readOnly ? true : field.readonly) }
+			{ ...normalizeReadOnly(isDisabled) }
 		>
 
 			{ makeOptions(field.options) }

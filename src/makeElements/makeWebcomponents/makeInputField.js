@@ -4,7 +4,7 @@ import normalizeReadOnly from '../../helpers/normalizeReadOnly';
 import normalizeRequired from '../../helpers/normalizeRequired';
 import normalizeMask from '../../helpers/normalizeMask';
 
-export default (field, readOnly = false) => {
+export default (field, readOnly = false, editable) => {
 
 	const _fetchData = () => {
 		// setMoal(true)
@@ -16,7 +16,13 @@ export default (field, readOnly = false) => {
 
 	// }
 
-	const isDisabled = readOnly ? true : field.readonly;
+	let isDisabled;
+	
+	if(editable) { // Verify editable mode
+		isDisabled = readOnly ? true : (field.is_PK || field.readonly);
+	} else {
+		isDisabled = readOnly ? true : field.readonly;
+	}
 
 	const customDescriptionStyle = (field.label == 'Descrição')
 		? 'valleForm__input--description'

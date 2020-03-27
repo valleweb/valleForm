@@ -15,12 +15,25 @@ var Textarea = function Textarea(_ref) {
       _ref$readOnly = _ref.readOnly,
       readOnly = _ref$readOnly === undefined ? false : _ref$readOnly,
       _ref$error = _ref.error,
-      error = _ref$error === undefined ? false : _ref$error;
+      error = _ref$error === undefined ? false : _ref$error,
+      editable = _ref.editable;
 
   var _useState = (0, _react.useState)(error),
       _useState2 = _slicedToArray(_useState, 2),
       err = _useState2[0],
       setErr = _useState2[1];
+
+  // --------------
+  // Control readOnly sate in editable mode
+  // -------------
+
+  var isDisabled = void 0;
+
+  if (editable) {
+    isDisabled = readOnly ? true : field.is_PK;
+  } else {
+    isDisabled = readOnly;
+  }
 
   // --------------
   // Global required validation
@@ -39,7 +52,7 @@ var Textarea = function Textarea(_ref) {
   // -------------
 
   var errorStyle = err ? 'valleForm__textarea--error' : '';
-  var disabledStyle = readOnly ? 'valleForm__textarea--disabled' : '';
+  var disabledStyle = isDisabled ? 'valleForm__textarea--disabled' : '';
 
   var $description = !err ? _react2['default'].createElement(
     'small',
@@ -73,7 +86,7 @@ var Textarea = function Textarea(_ref) {
         placeholder: field.placeholder,
         'data-valle-field': field.id,
         id: field.id,
-        disabled: readOnly,
+        disabled: isDisabled,
         onBlur: validate,
         ref: textAreaRef,
         'data-valle-error': err,

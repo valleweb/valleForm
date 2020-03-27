@@ -219,7 +219,7 @@ var ValleForm = function ValleForm(_ref) {
 
   var $tabs = tabs.map(function (tab, index) {
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly);
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable);
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';

@@ -25,6 +25,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 exports['default'] = function (field) {
 	var customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	var editable = arguments[3];
 
 
 	//let select = React.createRef();
@@ -32,6 +33,16 @@ exports['default'] = function (field) {
 	//useEffect(() => {
 	//    select.current.value = field.value;
 	//}, [])
+
+
+	var isDisabled = void 0;
+
+	if (editable) {
+		// Verify editable mode
+		isDisabled = readOnly ? true : field.is_PK || field.readonly;
+	} else {
+		isDisabled = readOnly ? true : field.readonly;
+	}
 
 	return _react2['default'].createElement(
 		'valle-select',
@@ -46,7 +57,7 @@ exports['default'] = function (field) {
 			errortext: field.error_text,
 			key: field.id,
 			id: field.id
-		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(readOnly ? true : field.readonly)),
+		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled)),
 		(0, _makeOptions2['default'])(field.options)
 	);
 };

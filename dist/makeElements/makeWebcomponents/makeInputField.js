@@ -28,6 +28,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 exports['default'] = function (field) {
 	var readOnly = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+	var editable = arguments[2];
 
 
 	var _fetchData = function _fetchData() {}
@@ -40,7 +41,14 @@ exports['default'] = function (field) {
 
 	// }
 
-	;var isDisabled = readOnly ? true : field.readonly;
+	;var isDisabled = void 0;
+
+	if (editable) {
+		// Verify editable mode
+		isDisabled = readOnly ? true : field.is_PK || field.readonly;
+	} else {
+		isDisabled = readOnly ? true : field.readonly;
+	}
 
 	var customDescriptionStyle = field.label == 'Descrição' ? 'valleForm__input--description' : '';
 

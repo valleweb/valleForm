@@ -27,6 +27,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 exports['default'] = function (rows) {
 	var filterByVisibleScreen = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	var editable = arguments[3];
 	return rows.map(function (row, index) {
 
 		var $fields = row.filter(function (field) {
@@ -41,7 +42,8 @@ exports['default'] = function (rows) {
 				return _react2['default'].createElement(_Textarea2['default'], {
 					key: index,
 					field: field,
-					readOnly: readOnly
+					readOnly: readOnly,
+					editable: editable
 				});
 			}
 
@@ -49,7 +51,7 @@ exports['default'] = function (rows) {
 			// Resolve form webcomponents
 			// --------------
 
-			return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly) : (0, _makeInputField2['default'])(field, readOnly);
+			return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable) : (0, _makeInputField2['default'])(field, readOnly, editable);
 		});
 
 		return _react2['default'].createElement(
@@ -66,7 +68,8 @@ var isVisibleScreen = function isVisibleScreen(field, filterByVisibleScreen) {
 
 var resolveSelectSize = function resolveSelectSize(row, field) {
 	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	var editable = arguments[3];
 
 	return row.length === 1 ? // Verify if the select is a single field on row.
-	(0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly) : (0, _makeSelectField2['default'])(field, '', readOnly);
+	(0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly, editable) : (0, _makeSelectField2['default'])(field, '', readOnly, editable);
 };

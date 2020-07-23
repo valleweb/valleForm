@@ -54,8 +54,7 @@
         [
           {
             "case": null,
-
-            "id": "estadox",            
+            "id": "estadox",
             "label": "Estado",
             "placeholder": null,
             "element": "input",
@@ -369,7 +368,7 @@
           {
             "case": null,
 
-            "id": "estado",            
+            "id": "estado",
             "label": "Estado",
             "placeholder": null,
             "element": "input",

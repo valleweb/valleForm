@@ -203,26 +203,22 @@ render() {
 ### Install dependencies
 
 ```sh
-$ npm install
-```
-
-```sh
-$ bower install
+$ yarn
 ```
 
 ### Tasks
 
-* `npm start` - launch storybook to develop your component.
-* `npm run build` - build component to external use.
-* `npm run pub` - build and publish the component to npm.
-* `npm run storybook` - launch storybook to develop your component.
-* `npm run build-storybook` - build an static storybook to `.out` folder.
-* `npm run deploy-storybook` - build and deploy a storybook with component to gh-pages.
-* <s>`npm run test` - run all specs.</s>
-* <s>`npm run test:tdd` - run all specs and watch.</s>
-* <s>`npm run test:coverage` - run all specs and coverage.</s>
-* <s>`npm run lint` - lint all files searching for errors.</s>
-* <s>`npm run lint:fix` - fix some lint errors.</s>
+* `yarn start` - launch storybook to develop your component.
+* `yarn build` - build component to external use.
+* `yarn pub` - build and publish the component to npm.
+* `yarn storybook` - launch storybook to develop your component.
+* `yarn build-storybook` - build an static storybook to `.out` folder.
+* `yarn deploy-storybook` - build and deploy a storybook with component to gh-pages.
+* <s>`yarn test` - run all specs.</s>
+* <s>`yarn test:tdd` - run all specs and watch.</s>
+* <s>`yarn test:coverage` - run all specs and coverage.</s>
+* <s>`yarn lint` - lint all files searching for errors.</s>
+* <s>`yarn lint:fix` - fix some lint errors.</s>
 
 ### Architecture
 

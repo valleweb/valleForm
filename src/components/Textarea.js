@@ -14,12 +14,12 @@ const Textarea = ({
   // -------------
 
   let isDisabled;
-	
-	if(editable) {
-		isDisabled = readOnly ? true : field.is_PK;
-	} else {
-		isDisabled = readOnly;
-	}
+
+  if(editable) {
+    isDisabled = readOnly ? true : field.is_PK;
+  } else {
+    isDisabled = readOnly;
+  }
 
   // --------------
   // Global required validation
@@ -65,7 +65,7 @@ const Textarea = ({
     
   }
 
-	return (
+  return (
     <span className = { `valleForm__textarea ${disabledStyle} ${errorStyle}`} key = { field.id }>
       
       <textarea
@@ -90,7 +90,7 @@ const Textarea = ({
       { $description }
 
     </span>
-  )
+  );
 
 }
 

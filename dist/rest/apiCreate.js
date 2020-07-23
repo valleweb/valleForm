@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _getFieldsParams = require('../fieldsControl/getFieldsParams');
@@ -18,84 +18,85 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  */
 
 var apiCreate = function apiCreate(baseApi, canonicalApi) {
-	var customParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-	var feedbackCb = arguments[3];
-	var token = arguments[4];
+  var customParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var feedbackCb = arguments[3];
+  var token = arguments[4];
+  var _id = arguments[5];
 
 
-	/**
+  /**
    * Get all form values
    * 
    */
 
-	var fieldsParams = (0, _getFieldsParams2['default'])();
+  var fieldsParams = (0, _getFieldsParams2['default'])(_id);
 
-	if (fieldsParams) {
+  if (fieldsParams) {
 
-		/**
-   * API url
-   * 
-   */
+    /**
+     * API url
+     * 
+     */
 
-		var apiPath = '' + String(baseApi) + String(canonicalApi);
+    var apiPath = '' + String(baseApi) + String(canonicalApi);
 
-		/**
-   * Request configs
-   * 
-   */
+    /**
+     * Request configs
+     * 
+     */
 
-		var method = 'POST';
+    var method = 'POST';
 
-		var headers = new Headers({
-			'Content-Type': 'application/json',
-			'Authorization': 'Bearer ' + String(token)
-		});
+    var headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + String(token)
+    });
 
-		/**
-   * Resquest data structure
-   * 
-   */
+    /**
+     * Resquest data structure
+     * 
+     */
 
-		var body = JSON.stringify({
-			evento: Object.assign({}, customParams, {
-				dados: fieldsParams
-			})
-		});
+    var body = JSON.stringify({
+      evento: Object.assign({}, customParams, {
+        dados: fieldsParams
+      })
+    });
 
-		/**
-   * HTTP POST
-   * 
-   */
+    /**
+     * HTTP POST
+     * 
+     */
 
-		fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
-			return res.json();
-		}).then(function (data) {
+    fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
+      return res.json();
+    }).then(function (data) {
 
-			/**
-    * Request success
-    * 
-    */
+      /**
+       * Request success
+       * 
+       */
 
-			feedbackCb(data.evento.mensagem, 'success');
-			(0, _cleanFields2['default'])();
-		})['catch'](function () {
+      feedbackCb(data.evento.mensagem, 'success');
+      (0, _cleanFields2['default'])(_id);
+    })['catch'](function () {
 
-			/**
-    * Request error
-    * 
-    */
+      /**
+       * Request error
+       * 
+       */
 
-			feedbackCb('Erro interno no servidor', 'error');
-		});
-	} else {
+      feedbackCb('Erro interno no servidor', 'error');
+    });
+  } else {
 
-		/**
-   * Form error
-   * 
-   */
+    /**
+     * Form error
+     * 
+     */
 
-		feedbackCb('Erro ao preencher o formulário', 'error');
-	}
+    feedbackCb('Erro ao preencher o formulário', 'error');
+  }
 };
 
 exports['default'] = apiCreate;

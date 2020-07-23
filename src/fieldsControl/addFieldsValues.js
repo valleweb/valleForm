@@ -1,15 +1,16 @@
-export default (defaultFieldsValues) => {
+export default (defaultFieldsValues, _id) => {
 
-	// -----------
-	// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
-	// Controls default values
-	// -----------
+  // -----------
+  // TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
+  // Controls default values
+  // -----------
 
-	const allFields = document.querySelectorAll('[data-valle-field]');
+  const formScope =  document.getElementById(_id);
+  const allFields = formScope.querySelectorAll(`[data-valle-field]`);
 
-	allFields.forEach(field => {
-		const fieldKey = field.dataset.valleField;
-		field.value = defaultFieldsValues[fieldKey];
-	});
+  allFields.forEach(field => {
+    const fieldKey = field.dataset.valleField;
+    field.value = defaultFieldsValues[fieldKey];
+  });
 
 }

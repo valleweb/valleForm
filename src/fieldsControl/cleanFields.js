@@ -1,18 +1,19 @@
-export default () => {
+export default _id => {
 
-	// -----------
-	// TODO: Remove this. Use a React memory reference instead.
-	// -----------
+  // -----------
+  // TODO: Remove this. Use a React memory reference instead.
+  // -----------
 
-	const allFields = document.querySelectorAll('[data-valle-field]');
+  const formScope =  document.getElementById(_id);
+  const allFields = formScope.querySelectorAll(`[data-valle-field]`);
 
-	allFields.forEach(field => {
+  allFields.forEach(field => {
 
-		field.removeAttribute('error');
-		field.removeAttribute('data-valle-error');
+    field.removeAttribute('error');
+    field.removeAttribute('data-valle-error');
 
-		field.value = '';
+    field.value = '';
 
-	});
+  });
 
 }

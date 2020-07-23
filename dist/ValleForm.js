@@ -42,7 +42,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 var ValleForm = function ValleForm(_ref) {
   var _ref$tabs = _ref.tabs,
       tabs = _ref$tabs === undefined ? [] : _ref$tabs,
-      _id = _ref._id,
+      _ref$_id = _ref._id,
+      _id = _ref$_id === undefined ? 'valleForm' : _ref$_id,
       _ref$values = _ref.values,
       values = _ref$values === undefined ? null : _ref$values,
       _ref$readOnly = _ref.readOnly,
@@ -144,15 +145,15 @@ var ValleForm = function ValleForm(_ref) {
   };
 
   var cancelFieldsEditable = function cancelFieldsEditable() {
-    (0, _cleanFields2['default'])();
-    (0, _addFieldsValues2['default'])(values);
+    (0, _cleanFields2['default'])(_id);
+    (0, _addFieldsValues2['default'])(values, _id);
     setDynamicReadOnly(true);
     setEditable(false);
     closeValleSpeedDial();
   };
 
   var makeFieldsDefault = function makeFieldsDefault() {
-    (0, _cleanFields2['default'])();
+    (0, _cleanFields2['default'])(_id);
     setDynamicReadOnly(false);
     setEditable(false);
     //closeValleSpeedDial();
@@ -219,14 +220,17 @@ var ValleForm = function ValleForm(_ref) {
 
   var $tabs = tabs.map(function (tab, index) {
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable);
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token);
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
 
     return _react2['default'].createElement(
       'div',
-      { key: index, className: 'valleForm__tabs__tab ' + tabVisibility },
+      {
+        key: index,
+        className: 'valleForm__tabs__tab ' + tabVisibility
+      },
       $rows
     );
   });
@@ -249,11 +253,12 @@ var ValleForm = function ValleForm(_ref) {
 
     return _react2['default'].createElement(
       'div',
-      { className: 'valleForm' },
+      { className: 'valleForm', id: _id },
       _react2['default'].createElement(_Switch2['default'], {
         label: 'Limitar campos',
         readOnly: dynamicReadOnly,
-        onChange: changeVisibleScreen
+        onChange: changeVisibleScreen,
+        _id: String(_id) + '-switch'
       }),
       !(tabs.length === 1) ? _react2['default'].createElement(
         'div',

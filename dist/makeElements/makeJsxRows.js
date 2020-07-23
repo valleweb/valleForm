@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _react = require('react');
@@ -25,51 +25,53 @@ var _Textarea2 = _interopRequireDefault(_Textarea);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (rows) {
-	var filterByVisibleScreen = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-	var editable = arguments[3];
-	return rows.map(function (row, index) {
+  var filterByVisibleScreen = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var editable = arguments[3];
+  var token = arguments[4];
+  return rows.map(function (row, index) {
 
-		var $fields = row.filter(function (field) {
-			return isVisibleScreen(field, filterByVisibleScreen);
-		}).map(function (field) {
+    var $fields = row.filter(function (field) {
+      return isVisibleScreen(field, filterByVisibleScreen);
+    }).map(function (field) {
 
-			// --------------
-			// Resolve react component
-			// --------------
+      // --------------
+      // Resolve react component
+      // --------------
 
-			if (field.element === 'textarea') {
-				return _react2['default'].createElement(_Textarea2['default'], {
-					key: index,
-					field: field,
-					readOnly: readOnly,
-					editable: editable
-				});
-			}
+      if (field.element === 'textarea') {
+        return _react2['default'].createElement(_Textarea2['default'], {
+          key: index,
+          field: field,
+          readOnly: readOnly,
+          editable: editable
+        });
+      }
 
-			// --------------
-			// Resolve form webcomponents
-			// --------------
+      // --------------
+      // Resolve form webcomponents
+      // --------------
 
-			return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable) : (0, _makeInputField2['default'])(field, readOnly, editable);
-		});
+      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token) : (0, _makeInputField2['default'])(field, readOnly, editable, token);
+    });
 
-		return _react2['default'].createElement(
-			'div',
-			{ className: 'valleForm__row', key: index },
-			$fields
-		);
-	});
+    return _react2['default'].createElement(
+      'div',
+      { className: 'valleForm__row', key: index },
+      $fields
+    );
+  });
 };
 
 var isVisibleScreen = function isVisibleScreen(field, filterByVisibleScreen) {
-	return filterByVisibleScreen ? field.visible_screen : true;
+  return filterByVisibleScreen ? field.visible_screen : true;
 };
 
 var resolveSelectSize = function resolveSelectSize(row, field) {
-	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-	var editable = arguments[3];
+  var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var editable = arguments[3];
+  var token = arguments[4];
 
-	return row.length === 1 ? // Verify if the select is a single field on row.
-	(0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly, editable) : (0, _makeSelectField2['default'])(field, '', readOnly, editable);
+  return row.length === 1 ? // Verify if the select is a single field on row.
+  (0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly, editable) : (0, _makeSelectField2['default'])(field, '', readOnly, editable, token);
 };

@@ -1,18 +1,19 @@
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
-exports['default'] = function (defaultFieldsValues) {
+exports["default"] = function (defaultFieldsValues, _id) {
 
-	// -----------
-	// TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
-	// Controls default values
-	// -----------
+  // -----------
+  // TODO: Refactor: Add allFields to state. Allow reuse this reference (here and cleanForm)
+  // Controls default values
+  // -----------
 
-	var allFields = document.querySelectorAll('[data-valle-field]');
+  var formScope = document.getElementById(_id);
+  var allFields = formScope.querySelectorAll("[data-valle-field]");
 
-	allFields.forEach(function (field) {
-		var fieldKey = field.dataset.valleField;
-		field.value = defaultFieldsValues[fieldKey];
-	});
+  allFields.forEach(function (field) {
+    var fieldKey = field.dataset.valleField;
+    field.value = defaultFieldsValues[fieldKey];
+  });
 };

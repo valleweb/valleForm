@@ -16,7 +16,7 @@ import cleanFields from './fieldsControl/cleanFields';
 
 const ValleForm = ({
   tabs = [],
-  _id,
+  _id = 'valleForm',
   values = null,
   readOnly = false,
   baseApi,
@@ -91,15 +91,15 @@ const ValleForm = ({
   }
   
   const cancelFieldsEditable = () => {
-		cleanFields();
-    addFieldsValues(values);
+		cleanFields(_id);
+    addFieldsValues(values, _id);
     setDynamicReadOnly(true);
 		setEditable(false);
 		closeValleSpeedDial();
   }
   
   const makeFieldsDefault = () => {
-    cleanFields();
+    cleanFields(_id);
     setDynamicReadOnly(false);
 		setEditable(false);
 		//closeValleSpeedDial();
@@ -160,15 +160,24 @@ const ValleForm = ({
    * 
    */
 
-  const $tabs = tabs.map((tab , index) => {
+  const $tabs = tabs.map((tab, index) => {
 
-    const $rows = makeJsxRows(tab.lines , filterByVisibleScreen, dynamicReadOnly, editable);
+    const $rows = makeJsxRows(
+      tab.lines,
+      filterByVisibleScreen,
+      dynamicReadOnly,
+      editable,
+      token,
+    );
 
     const isVisibleTab = (visibleTab === index);
     const tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
-  
+
     return (
-      <div key = { index } className = { `valleForm__tabs__tab ${tabVisibility}` }>
+      <div
+        key = { index }
+        className = { `valleForm__tabs__tab ${tabVisibility}` }
+      >
         { $rows }
       </div>
     );
@@ -192,14 +201,15 @@ const ValleForm = ({
   if (rowsDataDone) {
 
     return (
-      <div className = "valleForm">
+      <div className = "valleForm" id = { _id } >
 
         {/* ------- Header ------- */}
 
         <Switch
 					label = "Limitar campos"
 					readOnly = { dynamicReadOnly }
-					onChange = { changeVisibleScreen }
+          onChange = { changeVisibleScreen }
+          _id = { `${_id}-switch` }
         />
 
         {/* ------- Main ------- */}

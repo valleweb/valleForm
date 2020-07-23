@@ -1,31 +1,32 @@
-export default () => {
+export default _id => {
 
-	// -----------
-	// TODO: Remove this. Use a React memory reference instead.
-	// -----------
+  // -----------
+  // TODO: Remove this. Use a React memory reference instead.
+  // -----------
 
-	const allFields = document.querySelectorAll('[data-valle-field]');
+  const formScope =  document.getElementById(_id);
+  const allFields = formScope.querySelectorAll(`[data-valle-field]`);
 
-	const fieldsParams = {};
-	let hasError = false;
+  const fieldsParams = {};
+  let hasError = false;
 
-	allFields.forEach(field => {
+  allFields.forEach(field => {
 
-		// Individual validation
-		if(field.error || field['data-valle-error']) {
-			hasError = true;
-		}
+    // Individual validation
+    if(field.error || field['data-valle-error']) {
+      hasError = true;
+    }
 
-		// Global required validation
-		if((field.required || field.dataset.valleRequired) && (!field.value || field.value == '')) {
-			hasError = true;
-			field.setAttribute('error', 'true');
-			field.setAttribute('data-valle-error', 'true');
-		}
+    // Global required validation
+    if((field.required || field.dataset.valleRequired) && (!field.value || field.value == '')) {
+      hasError = true;
+      field.setAttribute('error', 'true');
+      field.setAttribute('data-valle-error', 'true');
+    }
 
-		fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
-	})
+    fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
+  })
 
-	return hasError ? false : fieldsParams;
+  return hasError ? false : fieldsParams;
 
 }

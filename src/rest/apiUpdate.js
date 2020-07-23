@@ -6,93 +6,94 @@ import getFieldsParams from '../fieldsControl/getFieldsParams';
  */
 
 const apiUpdate = (
-	baseApi,
-	canonicalApi,
-	customParams = {},
-	_id,
-	feedbackCb,
-	formCb,
-	token) => {
+  baseApi,
+  canonicalApi,
+  customParams = {},
+  _id,
+  feedbackCb,
+  formCb,
+  token,
+  ) => {
 
-	/**
+  /**
    * Get all form values
    * 
    */
 
-	const fieldsParams = getFieldsParams();
+  const fieldsParams = getFieldsParams(_id);
 
-	if (fieldsParams) {
+  if (fieldsParams) {
 
-		/**
-		 * API url
-		 * 
-		 */
+    /**
+     * API url
+     * 
+     */
 
-		const apiPath = `${baseApi}${canonicalApi}`;
+    const apiPath = `${baseApi}${canonicalApi}`;
 
-		/**
-		 * Request configs
-		 * 
-		 */
+    /**
+     * Request configs
+     * 
+     */
 
-		const method = 'PUT';
+    const method = 'PUT';
 
-		const headers = new Headers({
-			'Content-Type': 'application/json',
-			'Authorization': `Bearer ${token}`
-		});
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
 
-		/**
-		 * Resquest data structure
-		 * 
-		 */
+    /**
+     * Resquest data structure
+     * 
+     */
 
-		const body = JSON.stringify({
-			evento: {
-				...customParams,
-				dados: fieldsParams
-			}
-		});
+    const body = JSON.stringify({
+      evento: {
+        ...customParams,
+        dados: fieldsParams
+      }
+    });
 
-		/**
-		 * HTTP PUT
-		 * 
-		 */
+    /**
+     * HTTP PUT
+     * 
+     */
 
-		fetch(apiPath, { method, headers, body })
-			.then(res => res.json())
-			.then(data => {
+    fetch(apiPath, { method, headers, body })
+      .then(res => res.json())
+      .then(data => {
 
-				/**
-				 * Request success
-				 * 
-				 */
-				
-				feedbackCb(data.evento.mensagem, 'success');
-				formCb();
+        /**
+         * Request success
+         * 
+         */
+        
+        feedbackCb(data.evento.mensagem, 'success');
+        formCb();
 
-			})
-			.catch(() => {
+      })
+      .catch(() => {
 
-				/**
-				 * Request error
-				 * 
-				 */
+        /**
+         * Request error
+         * 
+         */
 
-				feedbackCb('Erro interno no servidor', 'error');
+        feedbackCb('Erro interno no servidor', 'error');
 
-			});
+      });
 
-	} else {
+  } else {
 
-		/**
-		 * Form error
-		 * 
-		 */
+    /**
+     * Form error
+     * 
+     */
 
-		feedbackCb('Erro ao preencher o formulário', 'error');
+    feedbackCb('Erro ao preencher o formulário', 'error');
 
-	}
+  }
 
 }
 

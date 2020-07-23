@@ -49,7 +49,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token);
+            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id);
           }
 
           return onClick;

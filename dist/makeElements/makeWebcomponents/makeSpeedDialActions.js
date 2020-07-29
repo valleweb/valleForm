@@ -47,7 +47,8 @@ exports['default'] = function (_ref) {
       cancelCb: cancelCb,
       formCb: formCb,
       newCB: newCB,
-      token: token
+      token: token,
+      getData: getData
     });
   });
 
@@ -65,7 +66,8 @@ exports['default'] = function (_ref) {
       cancelCb: cancelCb,
       formCb: formCb,
       newCB: newCB,
-      token: token
+      token: token,
+      getData: getData
     });
   });
 

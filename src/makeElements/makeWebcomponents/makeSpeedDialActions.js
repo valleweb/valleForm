@@ -35,7 +35,8 @@ export default ({
       cancelCb,
       formCb,
       newCB,
-      token
+      token,
+      getData,
     }));
 
   const $retrievalActions = buttons
@@ -51,7 +52,8 @@ export default ({
       cancelCb,
       formCb,
       newCB,
-      token
+      token,
+      getData,
     }));
 
   const $updateActions = buttons

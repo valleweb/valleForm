@@ -1,0 +1,42 @@
+{
+    "title": "Manutenção de Estados",
+    "tabs": [
+      {
+        "title":"Manutenção de Estados",
+        "form": "frmEstados",
+        "id": "frmEstados",
+        "api": null,
+        "buttons": [
+          {
+            "action": "stp_list",
+            "id": "9141",
+            "status": "create",
+            "text": "Processar"
+          }
+        ],
+        "lines":[
+          [
+            {
+              "case": null,
+              "id": "estadox",
+              "label": "Estado",
+              "placeholder": null,
+              "element": "input",
+              "required": false,
+              "readonly": false,
+              "error_text": "Campo obrigatório",
+              "helper_text": "Texto aqui",
+              "visible_screen": true,
+              "type": "text",
+              "is_PK": false,
+              "mask": null,
+              "maxlength": 2,
+              "pattern": null,
+              "autocomplete": false,
+              "actions": null
+            }
+          ]
+        ]
+      }
+    ]
+  }

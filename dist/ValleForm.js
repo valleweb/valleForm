@@ -56,7 +56,8 @@ var ValleForm = function ValleForm(_ref) {
       _ref$buttons = _ref.buttons,
       buttons = _ref$buttons === undefined ? [] : _ref$buttons,
       _ref$token = _ref.token,
-      token = _ref$token === undefined ? '' : _ref$token;
+      token = _ref$token === undefined ? '' : _ref$token,
+      getData = _ref.getData;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -287,7 +288,8 @@ var ValleForm = function ValleForm(_ref) {
           formCb: removeFieldsEditable,
           cancelCb: cancelFieldsEditable,
           newCB: makeFieldsDefault,
-          token: token
+          token: token,
+          getData: getData
         })
       ),
       $feedback

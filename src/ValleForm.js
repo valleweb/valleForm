@@ -24,7 +24,9 @@ const ValleForm = ({
   params,
   $loading = 'loading',
   buttons = [],
-  token = ''}) => {
+  token = '',
+  getData,
+  }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
   const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
@@ -246,7 +248,8 @@ const ValleForm = ({
               formCb: removeFieldsEditable,
               cancelCb: cancelFieldsEditable,
               newCB: makeFieldsDefault,
-              token
+              token,
+              getData,
             })
           }
 

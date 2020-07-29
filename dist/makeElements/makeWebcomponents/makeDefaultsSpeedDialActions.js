@@ -18,6 +18,10 @@ var _apiDelete = require('../../rest/apiDelete');
 
 var _apiDelete2 = _interopRequireDefault(_apiDelete);
 
+var _apiCustomRequest = require('../../rest/apiCustomRequest');
+
+var _apiCustomRequest2 = _interopRequireDefault(_apiCustomRequest);
+
 var _shortid = require('shortid');
 
 var _shortid2 = _interopRequireDefault(_shortid);
@@ -35,7 +39,9 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       cancelCb = _ref.cancelCb,
       formCb = _ref.formCb,
       newCB = _ref.newCB,
-      token = _ref.token;
+      token = _ref.token,
+      _ref$getData = _ref.getData,
+      getData = _ref$getData === undefined ? null : _ref$getData;
 
 
   if (button.action == 'save') {
@@ -180,7 +186,18 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       'label-direction': 'left',
       onClick: function () {
         function onClick() {
-          return true;
+
+          var requestParams = {
+            getData: getData,
+            action: button.action,
+            button_id: button.id,
+            baseApi: baseApi,
+            params: params,
+            token: token,
+            _id: _id
+          };
+
+          (0, _apiCustomRequest2['default'])(requestParams);
         }
 
         return onClick;

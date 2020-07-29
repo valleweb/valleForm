@@ -2,6 +2,7 @@ import React from 'react';
 import apiCreate from '../../rest/apiCreate';
 import apiUpdate from '../../rest/apiUpdate';
 import apiDelete from '../../rest/apiDelete';
+import apiCustomRequest from '../../rest/apiCustomRequest';
 import shortid from 'shortid';
 
 export default makeDefaultsSpeedDialActions = ({
@@ -15,7 +16,9 @@ export default makeDefaultsSpeedDialActions = ({
   cancelCb,
   formCb,
   newCB,
-  token }) => {
+  token,
+  getData = null,
+  }) => {
 
   if(button.action == 'save') {
     return (
@@ -138,7 +141,21 @@ export default makeDefaultsSpeedDialActions = ({
       sloted
       label = { button.text }
       label-direction = "left"
-      onClick = { () => true }>
+      onClick = { () => {
+
+        const requestParams = {
+          getData,
+          action: button.action,
+          button_id: button.id,
+          baseApi,
+          params,
+          token,
+          _id
+        }
+
+        apiCustomRequest(requestParams);
+
+      }}>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="#fff" d="M8 10h-5l9-10 9 10h-5v10h-8v-10zm8 12h-8v2h8v-2z"/>

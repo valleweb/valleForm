@@ -194,7 +194,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
             baseApi: baseApi,
             params: params,
             token: token,
-            _id: _id
+            _id: _id,
+            endpoint: button.endpoint
           };
 
           (0, _apiCustomRequest2['default'])(requestParams);

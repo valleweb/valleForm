@@ -8,6 +8,7 @@ const apiCustomRequest = ({
   params,
   token,
   _id,
+  endpoint = null,
   }) => {
 
   const fieldsParams = getFieldsParams(_id);
@@ -34,6 +35,7 @@ const apiCustomRequest = ({
       action: action,
       button_id: button_id,
       dados: fieldsParams,
+      endpoint,
     }
 
   });
@@ -43,13 +45,27 @@ const apiCustomRequest = ({
    * 
    */
 
-  fetch(`${baseApi}/form-filter`, { method, headers, body })
+  if(action === 'custom_api' && action === 'custom_stp') {
+
+    fetch(`${baseApi}/generic-action`, { method, headers, body })
     .then(res => res.json())
     .then(data => {
       if(getData) {
         getData(data);
       }
     });
+
+  } else {
+
+    fetch(`${baseApi}/form-filter`, { method, headers, body })
+    .then(res => res.json())
+    .then(data => {
+      if(getData) {
+        getData(data);
+      }
+    });
+
+  }
 
 }
 

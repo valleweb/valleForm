@@ -15,7 +15,9 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       baseApi = _ref.baseApi,
       params = _ref.params,
       token = _ref.token,
-      _id = _ref._id;
+      _id = _ref._id,
+      _ref$endpoint = _ref.endpoint,
+      endpoint = _ref$endpoint === undefined ? null : _ref$endpoint;
 
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id);
@@ -41,7 +43,8 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       location: "",
       action: action,
       button_id: button_id,
-      dados: fieldsParams
+      dados: fieldsParams,
+      endpoint: endpoint
     }
 
   });
@@ -51,13 +54,25 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
    * 
    */
 
-  fetch(String(baseApi) + '/form-filter', { method: method, headers: headers, body: body }).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    if (getData) {
-      getData(data);
-    }
-  });
+  if (action === 'custom_api' && action === 'custom_stp') {
+
+    fetch(String(baseApi) + '/generic-action', { method: method, headers: headers, body: body }).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      if (getData) {
+        getData(data);
+      }
+    });
+  } else {
+
+    fetch(String(baseApi) + '/form-filter', { method: method, headers: headers, body: body }).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      if (getData) {
+        getData(data);
+      }
+    });
+  }
 };
 
 exports['default'] = apiCustomRequest;

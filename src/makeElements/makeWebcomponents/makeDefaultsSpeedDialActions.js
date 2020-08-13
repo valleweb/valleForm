@@ -150,7 +150,8 @@ export default makeDefaultsSpeedDialActions = ({
           baseApi,
           params,
           token,
-          _id
+          _id,
+          endpoint: button.endpoint,
         }
 
         apiCustomRequest(requestParams);

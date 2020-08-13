@@ -54,7 +54,7 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
    * 
    */
 
-  if (action === 'custom_api' && action === 'custom_stp') {
+  if (action === 'custom_api' || action === 'custom_stp') {
 
     fetch(String(baseApi) + '/generic-action', { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();

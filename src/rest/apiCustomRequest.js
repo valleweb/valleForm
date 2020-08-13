@@ -45,7 +45,7 @@ const apiCustomRequest = ({
    * 
    */
 
-  if(action === 'custom_api' && action === 'custom_stp') {
+  if(action === 'custom_api' || action === 'custom_stp') {
 
     fetch(`${baseApi}/generic-action`, { method, headers, body })
     .then(res => res.json())

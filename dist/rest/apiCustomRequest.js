@@ -17,7 +17,7 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       token = _ref.token,
       _id = _ref._id,
       _ref$endpoint = _ref.endpoint,
-      endpoint = _ref$endpoint === undefined ? null : _ref$endpoint;
+      endpoint = _ref$endpoint === undefined ? '' : _ref$endpoint;
 
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id);
@@ -54,7 +54,11 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
    * 
    */
 
-  if (action === 'custom_api' || action === 'custom_stp') {
+  console.log(action);
+
+  if (action == 'custom_api' || action == 'custom_stp') {
+
+    console.log('custom');
 
     fetch(String(baseApi) + '/generic-action', { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();
@@ -64,6 +68,8 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       }
     });
   } else {
+
+    console.log('filter');
 
     fetch(String(baseApi) + '/form-filter', { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();

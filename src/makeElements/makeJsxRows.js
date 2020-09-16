@@ -10,6 +10,7 @@ export default (
   readOnly = false,
   editable,
   token,
+  _id,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -27,6 +28,7 @@ export default (
             field = { field }
             readOnly = { readOnly }
             editable = { editable }
+            _id = { _id }
           />
         )
       }
@@ -36,8 +38,8 @@ export default (
       // --------------
 
       return isSelect(field.element) 
-      ? resolveSelectSize(row, field, readOnly, editable, token)
-      : makeInputField(field, readOnly, editable, token)
+      ? resolveSelectSize(row, field, readOnly, editable, token, _id)
+      : makeInputField(field, readOnly, editable, token, _id)
     
     })
 
@@ -49,10 +51,10 @@ const isVisibleScreen = (field, filterByVisibleScreen) => {
   return filterByVisibleScreen ? field.visible_screen : true
 }
 
-const resolveSelectSize = (row, field, readOnly = false, editable, token) => {
+const resolveSelectSize = (row, field, readOnly = false, editable, token, _id) => {
   return (
     (row.length === 1) // Verify if the select is a single field on row.
-    ? makeSelectField(field, 'valleForm__select--big', readOnly, editable) 
-    : makeSelectField(field, '', readOnly, editable, token)
+    ? makeSelectField(field, 'valleForm__select--big', readOnly, editable, null, _id)
+    : makeSelectField(field, '', readOnly, editable, token, _id)
   )
 }

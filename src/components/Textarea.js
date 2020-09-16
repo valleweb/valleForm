@@ -4,7 +4,8 @@ const Textarea = ({
   field,
   readOnly = false,
   error = false,
-  editable
+  editable,
+  _id,
 }) => {
 
   const [err, setErr] = useState(error);
@@ -71,8 +72,8 @@ const Textarea = ({
       <textarea
         className = "valleForm__textarea__input"
         placeholder = { field.placeholder }
-        data-valle-field = { field.id }
-        id = { field.id }
+        data-valle-field = { `${_id}_${field.id}` }
+        id = { `${_id}_${field.id}` }
         disabled = { isDisabled }
         onBlur = { validate }
         ref = { textAreaRef }

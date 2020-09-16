@@ -3,7 +3,7 @@ import makeOptions from './makeOptions';
 import normalizeReadOnly from '../../helpers/normalizeReadOnly';
 import normalizeRequired from '../../helpers/normalizeRequired';
 
-export default (field, customClass = '', readOnly = false, editable) => {
+export default (field, customClass = '', readOnly = false, editable, _id) => {
 
 	//let select = React.createRef();
 
@@ -26,12 +26,12 @@ export default (field, customClass = '', readOnly = false, editable) => {
 			value = { field.value ? field.value : null }
 			class = {`valleForm__select ${customClass}`}
 			label = { field.label }
-			data-valle-field = { field.id }
+			data-valle-field = { `${_id}_${field.id}` }
 			placeholder = { field.placeholder }
 			helpertext = { field.helper_text }
 			errortext = { field.error_text }
-			key = { field.id }
-			id = { field.id }
+			key = { `${_id}_${field.id}` }
+			id = { `${_id}_${field.id}` }
 			{ ...normalizeRequired(field.required) }
 			{ ...normalizeReadOnly(isDisabled) }
 		>

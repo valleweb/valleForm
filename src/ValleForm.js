@@ -170,6 +170,7 @@ const ValleForm = ({
       dynamicReadOnly,
       editable,
       token,
+      _id,
     );
 
     const isVisibleTab = (visibleTab === index);

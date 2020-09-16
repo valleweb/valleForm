@@ -4,7 +4,7 @@ import normalizeReadOnly from '../../helpers/normalizeReadOnly';
 import normalizeRequired from '../../helpers/normalizeRequired';
 import normalizeMask from '../../helpers/normalizeMask';
 
-export default (field, readOnly = false, editable, token) => {
+export default (field, readOnly = false, editable, token, _id) => {
 
   const _fetchData = () => {
     console.log('blur');
@@ -52,7 +52,7 @@ export default (field, readOnly = false, editable, token) => {
   }
 
   return (
-    <span className = 'valleForm__input__container' key = { field.id }>
+    <span className = 'valleForm__input__container' key = { `${_id}_${field.id}` }>
 
       <valle-input
         value = { field.value ? field.value : null }
@@ -62,9 +62,9 @@ export default (field, readOnly = false, editable, token) => {
         placeholder = { field.placeholder }
         helpertext = { field.helper_text }
         errortext = { field.error_text }
-        data-valle-field = { field.id }
+        data-valle-field = { `${_id}_${field.id}` }
         maxlength = { field.maxlength }
-        id = { field.id }
+        id = { `${_id}_${field.id}` }
         onBlur = { _fetchData }
         pattern = { field.pattern }
         { ...normalizeRequired(field.required) }

@@ -11,7 +11,6 @@ export default (field, customClass = '', readOnly = false, editable, _id) => {
   //    select.current.value = field.value;
 	//}, [])
 
-
 	let isDisabled;
 	
 	if(editable) { // Verify editable mode
@@ -32,6 +31,9 @@ export default (field, customClass = '', readOnly = false, editable, _id) => {
 			errortext = { field.error_text }
 			key = { `${_id}_${field.id}` }
 			id = { `${_id}_${field.id}` }
+			tooltip = { field.description }
+			tooltippos = 'top-right'
+			tooltiplength = 'large'
 			{ ...normalizeRequired(field.required) }
 			{ ...normalizeReadOnly(isDisabled) }
 		>

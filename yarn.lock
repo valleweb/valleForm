@@ -321,10 +321,10 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-input@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.0.2.tgz#95fa686acd57a491ee46468ea2124b457d8785de"
-  integrity sha512-QCOwkYhdGlwMAOWi00lMQjSF8edrOiRXvKaGNu+A6sH2zI1fXF5G/MAPVi0XRGCpp8de/e/4mAM5X7Kt/HEH7g==
+"@valle/valle-input@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.3.0.tgz#6bebbc724dc594725736549d684ea11764882297"
+  integrity sha512-dhp/nhCHgwUkVDrf7c4zRK5LneBLOrWryt4/BH+LZIp3aMOoVwONQ8ERqPt64c7HLqEF5y5uKnWLwbPo0SFE7Q==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 

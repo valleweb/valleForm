@@ -9,6 +9,7 @@ import form_1 from '../data/form-1.json';
 import form_2 from '../data/form-2.json';
 import form_0_values from '../data/form-0-values.json';
 import form_0_populated from '../data/form-0-populated.json';
+import form_2_descriptions from '../data/form-2-descriptions.json';
 
 setAddon(JSXAddon);
 
@@ -68,6 +69,18 @@ storiesOf('ValleForm', module)
         baseApi = { 'http://localhost:3000' }
         canonicalApi = { form_2.tabs[0].api }
         buttons = { form_2.tabs[0].buttons }
+        token = '123'
+        _id = '@123'
+      />
+    )
+  })
+  .addWithJSX('Form 2 - description', () => {
+    return (
+      <ValleForm
+        tabs = { form_2_descriptions.tabs }
+        baseApi = { 'http://localhost:3000' }
+        canonicalApi = { form_2_descriptions.tabs[0].api }
+        buttons = { form_2_descriptions.tabs[0].buttons }
         token = '123'
         _id = '@123'
       />

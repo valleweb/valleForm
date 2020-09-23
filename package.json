@@ -76,7 +76,7 @@
     "uglify-js": "^2.7.0"
   },
   "dependencies": {
-    "@valle/valle-input": "^2.0.2",
+    "@valle/valle-input": "^2.3.0",
     "@valle/valle-select": "^1.2.2",
     "@valle/valle-speed-dial": "^1.0.2",
     "prop-types": "^15.5.10",

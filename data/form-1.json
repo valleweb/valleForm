@@ -267,7 +267,7 @@
                 "action": "find",
                 "data": null
               }
-            ]        
+            ]
           },
           {
             "case": null,
@@ -367,7 +367,6 @@
         [
           {
             "case": null,
-
             "id": "estado",
             "label": "Estado",
             "placeholder": null,

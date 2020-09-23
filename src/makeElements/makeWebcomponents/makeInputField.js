@@ -67,6 +67,9 @@ export default (field, readOnly = false, editable, token, _id) => {
         id = { `${_id}_${field.id}` }
         onBlur = { _fetchData }
         pattern = { field.pattern }
+        tooltip = { field.description }
+        tooltippos = 'top-right'
+        tooltiplength = 'large'
         { ...normalizeRequired(field.required) }
         { ...normalizeReadOnly(isDisabled) }
         { ...normalizeCaseProp(field.case) }

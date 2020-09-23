@@ -217,7 +217,7 @@ $ yarn
 * <s>`yarn test` - run all specs.</s>
 * <s>`yarn test:tdd` - run all specs and watch.</s>
 * <s>`yarn test:coverage` - run all specs and coverage.</s>
-* <s>`yarn lint` - lint all files searching for errors.</s>
+* `yarn lint:js` - lint all files searching for errors.
 * <s>`yarn lint:fix` - fix some lint errors.</s>
 
 ### Architecture

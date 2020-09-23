@@ -1,18 +1,110 @@
 {
   "env": {
-    "es6": true
+    "browser": true
   },
   "parser": "babel-eslint",
-  "ecmaFeatures": {
-    "modules": true
-  },
-  "parserOptions": {
-        "sourceType": "module",
-  },
+  "plugins": [
+    "react",
+    "jsx-a11y"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
   "settings": {
     "react": {
-      "pragma": "React",
-      "version": "15.0"
+      "version": "detect"
     }
+  },
+  "rules": {
+    "indent": [
+        "error",
+        2,
+        {
+          "ignoreComments": true,
+          "SwitchCase": 1
+        }
+    ],
+    "quotes": [
+        "error",
+        "single"
+    ],
+    "semi": [
+        "error",
+        "always"
+    ],
+    "eqeqeq": [
+        "error",
+        "always"
+    ],
+    "space-infix-ops": [
+        "error",
+        {"int32Hint": false}
+    ],
+    "max-len": [
+        "error",
+        {
+          "code": 80,
+          "ignoreComments": true
+        }
+    ],
+    "keyword-spacing": [
+      "error",
+      { 
+        "before": true,
+        "after": true
+      }
+    ],
+    "space-in-parens": [
+      "error",
+      "never"
+    ],
+    "prefer-const": "error",
+    "no-const-assign": "error",
+    "no-var": "error",
+    "no-new-object": "error",
+    "no-array-constructor": "error",
+    "prefer-arrow-callback": "error",
+    "block-spacing": ["error", "always"],
+    "array-element-newline": [
+      "error", 
+      { 
+        "multiline": true, 
+        "minItems": 3 
+      }
+    ],
+    "function-paren-newline": [
+      "error", 
+      "multiline"
+    ],
+    "brace-style": [
+      2,
+      "1tbs", 
+      { 
+        "allowSingleLine": true 
+      }
+    ],
+    "react/jsx-curly-spacing": [2, {"when": "always", "children": true}],
+    "react/prop-types": 0,
+    "react/prefer-stateless-function": 2,
+    "react/no-array-index-key:": 0,
+    "react/no-deprecated": 1,
+    "react/no-find-dom-node": 1,
+    "react/no-multi-comp:": 0,
+    "react/no-this-in-sfc": 1,
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/jsx-max-props-per-line": [
+      1,
+      {"maximum": 2}
+    ],
+    "jsx-a11y/label-has-for": [ "error", {
+      "required": {
+        "some": [
+          "nesting",
+          "id"
+        ]
+      }
+    }]
   }
 }

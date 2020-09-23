@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import makeJsxRows from './makeElements/makeJsxRows';
 import makeSpeedDialActions from './makeElements/makeWebcomponents/makeSpeedDialActions';
 
-import Snackbar from './components/Snackbar';
 import Switch from './components/Switch';
 
 import addFieldsValues from './fieldsControl/addFieldsValues';
@@ -26,17 +25,13 @@ const ValleForm = ({
   buttons = [],
   token = '',
   getData,
+  setSnackBarStatus = null,
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
   const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
   const [filterByVisibleScreen, setFilterByVisibleScreen] = useState(false);
   const [visibleTab, setVisibleTab] = useState(0);
-  const [feedback, setFeedback] = useState({
-    open: false,
-    text: '',
-    type: ''
-  });
 
   /**
    * Control vizualization only and editable state
@@ -113,19 +108,18 @@ const ValleForm = ({
 
   const showFeedback = (text, type) => {
 
-    setFeedback({ open: false }) // Clear old feedback
+    if(setSnackBarStatus) {
+      setSnackBarStatus({
+        show: true,
+        text: text,
+        type: type,
+      });
+    }
+
     closeSpeedDial();
 
-		setTimeout(() => {
-      setFeedback({
-        open: true,
-        text: text,
-        type: type
-      })
-		}, 100); // Trick for second state change
-
   }
-  
+
   /**
    * Control tabs visibility
    * 
@@ -186,13 +180,6 @@ const ValleForm = ({
     );
 
   });
-
-  /**
-   * UI feedbacks
-   * 
-   */
-
-  const $feedback = feedback.open ? <Snackbar report = { feedback.text } type = { feedback.type }/> : null;
 
   /**
    * Render ValleForm
@@ -259,8 +246,6 @@ const ValleForm = ({
           }
 
         </valle-speed-dial>
-
-        { $feedback }
 
       </div>
     );

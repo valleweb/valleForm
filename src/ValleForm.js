@@ -62,18 +62,17 @@ const ValleForm = ({
       ? setFilterByVisibleScreen(false)
       : setFilterByVisibleScreen(true);
 	}
-	
+
   /**
-   * Control speed dial state
+   * Control speed dial open state
    * 
    */
 
-	const valleSpeedDialRef = React.createRef();
+  const speedDial = React.createRef();
 
-	const closeValleSpeedDial = () => {
-		const valleSpeedDial = valleSpeedDialRef.current;
-		valleSpeedDial.open = false;
-	}
+  const closeSpeedDial = () => {
+    speedDial.current.open = false;
+  };
 
   /**
    * Control fields states
@@ -83,13 +82,13 @@ const ValleForm = ({
 	const makeFieldsEditable = () => {
     setDynamicReadOnly(false);
 		setEditable(true);
-		closeValleSpeedDial();
+		closeSpeedDial();
   }
   
   const removeFieldsEditable = () => {
     setDynamicReadOnly(true);
 		setEditable(false);
-		//closeValleSpeedDial();
+		closeSpeedDial();
   }
   
   const cancelFieldsEditable = () => {
@@ -97,14 +96,14 @@ const ValleForm = ({
     addFieldsValues(values, _id);
     setDynamicReadOnly(true);
 		setEditable(false);
-		closeValleSpeedDial();
+		closeSpeedDial();
   }
   
   const makeFieldsDefault = () => {
     cleanFields(_id);
     setDynamicReadOnly(false);
 		setEditable(false);
-		//closeValleSpeedDial();
+		closeSpeedDial();
 	}
 
   /**
@@ -115,7 +114,8 @@ const ValleForm = ({
   const showFeedback = (text, type) => {
 
     setFeedback({ open: false }) // Clear old feedback
-		
+    closeSpeedDial();
+
 		setTimeout(() => {
       setFeedback({
         open: true,
@@ -233,7 +233,11 @@ const ValleForm = ({
           * Campos obrigatórios
         </span>
 
-        <valle-speed-dial id = "valleSpeedDial" class = "valleForm__speedDial" ref = { valleSpeedDialRef } >
+        <valle-speed-dial
+          id = "valleSpeedDial"
+          class = "valleForm__speedDial"
+          ref = { speedDial }
+        >
 
           {
             makeSpeedDialActions({

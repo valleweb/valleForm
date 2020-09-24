@@ -68,12 +68,12 @@ const apiCreate = (
          * Request success
          * 
          */
-        
+
         feedbackCb(data.evento.mensagem, 'success');
         cleanFields(_id);
 
       })
-      .catch(() => {
+      .catch((data) => {
 
         /**
          * Request error

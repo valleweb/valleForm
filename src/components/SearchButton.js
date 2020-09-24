@@ -5,12 +5,13 @@ import React from 'react';
  * 
  */
 
-const SearchButton = ({ isDisabled }) => {
+const SearchButton = ({ isDisabled, onClick = null }) => {
 
   return (
     <button
       className = { `valleForm__input__button ${isDisabled ? 'valleForm__input__button--disabled' : ''}` }
       disabled = { isDisabled }
+      onClick = { onClick }
     >
 
       <svg className="valleForm__input__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

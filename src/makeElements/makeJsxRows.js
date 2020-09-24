@@ -13,6 +13,9 @@ export default (
   _id,
   baseApi,
   params,
+  setSnackBarStatus,
+  ValleList,
+  $loading,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -40,7 +43,7 @@ export default (
 
       return isSelect(field.element) 
       ? resolveSelectSize(row, field, readOnly, editable, token, _id)
-      : makeInputField(field, readOnly, editable, token, _id, baseApi, params)
+      : makeInputField(field, readOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading)
 
     })
 

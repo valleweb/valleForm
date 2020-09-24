@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import normalizeCaseProp from '../../helpers/normalizeCaseProp';
 import normalizeReadOnly from '../../helpers/normalizeReadOnly';
 import normalizeRequired from '../../helpers/normalizeRequired';
 import normalizeMask from '../../helpers/normalizeMask';
 import SearchButton from '../../components/SearchButton';
 import apiValidations from '../../rest/apiValidations';
+import Modal from '../../components/Modal';
 
 export default (
   field,
@@ -14,6 +15,9 @@ export default (
   _id,
   baseApi,
   params,
+  setSnackBarStatus,
+  ValleList,
+  $loading,
   ) => {
 
   /**
@@ -21,8 +25,23 @@ export default (
    * 
    */
 
+  const [ modalData, setModalData ] = useState(null);
+
+  /**
+   * -----
+   * 
+   */
+
   const validadeField = (field, action) => {
-    apiValidations(baseApi, token, params, field, action, _id);
+    apiValidations(
+      baseApi,
+      token,
+      params,
+      field,
+      action,
+      _id,
+      setModalData,
+    );
   }
 
   /**
@@ -52,12 +71,17 @@ export default (
    * 
    */
 
-  let currentAction;
+  let is_exist_blur;
+  let is_exact_blur;
+  let is_find;
 
   if (Array.isArray(field.actions)) {
 
     field.actions.forEach(current => {
       currentAction = current.action;
+      if (current.action === 'exist_blur') is_exist_blur = true;
+      if (current.action === 'exact_blur') is_exact_blur = true;
+      if (current.action === 'find') is_find = true;
     });
 
   }
@@ -84,7 +108,10 @@ export default (
         data-valle-field = { `${field.id}` }
         maxlength = { field.maxlength }
         id = { `${field.id}` }
-        onBlur = { () => currentAction ? validadeField(field, currentAction) : null }
+        onBlur = { () => {
+          if(is_exist_blur) validadeField(field, 'exist_blur');
+          if(is_exact_blur) validadeField(field, 'exact_blur');
+        } }
         pattern = { field.pattern }
         tooltip = { field.description }
         tooltippos = 'top-right'
@@ -97,9 +124,27 @@ export default (
       </valle-input>
 
       {
-        (currentAction === 'exact_blur' || currentAction === 'find')
-          ? <SearchButton isDisabled = { isDisabled } />
-          : null
+        is_find ? (
+          <SearchButton
+            isDisabled = { isDisabled }
+            onClick = { () => validadeField(field, 'find') }
+          />
+        ) : null
+      }
+
+      {
+        modalData ? (
+          <Modal
+            data = { modalData }
+            setModalData = { setModalData }
+            baseApi = { baseApi }
+            params = { params }
+            token = { token }
+            setSnackBarStatus = { setSnackBarStatus }
+            ValleList = { ValleList }
+            $loading = { $loading }
+          />
+        ) : null
       }
 
     </span>

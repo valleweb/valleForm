@@ -12,6 +12,7 @@ const apiValidations = (
   field,
   action,
   _id,
+  setModalData,
   ) => {
 
   const dados = getFieldsParamsWithNoValidations(_id);
@@ -94,6 +95,10 @@ const apiValidations = (
       console.log(data);
 
       console.log('=======================');
+
+      if(data.evento.list) {
+        setModalData(data);
+      }
 
     });
 

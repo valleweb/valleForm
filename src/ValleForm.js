@@ -26,6 +26,7 @@ const ValleForm = ({
   token = '',
   getData,
   setSnackBarStatus = null,
+  ValleList = null,
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
@@ -66,7 +67,14 @@ const ValleForm = ({
   const speedDial = React.createRef();
 
   const closeSpeedDial = () => {
+
+    console.log('===========================');
+    console.log('Speed Dial:');
+    console.log(speedDial.current);
+    console.log('===========================');
+
     speedDial.current.open = false;
+
   };
 
   /**
@@ -167,6 +175,9 @@ const ValleForm = ({
       _id,
       baseApi,
       params,
+      setSnackBarStatus,
+      ValleList,
+      $loading,
     );
 
     const isVisibleTab = (visibleTab === index);

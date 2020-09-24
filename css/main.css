@@ -163,6 +163,85 @@
   fill: rgba(0, 0, 0, .38);
 }
 
+/* ------- Modal ------- */
+
+.valleForm__modal__backdrop {
+  background-color: rgba(0,0,0,.3);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.valleForm__modal__card {
+  width: 100%;
+  max-width: 900px;
+  max-height: 90%;
+}
+
+.valleForm__modal__head {
+  display: flex;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.valleForm__modal__button {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.valleForm__modal__button:hover {
+  cursor: pointer;
+}
+
+.valleForm__modal__button:focus {
+  outline-color: var(--highlight-color);
+  outline-offset: 5px;
+  outline-width: thin;
+}
+
+.valleForm__modal__icon {
+  width: 14px;
+  height: 14px;
+  fill: rgba(0, 0, 0, .54);
+}
+
+.valleForm__modal__button:hover .valleForm__modal__icon {
+  fill: var(--highlight-color);
+}
+
+.valleForm__modal__body {
+  overflow-y: auto;
+  max-height: 600px;
+  margin-top: 45px;
+  margin-left: 35px;
+}
+
+.valleForm__modal__heading {
+  flex: 1;
+  color: var(--highlight-color);
+  margin: 0;
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--highlight-color);
+  margin: 0 0 16px 0;
+  font-weight: 300;
+  font-size: 24px;
+}
+
 /* ------- Select ------- */
 
 .valleForm__select {

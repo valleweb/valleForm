@@ -1,15 +1,17 @@
 import getFieldsParams from '../fieldsControl/getFieldsParams';
 
 const apiCustomRequest = ({
-  getData,
-  action,
-  button_id,
-  baseApi,
-  params,
-  token,
-  _id,
-  endpoint = '',
-  }) => {
+    getData,
+    action,
+    button_id,
+    baseApi,
+    params,
+    token,
+    _id,
+    endpoint = '',
+  },
+  feedbackCb,
+  ) => {
 
   const fieldsParams = getFieldsParams(_id);
 
@@ -45,31 +47,57 @@ const apiCustomRequest = ({
    * 
    */
 
-  console.log(action)
-
   if(action == 'custom_api' || action == 'custom_stp') {
-
-    console.log('custom')
 
     fetch(`${baseApi}/generic-action`, { method, headers, body })
     .then(res => res.json())
     .then(data => {
+
       if(getData) {
         getData(data);
       }
-    });
+
+      if(data.evento.mensagem) {
+        feedbackCb(data.evento.mensagem, 'success');
+      }
+
+    })
+    .catch(() => {
+
+      /**
+       * Request error
+       * 
+       */
+
+      feedbackCb('Erro interno no servidor', 'error');
+
+    });;
 
   } else {
-
-    console.log('filter')
 
     fetch(`${baseApi}/form-filter`, { method, headers, body })
     .then(res => res.json())
     .then(data => {
+
       if(getData) {
         getData(data);
       }
-    });
+
+      if(data.evento.mensagem) {
+        feedbackCb(data.evento.mensagem, 'success');
+      }
+
+    })
+    .catch(() => {
+
+      /**
+       * Request error
+       * 
+       */
+
+      feedbackCb('Erro interno no servidor', 'error');
+
+    });;
 
   }
 

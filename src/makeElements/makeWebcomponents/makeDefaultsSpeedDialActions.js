@@ -154,7 +154,7 @@ export default makeDefaultsSpeedDialActions = ({
           endpoint: button.endpoint,
         }
 
-        apiCustomRequest(requestParams);
+        apiCustomRequest(requestParams, feedbackCb);
 
       }}>
 

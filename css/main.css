@@ -106,7 +106,7 @@
   margin: 0;
   padding: 0;
   border-width: 0;
-  --icon---tooltip-color: rgba(0, 0, 0, .38);
+  --icon-tooltip-color: rgba(0, 0, 0, .38);
 }
 
 .valleForm__input--small {

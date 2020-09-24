@@ -68,20 +68,6 @@ const Textarea = ({
 
   return (
     <span className = { `valleForm__textarea ${disabledStyle} ${errorStyle}`} key = { field.id }>
-      
-      <textarea
-        className = "valleForm__textarea__input"
-        placeholder = { field.placeholder }
-        data-valle-field = { `${_id}_${field.id}` }
-        id = { `${_id}_${field.id}` }
-        disabled = { isDisabled }
-        onBlur = { validate }
-        ref = { textAreaRef }
-        data-valle-error = { err }
-        data-valle-required = { field.required }
-      >
-        { field.value ? field.value : null }
-      </textarea>
 
       { field.description ? (
 
@@ -89,7 +75,7 @@ const Textarea = ({
           className = "tooltip"
           role = "tooltip"
           aria-label = { field.description }
-          tabindex = "1"
+          tabindex = "0"
           data-balloon-pos="up-right"
           data-balloon-length="large"
         >
@@ -105,6 +91,20 @@ const Textarea = ({
         </span>
 
       ) : null }
+
+      <textarea
+        className = "valleForm__textarea__input"
+        placeholder = { field.placeholder }
+        data-valle-field = { `${_id}_${field.id}` }
+        id = { `${_id}_${field.id}` }
+        disabled = { isDisabled }
+        onBlur = { validate }
+        ref = { textAreaRef }
+        data-valle-error = { err }
+        data-valle-required = { field.required }
+      >
+        { field.value ? field.value : null }
+      </textarea>
 
       <label id="inputLabel" className="valleForm__textarea__label">
         { field.label}

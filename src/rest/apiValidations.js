@@ -1,4 +1,4 @@
-import getFieldsParams from '../fieldsControl/getFieldsParams';
+import getFieldsParamsWithNoValidations from '../fieldsControl/getFieldsParamsWithNoValidations';
 
 /**
  * TODO: Add JSDocs
@@ -14,7 +14,7 @@ const apiValidations = (
   _id,
   ) => {
 
-  const dados = getFieldsParams(_id);
+  const dados = getFieldsParamsWithNoValidations(_id);
 
   console.log('=======================');
 

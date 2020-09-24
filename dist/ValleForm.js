@@ -55,7 +55,9 @@ var ValleForm = function ValleForm(_ref) {
       token = _ref$token === undefined ? '' : _ref$token,
       getData = _ref.getData,
       _ref$setSnackBarStatu = _ref.setSnackBarStatus,
-      setSnackBarStatus = _ref$setSnackBarStatu === undefined ? null : _ref$setSnackBarStatu;
+      setSnackBarStatus = _ref$setSnackBarStatu === undefined ? null : _ref$setSnackBarStatu,
+      _ref$ValleList = _ref.ValleList,
+      ValleList = _ref$ValleList === undefined ? null : _ref$ValleList;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -113,6 +115,12 @@ var ValleForm = function ValleForm(_ref) {
   var speedDial = _react2['default'].createRef();
 
   var closeSpeedDial = function closeSpeedDial() {
+
+    console.log('===========================');
+    console.log('Speed Dial:');
+    console.log(speedDial.current);
+    console.log('===========================');
+
     speedDial.current.open = false;
   };
 
@@ -209,7 +217,7 @@ var ValleForm = function ValleForm(_ref) {
 
   var $tabs = tabs.map(function (tab, index) {
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params);
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading);
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';

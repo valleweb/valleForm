@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -32,6 +34,10 @@ var _apiValidations = require('../../rest/apiValidations');
 
 var _apiValidations2 = _interopRequireDefault(_apiValidations);
 
+var _Modal = require('../../components/Modal');
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (field) {
@@ -41,7 +47,19 @@ exports['default'] = function (field) {
   var _id = arguments[4];
   var baseApi = arguments[5];
   var params = arguments[6];
+  var setSnackBarStatus = arguments[7];
+  var ValleList = arguments[8];
+  var $loading = arguments[9];
 
+  /**
+   * -----
+   * 
+   */
+
+  var _useState = (0, _react.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      modalData = _useState2[0],
+      setModalData = _useState2[1];
 
   /**
    * -----
@@ -49,7 +67,7 @@ exports['default'] = function (field) {
    */
 
   var validadeField = function validadeField(field, action) {
-    (0, _apiValidations2['default'])(baseApi, token, params, field, action, _id);
+    (0, _apiValidations2['default'])(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus);
   };
 
   /**
@@ -77,12 +95,17 @@ exports['default'] = function (field) {
    * 
    */
 
-  var currentAction = void 0;
+  var is_exist_blur = void 0;
+  var is_exact_blur = void 0;
+  var is_find = void 0;
 
   if (Array.isArray(field.actions)) {
 
     field.actions.forEach(function (current) {
       currentAction = current.action;
+      if (current.action === 'exist_blur') is_exist_blur = true;
+      if (current.action === 'exact_blur') is_exact_blur = true;
+      if (current.action === 'find') is_find = true;
     });
   }
 
@@ -110,7 +133,8 @@ exports['default'] = function (field) {
       id: '' + String(field.id),
       onBlur: function () {
         function onBlur() {
-          return currentAction ? validadeField(field, currentAction) : null;
+          if (is_exist_blur) validadeField(field, 'exist_blur');
+          if (is_exact_blur) validadeField(field, 'exact_blur');
         }
 
         return onBlur;
@@ -120,6 +144,25 @@ exports['default'] = function (field) {
       tooltippos: 'top-right',
       tooltiplength: 'large'
     }, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled), (0, _normalizeCaseProp2['default'])(field['case']), (0, _normalizeMask2['default'])(field.mask))),
-    currentAction === 'exact_blur' || currentAction === 'find' ? _react2['default'].createElement(_SearchButton2['default'], { isDisabled: isDisabled }) : null
+    is_find ? _react2['default'].createElement(_SearchButton2['default'], {
+      isDisabled: isDisabled,
+      onClick: function () {
+        function onClick() {
+          return validadeField(field, 'find');
+        }
+
+        return onClick;
+      }()
+    }) : null,
+    modalData ? _react2['default'].createElement(_Modal2['default'], {
+      data: modalData,
+      setModalData: setModalData,
+      baseApi: baseApi,
+      params: params,
+      token: token,
+      setSnackBarStatus: setSnackBarStatus,
+      ValleList: ValleList,
+      $loading: $loading
+    }) : null
   );
 };

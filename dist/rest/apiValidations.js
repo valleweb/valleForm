@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  * 
  */
 
-var apiValidations = function apiValidations(baseApi, token, params, field, action, _id) {
+var apiValidations = function apiValidations(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus) {
 
   var dados = (0, _getFieldsParamsWithNoValidations2['default'])(_id);
 
@@ -95,6 +95,19 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
     console.log(data);
 
     console.log('=======================');
+
+    if (setSnackBarStatus && data.evento.mensagem) {
+      setSnackBarStatus(data.evento.mensagem, 'success');
+    }
+
+    if (data.evento.list) {
+      setModalData(data);
+    }
+  })['catch'](function () {
+
+    if (setSnackBarStatus) {
+      setSnackBarStatus('Erro interno no servidor', 'error');
+    }
   });
 };
 

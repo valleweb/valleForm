@@ -79,7 +79,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
       feedbackCb(data.evento.mensagem, 'success');
       (0, _cleanFields2['default'])(_id);
-    })['catch'](function () {
+    })['catch'](function (data) {
 
       /**
        * Request error

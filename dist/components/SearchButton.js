@@ -14,14 +14,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  */
 
 var SearchButton = function SearchButton(_ref) {
-  var isDisabled = _ref.isDisabled;
+  var isDisabled = _ref.isDisabled,
+      _ref$onClick = _ref.onClick,
+      onClick = _ref$onClick === undefined ? null : _ref$onClick;
 
 
   return _react2['default'].createElement(
     'button',
     {
       className: 'valleForm__input__button ' + (isDisabled ? 'valleForm__input__button--disabled' : ''),
-      disabled: isDisabled
+      disabled: isDisabled,
+      onClick: onClick
     },
     _react2['default'].createElement(
       'svg',

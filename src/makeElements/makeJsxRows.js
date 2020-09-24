@@ -30,7 +30,6 @@ export default (
             field = { field }
             readOnly = { readOnly }
             editable = { editable }
-            _id = { _id }
           />
         )
       }

@@ -65,7 +65,7 @@ const Modal = ({
 
         </div>
 
-        <div className = 'alleForm__modal__body'>
+        <div className = 'valleForm__modal__body'>
 
           { data.evento.list && ValleList ? (
 

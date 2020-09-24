@@ -88,7 +88,7 @@ var Modal = function Modal(_ref) {
       ),
       _react2['default'].createElement(
         'div',
-        { className: 'alleForm__modal__body' },
+        { className: 'valleForm__modal__body' },
         data.evento.list && ValleList ? _react2['default'].createElement(ValleList, {
           columns: listData.list.columns,
           data: listData.list.data,

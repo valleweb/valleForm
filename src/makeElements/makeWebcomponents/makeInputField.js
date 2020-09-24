@@ -81,9 +81,9 @@ export default (
         placeholder = { field.placeholder }
         helpertext = { field.helper_text }
         errortext = { field.error_text }
-        data-valle-field = { `${_id}_${field.id}` }
+        data-valle-field = { `${field.id}` }
         maxlength = { field.maxlength }
-        id = { `${_id}_${field.id}` }
+        id = { `${field.id}` }
         onBlur = { () => currentAction ? validadeField(field, currentAction) : null }
         pattern = { field.pattern }
         tooltip = { field.description }

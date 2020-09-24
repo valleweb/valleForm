@@ -41,6 +41,7 @@ export default (
       action,
       _id,
       setModalData,
+      setSnackBarStatus,
     );
   }
 

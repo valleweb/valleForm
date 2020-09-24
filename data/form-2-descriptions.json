@@ -8,7 +8,7 @@
         "api": null,
         "buttons": [
           {
-            "action": "stp_list",
+            "action": "custom_api",
             "id": "9141",
             "status": "create",
             "text": "Processar"

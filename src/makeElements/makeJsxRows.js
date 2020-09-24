@@ -11,6 +11,8 @@ export default (
   editable,
   token,
   _id,
+  baseApi,
+  params,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -39,8 +41,8 @@ export default (
 
       return isSelect(field.element) 
       ? resolveSelectSize(row, field, readOnly, editable, token, _id)
-      : makeInputField(field, readOnly, editable, token, _id)
-    
+      : makeInputField(field, readOnly, editable, token, _id, baseApi, params)
+
     })
 
   return <div className="valleForm__row" key = { index }>{$fields}</div>;

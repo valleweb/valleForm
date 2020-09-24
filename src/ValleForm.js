@@ -165,6 +165,8 @@ const ValleForm = ({
       editable,
       token,
       _id,
+      baseApi,
+      params,
     );
 
     const isVisibleTab = (visibleTab === index);

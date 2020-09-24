@@ -1,10 +1,51 @@
+import getFieldsParams from '../fieldsControl/getFieldsParams';
+
+/**
+ * TODO: Add JSDocs
+ * 
+ */
+
 const apiValidations = (
   baseApi,
   token,
   params,
   field,
-  data,
+  action,
+  _id,
   ) => {
+
+  const dados = getFieldsParams(_id);
+
+  console.log('=======================');
+
+  console.log('baseApi:');
+  console.log(baseApi);
+
+  console.log('token:');
+  console.log(token);
+
+  console.log('params:');
+  console.log(params);
+
+  console.log('field:');
+  console.log(field);
+
+  console.log('action:');
+  console.log(action);
+
+  console.log('dados:');
+  console.log(dados);
+
+  console.log('=======================');
+
+  console.log('campo:');
+
+  console.log({
+    nome: field.id,
+    valor: dados[field.id]
+  });
+
+  console.log('=======================');
 
   const method = 'POST';
 
@@ -13,26 +54,32 @@ const apiValidations = (
     'Authorization': `Bearer ${token}`
   });
 
+  console.log('body:');
+
   const body = JSON.stringify({
     evento: {
-      id_usuario: "99",
-      token: "nhfdggdjf", 
-      identificador: "013",
-      cliente_id:1000,
-      empresa: "<name company>",
-      estabelecimento: "00",
-      conexao: "Valle_Sistemas",
-      sistema: "Pagar",
-      formulario: "frmClientes",
-      location: "",
-      action: "",
+      id_usuario: params.id_usuario,
+      token: token, 
+      identificador: params.identificador,
+      cliente_id: params.cliente_id,
+      empresa: params.empresa,
+      estabelecimento: params.estabelecimento,
+      conexao: params.conexao,
+      sistema: params.sistema,
+      formulario: params.formulario,
+      location: params.location,
+      action: action,
       campo: {
-        nome: "",
-        valor: ""
+        nome: field.id,
+        valor: dados[field.id]
       },
-      dados: {}
+      dados: dados
     }
   });
+
+  console.log(body);
+
+  console.log('=======================');
 
   /**
    * -----
@@ -42,7 +89,12 @@ const apiValidations = (
   fetch(`${baseApi}/form-validations`, { method, headers, body })
     .then(res => res.json())
     .then(data => {
+
+      console.log('response:');
       console.log(data);
+
+      console.log('=======================');
+
     });
 
 }

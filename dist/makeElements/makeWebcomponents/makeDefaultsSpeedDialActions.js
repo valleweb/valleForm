@@ -198,7 +198,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
             endpoint: button.endpoint
           };
 
-          (0, _apiCustomRequest2['default'])(requestParams);
+          (0, _apiCustomRequest2['default'])(requestParams, feedbackCb);
         }
 
         return onClick;

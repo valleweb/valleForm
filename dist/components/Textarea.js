@@ -79,13 +79,35 @@ var Textarea = function Textarea(_ref) {
   return _react2['default'].createElement(
     'span',
     { className: 'valleForm__textarea ' + disabledStyle + ' ' + errorStyle, key: field.id },
+    field.description ? _react2['default'].createElement(
+      'span',
+      {
+        className: 'tooltip',
+        role: 'tooltip',
+        'aria-label': field.description,
+        tabindex: '0',
+        'data-balloon-pos': 'up-right',
+        'data-balloon-length': 'large'
+      },
+      _react2['default'].createElement(
+        'svg',
+        { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', width: '18px', height: '18px' },
+        _react2['default'].createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' }),
+        _react2['default'].createElement('path', { d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z' })
+      ),
+      _react2['default'].createElement(
+        'small',
+        { className: 'visual-hidden' },
+        field.description
+      )
+    ) : null,
     _react2['default'].createElement(
       'textarea',
       {
         className: 'valleForm__textarea__input',
         placeholder: field.placeholder,
-        'data-valle-field': field.id,
-        id: field.id,
+        'data-valle-field': '' + String(field.id),
+        id: '' + String(field.id),
         disabled: isDisabled,
         onBlur: validate,
         ref: textAreaRef,

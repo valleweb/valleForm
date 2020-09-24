@@ -26,6 +26,7 @@ exports['default'] = function (field) {
 	var customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 	var editable = arguments[3];
+	var _id = arguments[4];
 
 
 	//let select = React.createRef();
@@ -33,7 +34,6 @@ exports['default'] = function (field) {
 	//useEffect(() => {
 	//    select.current.value = field.value;
 	//}, [])
-
 
 	var isDisabled = void 0;
 
@@ -51,12 +51,15 @@ exports['default'] = function (field) {
 			value: field.value ? field.value : null,
 			'class': 'valleForm__select ' + String(customClass),
 			label: field.label,
-			'data-valle-field': field.id,
+			'data-valle-field': '' + String(field.id),
 			placeholder: field.placeholder,
 			helpertext: field.helper_text,
 			errortext: field.error_text,
-			key: field.id,
-			id: field.id
+			key: String(_id) + '_' + String(field.id),
+			id: '' + String(field.id),
+			tooltip: field.description,
+			tooltippos: 'top-right',
+			tooltiplength: 'large'
 		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled)),
 		(0, _makeOptions2['default'])(field.options)
 	);

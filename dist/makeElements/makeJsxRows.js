@@ -29,6 +29,9 @@ exports['default'] = function (rows) {
   var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var editable = arguments[3];
   var token = arguments[4];
+  var _id = arguments[5];
+  var baseApi = arguments[6];
+  var params = arguments[7];
   return rows.map(function (row, index) {
 
     var $fields = row.filter(function (field) {
@@ -52,7 +55,7 @@ exports['default'] = function (rows) {
       // Resolve form webcomponents
       // --------------
 
-      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token) : (0, _makeInputField2['default'])(field, readOnly, editable, token);
+      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id) : (0, _makeInputField2['default'])(field, readOnly, editable, token, _id, baseApi, params);
     });
 
     return _react2['default'].createElement(
@@ -71,7 +74,8 @@ var resolveSelectSize = function resolveSelectSize(row, field) {
   var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var editable = arguments[3];
   var token = arguments[4];
+  var _id = arguments[5];
 
   return row.length === 1 ? // Verify if the select is a single field on row.
-  (0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly, editable) : (0, _makeSelectField2['default'])(field, '', readOnly, editable, token);
+  (0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly, editable, null, _id) : (0, _makeSelectField2['default'])(field, '', readOnly, editable, token, _id);
 };

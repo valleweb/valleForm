@@ -16,10 +16,6 @@ var _makeSpeedDialActions = require('./makeElements/makeWebcomponents/makeSpeedD
 
 var _makeSpeedDialActions2 = _interopRequireDefault(_makeSpeedDialActions);
 
-var _Snackbar = require('./components/Snackbar');
-
-var _Snackbar2 = _interopRequireDefault(_Snackbar);
-
 var _Switch = require('./components/Switch');
 
 var _Switch2 = _interopRequireDefault(_Switch);
@@ -57,7 +53,9 @@ var ValleForm = function ValleForm(_ref) {
       buttons = _ref$buttons === undefined ? [] : _ref$buttons,
       _ref$token = _ref.token,
       token = _ref$token === undefined ? '' : _ref$token,
-      getData = _ref.getData;
+      getData = _ref.getData,
+      _ref$setSnackBarStatu = _ref.setSnackBarStatus,
+      setSnackBarStatus = _ref$setSnackBarStatu === undefined ? null : _ref$setSnackBarStatu;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -79,15 +77,6 @@ var ValleForm = function ValleForm(_ref) {
       _useState8 = _slicedToArray(_useState7, 2),
       visibleTab = _useState8[0],
       setVisibleTab = _useState8[1];
-
-  var _useState9 = (0, _react.useState)({
-    open: false,
-    text: '',
-    type: ''
-  }),
-      _useState10 = _slicedToArray(_useState9, 2),
-      feedback = _useState10[0],
-      setFeedback = _useState10[1];
 
   /**
    * Control vizualization only and editable state
@@ -117,15 +106,14 @@ var ValleForm = function ValleForm(_ref) {
   };
 
   /**
-   * Control speed dial state
+   * Control speed dial open state
    * 
    */
 
-  var valleSpeedDialRef = _react2['default'].createRef();
+  var speedDial = _react2['default'].createRef();
 
-  var closeValleSpeedDial = function closeValleSpeedDial() {
-    var valleSpeedDial = valleSpeedDialRef.current;
-    valleSpeedDial.open = false;
+  var closeSpeedDial = function closeSpeedDial() {
+    speedDial.current.open = false;
   };
 
   /**
@@ -136,13 +124,13 @@ var ValleForm = function ValleForm(_ref) {
   var makeFieldsEditable = function makeFieldsEditable() {
     setDynamicReadOnly(false);
     setEditable(true);
-    closeValleSpeedDial();
+    closeSpeedDial();
   };
 
   var removeFieldsEditable = function removeFieldsEditable() {
     setDynamicReadOnly(true);
     setEditable(false);
-    //closeValleSpeedDial();
+    closeSpeedDial();
   };
 
   var cancelFieldsEditable = function cancelFieldsEditable() {
@@ -150,14 +138,14 @@ var ValleForm = function ValleForm(_ref) {
     (0, _addFieldsValues2['default'])(values, _id);
     setDynamicReadOnly(true);
     setEditable(false);
-    closeValleSpeedDial();
+    closeSpeedDial();
   };
 
   var makeFieldsDefault = function makeFieldsDefault() {
     (0, _cleanFields2['default'])(_id);
     setDynamicReadOnly(false);
     setEditable(false);
-    //closeValleSpeedDial();
+    closeSpeedDial();
   };
 
   /**
@@ -167,15 +155,15 @@ var ValleForm = function ValleForm(_ref) {
 
   var showFeedback = function showFeedback(text, type) {
 
-    setFeedback({ open: false }); // Clear old feedback
-
-    setTimeout(function () {
-      setFeedback({
-        open: true,
+    if (setSnackBarStatus) {
+      setSnackBarStatus({
+        show: true,
         text: text,
         type: type
       });
-    }, 100); // Trick for second state change
+    }
+
+    closeSpeedDial();
   };
 
   /**
@@ -221,7 +209,7 @@ var ValleForm = function ValleForm(_ref) {
 
   var $tabs = tabs.map(function (tab, index) {
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token);
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params);
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
@@ -235,13 +223,6 @@ var ValleForm = function ValleForm(_ref) {
       $rows
     );
   });
-
-  /**
-   * UI feedbacks
-   * 
-   */
-
-  var $feedback = feedback.open ? _react2['default'].createElement(_Snackbar2['default'], { report: feedback.text, type: feedback.type }) : null;
 
   /**
    * Render ValleForm
@@ -274,7 +255,11 @@ var ValleForm = function ValleForm(_ref) {
       ),
       _react2['default'].createElement(
         'valle-speed-dial',
-        { id: 'valleSpeedDial', 'class': 'valleForm__speedDial', ref: valleSpeedDialRef },
+        {
+          id: 'valleSpeedDial',
+          'class': 'valleForm__speedDial',
+          ref: speedDial
+        },
         (0, _makeSpeedDialActions2['default'])({
           buttons: buttons,
           readOnly: dynamicReadOnly,
@@ -291,8 +276,7 @@ var ValleForm = function ValleForm(_ref) {
           token: token,
           getData: getData
         })
-      ),
-      $feedback
+      )
     );
   } else {
 

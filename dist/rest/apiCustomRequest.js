@@ -8,7 +8,7 @@ var _getFieldsParams2 = _interopRequireDefault(_getFieldsParams);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var apiCustomRequest = function apiCustomRequest(_ref) {
+var apiCustomRequest = function apiCustomRequest(_ref, feedbackCb) {
   var getData = _ref.getData,
       action = _ref.action,
       button_id = _ref.button_id,
@@ -54,30 +54,50 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
    * 
    */
 
-  console.log(action);
-
   if (action == 'custom_api' || action == 'custom_stp') {
-
-    console.log('custom');
 
     fetch(String(baseApi) + '/generic-action', { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();
     }).then(function (data) {
+
       if (getData) {
         getData(data);
       }
-    });
-  } else {
 
-    console.log('filter');
+      if (data.evento.mensagem) {
+        feedbackCb(data.evento.mensagem, 'success');
+      }
+    })['catch'](function () {
+
+      /**
+       * Request error
+       * 
+       */
+
+      feedbackCb('Erro interno no servidor', 'error');
+    });;
+  } else {
 
     fetch(String(baseApi) + '/form-filter', { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();
     }).then(function (data) {
+
       if (getData) {
         getData(data);
       }
-    });
+
+      if (data.evento.mensagem) {
+        feedbackCb(data.evento.mensagem, 'success');
+      }
+    })['catch'](function () {
+
+      /**
+       * Request error
+       * 
+       */
+
+      feedbackCb('Erro interno no servidor', 'error');
+    });;
   }
 };
 

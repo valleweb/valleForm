@@ -156,7 +156,7 @@
 }
 
 .valleForm__input__button:hover .valleForm__input__icon {
-  fill: var(--valle-input-color, rgba(5, 159, 183, .87));
+  fill: var(--highlight-color, rgba(5, 159, 183, .87));
 }
 
 .valleForm__input__button--disabled:hover .valleForm__input__icon {
@@ -517,13 +517,13 @@
 }
 
 .tooltip svg {
-  fill: var(--icon-tooltip-color, #000);
+  fill: var(--icon-tooltip-color, rgba(0, 0, 0, .38));
   width: 18px;
   height: 18px;
 }
 
-.tooltip:hover svg{
-  fill: var(--valle-input-color, rgba(5, 159, 183, .87));
+.tooltip:hover svg {
+  fill: var(--highlight-color, rgba(5, 159, 183, .87));
 }
 
 .visual-hidden {

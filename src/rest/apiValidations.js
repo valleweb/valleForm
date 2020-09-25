@@ -97,7 +97,7 @@ const apiValidations = (
 
       console.log('=======================');
 
-      if(showFeedback && data.evento.mensagem) {
+      if(setSnackBarStatus && data.evento.mensagem) {
         setSnackBarStatus({
           show: true,
           text: data.evento.mensagem,
@@ -111,7 +111,7 @@ const apiValidations = (
 
     }).catch(() => {
 
-      if(showFeedback) {
+      if(setSnackBarStatus) {
         setSnackBarStatus({
           show: true,
           text: 'Erro interno no servidor',

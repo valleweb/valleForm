@@ -15,7 +15,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var apiValidations = function apiValidations(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus) {
 
+  /**
+   * -----
+   * 
+   */
+
   var dados = (0, _getFieldsParamsWithNoValidations2['default'])(_id);
+
+  /**
+   * -----
+   * 
+   */
+
+  var dontValidate = action === 'exact_blur' && dados[field.id].value === '';
+
+  if (dontValidate) {
+    console.log('=======================');
+    console.log(field.id + ':');
+    console.log('Empty exact_blur (Dont call the server)');
+    console.log('=======================');
+    return;
+  }
 
   console.log('=======================');
 
@@ -34,19 +54,25 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
   console.log('action:');
   console.log(action);
 
-  console.log('dados:');
-  console.log(dados);
-
   console.log('=======================');
 
   console.log('campo:');
 
   console.log({
     nome: field.id,
-    valor: dados[field.id]
+    valor: dados[field.id].value
   });
 
+  console.log('campo ref:');
+
+  console.log(dados[field.id].ref);
+
   console.log('=======================');
+
+  /**
+   * -----
+   * 
+   */
 
   var method = 'POST';
 
@@ -56,6 +82,23 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
   });
 
   console.log('body:');
+
+  /**
+   * -----
+   * 
+   */
+  var filteredDados = {};
+
+  Object.keys(dados).forEach(function (id) {
+    filteredDados[id] = dados[id].value;
+  });
+
+  console.log('=======================');
+
+  console.log('dados:');
+  console.log(filteredDados);
+
+  console.log('=======================');
 
   var body = JSON.stringify({
     evento: {
@@ -72,9 +115,9 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
       action: action,
       campo: {
         nome: field.id,
-        valor: dados[field.id]
+        valor: dados[field.id].valor
       },
-      dados: dados
+      dados: filteredDados
     }
   });
 
@@ -96,6 +139,11 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
 
     console.log('=======================');
 
+    /**
+     * -----
+     * 
+     */
+
     if (setSnackBarStatus && data.evento.mensagem) {
       setSnackBarStatus({
         show: true,
@@ -104,10 +152,35 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
       });
     }
 
-    if (data.evento.list) {
+    /**
+     * -----
+     * 
+     */
+
+    if (action === 'exist_blur' && data.evento.exist) {
+      dados[field.id].ref.setAttribute('error', 'true');
+      dados[field.id].ref.setAttribute('data-valle-error', 'true');
+    }
+
+    if (action === 'exist_blur' && !data.evento.exist) {
+      dados[field.id].ref.removeAttribute('error');
+      dados[field.id].ref.removeAttribute('data-valle-error');
+    }
+
+    /**
+     * -----
+     * 
+     */
+
+    if (action === 'exact_blur' && data.evento.list) {
       setModalData(data);
     }
   })['catch'](function () {
+
+    /**
+     * -----
+     * 
+     */
 
     if (setSnackBarStatus) {
       setSnackBarStatus({

@@ -14,7 +14,10 @@ exports['default'] = function (_id) {
   var fieldsParams = {};
 
   allFields.forEach(function (field) {
-    fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
+    fieldsParams[field.dataset.valleField] = {
+      value: field.value ? field.value : '',
+      ref: field
+    };
   });
 
   return fieldsParams;

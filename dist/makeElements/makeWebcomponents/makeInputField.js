@@ -47,10 +47,9 @@ exports['default'] = function (field) {
   var _id = arguments[4];
   var baseApi = arguments[5];
   var params = arguments[6];
-  var showFeedback = arguments[7];
-  var setSnackBarStatus = arguments[8];
-  var ValleList = arguments[9];
-  var $loading = arguments[10];
+  var setSnackBarStatus = arguments[7];
+  var ValleList = arguments[8];
+  var $loading = arguments[9];
 
   /**
    * -----
@@ -68,7 +67,7 @@ exports['default'] = function (field) {
    */
 
   var validadeField = function validadeField(field, action) {
-    (0, _apiValidations2['default'])(baseApi, token, params, field, action, _id, setModalData, showFeedback);
+    (0, _apiValidations2['default'])(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus);
   };
 
   /**

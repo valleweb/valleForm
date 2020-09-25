@@ -13,7 +13,7 @@ const apiValidations = (
   action,
   _id,
   setModalData,
-  showFeedback,
+  setSnackBarStatus,
   ) => {
 
   const dados = getFieldsParamsWithNoValidations(_id);
@@ -98,7 +98,11 @@ const apiValidations = (
       console.log('=======================');
 
       if(showFeedback && data.evento.mensagem) {
-        showFeedback(data.evento.mensagem, 'success');
+        setSnackBarStatus({
+          show: true,
+          text: data.evento.mensagem,
+          type: 'success',
+        });
       }
 
       if(data.evento.list) {
@@ -108,7 +112,11 @@ const apiValidations = (
     }).catch(() => {
 
       if(showFeedback) {
-        showFeedback('Erro interno no servidor', 'error');
+        setSnackBarStatus({
+          show: true,
+          text: 'Erro interno no servidor',
+          type: 'error',
+        });
       }
 
     });

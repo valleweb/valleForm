@@ -32,10 +32,9 @@ exports['default'] = function (rows) {
   var _id = arguments[5];
   var baseApi = arguments[6];
   var params = arguments[7];
-  var showFeedback = arguments[8];
-  var setSnackBarStatus = arguments[9];
-  var ValleList = arguments[10];
-  var $loading = arguments[11];
+  var setSnackBarStatus = arguments[8];
+  var ValleList = arguments[9];
+  var $loading = arguments[10];
   return rows.map(function (row, index) {
 
     var $fields = row.filter(function (field) {
@@ -59,7 +58,7 @@ exports['default'] = function (rows) {
       // Resolve form webcomponents
       // --------------
 
-      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id) : (0, _makeInputField2['default'])(field, readOnly, editable, token, _id, baseApi, params, showFeedback, setSnackBarStatus, ValleList, $loading);
+      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id) : (0, _makeInputField2['default'])(field, readOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading);
     });
 
     return _react2['default'].createElement(

@@ -16,11 +16,6 @@ const Modal = ({
   $loading,
 }) => {
 
-  console.log('=======================');
-  console.log('ValleList:');
-  console.log(ValleList);
-  console.log('=======================');
-
   //const [formValues, setFormValues] = useState(null);
 
   const [ listData, setListData ] = useState({
@@ -42,7 +37,7 @@ const Modal = ({
         <div className = 'valleForm__modal__head'>
 
           <h2 className = 'valleForm__modal__heading'>
-            { data.evento.list ? data.evento.list.title : $loading }
+            { data.evento.list.title ? data.evento.list.title : $loading }
           </h2>
 
           <button

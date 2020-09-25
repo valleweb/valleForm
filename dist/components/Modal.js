@@ -25,12 +25,6 @@ var Modal = function Modal(_ref) {
       ValleList = _ref.ValleList,
       $loading = _ref.$loading;
 
-
-  console.log('=======================');
-  console.log('ValleList:');
-  console.log(ValleList);
-  console.log('=======================');
-
   //const [formValues, setFormValues] = useState(null);
 
   var _useState = (0, _react.useState)({
@@ -54,7 +48,7 @@ var Modal = function Modal(_ref) {
         _react2['default'].createElement(
           'h2',
           { className: 'valleForm__modal__heading' },
-          data.evento.list ? data.evento.list.title : $loading
+          data.evento.list.title ? data.evento.list.title : $loading
         ),
         _react2['default'].createElement(
           'button',

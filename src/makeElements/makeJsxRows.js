@@ -13,6 +13,7 @@ export default (
   _id,
   baseApi,
   params,
+  showFeedback,
   setSnackBarStatus,
   ValleList,
   $loading,
@@ -43,7 +44,7 @@ export default (
 
       return isSelect(field.element) 
       ? resolveSelectSize(row, field, readOnly, editable, token, _id)
-      : makeInputField(field, readOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading)
+      : makeInputField(field, readOnly, editable, token, _id, baseApi, params, showFeedback, setSnackBarStatus, ValleList, $loading)
 
     })
 

@@ -15,6 +15,7 @@ export default (
   _id,
   baseApi,
   params,
+  showFeedback,
   setSnackBarStatus,
   ValleList,
   $loading,
@@ -41,7 +42,7 @@ export default (
       action,
       _id,
       setModalData,
-      setSnackBarStatus,
+      showFeedback,
     );
   }
 

@@ -162,7 +162,8 @@ exports['default'] = function (field) {
       token: token,
       setSnackBarStatus: setSnackBarStatus,
       ValleList: ValleList,
-      $loading: $loading
+      $loading: $loading,
+      _id: _id
     }) : null
   );
 };

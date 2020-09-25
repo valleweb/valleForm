@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import addFieldsValues from '../fieldsControl/addFieldsValues';
 
 /**
  * TODO: Add JSDocs.
@@ -14,9 +15,9 @@ const Modal = ({
   setSnackBarStatus,
   ValleList,
   $loading,
+  _id,
 }) => {
 
-  //const [formValues, setFormValues] = useState(null);
   const [ listData, setListData ] = useState({
     currentForm: data.evento.formulario,
     list: data.evento.list,
@@ -25,24 +26,30 @@ const Modal = ({
 
   const getFormValues = id_tabela => {
 
-    console.log('id_tabela:')
+    console.log('id_tabela:');
     console.log(id_tabela);
 
    const rowData = listData.list.data.filter(row => {
       return row[0] == id_tabela;
     })
 
-    console.log('rowData:')
+    console.log('rowData:');
     console.log(rowData);
 
-    const dados = rowData[0].map((col, i) => {
-      return {
-        [listData.list.columns[i].id]: col,
-      }
-    })
+    const dados = {};
 
-    console.log('dados:')
+    rowData[0].forEach((col, i) => {
+      dados[listData.list.columns[i].id] = col
+    });
+
+    console.log('dados:');
     console.log(dados);
+
+    console.log('_id:');
+    console.log(_id);
+
+    addFieldsValues(dados, _id);
+    setModalData(null);
 
   }
 

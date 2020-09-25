@@ -144,6 +144,7 @@ export default (
             setSnackBarStatus = { setSnackBarStatus }
             ValleList = { ValleList }
             $loading = { $loading }
+            _id = { _id }
           />
         ) : null
       }

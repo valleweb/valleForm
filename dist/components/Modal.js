@@ -8,9 +8,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _addFieldsValues = require('../fieldsControl/addFieldsValues');
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 /**
  * TODO: Add JSDocs.
@@ -25,9 +27,9 @@ var Modal = function Modal(_ref) {
       token = _ref.token,
       setSnackBarStatus = _ref.setSnackBarStatus,
       ValleList = _ref.ValleList,
-      $loading = _ref.$loading;
+      $loading = _ref.$loading,
+      _id = _ref._id;
 
-  //const [formValues, setFormValues] = useState(null);
   var _useState = (0, _react.useState)({
     currentForm: data.evento.formulario,
     list: data.evento.list,
@@ -49,12 +51,20 @@ var Modal = function Modal(_ref) {
     console.log('rowData:');
     console.log(rowData);
 
-    var dados = rowData[0].map(function (col, i) {
-      return _defineProperty({}, listData.list.columns[i].id, col);
+    var dados = {};
+
+    rowData[0].forEach(function (col, i) {
+      dados[listData.list.columns[i].id] = col;
     });
 
     console.log('dados:');
     console.log(dados);
+
+    console.log('_id:');
+    console.log(_id);
+
+    (0, _addFieldsValues2['default'])(dados, _id);
+    setModalData(null);
   };
 
   return _react2['default'].createElement(

@@ -19,7 +19,7 @@
             {
               "case": null,
               "id": "estado_0",
-              "label": "Estado",
+              "label": "Estado X",
               "placeholder": null,
               "element": "input",
               "required": false,
@@ -35,7 +35,7 @@
               "autocomplete": false,
               "actions" : [
                 {
-                  "action": "exists",
+                  "action": "exact_blur",
                   "data": null
                 },
                 {

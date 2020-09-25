@@ -16,7 +16,27 @@ const apiValidations = (
   setSnackBarStatus,
   ) => {
 
+  /**
+   * -----
+   * 
+   */
+
   const dados = getFieldsParamsWithNoValidations(_id);
+
+  /**
+   * -----
+   * 
+   */
+
+  const dontValidate = action === 'exact_blur' && dados[field.id] === '';
+
+  if(dontValidate) {
+    console.log('=======================');
+    console.log(field.id + ':')
+    console.log('Empty exact_blur (Dont call the server)');
+    console.log('=======================');
+    return;
+  }
 
   console.log('=======================');
 
@@ -48,6 +68,11 @@ const apiValidations = (
   });
 
   console.log('=======================');
+
+  /**
+   * -----
+   * 
+   */
 
   const method = 'POST';
 

@@ -28,7 +28,7 @@ const apiValidations = (
    * 
    */
 
-  const dontValidate = action === 'exact_blur' && dados[field.id].value === '';
+  const dontValidate = (action === 'exact_blur' || action === 'exists_blur') && dados[field.id].value === '';
 
   if(dontValidate) {
     console.log('=======================');

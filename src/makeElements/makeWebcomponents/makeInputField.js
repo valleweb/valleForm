@@ -72,7 +72,7 @@ export default (
    * 
    */
 
-  let is_exist_blur;
+  let is_exists_blur;
   let is_exact_blur;
   let is_find;
 
@@ -80,7 +80,7 @@ export default (
 
     field.actions.forEach(current => {
       currentAction = current.action;
-      if (current.action === 'exist_blur') is_exist_blur = true;
+      if (current.action === 'exists_blur') is_exists_blur = true;
       if (current.action === 'exact_blur') is_exact_blur = true;
       if (current.action === 'find') is_find = true;
     });
@@ -110,7 +110,7 @@ export default (
         maxlength = { field.maxlength }
         id = { `${field.id}` }
         onBlur = { () => {
-          if(is_exist_blur) validadeField(field, 'exist_blur');
+          if(is_exists_blur) validadeField(field, 'exists_blur');
           if(is_exact_blur) validadeField(field, 'exact_blur');
         } }
         pattern = { field.pattern }

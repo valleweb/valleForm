@@ -158,12 +158,12 @@ const apiValidations = (
        * 
        */
 
-      if(action === 'exist_blur' && data.evento.exist) {
+      if(action === 'exists_blur' && data.evento.exist) {
         dados[field.id].ref.setAttribute('error', 'true');
         dados[field.id].ref.setAttribute('data-valle-error', 'true')
       }
 
-      if(action === 'exist_blur' && !data.evento.exist) {
+      if(action === 'exists_blur' && !data.evento.exist) {
         dados[field.id].ref.removeAttribute('error');
         dados[field.id].ref.removeAttribute('data-valle-error');
       }
@@ -173,7 +173,7 @@ const apiValidations = (
        * 
        */
 
-      if(action === 'exact_blur' && data.evento.list) {
+      if((action === 'exact_blur' || action === 'find') && data.evento.list) {
         setModalData(data);
       }
 

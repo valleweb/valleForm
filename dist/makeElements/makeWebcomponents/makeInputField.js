@@ -95,7 +95,7 @@ exports['default'] = function (field) {
    * 
    */
 
-  var is_exist_blur = void 0;
+  var is_exists_blur = void 0;
   var is_exact_blur = void 0;
   var is_find = void 0;
 
@@ -103,7 +103,7 @@ exports['default'] = function (field) {
 
     field.actions.forEach(function (current) {
       currentAction = current.action;
-      if (current.action === 'exist_blur') is_exist_blur = true;
+      if (current.action === 'exists_blur') is_exists_blur = true;
       if (current.action === 'exact_blur') is_exact_blur = true;
       if (current.action === 'find') is_find = true;
     });
@@ -133,7 +133,7 @@ exports['default'] = function (field) {
       id: '' + String(field.id),
       onBlur: function () {
         function onBlur() {
-          if (is_exist_blur) validadeField(field, 'exist_blur');
+          if (is_exists_blur) validadeField(field, 'exists_blur');
           if (is_exact_blur) validadeField(field, 'exact_blur');
         }
 

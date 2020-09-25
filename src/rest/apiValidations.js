@@ -28,7 +28,7 @@ const apiValidations = (
    * 
    */
 
-  const dontValidate = action === 'exact_blur' && dados[field.id] === '';
+  const dontValidate = action === 'exact_blur' && dados[field.id].value === '';
 
   if(dontValidate) {
     console.log('=======================');
@@ -55,17 +55,18 @@ const apiValidations = (
   console.log('action:');
   console.log(action);
 
-  console.log('dados:');
-  console.log(dados);
-
   console.log('=======================');
 
   console.log('campo:');
 
   console.log({
     nome: field.id,
-    valor: dados[field.id]
+    valor: dados[field.id].value
   });
+
+  console.log('campo ref:');
+
+  console.log(dados[field.id].ref);
 
   console.log('=======================');
 
@@ -83,6 +84,23 @@ const apiValidations = (
 
   console.log('body:');
 
+  /**
+   * -----
+   * 
+   */
+  const filteredDados = {};
+
+  Object.keys(dados).forEach(id => { 
+    filteredDados[id] = dados[id].value;
+  })
+
+  console.log('=======================');
+
+  console.log('dados:');
+  console.log(filteredDados);
+
+  console.log('=======================');
+
   const body = JSON.stringify({
     evento: {
       id_usuario: params.id_usuario,
@@ -98,9 +116,9 @@ const apiValidations = (
       action: action,
       campo: {
         nome: field.id,
-        valor: dados[field.id]
+        valor: dados[field.id].valor
       },
-      dados: dados
+      dados: filteredDados,
     }
   });
 
@@ -122,6 +140,11 @@ const apiValidations = (
 
       console.log('=======================');
 
+      /**
+       * -----
+       * 
+       */
+
       if(setSnackBarStatus && data.evento.mensagem) {
         setSnackBarStatus({
           show: true,
@@ -130,11 +153,36 @@ const apiValidations = (
         });
       }
 
-      if(data.evento.list) {
+      /**
+       * -----
+       * 
+       */
+
+      if(action === 'exist_blur' && data.evento.exist) {
+        dados[field.id].ref.setAttribute('error', 'true');
+        dados[field.id].ref.setAttribute('data-valle-error', 'true')
+      }
+
+      if(action === 'exist_blur' && !data.evento.exist) {
+        dados[field.id].ref.removeAttribute('error');
+        dados[field.id].ref.removeAttribute('data-valle-error');
+      }
+
+      /**
+       * -----
+       * 
+       */
+
+      if(action === 'exact_blur' && data.evento.list) {
         setModalData(data);
       }
 
     }).catch(() => {
+
+      /**
+       * -----
+       * 
+       */
 
       if(setSnackBarStatus) {
         setSnackBarStatus({

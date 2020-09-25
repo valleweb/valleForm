@@ -10,7 +10,10 @@ export default _id => {
   const fieldsParams = {};
 
   allFields.forEach(field => {
-    fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
+    fieldsParams[field.dataset.valleField] = {
+      value: field.value ? field.value : '',
+      ref: field,
+    }
   })
 
   return fieldsParams;

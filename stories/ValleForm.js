@@ -83,16 +83,6 @@ storiesOf('ValleForm', module)
         buttons = { form_2_descriptions.tabs[0].buttons }
         token = '123'
         _id = '@123'
-        params = {{
-          id_usuario: "params.id_usuario",
-          identificador: "params.identificador",
-          cliente_id: "params.cliente_id",
-          empresa: "params.empresa",
-          estabelecimento: "params.estabelecimento",
-          conexao: "params.conexao",
-          sistema: "params.sistema",
-          formulario: "params.formulario",
-        }}
       />
     )
   })

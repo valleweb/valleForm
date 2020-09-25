@@ -17,12 +17,34 @@ const Modal = ({
 }) => {
 
   //const [formValues, setFormValues] = useState(null);
-
   const [ listData, setListData ] = useState({
     currentForm: data.evento.formulario,
     list: data.evento.list,
     id_select:  data.evento.id_select
   });
+
+  const getFormValues = id_tabela => {
+
+    console.log('id_tabela:')
+    console.log(id_tabela);
+
+   const rowData = listData.list.data.filter(row => {
+      return row[0] == id_tabela;
+    })
+
+    console.log('rowData:')
+    console.log(rowData);
+
+    const dados = rowData[0].map((col, i) => {
+      return {
+        [listData.list.columns[i].id]: col,
+      }
+    })
+
+    console.log('dados:')
+    console.log(dados);
+
+  }
 
   return (
     <div className = 'valleForm__modal__backdrop'>
@@ -83,7 +105,7 @@ const Modal = ({
                 sistema: params.sistema,
                 formulario: data.evento.formulario,
               } }
-              //getFormValues = { getFormValues }
+              getFormValues = { getFormValues }
               listData = { listData }
               setListData = { setListData }
               readOnly = { listData.list.readonly }

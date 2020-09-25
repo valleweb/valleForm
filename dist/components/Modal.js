@@ -10,6 +10,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /**
  * TODO: Add JSDocs.
  * 
@@ -26,7 +28,6 @@ var Modal = function Modal(_ref) {
       $loading = _ref.$loading;
 
   //const [formValues, setFormValues] = useState(null);
-
   var _useState = (0, _react.useState)({
     currentForm: data.evento.formulario,
     list: data.evento.list,
@@ -35,6 +36,26 @@ var Modal = function Modal(_ref) {
       _useState2 = _slicedToArray(_useState, 2),
       listData = _useState2[0],
       setListData = _useState2[1];
+
+  var getFormValues = function getFormValues(id_tabela) {
+
+    console.log('id_tabela:');
+    console.log(id_tabela);
+
+    var rowData = listData.list.data.filter(function (row) {
+      return row[0] == id_tabela;
+    });
+
+    console.log('rowData:');
+    console.log(rowData);
+
+    var dados = rowData[0].map(function (col, i) {
+      return _defineProperty({}, listData.list.columns[i].id, col);
+    });
+
+    console.log('dados:');
+    console.log(dados);
+  };
 
   return _react2['default'].createElement(
     'div',
@@ -101,9 +122,9 @@ var Modal = function Modal(_ref) {
             conexao: params.conexao,
             sistema: params.sistema,
             formulario: data.evento.formulario
-          }
-          //getFormValues = { getFormValues }
-          , listData: listData,
+          },
+          getFormValues: getFormValues,
+          listData: listData,
           setListData: setListData,
           readOnly: listData.list.readonly
         }) : $loading

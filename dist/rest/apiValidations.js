@@ -27,7 +27,7 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
    * 
    */
 
-  var dontValidate = action === 'exact_blur' && dados[field.id].value === '';
+  var dontValidate = (action === 'exact_blur' || action === 'exists_blur') && dados[field.id].value === '';
 
   if (dontValidate) {
     console.log('=======================');

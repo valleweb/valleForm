@@ -124,8 +124,6 @@ const ValleForm = ({
       });
     }
 
-    closeSpeedDial();
-
   }
 
   /**
@@ -255,6 +253,7 @@ const ValleForm = ({
               newCB: makeFieldsDefault,
               token,
               getData,
+              closeSpeedDial,
             })
           }
 

@@ -13,6 +13,7 @@ const apiUpdate = (
   feedbackCb,
   formCb,
   token,
+  closeSpeedDial,
   ) => {
 
   /**
@@ -59,6 +60,7 @@ const apiUpdate = (
      * HTTP PUT
      * 
      */
+    closeSpeedDial();
 
     fetch(apiPath, { method, headers, body })
       .then(res => res.json())
@@ -68,7 +70,7 @@ const apiUpdate = (
          * Request success
          * 
          */
-        
+
         feedbackCb(data.evento.mensagem, 'success');
         formCb();
 

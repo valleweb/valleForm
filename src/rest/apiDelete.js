@@ -12,7 +12,8 @@ const apiDelete = (
 	_id,
 	feedbackCb,
 	newCB,
-	token) => {
+	token,
+	closeSpeedDial) => {
 
 		/**
 		 * API url
@@ -50,6 +51,8 @@ const apiDelete = (
 		 * HTTP DELETE
 		 * 
 		 */
+
+		closeSpeedDial();
 
 		fetch(apiPath, { method, headers, body })
 			.then(res => res.json())

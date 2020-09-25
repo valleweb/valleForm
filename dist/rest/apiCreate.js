@@ -22,6 +22,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
   var feedbackCb = arguments[3];
   var token = arguments[4];
   var _id = arguments[5];
+  var closeSpeedDial = arguments[6];
 
 
   /**
@@ -67,6 +68,8 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
      * HTTP POST
      * 
      */
+
+    closeSpeedDial();
 
     fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();

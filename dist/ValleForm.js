@@ -170,8 +170,6 @@ var ValleForm = function ValleForm(_ref) {
         type: type
       });
     }
-
-    closeSpeedDial();
   };
 
   /**
@@ -282,7 +280,8 @@ var ValleForm = function ValleForm(_ref) {
           cancelCb: cancelFieldsEditable,
           newCB: makeFieldsDefault,
           token: token,
-          getData: getData
+          getData: getData,
+          closeSpeedDial: closeSpeedDial
         })
       )
     );

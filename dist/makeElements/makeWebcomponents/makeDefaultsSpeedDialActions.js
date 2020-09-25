@@ -41,7 +41,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       newCB = _ref.newCB,
       token = _ref.token,
       _ref$getData = _ref.getData,
-      getData = _ref$getData === undefined ? null : _ref$getData;
+      getData = _ref$getData === undefined ? null : _ref$getData,
+      closeSpeedDial = _ref.closeSpeedDial;
 
 
   if (button.action == 'save') {
@@ -55,7 +56,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id);
+            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial);
           }
 
           return onClick;
@@ -99,7 +100,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token);
+            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial);
           }
 
           return onClick;
@@ -143,7 +144,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token);
+            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial);
           }
 
           return onClick;
@@ -195,10 +196,12 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
             params: params,
             token: token,
             _id: _id,
-            endpoint: button.endpoint
+            endpoint: button.endpoint,
+            feedbackCb: feedbackCb
           };
 
-          (0, _apiCustomRequest2['default'])(requestParams, feedbackCb);
+          closeSpeedDial();
+          (0, _apiCustomRequest2['default'])(requestParams);
         }
 
         return onClick;

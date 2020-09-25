@@ -19,6 +19,7 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
 		var feedbackCb = arguments[4];
 		var newCB = arguments[5];
 		var token = arguments[6];
+		var closeSpeedDial = arguments[7];
 
 
 		/**
@@ -56,6 +57,8 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
    * HTTP DELETE
    * 
    */
+
+		closeSpeedDial();
 
 		fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
 				return res.json();

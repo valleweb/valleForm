@@ -13,6 +13,7 @@ const apiCreate = (
   feedbackCb,
   token,
   _id,
+  closeSpeedDial,
   ) => {
 
   /**
@@ -59,6 +60,8 @@ const apiCreate = (
      * HTTP POST
      * 
      */
+
+    closeSpeedDial();
 
     fetch(apiPath, { method, headers, body })
       .then(res => res.json())

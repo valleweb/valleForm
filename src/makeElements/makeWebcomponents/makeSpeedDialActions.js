@@ -16,6 +16,7 @@ export default ({
   newCB,
   token,
   getData,
+  closeSpeedDial,
   }) => {
 
   // --------------
@@ -37,6 +38,7 @@ export default ({
       newCB,
       token,
       getData,
+      closeSpeedDial,
     }));
 
   const $retrievalActions = buttons
@@ -54,6 +56,7 @@ export default ({
       newCB,
       token,
       getData,
+      closeSpeedDial,
     }));
 
   const $updateActions = buttons
@@ -71,6 +74,7 @@ export default ({
       newCB,
       token,
       getData,
+      closeSpeedDial,
     }));
 
   // --------------

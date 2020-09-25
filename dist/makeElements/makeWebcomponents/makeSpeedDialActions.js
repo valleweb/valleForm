@@ -26,7 +26,8 @@ exports['default'] = function (_ref) {
       cancelCb = _ref.cancelCb,
       newCB = _ref.newCB,
       token = _ref.token,
-      getData = _ref.getData;
+      getData = _ref.getData,
+      closeSpeedDial = _ref.closeSpeedDial;
 
 
   // --------------
@@ -48,7 +49,8 @@ exports['default'] = function (_ref) {
       formCb: formCb,
       newCB: newCB,
       token: token,
-      getData: getData
+      getData: getData,
+      closeSpeedDial: closeSpeedDial
     });
   });
 
@@ -67,7 +69,8 @@ exports['default'] = function (_ref) {
       formCb: formCb,
       newCB: newCB,
       token: token,
-      getData: getData
+      getData: getData,
+      closeSpeedDial: closeSpeedDial
     });
   });
 
@@ -86,7 +89,8 @@ exports['default'] = function (_ref) {
       formCb: formCb,
       newCB: newCB,
       token: token,
-      getData: getData
+      getData: getData,
+      closeSpeedDial: closeSpeedDial
     });
   });
 

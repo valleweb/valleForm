@@ -8,7 +8,7 @@ var _getFieldsParams2 = _interopRequireDefault(_getFieldsParams);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var apiCustomRequest = function apiCustomRequest(_ref, feedbackCb) {
+var apiCustomRequest = function apiCustomRequest(_ref) {
   var getData = _ref.getData,
       action = _ref.action,
       button_id = _ref.button_id,
@@ -17,7 +17,8 @@ var apiCustomRequest = function apiCustomRequest(_ref, feedbackCb) {
       token = _ref.token,
       _id = _ref._id,
       _ref$endpoint = _ref.endpoint,
-      endpoint = _ref$endpoint === undefined ? '' : _ref$endpoint;
+      endpoint = _ref$endpoint === undefined ? '' : _ref$endpoint,
+      feedbackCb = _ref.feedbackCb;
 
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id);

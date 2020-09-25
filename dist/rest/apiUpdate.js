@@ -19,6 +19,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
   var feedbackCb = arguments[4];
   var formCb = arguments[5];
   var token = arguments[6];
+  var closeSpeedDial = arguments[7];
 
 
   /**
@@ -64,6 +65,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
      * HTTP PUT
      * 
      */
+    closeSpeedDial();
 
     fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();

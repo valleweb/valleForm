@@ -9,8 +9,8 @@ const apiCustomRequest = ({
     token,
     _id,
     endpoint = '',
-  },
-  feedbackCb,
+    feedbackCb,
+  }
   ) => {
 
   const fieldsParams = getFieldsParams(_id);

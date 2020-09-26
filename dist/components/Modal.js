@@ -54,7 +54,7 @@ var Modal = function Modal(_ref) {
     var dados = {};
 
     rowData[0].forEach(function (col, i) {
-      dados[listData.list.columns[i].id] = col;
+      dados[listData.list.columns[i].id.toLowerCase()] = col;
     });
 
     console.log('dados:');

@@ -39,7 +39,7 @@ const Modal = ({
     const dados = {};
 
     rowData[0].forEach((col, i) => {
-      dados[listData.list.columns[i].id] = col
+      dados[listData.list.columns[i].id.toLowerCase()] = col
     });
 
     console.log('dados:');

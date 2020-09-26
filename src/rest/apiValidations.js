@@ -116,7 +116,7 @@ const apiValidations = (
       action: action,
       campo: {
         nome: field.id,
-        valor: dados[field.id].valor
+        valor: dados[field.id].value,
       },
       dados: filteredDados,
     }

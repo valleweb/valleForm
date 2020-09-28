@@ -2,21 +2,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports['default'] = function () {
-  var fieldsValues = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var allFields = arguments[1];
-
+exports['default'] = function (fieldsValues, allFields) {
 
   console.log('Clean specifics fields:');
   console.log(fieldsValues);
   console.log('=======================');
 
-  allFields.forEach(function (field) {
+  console.log('All fields:');
+  console.log(allFields);
+  console.log('=======================');
 
-    var fieldKey = field.dataset.valleField;
+  Object.keys(allFields).forEach(function (id) {
 
-    if (fieldsValues[fieldKey]) {
-      field.value = "";
+    if (fieldsValues[id]) {
+      allFields[id].ref.value = "";
     }
   });
 };

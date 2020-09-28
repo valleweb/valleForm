@@ -1,15 +1,17 @@
-export default (fieldsValues = [], allFields) => {
+export default (fieldsValues, allFields) => {
 
   console.log('Clean specifics fields:');
   console.log(fieldsValues);
   console.log('=======================');
 
-  allFields.forEach(field => {
+  console.log('All fields:');
+  console.log(allFields);
+  console.log('=======================');
 
-    const fieldKey = field.dataset.valleField;
+  Object.keys(allFields).forEach(id => {
 
-    if(fieldsValues[fieldKey]) {
-      field.value = "";
+    if(fieldsValues[id]) {
+      allFields[id].ref.value = "";
     }
 
   });

@@ -10,7 +10,11 @@ export default (defaultFieldsValues, _id) => {
 
   allFields.forEach(field => {
     const fieldKey = field.dataset.valleField;
-    field.value = defaultFieldsValues[fieldKey];
+
+    if(defaultFieldsValues[fieldKey]) {
+      field.value = defaultFieldsValues[fieldKey];
+    }
+
   });
 
 }

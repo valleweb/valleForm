@@ -54,7 +54,10 @@ var Modal = function Modal(_ref) {
     var dados = {};
 
     rowData[0].forEach(function (col, i) {
-      dados[listData.list.columns[i].id.toLowerCase()] = col;
+      dados[listData.list.columns[i].id.toLowerCase()] = {
+        value: col,
+        populate: listData.list.columns[i].populate
+      };
     });
 
     console.log('dados:');
@@ -63,7 +66,21 @@ var Modal = function Modal(_ref) {
     console.log('_id:');
     console.log(_id);
 
-    (0, _addFieldsValues2['default'])(dados, _id);
+    console.log('=======================');
+
+    var filteredDados = {};
+
+    Object.keys(dados).forEach(function (id) {
+
+      if (dados[i].populate) {
+        filteredDados[id] = dados[i].value;
+      }
+    });
+
+    console.log('Dados filtrados:');
+    console.log(filteredDados);
+
+    (0, _addFieldsValues2['default'])(filteredDados, _id);
     setModalData(null);
   };
 

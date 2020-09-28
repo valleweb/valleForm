@@ -160,12 +160,18 @@ const apiValidations = (
 
       if(action === 'exists_blur' && data.evento.exist) {
         dados[field.id].ref.setAttribute('error', 'true');
-        dados[field.id].ref.setAttribute('data-valle-error', 'true')
+        dados[field.id].ref.setAttribute('data-valle-error', 'true');
+
+        if(data.evento.mensagem) {
+          dados[field.id].ref.setAttribute('errortext', data.evento.mensagem);
+        }
+
       }
 
       if(action === 'exists_blur' && !data.evento.exist) {
         dados[field.id].ref.removeAttribute('error');
         dados[field.id].ref.removeAttribute('data-valle-error');
+        dados[field.id].ref.removeAttribute('errortext');
       }
 
       /**

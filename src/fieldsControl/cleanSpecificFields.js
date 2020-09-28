@@ -1,14 +1,14 @@
-export default (FieldsValues, allFields) => {
+export default (fieldsValues = [], allFields) => {
 
   console.log('Clean specifics fields:');
-  console.log(FieldsValues);
+  console.log(fieldsValues);
   console.log('=======================');
 
   allFields.forEach(field => {
 
     const fieldKey = field.dataset.valleField;
 
-    if(FieldsValues[fieldKey]) {
+    if(fieldsValues[fieldKey]) {
       field.value = "";
     }
 

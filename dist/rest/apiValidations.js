@@ -21,8 +21,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  * 
  */
 
-var apiValidations = function apiValidations(baseApi, token, params, field, action, _id, setModalData) {
-  var currentFilledFields = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : null;
+var apiValidations = function apiValidations(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus) {
+  var currentFilledFields = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : null;
 
 
   /**

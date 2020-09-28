@@ -15,6 +15,7 @@ const apiValidations = (
   action,
   _id,
   setModalData,
+  setSnackBarStatus,
   currentFilledFields = null,
   ) => {
 

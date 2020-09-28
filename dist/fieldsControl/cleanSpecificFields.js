@@ -2,17 +2,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports['default'] = function (FieldsValues, allFields) {
+exports['default'] = function () {
+  var fieldsValues = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var allFields = arguments[1];
+
 
   console.log('Clean specifics fields:');
-  console.log(FieldsValues);
+  console.log(fieldsValues);
   console.log('=======================');
 
   allFields.forEach(function (field) {
 
     var fieldKey = field.dataset.valleField;
 
-    if (FieldsValues[fieldKey]) {
+    if (fieldsValues[fieldKey]) {
       field.value = "";
     }
   });

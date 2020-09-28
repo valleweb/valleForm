@@ -10,6 +10,10 @@ var _addFieldsValues = require('../fieldsControl/addFieldsValues');
 
 var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
 
+var _cleanSpecificFields = require('../fieldsControl/cleanSpecificFields');
+
+var _cleanSpecificFields2 = _interopRequireDefault(_cleanSpecificFields);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 /**
@@ -17,7 +21,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  * 
  */
 
-var apiValidations = function apiValidations(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus) {
+var apiValidations = function apiValidations(baseApi, token, params, field, action, _id, setModalData) {
+  var currentFilledFields = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : null;
+
 
   /**
    * -----
@@ -43,6 +49,15 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
     console.log('Original error text:');
     console.log(field.error_text);
     console.log('=======================');
+
+    /**
+     * -----
+     * 
+     */
+
+    if (currentFilledFields) {
+      (0, _cleanSpecificFields2['default'])(currentFilledFields, dados);
+    }
 
     dados[field.id].ref.setAttribute('errortext', field.error_text);
 

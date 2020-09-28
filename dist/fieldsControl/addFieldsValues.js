@@ -14,6 +14,9 @@ exports["default"] = function (defaultFieldsValues, _id) {
 
   allFields.forEach(function (field) {
     var fieldKey = field.dataset.valleField;
-    field.value = defaultFieldsValues[fieldKey];
+
+    if (defaultFieldsValues[fieldKey]) {
+      field.value = defaultFieldsValues[fieldKey];
+    }
   });
 };

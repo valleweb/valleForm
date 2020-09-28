@@ -1,5 +1,6 @@
 import getFieldsParamsWithNoValidations from '../fieldsControl/getFieldsParamsWithNoValidations';
 import addFieldsValues from '../fieldsControl/addFieldsValues';
+import cleanSpecificFields from '../fieldsControl/cleanSpecificFields';
 
 /**
  * TODO: Add JSDocs
@@ -14,7 +15,7 @@ const apiValidations = (
   action,
   _id,
   setModalData,
-  setSnackBarStatus,
+  currentFilledFields = null,
   ) => {
 
   /**
@@ -41,6 +42,15 @@ const apiValidations = (
     console.log('Original error text:');
     console.log(field.error_text);
     console.log('=======================');
+
+    /**
+     * -----
+     * 
+     */
+
+    if(currentFilledFields) {
+      cleanSpecificFields(currentFilledFields, dados);
+    }
 
     dados[field.id].ref.setAttribute('errortext', field.error_text);
 

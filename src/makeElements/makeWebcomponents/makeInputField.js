@@ -26,6 +26,7 @@ export default (
    */
 
   const [ modalData, setModalData ] = useState(null);
+  const [ currentFilledFields, setCurrentFilledFields ] = useState(null);
 
   /**
    * -----
@@ -42,6 +43,7 @@ export default (
       _id,
       setModalData,
       setSnackBarStatus,
+      currentFilledFields,
     );
   }
 
@@ -145,6 +147,7 @@ export default (
             ValleList = { ValleList }
             $loading = { $loading }
             _id = { _id }
+            setCurrentFilledFields = { setCurrentFilledFields }
           />
         ) : null
       }

@@ -28,7 +28,8 @@ var Modal = function Modal(_ref) {
       setSnackBarStatus = _ref.setSnackBarStatus,
       ValleList = _ref.ValleList,
       $loading = _ref.$loading,
-      _id = _ref._id;
+      _id = _ref._id,
+      setCurrentFilledFields = _ref.setCurrentFilledFields;
 
   var _useState = (0, _react.useState)({
     currentForm: data.evento.formulario,
@@ -79,6 +80,8 @@ var Modal = function Modal(_ref) {
 
     console.log('Dados filtrados:');
     console.log(filteredDados);
+
+    setCurrentFilledFields(filteredDados);
 
     (0, _addFieldsValues2['default'])(filteredDados, _id);
     setModalData(null);

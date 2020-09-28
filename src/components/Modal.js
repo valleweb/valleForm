@@ -16,6 +16,7 @@ const Modal = ({
   ValleList,
   $loading,
   _id,
+  setCurrentFilledFields,
 }) => {
 
   const [ listData, setListData ] = useState({
@@ -65,6 +66,8 @@ const Modal = ({
 
     console.log('Dados filtrados:');
     console.log(filteredDados);
+
+    setCurrentFilledFields(filteredDados);
 
     addFieldsValues(filteredDados, _id);
     setModalData(null);

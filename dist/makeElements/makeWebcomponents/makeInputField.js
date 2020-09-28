@@ -61,13 +61,18 @@ exports['default'] = function (field) {
       modalData = _useState2[0],
       setModalData = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      currentFilledFields = _useState4[0],
+      setCurrentFilledFields = _useState4[1];
+
   /**
    * -----
    * 
    */
 
   var validadeField = function validadeField(field, action) {
-    (0, _apiValidations2['default'])(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus);
+    (0, _apiValidations2['default'])(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus, currentFilledFields);
   };
 
   /**
@@ -163,7 +168,8 @@ exports['default'] = function (field) {
       setSnackBarStatus: setSnackBarStatus,
       ValleList: ValleList,
       $loading: $loading,
-      _id: _id
+      _id: _id,
+      setCurrentFilledFields: setCurrentFilledFields
     }) : null
   );
 };

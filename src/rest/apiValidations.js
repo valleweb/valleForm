@@ -1,4 +1,5 @@
 import getFieldsParamsWithNoValidations from '../fieldsControl/getFieldsParamsWithNoValidations';
+import addFieldsValues from '../fieldsControl/addFieldsValues';
 
 /**
  * TODO: Add JSDocs
@@ -172,6 +173,25 @@ const apiValidations = (
         dados[field.id].ref.removeAttribute('error');
         dados[field.id].ref.removeAttribute('data-valle-error');
         dados[field.id].ref.removeAttribute('errortext');
+      }
+
+      /**
+       * -----
+       * 
+       */
+
+      if((action === 'exact_blur') && data.evento.exist) {
+
+        console.log('exact_blur (exist) dados:');
+        console.log(data.evento.dados);
+
+        console.log('_id:');
+        console.log(data.evento.dados);
+
+        console.log('=======================');
+
+        addFieldsValues(data.evento.dados, _id);
+
       }
 
       /**

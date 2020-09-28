@@ -57,8 +57,8 @@ const Modal = ({
 
     Object.keys(dados).forEach(id => {
 
-      if(dados[i].populate) {
-        filteredDados[id] = dados[i].value;
+      if(dados[id].populate) {
+        filteredDados[id] = dados[id].value;
       }
 
     });

@@ -6,6 +6,10 @@ var _getFieldsParamsWithNoValidations = require('../fieldsControl/getFieldsParam
 
 var _getFieldsParamsWithNoValidations2 = _interopRequireDefault(_getFieldsParamsWithNoValidations);
 
+var _addFieldsValues = require('../fieldsControl/addFieldsValues');
+
+var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 /**
@@ -160,11 +164,34 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
     if (action === 'exists_blur' && data.evento.exist) {
       dados[field.id].ref.setAttribute('error', 'true');
       dados[field.id].ref.setAttribute('data-valle-error', 'true');
+
+      if (data.evento.mensagem) {
+        dados[field.id].ref.setAttribute('errortext', data.evento.mensagem);
+      }
     }
 
     if (action === 'exists_blur' && !data.evento.exist) {
       dados[field.id].ref.removeAttribute('error');
       dados[field.id].ref.removeAttribute('data-valle-error');
+      dados[field.id].ref.removeAttribute('errortext');
+    }
+
+    /**
+     * -----
+     * 
+     */
+
+    if (action === 'exact_blur' && data.evento.exist) {
+
+      console.log('exact_blur (exist) dados:');
+      console.log(data.evento.dados);
+
+      console.log('_id:');
+      console.log(data.evento.dados);
+
+      console.log('=======================');
+
+      (0, _addFieldsValues2['default'])(data.evento.dados, _id);
     }
 
     /**

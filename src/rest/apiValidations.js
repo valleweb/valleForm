@@ -32,10 +32,18 @@ const apiValidations = (
   const dontValidate = (action === 'exact_blur' || action === 'exists_blur') && dados[field.id].value === '';
 
   if(dontValidate) {
+
     console.log('=======================');
-    console.log(field.id + ':')
+    console.log(field.id + ':');
     console.log('Empty exact_blur (Dont call the server)');
     console.log('=======================');
+
+    console.log('Original error text:');
+    console.log(field.error_text);
+    console.log('=======================');
+
+    dados[field.id].ref.setAttribute('errortext', field.error_text);
+
     return;
   }
 

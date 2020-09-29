@@ -123,7 +123,9 @@ var ValleForm = function ValleForm(_ref) {
     console.log(speedDial.current);
     console.log('===========================');
 
-    speedDial.current.open = false;
+    if (speedDial.current) {
+      speedDial.current.open = false;
+    }
   };
 
   /**

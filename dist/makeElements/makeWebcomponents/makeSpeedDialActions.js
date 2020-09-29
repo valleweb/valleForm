@@ -27,7 +27,9 @@ exports['default'] = function (_ref) {
       newCB = _ref.newCB,
       token = _ref.token,
       getData = _ref.getData,
-      closeSpeedDial = _ref.closeSpeedDial;
+      closeSpeedDial = _ref.closeSpeedDial,
+      updateValleList = _ref.updateValleList,
+      setSnackBarStatus = _ref.setSnackBarStatus;
 
 
   // --------------
@@ -50,7 +52,9 @@ exports['default'] = function (_ref) {
       newCB: newCB,
       token: token,
       getData: getData,
-      closeSpeedDial: closeSpeedDial
+      closeSpeedDial: closeSpeedDial,
+      updateValleList: updateValleList,
+      setSnackBarStatus: setSnackBarStatus
     });
   });
 
@@ -70,7 +74,9 @@ exports['default'] = function (_ref) {
       newCB: newCB,
       token: token,
       getData: getData,
-      closeSpeedDial: closeSpeedDial
+      closeSpeedDial: closeSpeedDial,
+      updateValleList: updateValleList,
+      setSnackBarStatus: setSnackBarStatus
     });
   });
 
@@ -90,7 +96,9 @@ exports['default'] = function (_ref) {
       newCB: newCB,
       token: token,
       getData: getData,
-      closeSpeedDial: closeSpeedDial
+      closeSpeedDial: closeSpeedDial,
+      updateValleList: updateValleList,
+      setSnackBarStatus: setSnackBarStatus
     });
   });
 

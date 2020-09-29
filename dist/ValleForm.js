@@ -57,7 +57,9 @@ var ValleForm = function ValleForm(_ref) {
       _ref$setSnackBarStatu = _ref.setSnackBarStatus,
       setSnackBarStatus = _ref$setSnackBarStatu === undefined ? null : _ref$setSnackBarStatu,
       _ref$ValleList = _ref.ValleList,
-      ValleList = _ref$ValleList === undefined ? null : _ref$ValleList;
+      ValleList = _ref$ValleList === undefined ? null : _ref$ValleList,
+      _ref$updateValleList = _ref.updateValleList,
+      updateValleList = _ref$updateValleList === undefined ? null : _ref$updateValleList;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -281,7 +283,9 @@ var ValleForm = function ValleForm(_ref) {
           newCB: makeFieldsDefault,
           token: token,
           getData: getData,
-          closeSpeedDial: closeSpeedDial
+          closeSpeedDial: closeSpeedDial,
+          updateValleList: updateValleList,
+          setSnackBarStatus: setSnackBarStatus
         })
       )
     );

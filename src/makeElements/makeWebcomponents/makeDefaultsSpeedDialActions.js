@@ -19,6 +19,8 @@ export default makeDefaultsSpeedDialActions = ({
   token,
   getData = null,
   closeSpeedDial,
+  updateValleList,
+  setSnackBarStatus,
   }) => {
 
   if(button.action == 'save') {
@@ -29,7 +31,7 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () => apiCreate(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial) }>
+        onClick = { () => apiCreate(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, setSnackBarStatus) }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z"/>

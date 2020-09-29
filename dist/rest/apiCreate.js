@@ -23,6 +23,8 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
   var token = arguments[4];
   var _id = arguments[5];
   var closeSpeedDial = arguments[6];
+  var updateValleList = arguments[7];
+  var setSnackBarStatus = arguments[8];
 
 
   /**
@@ -82,6 +84,34 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
       feedbackCb(data.evento.mensagem, 'success');
       (0, _cleanFields2['default'])(_id);
+
+      /**
+       * Filter ValleList update by id_tabela
+       * 
+       */
+
+      if (updateValleList) {
+
+        var columns = [];
+
+        if (data.evento.id_tabela) {
+
+          console.log('Update vallelist with id_tabela');
+
+          columns = [{
+            id: "id_tabela",
+            filter: {
+              tipo_1: "=",
+              valor_1: data.evento.id_tabela
+            }
+          }];
+        } else {
+
+          console.log('Update vallelist');
+        }
+
+        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, null, setSnackBarStatus);
+      }
     })['catch'](function (data) {
 
       /**

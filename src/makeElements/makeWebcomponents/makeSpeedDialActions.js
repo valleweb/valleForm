@@ -17,6 +17,8 @@ export default ({
   token,
   getData,
   closeSpeedDial,
+  updateValleList,
+  setSnackBarStatus,
   }) => {
 
   // --------------
@@ -39,6 +41,8 @@ export default ({
       token,
       getData,
       closeSpeedDial,
+      updateValleList,
+      setSnackBarStatus,
     }));
 
   const $retrievalActions = buttons
@@ -57,6 +61,8 @@ export default ({
       token,
       getData,
       closeSpeedDial,
+      updateValleList,
+      setSnackBarStatus,
     }));
 
   const $updateActions = buttons
@@ -75,6 +81,8 @@ export default ({
       token,
       getData,
       closeSpeedDial,
+      updateValleList,
+      setSnackBarStatus,
     }));
 
   // --------------

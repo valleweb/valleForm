@@ -42,7 +42,9 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       token = _ref.token,
       _ref$getData = _ref.getData,
       getData = _ref$getData === undefined ? null : _ref$getData,
-      closeSpeedDial = _ref.closeSpeedDial;
+      closeSpeedDial = _ref.closeSpeedDial,
+      updateValleList = _ref.updateValleList,
+      setSnackBarStatus = _ref.setSnackBarStatus;
 
 
   if (button.action == 'save') {
@@ -56,7 +58,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial);
+            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, setSnackBarStatus);
           }
 
           return onClick;

@@ -27,6 +27,7 @@ const ValleForm = ({
   getData,
   setSnackBarStatus = null,
   ValleList = null,
+  updateValleList = null,
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
@@ -254,6 +255,8 @@ const ValleForm = ({
               token,
               getData,
               closeSpeedDial,
+              updateValleList,
+              setSnackBarStatus,
             })
           }
 

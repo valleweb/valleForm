@@ -14,6 +14,8 @@ const apiCreate = (
   token,
   _id,
   closeSpeedDial,
+  updateValleList,
+  setSnackBarStatus,
   ) => {
 
   /**
@@ -74,6 +76,55 @@ const apiCreate = (
 
         feedbackCb(data.evento.mensagem, 'success');
         cleanFields(_id);
+
+        /**
+         * Filter ValleList update by id_tabela
+         * 
+         */
+
+        if(updateValleList) {
+
+          let columns = [];
+
+          if(data.evento.id_tabela) {
+
+            console.log('Update vallelist with id_tabela');
+
+            columns = [{
+              id: "id_tabela",
+              filter: {
+                tipo_1: "=",
+                valor_1: data.evento.id_tabela,
+              }
+            }];
+
+          } else {
+
+            console.log('Update vallelist');
+
+          }
+
+          updateValleList.getListFromAPI(
+            customParams.id_usuario,
+            token,
+            customParams.identificador,
+            customParams.cliente_id,
+            customParams.empresa,
+            customParams.estabelecimento,
+            customParams.conexao,
+            customParams.sistema,
+            customParams.formulario,
+            true,
+            updateValleList.listData,
+            updateValleList.setListData,
+            null,
+            1,
+            columns,
+            null,
+            setSnackBarStatus,
+          );
+
+        }
 
       })
       .catch((data) => {

@@ -15,7 +15,6 @@ const apiCreate = (
   _id,
   closeSpeedDial,
   updateValleList,
-  setSnackBarStatus,
   ) => {
 
   /**
@@ -121,7 +120,7 @@ const apiCreate = (
             1,
             columns,
             null,
-            setSnackBarStatus,
+            null,
           );
 
         }

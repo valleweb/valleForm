@@ -18,7 +18,6 @@ export default ({
   getData,
   closeSpeedDial,
   updateValleList,
-  setSnackBarStatus,
   }) => {
 
   // --------------
@@ -42,7 +41,6 @@ export default ({
       getData,
       closeSpeedDial,
       updateValleList,
-      setSnackBarStatus,
     }));
 
   const $retrievalActions = buttons
@@ -62,7 +60,6 @@ export default ({
       getData,
       closeSpeedDial,
       updateValleList,
-      setSnackBarStatus,
     }));
 
   const $updateActions = buttons
@@ -82,7 +79,6 @@ export default ({
       getData,
       closeSpeedDial,
       updateValleList,
-      setSnackBarStatus,
     }));
 
   // --------------

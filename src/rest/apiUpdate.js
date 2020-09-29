@@ -14,6 +14,7 @@ const apiUpdate = (
   formCb,
   token,
   closeSpeedDial,
+  updateValleList,
   ) => {
 
   /**
@@ -73,6 +74,35 @@ const apiUpdate = (
 
         feedbackCb(data.evento.mensagem, 'success');
         formCb();
+
+        /**
+         * Update ValleList
+         * 
+         */
+
+        if(updateValleList) {
+
+          updateValleList.getListFromAPI(
+            customParams.id_usuario,
+            token,
+            customParams.identificador,
+            customParams.cliente_id,
+            customParams.empresa,
+            customParams.estabelecimento,
+            customParams.conexao,
+            customParams.sistema,
+            customParams.formulario,
+            true,
+            updateValleList.listData,
+            updateValleList.setListData,
+            null,
+            1,
+            [],
+            null,
+            null,
+          );
+
+        }
 
       })
       .catch(() => {

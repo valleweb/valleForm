@@ -20,7 +20,6 @@ export default makeDefaultsSpeedDialActions = ({
   getData = null,
   closeSpeedDial,
   updateValleList,
-  setSnackBarStatus,
   }) => {
 
   if(button.action == 'save') {
@@ -31,7 +30,7 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () => apiCreate(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, setSnackBarStatus) }>
+        onClick = { () => apiCreate(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList) }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z"/>
@@ -69,7 +68,7 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () => apiUpdate(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial) }>
+        onClick = { () => apiUpdate(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial, updateValleList) }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z"/>
@@ -107,7 +106,7 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () =>  apiDelete(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial) }>
+        onClick = { () =>  apiDelete(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial, updateValleList) }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0V0z"/>

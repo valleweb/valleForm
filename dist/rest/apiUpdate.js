@@ -20,6 +20,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
   var formCb = arguments[5];
   var token = arguments[6];
   var closeSpeedDial = arguments[7];
+  var updateValleList = arguments[8];
 
 
   /**
@@ -78,6 +79,16 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
       feedbackCb(data.evento.mensagem, 'success');
       formCb();
+
+      /**
+       * Update ValleList
+       * 
+       */
+
+      if (updateValleList) {
+
+        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, [], null, null);
+      }
     })['catch'](function () {
 
       /**

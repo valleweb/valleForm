@@ -256,7 +256,6 @@ const ValleForm = ({
               getData,
               closeSpeedDial,
               updateValleList,
-              setSnackBarStatus,
             })
           }
 

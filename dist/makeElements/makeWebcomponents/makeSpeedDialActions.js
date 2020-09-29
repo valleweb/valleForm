@@ -28,8 +28,7 @@ exports['default'] = function (_ref) {
       token = _ref.token,
       getData = _ref.getData,
       closeSpeedDial = _ref.closeSpeedDial,
-      updateValleList = _ref.updateValleList,
-      setSnackBarStatus = _ref.setSnackBarStatus;
+      updateValleList = _ref.updateValleList;
 
 
   // --------------
@@ -53,8 +52,7 @@ exports['default'] = function (_ref) {
       token: token,
       getData: getData,
       closeSpeedDial: closeSpeedDial,
-      updateValleList: updateValleList,
-      setSnackBarStatus: setSnackBarStatus
+      updateValleList: updateValleList
     });
   });
 
@@ -75,8 +73,7 @@ exports['default'] = function (_ref) {
       token: token,
       getData: getData,
       closeSpeedDial: closeSpeedDial,
-      updateValleList: updateValleList,
-      setSnackBarStatus: setSnackBarStatus
+      updateValleList: updateValleList
     });
   });
 
@@ -97,8 +94,7 @@ exports['default'] = function (_ref) {
       token: token,
       getData: getData,
       closeSpeedDial: closeSpeedDial,
-      updateValleList: updateValleList,
-      setSnackBarStatus: setSnackBarStatus
+      updateValleList: updateValleList
     });
   });
 

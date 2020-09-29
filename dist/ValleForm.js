@@ -284,8 +284,7 @@ var ValleForm = function ValleForm(_ref) {
           token: token,
           getData: getData,
           closeSpeedDial: closeSpeedDial,
-          updateValleList: updateValleList,
-          setSnackBarStatus: setSnackBarStatus
+          updateValleList: updateValleList
         })
       )
     );

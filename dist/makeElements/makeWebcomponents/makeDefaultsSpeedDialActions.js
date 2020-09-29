@@ -43,8 +43,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       _ref$getData = _ref.getData,
       getData = _ref$getData === undefined ? null : _ref$getData,
       closeSpeedDial = _ref.closeSpeedDial,
-      updateValleList = _ref.updateValleList,
-      setSnackBarStatus = _ref.setSnackBarStatus;
+      updateValleList = _ref.updateValleList;
 
 
   if (button.action == 'save') {
@@ -58,7 +57,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, setSnackBarStatus);
+            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList);
           }
 
           return onClick;
@@ -102,7 +101,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial);
+            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial, updateValleList);
           }
 
           return onClick;
@@ -146,7 +145,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial);
+            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial, updateValleList);
           }
 
           return onClick;

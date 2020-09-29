@@ -105,12 +105,14 @@ const apiUpdate = (
         }
 
       })
-      .catch(() => {
+      .catch(err => {
 
         /**
          * Request error
          * 
          */
+
+        console.log(err);
 
         feedbackCb('Erro interno no servidor', 'error');
 

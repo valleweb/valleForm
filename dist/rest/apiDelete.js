@@ -82,12 +82,14 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
 
 						updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, [], null, null);
 				}
-		})['catch'](function () {
+		})['catch'](function (err) {
 
 				/**
      * Request error
      * 
      */
+
+				console.log(err);
 
 				feedbackCb('Erro interno no servidor', 'error');
 		});

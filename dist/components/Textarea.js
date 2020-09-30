@@ -85,7 +85,6 @@ var Textarea = function Textarea(_ref) {
         className: 'tooltip',
         role: 'tooltip',
         'aria-label': field.description,
-        tabIndex: '0',
         'data-balloon-pos': 'up-right',
         'data-balloon-length': 'large'
       },

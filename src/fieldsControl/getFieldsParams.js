@@ -13,12 +13,12 @@ export default _id => {
   allFields.forEach(field => {
 
     // Individual validation
-    if(field.error || field['data-valle-error']) {
+    if(field.error || field['data-valle-error'] == 'true') {
       hasError = true;
     }
 
     // Global required validation
-    if((field.required || field.dataset.valleRequired) && (!field.value || field.value == '')) {
+    if((field.required || field.dataset.valleRequired == 'true') && (!field.value || field.value == '')) {
       hasError = true;
       field.setAttribute('error', 'true');
       field.setAttribute('data-valle-error', 'true');

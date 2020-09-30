@@ -220,7 +220,7 @@
             "element": "textarea",
             "type": "text",
             "is_PK": true,
-            "required": true,
+            "required": false,
             "maxlength": 7,
             "case": "ProperCase",
             "mask": null,

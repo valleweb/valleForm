@@ -156,7 +156,8 @@ var Modal = function Modal(_ref) {
           getFormValues: getFormValues,
           listData: listData,
           setListData: setListData,
-          readOnly: listData.list.readonly
+          readOnly: listData.list.readonly,
+          dados: data.evento.dados
         }) : $loading
       )
     )

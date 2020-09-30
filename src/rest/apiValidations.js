@@ -219,6 +219,7 @@ const apiValidations = (
        */
 
       if((action === 'exact_blur' || action === 'find') && data.evento.list) {
+        data.evento.dados = filteredDados;
         setModalData(data);
       }
 

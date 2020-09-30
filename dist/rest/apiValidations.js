@@ -223,6 +223,7 @@ var apiValidations = function apiValidations(baseApi, token, params, field, acti
      */
 
     if ((action === 'exact_blur' || action === 'find') && data.evento.list) {
+      data.evento.dados = filteredDados;
       setModalData(data);
     }
   })['catch'](function () {

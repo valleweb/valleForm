@@ -137,6 +137,7 @@ const Modal = ({
               listData = { listData }
               setListData = { setListData }
               readOnly = { listData.list.readonly }
+              dados = { data.evento.dados }
             />
 
           ) : $loading }

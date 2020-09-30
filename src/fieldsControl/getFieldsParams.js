@@ -25,6 +25,7 @@ export default _id => {
     }
 
     fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
+
   })
 
   return hasError ? false : fieldsParams;

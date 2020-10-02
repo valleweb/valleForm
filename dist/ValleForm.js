@@ -59,7 +59,9 @@ var ValleForm = function ValleForm(_ref) {
       _ref$ValleList = _ref.ValleList,
       ValleList = _ref$ValleList === undefined ? null : _ref$ValleList,
       _ref$updateValleList = _ref.updateValleList,
-      updateValleList = _ref$updateValleList === undefined ? null : _ref$updateValleList;
+      updateValleList = _ref$updateValleList === undefined ? null : _ref$updateValleList,
+      _ref$cleanOldFormValu = _ref.cleanOldFormValues,
+      cleanOldFormValues = _ref$cleanOldFormValu === undefined ? null : _ref$cleanOldFormValu;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -158,6 +160,7 @@ var ValleForm = function ValleForm(_ref) {
     setDynamicReadOnly(false);
     setEditable(false);
     closeSpeedDial();
+    cleanOldFormValues();
   };
 
   /**

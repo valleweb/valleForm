@@ -28,6 +28,7 @@ const ValleForm = ({
   setSnackBarStatus = null,
   ValleList = null,
   updateValleList = null,
+  cleanOldFormValues = null,
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
@@ -109,7 +110,8 @@ const ValleForm = ({
     cleanFields(_id);
     setDynamicReadOnly(false);
 		setEditable(false);
-		closeSpeedDial();
+    closeSpeedDial();
+    cleanOldFormValues();
 	}
 
   /**

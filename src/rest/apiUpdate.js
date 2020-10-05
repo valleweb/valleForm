@@ -82,6 +82,21 @@ const apiUpdate = (
 
         if(updateValleList) {
 
+          let columns = [];
+
+          if(updateValleList.listData.list.columns) {
+
+            console.log('Update vallelist with filters:');
+            console.log(updateValleList.listData.list.columns);
+
+            columns = updateValleList.listData.list.columns;
+
+          } else {
+
+            console.log('Update vallelist');
+
+          }
+
           updateValleList.getListFromAPI(
             customParams.id_usuario,
             token,
@@ -97,7 +112,7 @@ const apiUpdate = (
             updateValleList.setListData,
             null,
             1,
-            [],
+            columns,
             null,
             null,
           );

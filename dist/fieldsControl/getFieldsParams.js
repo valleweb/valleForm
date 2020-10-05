@@ -28,7 +28,7 @@ exports['default'] = function (_id) {
       field.setAttribute('data-valle-error', 'true');
     }
 
-    fieldsParams[field.dataset.valleField] = field.value ? field.value : '';
+    fieldsParams[field.dataset.valleField] = field.value ? field.value : null;
   });
 
   return hasError ? false : fieldsParams;

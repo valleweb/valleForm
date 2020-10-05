@@ -87,7 +87,20 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
       if (updateValleList) {
 
-        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, [], null, null);
+        var columns = [];
+
+        if (updateValleList.listData.list.columns) {
+
+          console.log('Update vallelist with filters:');
+          console.log(updateValleList.listData.list.columns);
+
+          columns = updateValleList.listData.list.columns;
+        } else {
+
+          console.log('Update vallelist');
+        }
+
+        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, null, null);
       }
     })['catch'](function (err) {
 

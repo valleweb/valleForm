@@ -11,7 +11,7 @@ export default _id => {
 
   allFields.forEach(field => {
     fieldsParams[field.dataset.valleField] = {
-      value: field.value ? field.value : '',
+      value: field.value ? field.value : null,
       ref: field,
     }
   })

@@ -85,6 +85,10 @@
   min-height: 87px; /* For fix issue #15 in desktop devices */
 }
 
+.valleForm__row--empty {
+  min-height: 0;
+}
+
 @media screen and (max-width: 600px) {
   .valleForm__row {
     flex-wrap: wrap;

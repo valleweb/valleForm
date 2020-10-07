@@ -1,6 +1,6 @@
 import React from 'react';
 import isSelect from '../helpers/isSelect';
-import makeInputField from './makeWebcomponents/makeInputField';
+import MakeInputField from './makeWebcomponents/MakeInputField';
 import makeSelectField from './makeWebcomponents/makeSelectField';
 import Textarea from '../components/Textarea';
 
@@ -42,12 +42,32 @@ export default (
       // --------------
 
       return isSelect(field.element) 
-      ? resolveSelectSize(row, field, readOnly, editable, token, _id)
-      : makeInputField(field, readOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading)
+        ? resolveSelectSize(row, field, readOnly, editable, token, _id)
+        : (
+            <MakeInputField 
+              field = { field }
+              readOnly = { readOnly }
+              editable = { editable }
+              token = { token }
+              _id = { _id }
+              baseApi = { baseApi }
+              params = { params }
+              setSnackBarStatus = { setSnackBarStatus }
+              ValleList = { ValleList }
+              $loading = { $loading }
+            />
+          );
 
     })
 
-  return <div className="valleForm__row" key = { index }>{$fields}</div>;
+  return (
+    <div
+      className = { `valleForm__row ${!$fields.length ? 'valleForm__row--empty' : ''}` }
+      key = { index }
+    >
+      {$fields}
+    </div>
+  );
 
 });
 

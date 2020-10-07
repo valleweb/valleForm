@@ -63,7 +63,7 @@
             "readonly": true,
             "error_text": "Campo obrigatório",
             "helper_text": "Texto aqui",
-            "visible_screen": true,
+            "visible_screen": false,
             "type": "text",
             "is_PK": false,
             "mask": null,

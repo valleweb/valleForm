@@ -40,16 +40,18 @@ var _Modal2 = _interopRequireDefault(_Modal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-exports['default'] = function (field) {
-  var readOnly = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  var editable = arguments[2];
-  var token = arguments[3];
-  var _id = arguments[4];
-  var baseApi = arguments[5];
-  var params = arguments[6];
-  var setSnackBarStatus = arguments[7];
-  var ValleList = arguments[8];
-  var $loading = arguments[9];
+exports['default'] = function (_ref) {
+  var field = _ref.field,
+      _ref$readOnly = _ref.readOnly,
+      readOnly = _ref$readOnly === undefined ? false : _ref$readOnly,
+      editable = _ref.editable,
+      token = _ref.token,
+      _id = _ref._id,
+      baseApi = _ref.baseApi,
+      params = _ref.params,
+      setSnackBarStatus = _ref.setSnackBarStatus,
+      ValleList = _ref.ValleList,
+      $loading = _ref.$loading;
 
   /**
    * -----

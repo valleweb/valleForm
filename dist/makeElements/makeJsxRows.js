@@ -10,9 +10,9 @@ var _isSelect = require('../helpers/isSelect');
 
 var _isSelect2 = _interopRequireDefault(_isSelect);
 
-var _makeInputField = require('./makeWebcomponents/makeInputField');
+var _MakeInputField = require('./makeWebcomponents/MakeInputField');
 
-var _makeInputField2 = _interopRequireDefault(_makeInputField);
+var _MakeInputField2 = _interopRequireDefault(_MakeInputField);
 
 var _makeSelectField = require('./makeWebcomponents/makeSelectField');
 
@@ -58,12 +58,26 @@ exports['default'] = function (rows) {
       // Resolve form webcomponents
       // --------------
 
-      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id) : (0, _makeInputField2['default'])(field, readOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading);
+      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id) : _react2['default'].createElement(_MakeInputField2['default'], {
+        field: field,
+        readOnly: readOnly,
+        editable: editable,
+        token: token,
+        _id: _id,
+        baseApi: baseApi,
+        params: params,
+        setSnackBarStatus: setSnackBarStatus,
+        ValleList: ValleList,
+        $loading: $loading
+      });
     });
 
     return _react2['default'].createElement(
       'div',
-      { className: 'valleForm__row', key: index },
+      {
+        className: 'valleForm__row ' + (!$fields.length ? 'valleForm__row--empty' : ''),
+        key: index
+      },
       $fields
     );
   });

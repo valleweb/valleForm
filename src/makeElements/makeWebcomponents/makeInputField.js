@@ -7,7 +7,7 @@ import SearchButton from '../../components/SearchButton';
 import apiValidations from '../../rest/apiValidations';
 import Modal from '../../components/Modal';
 
-export default (
+export default ({
   field,
   readOnly = false,
   editable,
@@ -18,7 +18,7 @@ export default (
   setSnackBarStatus,
   ValleList,
   $loading,
-  ) => {
+}) => {
 
   /**
    * -----

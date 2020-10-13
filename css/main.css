@@ -519,6 +519,10 @@
   justify-content: center;
 }
 
+[aria-label][data-balloon-pos].tooltip { /* Fix specificity with original lib */
+  position: absolute;
+}
+
 .tooltip:focus {
   background: #ecebeb;
   outline: none;

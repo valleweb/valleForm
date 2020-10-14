@@ -718,7 +718,7 @@
 }
 
 [aria-label][data-balloon-pos][data-balloon-length]:after {
-  white-space: normal;
+  white-space: pre-line;
 }
 
 [aria-label][data-balloon-pos][data-balloon-length="small"]:after {

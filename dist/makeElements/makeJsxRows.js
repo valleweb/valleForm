@@ -72,14 +72,14 @@ exports['default'] = function (rows) {
       });
     });
 
-    return _react2['default'].createElement(
+    return $fields.length ? _react2['default'].createElement(
       'div',
       {
-        className: 'valleForm__row ' + (!$fields.length ? 'valleForm__row--empty' : ''),
+        className: 'valleForm__row',
         key: index
       },
       $fields
-    );
+    ) : null;
   });
 };
 

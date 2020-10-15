@@ -186,12 +186,23 @@ const ValleForm = ({
     const isVisibleTab = (visibleTab === index);
     const tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
 
+  /**
+   * Remvoe empty rows
+   * 
+   */
+
+    const $filteresRows = $rows.filter(row => row !== null);
+
     return (
       <div
         key = { index }
         className = { `valleForm__tabs__tab ${tabVisibility}` }
       >
-        { $rows }
+        {
+          $filteresRows.length
+            ? $filteresRows
+            : <spam className = 'valleForm__empty-message'>Não há campos disponíveis.</spam>
+        }
       </div>
     );
 

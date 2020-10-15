@@ -62,7 +62,7 @@
             "readonly": false,
             "error_text": "Campo obrigatório",
             "helper_text": "Texto aqui",
-            "visible_screen": true,
+            "visible_screen": false,
             "type": "text",
             "is_PK": false,
             "mask": null,
@@ -97,7 +97,7 @@
             "readonly": false,
             "required": true,
             "type": "text",
-            "visible_screen": true,
+            "visible_screen": false,
             "autocomplete": false,
             "actions" : [
               {
@@ -127,7 +127,7 @@
             "readonly": false,
             "required": false,
             "type": "text",
-            "visible_screen": true,
+            "visible_screen": false,
             "autocomplete": false,
             "actions" : [
               {
@@ -155,7 +155,7 @@
             "readonly": false,
             "required": true,
             "type": "text",
-            "visible_screen": true,
+            "visible_screen": false,
             "autocomplete": false,
             "actions" : [
               {
@@ -197,7 +197,7 @@
             "readonly": false,
             "required": false,
             "type": "text",
-            "visible_screen": true,
+            "visible_screen": false,
             "autocomplete": false,
             "actions" : [
               {
@@ -226,7 +226,7 @@
             "readonly": false,
             "helper_text": "Texto completo",
             "error_text": "Campo obrigatório",
-            "visible_screen": true,
+            "visible_screen": false,
             "autocomplete": false,
             "actions" : [
               {
@@ -256,7 +256,7 @@
             "readonly": false,
             "required": false,
             "type": "text",
-            "visible_screen": true,
+            "visible_screen": false,
             "autocomplete": false,
             "actions" : [
               {
@@ -284,7 +284,7 @@
             "readonly": false,
             "required": false,
             "type": "text",
-            "visible_screen": true,
+            "visible_screen": false,
             "autocomplete": false,
             "actions" : [
               {

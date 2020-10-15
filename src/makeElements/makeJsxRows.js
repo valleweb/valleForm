@@ -60,14 +60,14 @@ export default (
 
     })
 
-  return (
-    <div
-      className = { `valleForm__row ${!$fields.length ? 'valleForm__row--empty' : ''}` }
-      key = { index }
-    >
-      {$fields}
-    </div>
-  );
+    return $fields.length ? (
+      <div
+        className = 'valleForm__row'
+        key = { index }
+      >
+        {$fields}
+      </div>
+    ) : null;
 
 });
 

@@ -85,10 +85,6 @@
   min-height: 87px; /* For fix issue #15 in desktop devices */
 }
 
-.valleForm__row--empty {
-  min-height: 0;
-}
-
 @media screen and (max-width: 600px) {
   .valleForm__row {
     flex-wrap: wrap;
@@ -502,6 +498,15 @@
 .valleForm__switch__input:checked + .valleForm__switch__toggle::after {
   transform: translateX(16px);
   background-color: var(--valle-switch-toggle-checked, #62aeb3);
+}
+
+.valleForm__empty-message {
+  display: block;
+  font-size: 14px;
+  color: #999898;
+  padding: 8px;
+  margin: 16px 0;
+  width: 100%;
 }
 
 /* TODO: Remove the code below in favor of new tooltip web component */

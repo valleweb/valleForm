@@ -227,13 +227,26 @@ var ValleForm = function ValleForm(_ref) {
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
 
+    /**
+     * Remvoe empty rows
+     * 
+     */
+
+    var $filteresRows = $rows.filter(function (row) {
+      return row !== null;
+    });
+
     return _react2['default'].createElement(
       'div',
       {
         key: index,
         className: 'valleForm__tabs__tab ' + tabVisibility
       },
-      $rows
+      $filteresRows.length ? $filteresRows : _react2['default'].createElement(
+        'spam',
+        { className: 'valleForm__empty-message' },
+        'N\xE3o h\xE1 campos dispon\xEDveis.'
+      )
     );
   });
 

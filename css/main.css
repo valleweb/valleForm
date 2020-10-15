@@ -292,7 +292,7 @@
   font-family: 'Roboto', sans-serif;
   display: block;
   font-size: 16px;
-  margin-top: calc(29px);
+  margin-top: 38px;
   outline: 0;
   padding: 0;
   padding-top: 8px;
@@ -312,6 +312,10 @@
   padding-top: 16px;
   position: absolute;
   top: 0;
+}
+
+.tooltip ~ .valleForm__textarea__label {
+  padding-right: 22px; /* Adjust for break line with helper icon */
 }
 
 .valleForm__textarea__input:focus + .valleForm__textarea__label {
@@ -510,13 +514,14 @@
   height: 24px;
   position: absolute;
   cursor: help;
-  top: 0px;
+  top: 11px;
   right: 0;
   border-radius: 3px;
   transition: background .3s;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 [aria-label][data-balloon-pos].tooltip { /* Fix specificity with original lib */

@@ -48,7 +48,7 @@
           [
             {
               "id": "textarea",
-              "label": "Descrição",
+              "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
               "placeholder": "Texto longo aqui",
               "element": "textarea",
               "type": "text",
@@ -80,7 +80,7 @@
             {
               "case": null,
               "id": "estado_1",
-              "label": "Estado",
+              "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
               "placeholder": null,
               "element": "input",
               "required": false,

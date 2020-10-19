@@ -15,14 +15,15 @@ const apiCreate = (
   _id,
   closeSpeedDial,
   updateValleList,
-  ) => {
+  tabErrorCount,
+) => {
 
   /**
    * Get all form values
    * 
    */
 
-  const fieldsParams = getFieldsParams(_id);
+  const fieldsParams = getFieldsParams(_id, tabErrorCount);
 
   if (fieldsParams) {
 

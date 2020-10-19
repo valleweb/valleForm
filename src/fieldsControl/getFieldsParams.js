@@ -1,4 +1,4 @@
-export default _id => {
+export default (_id, tabErrorCount) => {
 
   // -----------
   // TODO: Remove this. Use a React memory reference instead.
@@ -9,6 +9,8 @@ export default _id => {
 
   const fieldsParams = {};
   let hasError = false;
+
+  let tabErrorsCount = {};
 
   allFields.forEach(field => {
 
@@ -22,12 +24,45 @@ export default _id => {
       hasError = true;
       field.setAttribute('error', 'true');
       field.setAttribute('data-valle-error', 'true');
+
+      /**
+       * Mount tab errors count data
+       * 
+       */
+
+      tabErrorsCount = {
+          ...tabErrorsCount,
+          [field.dataset.tabidentifier]: {
+            ...tabErrorsCount[field.dataset.tabidentifier],
+            [field.id]: true,
+          }
+        }
+
     }
+
+    /**
+     * -----
+     * 
+     */
 
     fieldsParams[field.dataset.valleField] = field.value ? field.value : null;
 
   })
 
-  return hasError ? false : fieldsParams;
+  /**
+   * -----
+   * 
+   */
+
+  if(hasError) {
+
+    tabErrorCount.addMulttiples(tabErrorsCount);
+    return false;
+
+  } else {
+
+    return fieldsParams;
+
+  }
 
 }

@@ -18,6 +18,7 @@ export default ({
   getData,
   closeSpeedDial,
   updateValleList,
+  tabErrorCount,
   }) => {
 
   // --------------
@@ -41,6 +42,7 @@ export default ({
       getData,
       closeSpeedDial,
       updateValleList,
+      tabErrorCount,
     }));
 
   const $retrievalActions = buttons
@@ -60,6 +62,7 @@ export default ({
       getData,
       closeSpeedDial,
       updateValleList,
+      tabErrorCount,
     }));
 
   const $updateActions = buttons
@@ -79,6 +82,7 @@ export default ({
       getData,
       closeSpeedDial,
       updateValleList,
+      tabErrorCount,
     }));
 
   // --------------

@@ -112,6 +112,7 @@ const Textarea = ({
         ref = { textAreaRef }
         data-valle-error = { err }
         data-valle-required = { field.required }
+        data-tabidentifier = { tabIdentifier }
       >
         { field.value ? field.value : null }
       </textarea>

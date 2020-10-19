@@ -35,6 +35,7 @@ export default (
       tooltip = { field.description }
       tooltippos = 'top-right'
       tooltiplength = 'large'
+      data-tabidentifier = { tabIdentifier }
       { ...normalizeRequired(field.required) }
       { ...normalizeReadOnly(isDisabled) }
       onBlur = { e => {

@@ -310,6 +310,7 @@ const ValleForm = ({
               getData,
               closeSpeedDial,
               updateValleList,
+              tabErrorCount,
             })
           }
 

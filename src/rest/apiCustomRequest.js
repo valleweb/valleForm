@@ -10,10 +10,11 @@ const apiCustomRequest = ({
     _id,
     endpoint = '',
     feedbackCb,
+    tabErrorCount,
   }
   ) => {
 
-  const fieldsParams = getFieldsParams(_id);
+  const fieldsParams = getFieldsParams(_id, tabErrorCount);
 
   if (fieldsParams) {
 

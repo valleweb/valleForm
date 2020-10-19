@@ -19,6 +19,7 @@ const tabErrorCountControls = (
       tabErrorsCount,
       setTabErrorsCount,
     ),
+    addMulttiples: tabsWithFields => setTabErrorsCount(tabsWithFields),
   }
 
 }

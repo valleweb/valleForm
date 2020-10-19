@@ -2,7 +2,7 @@
   "title": "Manutenção de Estados",
   "tabs": [
     {
-      "title":"Manutenção de Estados",
+      "title":"Manutenção de Estados x",
       "form": "frmEstados",
       "id": "frmEstados",
       "api": null,

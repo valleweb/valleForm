@@ -4,7 +4,9 @@ const Textarea = ({
   field,
   readOnly = false,
   error = false,
-  editable
+  editable,
+  tabErrorCountControls,
+  tabIdentifier,
 }) => {
 
   const [err, setErr] = useState(error);
@@ -59,10 +61,20 @@ const Textarea = ({
   const validate = () => {
 
     if (field.required) {
+
       const textArea = textAreaRef.current;
-      return textArea.value ? setErr(false) : setErr(true)
+
+      if(textArea.value) {
+        tabErrorCountControls.remove(tabIdentifier, field.id)
+        setErr(false);
+
+      } else {
+        tabErrorCountControls.add(tabIdentifier, field.id)
+        setErr(true);
+      }
+
     }
-    
+
   }
 
   return (

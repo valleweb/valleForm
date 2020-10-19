@@ -31,6 +31,7 @@
   margin: 0 6px -2px 0;
   position: relative;
   white-space: nowrap;
+  height: 38px; /* To avoid flick with badge appears */
 }
 
 .valleForm__tabs__title:hover {
@@ -75,6 +76,22 @@
 
 .valleForm__tabs__tab--visible {
   display: block;
+}
+
+.valleForm__tabs__badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(255 80 87);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  margin-left: 8px;
 }
 
 /* ------- Main ------- */

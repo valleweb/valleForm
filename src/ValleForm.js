@@ -7,6 +7,9 @@ import Switch from './components/Switch';
 
 import addFieldsValues from './fieldsControl/addFieldsValues';
 import cleanFields from './fieldsControl/cleanFields';
+import makeIdentifier from './tabErrorsControl/makeIdentifier';
+import tabErrorCountControls from './tabErrorsControl/tabErrorCountControls';
+import showErrorsCount from './tabErrorsControl/showErrorsCount';
 
 /**
  * TODO: Add JSDocs
@@ -35,6 +38,23 @@ const ValleForm = ({
   const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
   const [filterByVisibleScreen, setFilterByVisibleScreen] = useState(false);
   const [visibleTab, setVisibleTab] = useState(0);
+
+  /**
+   * Control tab error counter
+   * 
+   */
+
+  const [tabErrorsCount, setTabErrorsCount] = useState({});
+
+  /**
+   * Inject the parent states inside the tab error functions
+   * 
+   */
+
+  const tabErrorCount = tabErrorCountControls(
+    tabErrorsCount,
+    setTabErrorsCount,
+  )
 
   /**
    * Control vizualization only and editable state
@@ -150,6 +170,14 @@ const ValleForm = ({
     const isSelected = (visibleTab === index);
     const selectedTab = isSelected ? 'valleForm__tabs__title--selected' : '';
 
+    /**
+     * Get the tab error count
+     * 
+     */
+
+    const tabIdentifier = makeIdentifier(tab.title, index);
+    const errorsCount = showErrorsCount(tabErrorsCount, tabIdentifier);
+
     return (
       <button
         key = { index }
@@ -157,6 +185,13 @@ const ValleForm = ({
         onClick = { () => showTab(index) }
       >
         { tab.title }
+
+        {
+          errorsCount ? (
+            <span className = 'valleForm__tabs__badge'> { errorsCount} </span>
+          ) : null
+        }
+
       </button>
     );
 
@@ -168,6 +203,8 @@ const ValleForm = ({
    */
 
   const $tabs = tabs.map((tab, index) => {
+
+    const tabIdentifier = makeIdentifier(tab.title, index);
 
     const $rows = makeJsxRows(
       tab.lines,
@@ -181,6 +218,8 @@ const ValleForm = ({
       setSnackBarStatus,
       ValleList,
       $loading,
+      tabErrorCount,
+      tabIdentifier,
     );
 
     const isVisibleTab = (visibleTab === index);

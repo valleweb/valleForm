@@ -16,6 +16,8 @@ export default (
   setSnackBarStatus,
   ValleList,
   $loading,
+  tabErrorCountControls,
+  tabIdentifier,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -33,6 +35,8 @@ export default (
             field = { field }
             readOnly = { readOnly }
             editable = { editable }
+            tabErrorCountControls = { tabErrorCountControls }
+            tabIdentifier = { tabIdentifier }
           />
         )
       }
@@ -42,7 +46,7 @@ export default (
       // --------------
 
       return isSelect(field.element) 
-        ? resolveSelectSize(row, field, readOnly, editable, token, _id)
+        ? resolveSelectSize(row, field, readOnly, editable, token, _id, tabErrorCountControls, tabIdentifier)
         : (
             <MakeInputField 
               field = { field }
@@ -55,6 +59,8 @@ export default (
               setSnackBarStatus = { setSnackBarStatus }
               ValleList = { ValleList }
               $loading = { $loading }
+              tabErrorCountControls = { tabErrorCountControls }
+              tabIdentifier = { tabIdentifier }
             />
           );
 
@@ -75,10 +81,10 @@ const isVisibleScreen = (field, filterByVisibleScreen) => {
   return filterByVisibleScreen ? field.visible_screen : true
 }
 
-const resolveSelectSize = (row, field, readOnly = false, editable, token, _id) => {
+const resolveSelectSize = (row, field, readOnly = false, editable, token, _id, tabErrorCountControls, tabIdentifier) => {
   return (
     (row.length === 1) // Verify if the select is a single field on row.
-    ? makeSelectField(field, 'valleForm__select--big', readOnly, editable, null, _id)
-    : makeSelectField(field, '', readOnly, editable, token, _id)
+    ? makeSelectField(field, 'valleForm__select--big', readOnly, editable, null, _id, tabErrorCountControls, tabIdentifier)
+    : makeSelectField(field, '', readOnly, editable, token, _id, tabErrorCountControls, tabIdentifier)
   )
 }

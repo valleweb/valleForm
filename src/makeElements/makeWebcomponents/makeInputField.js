@@ -18,6 +18,8 @@ export default ({
   setSnackBarStatus,
   ValleList,
   $loading,
+  tabErrorCountControls,
+  tabIdentifier,
 }) => {
 
   /**
@@ -111,9 +113,26 @@ export default ({
         data-valle-field = { `${field.id}` }
         maxlength = { field.maxlength }
         id = { `${field.id}` }
-        onBlur = { () => {
+        onBlur = { e => {
+
           if(is_exists_blur) validadeField(field, 'exists_blur');
           if(is_exact_blur) validadeField(field, 'exact_blur');
+
+          /**
+           * -----
+           * 
+           */
+
+          const currentElement = e.target; // Save the element reference
+
+          setTimeout(() => { // Await the webcomponent blur event
+
+            currentElement.error
+              ? tabErrorCountControls.add(tabIdentifier, field.id)
+              : tabErrorCountControls.remove(tabIdentifier, field.id)
+
+          }, 100);
+
         } }
         pattern = { field.pattern }
         tooltip = { field.description }

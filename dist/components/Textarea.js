@@ -16,7 +16,9 @@ var Textarea = function Textarea(_ref) {
       readOnly = _ref$readOnly === undefined ? false : _ref$readOnly,
       _ref$error = _ref.error,
       error = _ref$error === undefined ? false : _ref$error,
-      editable = _ref.editable;
+      editable = _ref.editable,
+      tabErrorCountControls = _ref.tabErrorCountControls,
+      tabIdentifier = _ref.tabIdentifier;
 
   var _useState = (0, _react.useState)(error),
       _useState2 = _slicedToArray(_useState, 2),
@@ -71,8 +73,16 @@ var Textarea = function Textarea(_ref) {
   var validate = function validate() {
 
     if (field.required) {
+
       var textArea = textAreaRef.current;
-      return textArea.value ? setErr(false) : setErr(true);
+
+      if (textArea.value) {
+        tabErrorCountControls.remove(tabIdentifier, field.id);
+        setErr(false);
+      } else {
+        tabErrorCountControls.add(tabIdentifier, field.id);
+        setErr(true);
+      }
     }
   };
 
@@ -111,7 +121,8 @@ var Textarea = function Textarea(_ref) {
         onBlur: validate,
         ref: textAreaRef,
         'data-valle-error': err,
-        'data-valle-required': field.required
+        'data-valle-required': field.required,
+        'data-tabidentifier': tabIdentifier
       },
       field.value ? field.value : null
     ),

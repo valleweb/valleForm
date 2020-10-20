@@ -24,6 +24,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
   var _id = arguments[5];
   var closeSpeedDial = arguments[6];
   var updateValleList = arguments[7];
+  var tabErrorCount = arguments[8];
 
 
   /**
@@ -31,7 +32,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
    * 
    */
 
-  var fieldsParams = (0, _getFieldsParams2['default'])(_id);
+  var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
 
   if (fieldsParams) {
 

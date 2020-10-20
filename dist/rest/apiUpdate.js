@@ -21,6 +21,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
   var token = arguments[6];
   var closeSpeedDial = arguments[7];
   var updateValleList = arguments[8];
+  var tabErrorCount = arguments[9];
 
 
   /**
@@ -28,7 +29,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
    * 
    */
 
-  var fieldsParams = (0, _getFieldsParams2['default'])(_id);
+  var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
 
   if (fieldsParams) {
 

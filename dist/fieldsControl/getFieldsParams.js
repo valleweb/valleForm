@@ -2,7 +2,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports['default'] = function (_id) {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports['default'] = function (_id, tabErrorCount) {
 
   // -----------
   // TODO: Remove this. Use a React memory reference instead.
@@ -13,6 +15,8 @@ exports['default'] = function (_id) {
 
   var fieldsParams = {};
   var hasError = false;
+
+  var tabErrorsCount = {};
 
   allFields.forEach(function (field) {
 
@@ -26,10 +30,34 @@ exports['default'] = function (_id) {
       hasError = true;
       field.setAttribute('error', 'true');
       field.setAttribute('data-valle-error', 'true');
+
+      /**
+       * Mount tab errors count data
+       * 
+       */
+
+      tabErrorsCount = Object.assign({}, tabErrorsCount, _defineProperty({}, field.dataset.tabidentifier, Object.assign({}, tabErrorsCount[field.dataset.tabidentifier], _defineProperty({}, field.id, true))));
     }
+
+    /**
+     * -----
+     * 
+     */
 
     fieldsParams[field.dataset.valleField] = field.value ? field.value : null;
   });
 
-  return hasError ? false : fieldsParams;
+  /**
+   * -----
+   * 
+   */
+
+  if (hasError) {
+
+    tabErrorCount.addMulttiples(tabErrorsCount);
+    return false;
+  } else {
+
+    return fieldsParams;
+  }
 };

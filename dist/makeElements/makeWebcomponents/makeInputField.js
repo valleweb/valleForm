@@ -51,7 +51,9 @@ exports['default'] = function (_ref) {
       params = _ref.params,
       setSnackBarStatus = _ref.setSnackBarStatus,
       ValleList = _ref.ValleList,
-      $loading = _ref.$loading;
+      $loading = _ref.$loading,
+      tabErrorCountControls = _ref.tabErrorCountControls,
+      tabIdentifier = _ref.tabIdentifier;
 
   /**
    * -----
@@ -138,10 +140,25 @@ exports['default'] = function (_ref) {
       'data-valle-field': '' + String(field.id),
       maxlength: field.maxlength,
       id: '' + String(field.id),
+      'data-tabidentifier': tabIdentifier,
       onBlur: function () {
-        function onBlur() {
+        function onBlur(e) {
+
           if (is_exists_blur) validadeField(field, 'exists_blur');
           if (is_exact_blur) validadeField(field, 'exact_blur');
+
+          /**
+           * -----
+           * 
+           */
+
+          var currentElement = e.target; // Save the element reference
+
+          setTimeout(function () {
+            // Await the webcomponent blur event
+
+            currentElement.error ? tabErrorCountControls.add(tabIdentifier, field.id) : tabErrorCountControls.remove(tabIdentifier, field.id);
+          }, 100);
         }
 
         return onBlur;

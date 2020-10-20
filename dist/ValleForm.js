@@ -28,6 +28,18 @@ var _cleanFields = require('./fieldsControl/cleanFields');
 
 var _cleanFields2 = _interopRequireDefault(_cleanFields);
 
+var _makeIdentifier = require('./tabErrorsControl/makeIdentifier');
+
+var _makeIdentifier2 = _interopRequireDefault(_makeIdentifier);
+
+var _tabErrorCountControls = require('./tabErrorsControl/tabErrorCountControls');
+
+var _tabErrorCountControls2 = _interopRequireDefault(_tabErrorCountControls);
+
+var _showErrorsCount = require('./tabErrorsControl/showErrorsCount');
+
+var _showErrorsCount2 = _interopRequireDefault(_showErrorsCount);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 /**
@@ -83,6 +95,23 @@ var ValleForm = function ValleForm(_ref) {
       _useState8 = _slicedToArray(_useState7, 2),
       visibleTab = _useState8[0],
       setVisibleTab = _useState8[1];
+
+  /**
+   * Control tab error counter
+   * 
+   */
+
+  var _useState9 = (0, _react.useState)({}),
+      _useState10 = _slicedToArray(_useState9, 2),
+      tabErrorsCount = _useState10[0],
+      setTabErrorsCount = _useState10[1];
+
+  /**
+   * Inject the parent states inside the tab error functions
+   * 
+   */
+
+  var tabErrorCount = (0, _tabErrorCountControls2['default'])(tabErrorsCount, setTabErrorsCount);
 
   /**
    * Control vizualization only and editable state
@@ -198,6 +227,14 @@ var ValleForm = function ValleForm(_ref) {
     var isSelected = visibleTab === index;
     var selectedTab = isSelected ? 'valleForm__tabs__title--selected' : '';
 
+    /**
+     * Get the tab error count
+     * 
+     */
+
+    var tabIdentifier = (0, _makeIdentifier2['default'])(tab.title, index);
+    var errorsCount = (0, _showErrorsCount2['default'])(tabErrorsCount, tabIdentifier);
+
     return _react2['default'].createElement(
       'button',
       {
@@ -211,7 +248,14 @@ var ValleForm = function ValleForm(_ref) {
           return onClick;
         }()
       },
-      tab.title
+      tab.title,
+      errorsCount ? _react2['default'].createElement(
+        'span',
+        { className: 'valleForm__tabs__badge' },
+        ' ',
+        errorsCount,
+        ' '
+      ) : null
     );
   });
 
@@ -222,7 +266,9 @@ var ValleForm = function ValleForm(_ref) {
 
   var $tabs = tabs.map(function (tab, index) {
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading);
+    var tabIdentifier = (0, _makeIdentifier2['default'])(tab.title, index);
+
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier);
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
@@ -302,7 +348,8 @@ var ValleForm = function ValleForm(_ref) {
           token: token,
           getData: getData,
           closeSpeedDial: closeSpeedDial,
-          updateValleList: updateValleList
+          updateValleList: updateValleList,
+          tabErrorCount: tabErrorCount
         })
       )
     );

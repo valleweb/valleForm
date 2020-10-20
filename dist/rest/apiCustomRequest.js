@@ -18,10 +18,11 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       _id = _ref._id,
       _ref$endpoint = _ref.endpoint,
       endpoint = _ref$endpoint === undefined ? '' : _ref$endpoint,
-      feedbackCb = _ref.feedbackCb;
+      feedbackCb = _ref.feedbackCb,
+      tabErrorCount = _ref.tabErrorCount;
 
 
-  var fieldsParams = (0, _getFieldsParams2['default'])(_id);
+  var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
 
   if (fieldsParams) {
 

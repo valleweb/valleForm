@@ -35,6 +35,8 @@ exports['default'] = function (rows) {
   var setSnackBarStatus = arguments[8];
   var ValleList = arguments[9];
   var $loading = arguments[10];
+  var tabErrorCountControls = arguments[11];
+  var tabIdentifier = arguments[12];
   return rows.map(function (row, index) {
 
     var $fields = row.filter(function (field) {
@@ -50,7 +52,9 @@ exports['default'] = function (rows) {
           key: index,
           field: field,
           readOnly: readOnly,
-          editable: editable
+          editable: editable,
+          tabErrorCountControls: tabErrorCountControls,
+          tabIdentifier: tabIdentifier
         });
       }
 
@@ -58,7 +62,7 @@ exports['default'] = function (rows) {
       // Resolve form webcomponents
       // --------------
 
-      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id) : _react2['default'].createElement(_MakeInputField2['default'], {
+      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id, tabErrorCountControls, tabIdentifier) : _react2['default'].createElement(_MakeInputField2['default'], {
         field: field,
         readOnly: readOnly,
         editable: editable,
@@ -68,7 +72,9 @@ exports['default'] = function (rows) {
         params: params,
         setSnackBarStatus: setSnackBarStatus,
         ValleList: ValleList,
-        $loading: $loading
+        $loading: $loading,
+        tabErrorCountControls: tabErrorCountControls,
+        tabIdentifier: tabIdentifier
       });
     });
 
@@ -92,7 +98,9 @@ var resolveSelectSize = function resolveSelectSize(row, field) {
   var editable = arguments[3];
   var token = arguments[4];
   var _id = arguments[5];
+  var tabErrorCountControls = arguments[6];
+  var tabIdentifier = arguments[7];
 
   return row.length === 1 ? // Verify if the select is a single field on row.
-  (0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly, editable, null, _id) : (0, _makeSelectField2['default'])(field, '', readOnly, editable, token, _id);
+  (0, _makeSelectField2['default'])(field, 'valleForm__select--big', readOnly, editable, null, _id, tabErrorCountControls, tabIdentifier) : (0, _makeSelectField2['default'])(field, '', readOnly, editable, token, _id, tabErrorCountControls, tabIdentifier);
 };

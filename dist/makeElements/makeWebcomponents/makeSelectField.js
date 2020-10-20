@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -23,44 +23,61 @@ var _normalizeRequired2 = _interopRequireDefault(_normalizeRequired);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (field) {
-	var customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-	var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-	var editable = arguments[3];
-	var _id = arguments[4];
+  var customClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  var readOnly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var editable = arguments[3];
+  var token = arguments[4];
+  var _id = arguments[5];
+  var tabErrorCountControls = arguments[6];
+  var tabIdentifier = arguments[7];
 
 
-	//let select = React.createRef();
+  var isDisabled = void 0;
 
-	//useEffect(() => {
-	//    select.current.value = field.value;
-	//}, [])
+  if (editable) {
+    // Verify editable mode
+    isDisabled = readOnly ? true : field.is_PK || field.readonly;
+  } else {
+    isDisabled = readOnly ? true : field.readonly;
+  }
 
-	var isDisabled = void 0;
+  return _react2['default'].createElement(
+    'valle-select',
+    _extends({
+      value: field.value ? field.value : null,
+      'class': 'valleForm__select ' + String(customClass),
+      label: field.label,
+      'data-valle-field': '' + String(field.id),
+      placeholder: field.placeholder,
+      helpertext: field.helper_text,
+      errortext: field.error_text,
+      key: String(_id) + '_' + String(field.id),
+      id: '' + String(field.id),
+      tooltip: field.description,
+      tooltippos: 'top-right',
+      tooltiplength: 'large',
+      'data-tabidentifier': tabIdentifier
+    }, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled), {
+      onBlur: function () {
+        function onBlur(e) {
 
-	if (editable) {
-		// Verify editable mode
-		isDisabled = readOnly ? true : field.is_PK || field.readonly;
-	} else {
-		isDisabled = readOnly ? true : field.readonly;
-	}
+          /**
+           * -----
+           * 
+           */
 
-	return _react2['default'].createElement(
-		'valle-select',
-		_extends({
-			// ref = { select }
-			value: field.value ? field.value : null,
-			'class': 'valleForm__select ' + String(customClass),
-			label: field.label,
-			'data-valle-field': '' + String(field.id),
-			placeholder: field.placeholder,
-			helpertext: field.helper_text,
-			errortext: field.error_text,
-			key: String(_id) + '_' + String(field.id),
-			id: '' + String(field.id),
-			tooltip: field.description,
-			tooltippos: 'top-right',
-			tooltiplength: 'large'
-		}, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled)),
-		(0, _makeOptions2['default'])(field.options)
-	);
+          var currentElement = e.target; // Save the element reference
+
+          setTimeout(function () {
+            // Await the webcomponent blur event
+
+            currentElement.error ? tabErrorCountControls.add(tabIdentifier, field.id) : tabErrorCountControls.remove(tabIdentifier, field.id);
+          }, 100);
+        }
+
+        return onBlur;
+      }()
+    }),
+    (0, _makeOptions2['default'])(field.options)
+  );
 };

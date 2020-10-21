@@ -158,7 +158,7 @@ const MarkdownEditor = ({
 
         { editorShow ? (
 
-          <div className = 'valleForm__MarkdownEditor__editor'>
+          <div className = {`valleForm__MarkdownEditor__editor ${ !previewShow ? 'valleForm__MarkdownEditor__editor--full' : ''}`}>
             <Textarea
               field = { field }
               readOnly = { readOnly }
@@ -174,7 +174,7 @@ const MarkdownEditor = ({
 
         { previewShow ? (
 
-          <div className = 'valleForm__MarkdownEditor__preview'>
+          <div className = {`valleForm__MarkdownEditor__preview ${ !editorShow ? 'valleForm__MarkdownEditor__preview--full' : ''}`}>
 
             <div className = 'valleForm__MarkdownEditor__label'>
               { field.label } (Prévia)

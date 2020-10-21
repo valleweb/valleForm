@@ -637,9 +637,14 @@
 }
 
 .valleForm__MarkdownEditor__editor {
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
 }
+
+.valleForm__MarkdownEditor__editor--full {
+  width: 100%;
+}
+
 
 .valleForm__MarkdownEditor__editor textarea {
   height: 330px;
@@ -651,8 +656,12 @@
 }
 
 .valleForm__MarkdownEditor__preview {
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
+}
+
+.valleForm__MarkdownEditor__preview--full {
+  width: 100%;
 }
 
 .valleForm__MarkdownEditor__label {

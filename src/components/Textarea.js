@@ -8,6 +8,7 @@ const Textarea = ({
   tabErrorCountControls,
   tabIdentifier,
   onChange,
+  onScroll,
 }) => {
 
   const [err, setErr] = useState(error);
@@ -114,7 +115,8 @@ const Textarea = ({
         data-valle-error = { err }
         data-valle-required = { field.required }
         data-tabidentifier = { tabIdentifier }
-        onChange = { e => onChange(e) }
+        onChange = { onChange }
+        onScroll = { onScroll }
       >
         { field.value ? field.value : null }
       </textarea>

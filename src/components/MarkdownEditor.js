@@ -20,6 +20,12 @@ const MarkdownEditor = ({
   const [editorShow, setEditorShow] = useState(true);
   const [previewShow, setPreviewShow] = useState(true);
   const [big, setBig] = useState(false);
+  const [currentScroll, setCurrentScroll] = useState(0);
+
+  /**
+   * -----
+   * 
+   */
 
   const showEditor = () => {
     setEditorShow(true);
@@ -40,11 +46,31 @@ const MarkdownEditor = ({
     setBig(!big);
   }
 
+  /**
+   * -----
+   * 
+   */
+
   useEffect(() => {
     markdownText
       ? field.value = markdownText
       : field.value = null
   }, [editorShow]);
+
+  /**
+   * -----
+   * 
+   */
+
+  const render = React.createRef();
+
+  useEffect(() => {
+
+    if(render.current) {
+      render.current.scroll(0, currentScroll);
+    }
+
+  }, [currentScroll]);
 
   return (
     <div className = {`valleForm__MarkdownEditor ${big ? 'valleForm__MarkdownEditor--big' : ''}`}>
@@ -140,6 +166,7 @@ const MarkdownEditor = ({
               tabErrorCountControls = { tabErrorCountControls }
               tabIdentifier = { tabIdentifier }
               onChange = { e => setMarkdownText(e.target.value) }
+              onScroll = { e => setCurrentScroll(e.target.scrollTop) }
             />
           </div>
 
@@ -153,7 +180,7 @@ const MarkdownEditor = ({
               { field.label } (Prévia)
             </div>
 
-            <div className = 'valleForm__MarkdownEditor__render'>
+            <div className = 'valleForm__MarkdownEditor__render' ref = { render }>
 
               <ReactMarkdown plugins = {[gfm]} className = 'markdown-render'>
                 { markdownText }

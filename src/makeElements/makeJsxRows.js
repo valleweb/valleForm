@@ -3,6 +3,7 @@ import isSelect from '../helpers/isSelect';
 import MakeInputField from './makeWebcomponents/MakeInputField';
 import makeSelectField from './makeWebcomponents/makeSelectField';
 import Textarea from '../components/Textarea';
+import MarkdownEditor from '../components/MarkdownEditor';
 
 export default (
   rows, 
@@ -29,6 +30,24 @@ export default (
       // --------------
 
       if(field.element === 'textarea') {
+
+        // --------------
+        // Custom markdown editor
+        // --------------
+
+        if(field.type === 'markdown') {
+          return (
+            <MarkdownEditor
+              key = { index }
+              field = { field }
+              readOnly = { readOnly }
+              editable = { editable }
+              tabErrorCountControls = { tabErrorCountControls }
+              tabIdentifier = { tabIdentifier }
+            />
+          );
+        }
+
         return (
           <Textarea
             key = { index }
@@ -38,7 +57,8 @@ export default (
             tabErrorCountControls = { tabErrorCountControls }
             tabIdentifier = { tabIdentifier }
           />
-        )
+        );
+
       }
 
       // --------------

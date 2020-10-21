@@ -218,7 +218,7 @@
             "label": "Descrição",
             "placeholder": "Texto longo aqui",
             "element": "textarea",
-            "type": "text",
+            "type": "markdown",
             "is_PK": true,
             "required": false,
             "maxlength": 7,

@@ -530,6 +530,280 @@
   width: 100%;
 }
 
+/* ------- Markdown Editor ------- */
+
+.valleForm__MarkdownEditor {
+  width: 100%;
+  height: 430px;
+  box-sizing: border-box;
+}
+
+.valleForm__MarkdownEditor--big {
+  height: 700px;
+}
+
+.valleForm__MarkdownEditor__headers {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.valleForm__MarkdownEditor__slider {
+  display: flex;
+  margin-right: 8px;
+}
+
+.valleForm__MarkdownEditor__button {
+  padding: 0px;
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  justify-content: center;
+  border: 0;
+  background-color: #787878;
+  position: relative;
+}
+
+.valleForm__MarkdownEditor__button--toggle {
+  width: 40px;
+  border-radius: 3px;
+}
+
+.valleForm__MarkdownEditor__button--toggle:hover {
+  background-color: #999898;
+  cursor: pointer;
+}
+
+.valleForm__MarkdownEditor__button--toggle:focus {
+  background-color: #999898;
+  outline: none;
+}
+
+.valleForm__MarkdownEditor__button--toggle:active {
+  background-color: #a5a5a5;
+}
+
+.valleForm__MarkdownEditor__button--toggle[disabled] {
+  cursor: no-drop;
+  background-color: #9c9c9c;
+}
+
+.valleForm__MarkdownEditor__button--slider {
+ transition: background .2s;
+}
+
+.valleForm__MarkdownEditor__button--slider:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.valleForm__MarkdownEditor__button--slider:last-child {
+  border-radius: 0 3px 3px 0;
+}
+
+.valleForm__MarkdownEditor__button--slider:hover {
+  background-color: #999898;
+  cursor: pointer;
+}
+
+.valleForm__MarkdownEditor__button--slider:focus {
+  background-color: #999898;
+  outline: none;
+}
+
+.valleForm__MarkdownEditor__button--slider:active {
+  background-color: #a5a5a5;
+}
+
+.valleForm__MarkdownEditor__button--slider[disabled] {
+  cursor: default;
+  background: var(--highlight-color, #62aeb3);
+}
+
+.valleForm__MarkdownEditor__icon {
+  fill: rgb(255, 255, 255);
+  width: 14px;
+  height: 14px;
+}
+
+.valleForm__MarkdownEditor__body {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.valleForm__MarkdownEditor__editor {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.valleForm__MarkdownEditor__editor textarea {
+  height: 330px;
+  resize: none;
+}
+
+.valleForm__MarkdownEditor--big .valleForm__MarkdownEditor__editor textarea {
+  height: 600px;
+}
+
+.valleForm__MarkdownEditor__preview {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.valleForm__MarkdownEditor__label {
+  width: 100%;
+  color: rgba(0, 0, 0, .54);
+  display: block;
+  font-size: 12px;
+  padding-top: 16px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.valleForm__MarkdownEditor__render {
+  border-bottom: 2px solid rgba(0, 0, 0, .87);
+  width: 100%;
+  height: 330px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  padding: 8px;
+}
+
+.valleForm__MarkdownEditor--big .valleForm__MarkdownEditor__render {
+  height: 600px;
+}
+
+/* ------- Markdown render ------- */
+
+/* --- Heading --- */
+
+.markdown-render {
+  font-family: "Roboto", sans-serif;
+}
+
+.markdown-render h1 {
+  font-weight: 300;
+  margin: 0;
+  color: var(--highlight-color, #62aeb3);
+  margin: 8px 0;
+  font-size: 32px;
+}
+
+.markdown-render h2 {
+  font-weight: 300;
+  margin: 0;
+  color: var(--highlight-color, #62aeb3);
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.markdown-render h3 {
+  font-weight: 300;
+  margin: 0;
+  color: var(--highlight-color, #62aeb3);
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/*
+.markdown-render h4 {
+
+}
+
+.markdown-render h5 {
+
+}
+
+.markdown-render h6 {
+
+}
+*/
+
+/* --- Paragraph --- */
+
+.markdown-render p {
+  color: #000;
+  margin: 16px 0;
+}
+
+/* --- Link --- */
+
+.markdown-render a {
+  color: var(--highlight-color, #62aeb3);
+}
+
+/* --- Lists --- */
+
+.markdown-render ul {
+  margin: 8px 0;
+  padding-left: 18px;
+}
+
+.markdown-render li {
+  color: #000;
+  list-style: none;
+  position: relative;
+}
+
+.markdown-render li:before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--highlight-color, #62aeb3);
+  position: absolute;
+  left: -14px;
+  top: 8px;
+  border-radius: 50%;
+}
+
+/* --- Table --- */
+
+.markdown-render table {
+  border-collapse: collapse;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,.12);
+}
+
+.markdown-render thead {
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.markdown-render th, td {
+  border: 1px solid rgba(0,0,0,.12);
+  text-align: left;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.markdown-render th {
+  font-size: 16px;
+  background: #e2e2e2;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.markdown-render tbody {
+  width: 100%;
+}
+
+.markdown-render tr {
+  transition: background .1s;
+}
+
+.markdown-render td {
+  color: #000;
+  font-size: 14px;
+}
+
 /* TODO: Remove the code below in favor of new tooltip web component */
 
 /* ------- Tooltip ------- */

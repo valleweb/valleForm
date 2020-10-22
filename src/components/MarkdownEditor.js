@@ -30,6 +30,7 @@ const MarkdownEditor = ({
 
   useEffect(() => {
     if(values) {
+      field.value = values[field.id];
       setMarkdownText(values[field.id]);
       setEditorShow(true);
       setPreviewShow(true);

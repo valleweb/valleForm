@@ -68,6 +68,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
 
   (0, _react.useEffect)(function () {
     if (values) {
+      field.value = values[field.id];
       setMarkdownText(values[field.id]);
       setEditorShow(true);
       setPreviewShow(true);

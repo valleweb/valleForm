@@ -14,6 +14,7 @@ const MarkdownEditor = ({
   editable,
   tabErrorCountControls,
   tabIdentifier,
+  values,
 }) => {
 
   const [markdownText, setMarkdownText] = useState(field.value);
@@ -28,12 +29,12 @@ const MarkdownEditor = ({
    */
 
   useEffect(() => {
-    setMarkdownText(field.value);
+    setMarkdownText(values[field.id]);
     setEditorShow(true);
     setPreviewShow(true);
     setBig(false);
     setCurrentScroll(0);
-  }, [field.id, field.value]);
+  }, [values]);
 
   /**
    * -----

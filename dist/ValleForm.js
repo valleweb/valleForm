@@ -268,7 +268,7 @@ var ValleForm = function ValleForm(_ref) {
 
     var tabIdentifier = (0, _makeIdentifier2['default'])(tab.title, index);
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier);
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values);
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';

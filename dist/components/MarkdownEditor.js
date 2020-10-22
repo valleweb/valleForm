@@ -33,7 +33,8 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
       readOnly = _ref$readOnly === undefined ? false : _ref$readOnly,
       editable = _ref.editable,
       tabErrorCountControls = _ref.tabErrorCountControls,
-      tabIdentifier = _ref.tabIdentifier;
+      tabIdentifier = _ref.tabIdentifier,
+      values = _ref.values;
 
   var _useState = (0, _react.useState)(field.value),
       _useState2 = _slicedToArray(_useState, 2),
@@ -66,12 +67,12 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
    */
 
   (0, _react.useEffect)(function () {
-    setMarkdownText(field.value);
+    setMarkdownText(values[field.id]);
     setEditorShow(true);
     setPreviewShow(true);
     setBig(false);
     setCurrentScroll(0);
-  }, [field.id, field.value]);
+  }, [values]);
 
   /**
    * -----

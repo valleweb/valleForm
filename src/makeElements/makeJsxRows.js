@@ -19,6 +19,7 @@ export default (
   $loading,
   tabErrorCountControls,
   tabIdentifier,
+  values,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -44,6 +45,7 @@ export default (
               editable = { editable }
               tabErrorCountControls = { tabErrorCountControls }
               tabIdentifier = { tabIdentifier }
+              values = { values }
             />
           );
         }

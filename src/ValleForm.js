@@ -220,6 +220,7 @@ const ValleForm = ({
       $loading,
       tabErrorCount,
       tabIdentifier,
+      values,
     );
 
     const isVisibleTab = (visibleTab === index);

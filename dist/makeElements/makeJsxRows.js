@@ -41,6 +41,7 @@ exports['default'] = function (rows) {
   var $loading = arguments[10];
   var tabErrorCountControls = arguments[11];
   var tabIdentifier = arguments[12];
+  var values = arguments[13];
   return rows.map(function (row, index) {
 
     var $fields = row.filter(function (field) {
@@ -64,7 +65,8 @@ exports['default'] = function (rows) {
             readOnly: readOnly,
             editable: editable,
             tabErrorCountControls: tabErrorCountControls,
-            tabIdentifier: tabIdentifier
+            tabIdentifier: tabIdentifier,
+            values: values
           });
         }
 

@@ -27,6 +27,19 @@ const MarkdownEditor = ({
    * 
    */
 
+  useEffect(() => {
+    setMarkdownText(field.value);
+    setEditorShow(true);
+    setPreviewShow(true);
+    setBig(false);
+    setCurrentScroll(0);
+  }, [field.id, field.value]);
+
+  /**
+   * -----
+   * 
+   */
+
   const showEditor = () => {
     setEditorShow(true);
     setPreviewShow(false);

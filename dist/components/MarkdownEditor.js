@@ -65,6 +65,19 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
    * 
    */
 
+  (0, _react.useEffect)(function () {
+    setMarkdownText(field.value);
+    setEditorShow(true);
+    setPreviewShow(true);
+    setBig(false);
+    setCurrentScroll(0);
+  }, [field.id, field.value]);
+
+  /**
+   * -----
+   * 
+   */
+
   var showEditor = function showEditor() {
     setEditorShow(true);
     setPreviewShow(false);

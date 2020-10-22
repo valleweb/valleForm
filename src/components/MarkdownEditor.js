@@ -29,11 +29,13 @@ const MarkdownEditor = ({
    */
 
   useEffect(() => {
-    setMarkdownText(values[field.id]);
-    setEditorShow(true);
-    setPreviewShow(true);
-    setBig(false);
-    setCurrentScroll(0);
+    if(values) {
+      setMarkdownText(values[field.id]);
+      setEditorShow(true);
+      setPreviewShow(true);
+      setBig(false);
+      setCurrentScroll(0);
+    }
   }, [values]);
 
   /**

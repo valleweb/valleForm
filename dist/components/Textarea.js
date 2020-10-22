@@ -18,7 +18,9 @@ var Textarea = function Textarea(_ref) {
       error = _ref$error === undefined ? false : _ref$error,
       editable = _ref.editable,
       tabErrorCountControls = _ref.tabErrorCountControls,
-      tabIdentifier = _ref.tabIdentifier;
+      tabIdentifier = _ref.tabIdentifier,
+      onChange = _ref.onChange,
+      onScroll = _ref.onScroll;
 
   var _useState = (0, _react.useState)(error),
       _useState2 = _slicedToArray(_useState, 2),
@@ -122,7 +124,9 @@ var Textarea = function Textarea(_ref) {
         ref: textAreaRef,
         'data-valle-error': err,
         'data-valle-required': field.required,
-        'data-tabidentifier': tabIdentifier
+        'data-tabidentifier': tabIdentifier,
+        onChange: onChange,
+        onScroll: onScroll
       },
       field.value ? field.value : null
     ),

@@ -22,6 +22,10 @@ var _Textarea = require('../components/Textarea');
 
 var _Textarea2 = _interopRequireDefault(_Textarea);
 
+var _MarkdownEditor = require('../components/MarkdownEditor');
+
+var _MarkdownEditor2 = _interopRequireDefault(_MarkdownEditor);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (rows) {
@@ -48,6 +52,22 @@ exports['default'] = function (rows) {
       // --------------
 
       if (field.element === 'textarea') {
+
+        // --------------
+        // Custom markdown editor
+        // --------------
+
+        if (field.type === 'markdown') {
+          return _react2['default'].createElement(_MarkdownEditor2['default'], {
+            key: index,
+            field: field,
+            readOnly: readOnly,
+            editable: editable,
+            tabErrorCountControls: tabErrorCountControls,
+            tabIdentifier: tabIdentifier
+          });
+        }
+
         return _react2['default'].createElement(_Textarea2['default'], {
           key: index,
           field: field,

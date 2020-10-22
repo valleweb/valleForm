@@ -28,6 +28,12 @@
               "helper_text": "Texto aqui",
               "visible_screen": true,
               "type": "file",
+              "upload": {
+                "image": true,
+                "max_size": "100k",
+                "accept": [".jpg", ".png"],
+                "multiple": true
+              },
               "is_PK": false,
               "mask": null,
               "maxlength": 2,

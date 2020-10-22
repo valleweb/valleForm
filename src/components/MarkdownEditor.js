@@ -194,6 +194,16 @@ const MarkdownEditor = ({
 
       </div>
 
+      {
+        !editorShow && previewShow ? (
+          <input
+            value = { markdownText }
+            id = { field.id }
+            className = 'visual-hidden'
+          />
+        ) : null
+      }
+
     </div>
   );
 

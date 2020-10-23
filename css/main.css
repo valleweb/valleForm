@@ -645,10 +645,10 @@
   width: 100%;
 }
 
-
 .valleForm__MarkdownEditor__editor textarea {
   height: 330px;
   resize: none;
+  margin-top: 52px;
 }
 
 .valleForm__MarkdownEditor--big .valleForm__MarkdownEditor__editor textarea {
@@ -665,23 +665,25 @@
 }
 
 .valleForm__MarkdownEditor__label {
-  width: 100%;
+  width: calc(100% - 10px);
   color: rgba(0, 0, 0, .54);
   display: block;
   font-size: 12px;
   padding-top: 16px;
-  margin-bottom: 8px;
+  margin: 0 5px 8px 5px;
+  height: 44px;
   box-sizing: border-box;
 }
 
 .valleForm__MarkdownEditor__render {
   border-bottom: 2px solid rgba(0, 0, 0, .87);
-  width: 100%;
+  width: calc(100% - 10px);
   height: 330px;
   overflow-y: auto;
   box-sizing: border-box;
   background-color: #f0f0f0;
   padding: 8px;
+  margin: 0 5px;
 }
 
 .valleForm__MarkdownEditor--big .valleForm__MarkdownEditor__render {

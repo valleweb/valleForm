@@ -543,11 +543,12 @@
 }
 
 .valleForm__MarkdownEditor__headers {
-  width: 100%;
+  width: calc(100%- 10px);
   box-sizing: border-box;
   padding-top: 16px;
   display: flex;
   justify-content: flex-end;
+  margin: 0 5px;
 }
 
 .valleForm__MarkdownEditor__slider {

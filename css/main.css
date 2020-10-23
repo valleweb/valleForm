@@ -697,7 +697,6 @@
 }
 
 .markdown-render h1 {
-  font-weight: 300;
   margin: 0;
   color: var(--highlight-color, #62aeb3);
   margin: 8px 0;
@@ -705,7 +704,6 @@
 }
 
 .markdown-render h2 {
-  font-weight: 300;
   margin: 0;
   color: var(--highlight-color, #62aeb3);
   margin: 8px 0;
@@ -713,7 +711,6 @@
 }
 
 .markdown-render h3 {
-  font-weight: 300;
   margin: 0;
   color: var(--highlight-color, #62aeb3);
   margin: 8px 0;
@@ -721,19 +718,13 @@
   font-weight: 400;
 }
 
-/*
 .markdown-render h4 {
-
+  margin: 0;
+  color: var(--highlight-color, #62aeb3);
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 400;
 }
-
-.markdown-render h5 {
-
-}
-
-.markdown-render h6 {
-
-}
-*/
 
 /* --- Paragraph --- */
 
@@ -761,7 +752,7 @@
   position: relative;
 }
 
-.markdown-render li:before {
+.markdown-render ul li:before {
   content: '';
   display: block;
   width: 6px;
@@ -771,6 +762,25 @@
   left: -14px;
   top: 8px;
   border-radius: 50%;
+}
+
+.markdown-render ol {
+  list-style: none;
+  counter-reset: li;
+  margin: 8px 0;
+  padding-left: 18px;
+}
+
+.markdown-render ol li {
+  counter-increment: li
+}
+
+.markdown-render ol li:before {
+  content: counter(li);
+  color: var(--highlight-color, #62aeb3);
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em
 }
 
 /* --- Table --- */

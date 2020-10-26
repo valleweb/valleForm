@@ -29,7 +29,8 @@ exports['default'] = function (_ref) {
       getData = _ref.getData,
       closeSpeedDial = _ref.closeSpeedDial,
       updateValleList = _ref.updateValleList,
-      tabErrorCount = _ref.tabErrorCount;
+      tabErrorCount = _ref.tabErrorCount,
+      setCleanup = _ref.setCleanup;
 
 
   // --------------
@@ -54,7 +55,8 @@ exports['default'] = function (_ref) {
       getData: getData,
       closeSpeedDial: closeSpeedDial,
       updateValleList: updateValleList,
-      tabErrorCount: tabErrorCount
+      tabErrorCount: tabErrorCount,
+      setCleanup: setCleanup
     });
   });
 

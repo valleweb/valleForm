@@ -1,4 +1,6 @@
-export default _id => {
+import { nanoid } from 'nanoid';
+
+export default (_id, setCleanup) => {
 
   // -----------
   // TODO: Remove this. Use a React memory reference instead.
@@ -15,5 +17,9 @@ export default _id => {
     field.value = '';
 
   });
+
+  if(setCleanup) {
+    setCleanup(nanoid());
+  }
 
 }

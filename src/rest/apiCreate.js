@@ -16,6 +16,7 @@ const apiCreate = (
   closeSpeedDial,
   updateValleList,
   tabErrorCount,
+  setCleanup,
 ) => {
 
   /**
@@ -75,7 +76,7 @@ const apiCreate = (
          */
 
         feedbackCb(data.evento.mensagem, 'success');
-        cleanFields(_id);
+        cleanFields(_id, setCleanup);
 
         /**
          * Filter ValleList update by id_tabela

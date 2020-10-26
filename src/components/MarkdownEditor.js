@@ -15,6 +15,7 @@ const MarkdownEditor = ({
   tabErrorCountControls,
   tabIdentifier,
   values,
+  cleanup,
 }) => {
 
   const [markdownText, setMarkdownText] = useState(field.value);
@@ -29,15 +30,37 @@ const MarkdownEditor = ({
    */
 
   useEffect(() => {
+    if(cleanup) {
+      field.value = '';
+      setMarkdownText(null);
+      clean();
+    }
+  }, [cleanup]);
+
+  /**
+   * -----
+   * 
+   */
+
+  useEffect(() => {
     if(values) {
       field.value = values[field.id];
       setMarkdownText(values[field.id]);
-      setEditorShow(true);
-      setPreviewShow(true);
-      setBig(false);
-      setCurrentScroll(0);
+      clean();
     }
   }, [values]);
+
+  /**
+   * -----
+   * 
+   */
+
+   const clean = () => {
+    setEditorShow(true);
+    setPreviewShow(true);
+    setBig(false);
+    setCurrentScroll(0);
+   }
 
   /**
    * -----

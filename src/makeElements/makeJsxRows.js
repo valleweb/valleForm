@@ -20,6 +20,7 @@ export default (
   tabErrorCountControls,
   tabIdentifier,
   values,
+  cleanup,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -46,6 +47,7 @@ export default (
               tabErrorCountControls = { tabErrorCountControls }
               tabIdentifier = { tabIdentifier }
               values = { values }
+              cleanup = { cleanup }
             />
           );
         }

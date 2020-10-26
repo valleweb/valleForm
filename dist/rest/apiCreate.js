@@ -25,6 +25,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
   var closeSpeedDial = arguments[6];
   var updateValleList = arguments[7];
   var tabErrorCount = arguments[8];
+  var setCleanup = arguments[9];
 
 
   /**
@@ -83,7 +84,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
        */
 
       feedbackCb(data.evento.mensagem, 'success');
-      (0, _cleanFields2['default'])(_id);
+      (0, _cleanFields2['default'])(_id, setCleanup);
 
       /**
        * Filter ValleList update by id_tabela

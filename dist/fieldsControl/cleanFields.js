@@ -2,7 +2,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports['default'] = function (_id) {
+var _nanoid = require('nanoid');
+
+exports['default'] = function (_id, setCleanup) {
 
   // -----------
   // TODO: Remove this. Use a React memory reference instead.
@@ -18,4 +20,8 @@ exports['default'] = function (_id) {
 
     field.value = '';
   });
+
+  if (setCleanup) {
+    setCleanup((0, _nanoid.nanoid)());
+  }
 };

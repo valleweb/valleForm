@@ -219,7 +219,7 @@
             "placeholder": "Texto longo aqui",
             "element": "textarea",
             "type": "markdown",
-            "is_PK": true,
+            "is_PK": false,
             "required": false,
             "maxlength": 7,
             "case": "ProperCase",

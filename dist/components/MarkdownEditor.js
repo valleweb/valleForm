@@ -34,7 +34,8 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
       editable = _ref.editable,
       tabErrorCountControls = _ref.tabErrorCountControls,
       tabIdentifier = _ref.tabIdentifier,
-      values = _ref.values;
+      values = _ref.values,
+      cleanup = _ref.cleanup;
 
   var _useState = (0, _react.useState)(field.value),
       _useState2 = _slicedToArray(_useState, 2),
@@ -67,15 +68,37 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
    */
 
   (0, _react.useEffect)(function () {
+    if (cleanup) {
+      field.value = '';
+      setMarkdownText(null);
+      clean();
+    }
+  }, [cleanup]);
+
+  /**
+   * -----
+   * 
+   */
+
+  (0, _react.useEffect)(function () {
     if (values) {
       field.value = values[field.id];
       setMarkdownText(values[field.id]);
-      setEditorShow(true);
-      setPreviewShow(true);
-      setBig(false);
-      setCurrentScroll(0);
+      clean();
     }
   }, [values]);
+
+  /**
+   * -----
+   * 
+   */
+
+  var clean = function clean() {
+    setEditorShow(true);
+    setPreviewShow(true);
+    setBig(false);
+    setCurrentScroll(0);
+  };
 
   /**
    * -----

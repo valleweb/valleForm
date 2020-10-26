@@ -543,7 +543,7 @@
 }
 
 .valleForm__MarkdownEditor__headers {
-  width: calc(100%- 10px);
+  width: calc(100% - 10px);
   box-sizing: border-box;
   padding-top: 16px;
   display: flex;
@@ -700,21 +700,18 @@
 }
 
 .markdown-render h1 {
-  margin: 0;
   color: var(--highlight-color, #62aeb3);
   margin: 8px 0;
   font-size: 32px;
 }
 
 .markdown-render h2 {
-  margin: 0;
   color: var(--highlight-color, #62aeb3);
-  margin: 8px 0;
+  margin: 16px 0;
   font-size: 24px;
 }
 
 .markdown-render h3 {
-  margin: 0;
   color: var(--highlight-color, #62aeb3);
   margin: 8px 0;
   font-size: 18px;
@@ -722,7 +719,6 @@
 }
 
 .markdown-render h4 {
-  margin: 0;
   color: var(--highlight-color, #62aeb3);
   margin: 8px 0;
   font-size: 16px;

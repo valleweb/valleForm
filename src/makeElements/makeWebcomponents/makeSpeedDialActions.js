@@ -19,6 +19,7 @@ export default ({
   closeSpeedDial,
   updateValleList,
   tabErrorCount,
+  setCleanup,
   }) => {
 
   // --------------
@@ -43,6 +44,7 @@ export default ({
       closeSpeedDial,
       updateValleList,
       tabErrorCount,
+      setCleanup,
     }));
 
   const $retrievalActions = buttons

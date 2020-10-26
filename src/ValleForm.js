@@ -38,6 +38,7 @@ const ValleForm = ({
   const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
   const [filterByVisibleScreen, setFilterByVisibleScreen] = useState(false);
   const [visibleTab, setVisibleTab] = useState(0);
+  const [cleanup, setCleanup] = useState(null);
 
   /**
    * Control tab error counter
@@ -119,15 +120,15 @@ const ValleForm = ({
   }
   
   const cancelFieldsEditable = () => {
-		cleanFields(_id);
+    cleanFields(_id);
     addFieldsValues(values, _id);
     setDynamicReadOnly(true);
 		setEditable(false);
 		closeSpeedDial();
   }
-  
+
   const makeFieldsDefault = () => {
-    cleanFields(_id);
+    cleanFields(_id, setCleanup);
     setDynamicReadOnly(false);
 		setEditable(false);
     closeSpeedDial();
@@ -221,6 +222,7 @@ const ValleForm = ({
       tabErrorCount,
       tabIdentifier,
       values,
+      cleanup,
     );
 
     const isVisibleTab = (visibleTab === index);
@@ -312,6 +314,7 @@ const ValleForm = ({
               closeSpeedDial,
               updateValleList,
               tabErrorCount,
+              setCleanup,
             })
           }
 

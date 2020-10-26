@@ -42,6 +42,7 @@ exports['default'] = function (rows) {
   var tabErrorCountControls = arguments[11];
   var tabIdentifier = arguments[12];
   var values = arguments[13];
+  var cleanup = arguments[14];
   return rows.map(function (row, index) {
 
     var $fields = row.filter(function (field) {
@@ -66,7 +67,8 @@ exports['default'] = function (rows) {
             editable: editable,
             tabErrorCountControls: tabErrorCountControls,
             tabIdentifier: tabIdentifier,
-            values: values
+            values: values,
+            cleanup: cleanup
           });
         }
 

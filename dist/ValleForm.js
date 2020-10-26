@@ -96,15 +96,20 @@ var ValleForm = function ValleForm(_ref) {
       visibleTab = _useState8[0],
       setVisibleTab = _useState8[1];
 
+  var _useState9 = (0, _react.useState)(null),
+      _useState10 = _slicedToArray(_useState9, 2),
+      cleanup = _useState10[0],
+      setCleanup = _useState10[1];
+
   /**
    * Control tab error counter
    * 
    */
 
-  var _useState9 = (0, _react.useState)({}),
-      _useState10 = _slicedToArray(_useState9, 2),
-      tabErrorsCount = _useState10[0],
-      setTabErrorsCount = _useState10[1];
+  var _useState11 = (0, _react.useState)({}),
+      _useState12 = _slicedToArray(_useState11, 2),
+      tabErrorsCount = _useState12[0],
+      setTabErrorsCount = _useState12[1];
 
   /**
    * Inject the parent states inside the tab error functions
@@ -185,7 +190,7 @@ var ValleForm = function ValleForm(_ref) {
   };
 
   var makeFieldsDefault = function makeFieldsDefault() {
-    (0, _cleanFields2['default'])(_id);
+    (0, _cleanFields2['default'])(_id, setCleanup);
     setDynamicReadOnly(false);
     setEditable(false);
     closeSpeedDial();
@@ -268,7 +273,7 @@ var ValleForm = function ValleForm(_ref) {
 
     var tabIdentifier = (0, _makeIdentifier2['default'])(tab.title, index);
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values);
+    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup);
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
@@ -349,7 +354,8 @@ var ValleForm = function ValleForm(_ref) {
           getData: getData,
           closeSpeedDial: closeSpeedDial,
           updateValleList: updateValleList,
-          tabErrorCount: tabErrorCount
+          tabErrorCount: tabErrorCount,
+          setCleanup: setCleanup
         })
       )
     );

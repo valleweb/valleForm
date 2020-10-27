@@ -289,36 +289,40 @@ const ValleForm = ({
           * Campos obrigatórios
         </span>
 
-        <valle-speed-dial
-          id = "valleSpeedDial"
-          class = "valleForm__speedDial"
-          ref = { speedDial }
-        >
+        { (Array.isArray(buttons) && buttons.length) ? (
 
-          {
-            makeSpeedDialActions({
-              buttons: buttons,
-              readOnly: dynamicReadOnly,
-              editable: editable,
-              baseApi: baseApi,
-              canonicalApi: canonicalApi,
-              params: params,
-              _id: _id,
-              feedbackCb: showFeedback,
-              editCb: makeFieldsEditable,
-              formCb: removeFieldsEditable,
-              cancelCb: cancelFieldsEditable,
-              newCB: makeFieldsDefault,
-              token,
-              getData,
-              closeSpeedDial,
-              updateValleList,
-              tabErrorCount,
-              setCleanup,
-            })
-          }
+          <valle-speed-dial
+            id = "valleSpeedDial"
+            class = "valleForm__speedDial"
+            ref = { speedDial }
+          >
 
-        </valle-speed-dial>
+            {
+              makeSpeedDialActions({
+                buttons: buttons,
+                readOnly: dynamicReadOnly,
+                editable: editable,
+                baseApi: baseApi,
+                canonicalApi: canonicalApi,
+                params: params,
+                _id: _id,
+                feedbackCb: showFeedback,
+                editCb: makeFieldsEditable,
+                formCb: removeFieldsEditable,
+                cancelCb: cancelFieldsEditable,
+                newCB: makeFieldsDefault,
+                token,
+                getData,
+                closeSpeedDial,
+                updateValleList,
+                tabErrorCount,
+                setCleanup,
+              })
+            }
+
+          </valle-speed-dial>
+
+        ) : null }
 
       </div>
     );

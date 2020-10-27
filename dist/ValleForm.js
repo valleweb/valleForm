@@ -330,7 +330,7 @@ var ValleForm = function ValleForm(_ref) {
         { className: 'valleForm__sub' },
         '* Campos obrigat\xF3rios'
       ),
-      _react2['default'].createElement(
+      Array.isArray(buttons) && buttons.length ? _react2['default'].createElement(
         'valle-speed-dial',
         {
           id: 'valleSpeedDial',
@@ -357,7 +357,7 @@ var ValleForm = function ValleForm(_ref) {
           tabErrorCount: tabErrorCount,
           setCleanup: setCleanup
         })
-      )
+      ) : null
     );
   } else {
 

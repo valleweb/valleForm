@@ -174,7 +174,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
               height: '24',
               viewBox: '0 0 24 24'
             },
-            _react2['default'].createElement('path', { d: 'M7.127 22.564l-7.126 1.436 1.438-7.125 5.688 5.689zm-4.274-7.104l5.688 5.689 15.46-15.46-5.689-5.689-15.459 15.46z' })
+            _react2['default'].createElement('path', { d: 'M11.362 2c4.156 0 2.638 6 2.638 6s6-1.65 6 2.457v11.543h-16v-20h7.362zm.827-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-10v-1h10v1zm0 2h-10v1h10v-1zm0 3h-10v1h10v-1z' })
           )
         ),
         _react2['default'].createElement(

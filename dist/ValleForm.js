@@ -273,7 +273,57 @@ var ValleForm = function ValleForm(_ref) {
 
     var tabIdentifier = (0, _makeIdentifier2['default'])(tab.title, index);
 
-    var $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup);
+    var $rows = [];
+
+    if (tab.groups) {
+
+      if (tab.groups.length > 1) {
+
+        /**
+         * Multiple Groups
+         * 
+         */
+
+        $rows = tab.groups.map(function (group) {
+
+          var $groupRows = (0, _makeJsxRows2['default'])(group.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup);
+
+          return _react2['default'].createElement(
+            'div',
+            {
+              className: 'valleForm__group',
+              role: 'group',
+              'aria-labelledby': 'shipping_head'
+            },
+            _react2['default'].createElement(
+              'h2',
+              {
+                className: 'valleForm__group__title',
+                id: 'shipping_head'
+              },
+              group.title
+            ),
+            $groupRows
+          );
+        });
+      } else {
+
+        /**
+         * Single group
+         * 
+         */
+
+        $rows = (0, _makeJsxRows2['default'])(tab.groups[0].lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup);
+      }
+    } else {
+
+      /**
+       * Default rows (Legacy mode)
+       * 
+       */
+
+      $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup);
+    }
 
     var isVisibleTab = visibleTab === index;
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';

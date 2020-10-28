@@ -207,23 +207,111 @@ const ValleForm = ({
 
     const tabIdentifier = makeIdentifier(tab.title, index);
 
-    const $rows = makeJsxRows(
-      tab.lines,
-      filterByVisibleScreen,
-      dynamicReadOnly,
-      editable,
-      token,
-      _id,
-      baseApi,
-      params,
-      setSnackBarStatus,
-      ValleList,
-      $loading,
-      tabErrorCount,
-      tabIdentifier,
-      values,
-      cleanup,
-    );
+    let $rows = [];
+
+    if(tab.groups) {
+
+      if(tab.groups.length > 1) {
+
+        /**
+         * Multiple Groups
+         * 
+         */
+
+        $rows = tab.groups.map(group => {
+
+          const $groupRows = makeJsxRows(
+            group.lines,
+            filterByVisibleScreen,
+            dynamicReadOnly,
+            editable,
+            token,
+            _id,
+            baseApi,
+            params,
+            setSnackBarStatus,
+            ValleList,
+            $loading,
+            tabErrorCount,
+            tabIdentifier,
+            values,
+            cleanup,
+          );
+
+          return (
+            <div
+              className = 'valleForm__group'
+              role = 'group'
+              aria-labelledby = 'shipping_head'
+            >
+
+              <h2
+                className = 'valleForm__group__title'
+                id = 'shipping_head'
+              >
+                { group.title }
+              </h2>
+
+              { $groupRows }
+
+            </div>
+          );
+
+        });
+
+      } else {
+
+        /**
+         * Single group
+         * 
+         */
+
+        $rows = makeJsxRows(
+          tab.groups[0].lines,
+          filterByVisibleScreen,
+          dynamicReadOnly,
+          editable,
+          token,
+          _id,
+          baseApi,
+          params,
+          setSnackBarStatus,
+          ValleList,
+          $loading,
+          tabErrorCount,
+          tabIdentifier,
+          values,
+          cleanup,
+        );
+
+      }
+
+    } else {
+
+      /**
+       * Default rows (Legacy mode)
+       * 
+       */
+
+      $rows = makeJsxRows(
+        tab.lines,
+        filterByVisibleScreen,
+        dynamicReadOnly,
+        editable,
+        token,
+        _id,
+        baseApi,
+        params,
+        setSnackBarStatus,
+        ValleList,
+        $loading,
+        tabErrorCount,
+        tabIdentifier,
+        values,
+        cleanup,
+      );
+
+    }
 
     const isVisibleTab = (visibleTab === index);
     const tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';

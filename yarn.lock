@@ -402,10 +402,10 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-input@^2.3.3":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.3.3.tgz#f38641867e90314eae914dea0368292d451afaa3"
-  integrity sha512-arQSVhlsG28shqeOjwmMIXIqcq1EzrXN8uNlxfmTUiovwtBfl52zbioBqCclhvMXcKVAhdzAKHOeHDXHmjtXwg==
+"@valle/valle-input@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.4.0.tgz#efd65aea2111e8c006e161a5cfaba3fbe60b58c2"
+  integrity sha512-fKjVNVUFhaUDN7/uGqWLAvZrxASAkhu8Wqf6vcVlUivc1PynlTxCuMzKYm/0yf5OQjb3PrkSH95MmbM+ZQOvxQ==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
@@ -416,10 +416,10 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-speed-dial@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@valle/valle-speed-dial/-/valle-speed-dial-1.0.2.tgz#ca08c37be16965870aece21a9f164c70e6b60650"
-  integrity sha512-Cc3351tjVzmlA8h4sX/UyTumFv7DP7jVB/Jvp7tLBwA0k7HPYBUCioG8Ue7Mrehs3wfajUkTON9cfxf8H+dSxQ==
+"@valle/valle-speed-dial@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@valle/valle-speed-dial/-/valle-speed-dial-1.0.3.tgz#533d0b668e019206d9cd1873b1990f7c344b9df2"
+  integrity sha512-PGPikkqs9Oq7to/OdKezZmslse5LHHC2c9LMDgLCBCCITfKyOk0y2yJaioDy6zW7GQdOe0mJULAQ0jjYzJTdXw==
   dependencies:
     "@polymer/polymer" "^3.0.0"
     "@valle/valle-fab" "^1.0.1"

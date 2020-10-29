@@ -342,6 +342,7 @@
   padding-top: 8px;
   width: 100%;
   height: 90px;
+  resize: vertical;
 }
 
 .valleForm__textarea__input:focus {

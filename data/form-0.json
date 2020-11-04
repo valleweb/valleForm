@@ -159,14 +159,6 @@
             "visible_screen": true,
             "autocomplete": false,
             "actions" : [
-              {
-                "action": "exists",
-                "data": null
-              },
-              {
-                "action": "find",
-                "data": null
-              }
             ],
             "options": [
               {
@@ -201,14 +193,6 @@
             "visible_screen": true,
             "autocomplete": false,
             "actions" : [
-              {
-                "action": "exists",
-                "data": null
-              },
-              {
-                "action": "find",
-                "data": null
-              }
             ]
           }
         ],
@@ -231,14 +215,6 @@
             "visible_screen": true,
             "autocomplete": false,
             "actions" : [
-              {
-                "action": "exists",
-                "data": null
-              },
-              {
-                "action": "find",
-                "data": null
-              }
             ]
           }
         ]

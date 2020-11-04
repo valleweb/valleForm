@@ -402,17 +402,17 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-input@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.4.0.tgz#efd65aea2111e8c006e161a5cfaba3fbe60b58c2"
-  integrity sha512-fKjVNVUFhaUDN7/uGqWLAvZrxASAkhu8Wqf6vcVlUivc1PynlTxCuMzKYm/0yf5OQjb3PrkSH95MmbM+ZQOvxQ==
+"@valle/valle-input@^2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.5.4.tgz#66c1a11ed02f679c1944942daf48c88ec2a8cb7a"
+  integrity sha512-DZV0z690TwYfYmInuk1VR9dQScN+Ad+nVbJmHroNtGjQya/Apn+Gdzd/cEdi671y9szCZv6fl4AAGJGeICwfPw==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-select@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@valle/valle-select/-/valle-select-1.3.2.tgz#466abbbc7db50a05807a97facd2f8f7325467926"
-  integrity sha512-+8K2g4jLlLwYRR6KD2vb4rspT/s7v9NJlHVranrZcN0uBwDj37EYMvxvIzJlOahfLPdJrTdPF/HWnWCx1dEX+g==
+"@valle/valle-select@^1.4.4":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@valle/valle-select/-/valle-select-1.4.4.tgz#d96155a190f069ce9fd980b51ea3aed587c283ba"
+  integrity sha512-qZa0cG7KEwTqu2UsrccmEsi84swQETGi2yuUnwxPWsQDl+UPPZOeFkjUPVxMF4pePBkKAJMqDJiDZknquJ3IPQ==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 

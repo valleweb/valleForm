@@ -102,7 +102,7 @@
 /* ------- Groups ------- */
 
 .valleForm__group {
-  border: 1px solid rgb(129 137 138);
+  border: 1px solid rgb(166 166 166);
   position: relative;
   padding: 8px 8px 16px 8px;
   margin-top: 32px;
@@ -154,7 +154,7 @@
   margin: 0;
   padding: 0;
   border-width: 0;
-  --icon-tooltip-color: rgba(0, 0, 0, .38);
+  --icon-tooltip-color: rgba(26, 26, 26, 0.38);
 }
 
 .valleForm__input--small {
@@ -169,8 +169,8 @@
   border: 0;
   background: #fff;
   position: absolute;
-  right: 0px;
-  top: 44px;
+  right: 2px;
+  top: 52px;
   border-radius: 3px;
   width: 24px;
   height: 24px;

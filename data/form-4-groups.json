@@ -60,6 +60,10 @@
                   "upload": {
                     "image": true,
                     "max_size": "100k",
+                    "resolution_height_max": "",
+                    "resolution_height_min": "",
+                    "resolution_width_max": "",
+                    "resolution_width_min": "",
                     "accept": [".jpg", ".png"],
                     "multiple": true
                   },

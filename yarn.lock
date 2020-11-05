@@ -402,10 +402,10 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-input@^2.5.4":
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.5.4.tgz#66c1a11ed02f679c1944942daf48c88ec2a8cb7a"
-  integrity sha512-DZV0z690TwYfYmInuk1VR9dQScN+Ad+nVbJmHroNtGjQya/Apn+Gdzd/cEdi671y9szCZv6fl4AAGJGeICwfPw==
+"@valle/valle-input@^2.5.5":
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.5.5.tgz#607bfe122982d569a91aa61354706cbd70c37190"
+  integrity sha512-aQ/fGaI7tF6o/Fff8EjKs08rrVkrQAy4Xaq0llJ0qttZ54o4yyZ44rL6DYG6SSPJ5b1uN43PNpUStHcK/yTkXg==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 

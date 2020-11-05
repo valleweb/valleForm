@@ -216,10 +216,6 @@ const MarkdownEditor = ({
 
           <div className = {`valleForm__MarkdownEditor__preview ${ !editorShow ? 'valleForm__MarkdownEditor__preview--full' : ''}`}>
 
-            <div className = 'valleForm__MarkdownEditor__label'>
-              { field.label } (Prévia)
-            </div>
-
             <div className = 'valleForm__MarkdownEditor__render' ref = { render }>
 
               <ReactMarkdown plugins = {[gfm]} className = 'markdown-render'>

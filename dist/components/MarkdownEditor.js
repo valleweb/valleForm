@@ -274,12 +274,6 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
         { className: 'valleForm__MarkdownEditor__preview ' + (!editorShow ? 'valleForm__MarkdownEditor__preview--full' : '') },
         _react2['default'].createElement(
           'div',
-          { className: 'valleForm__MarkdownEditor__label' },
-          field.label,
-          ' (Pr\xE9via)'
-        ),
-        _react2['default'].createElement(
-          'div',
           { className: 'valleForm__MarkdownEditor__render', ref: render },
           _react2['default'].createElement(
             _reactMarkdown2['default'],

@@ -23,7 +23,6 @@ export default (
 
   return (
     <valle-select
-      value = { field.value ? field.value : null }
       class = {`valleForm__select ${customClass}`}
       label = { field.label }
       data-valle-field = { `${field.id}` }
@@ -58,7 +57,7 @@ export default (
       } }
     >
 
-      { makeOptions(field.options) }
+      { makeOptions(field.options, field.value) }
 
     </valle-select>
   )

@@ -380,34 +380,27 @@ var ValleForm = function ValleForm(_ref) {
         { className: 'valleForm__sub' },
         '* Campos obrigat\xF3rios'
       ),
-      Array.isArray(buttons) && buttons.length ? _react2['default'].createElement(
-        'valle-speed-dial',
-        {
-          id: 'valleSpeedDial',
-          'class': 'valleForm__speedDial',
-          ref: speedDial
-        },
-        (0, _makeSpeedDialActions2['default'])({
-          buttons: buttons,
-          readOnly: dynamicReadOnly,
-          editable: editable,
-          baseApi: baseApi,
-          canonicalApi: canonicalApi,
-          params: params,
-          _id: _id,
-          feedbackCb: showFeedback,
-          editCb: makeFieldsEditable,
-          formCb: removeFieldsEditable,
-          cancelCb: cancelFieldsEditable,
-          newCB: makeFieldsDefault,
-          token: token,
-          getData: getData,
-          closeSpeedDial: closeSpeedDial,
-          updateValleList: updateValleList,
-          tabErrorCount: tabErrorCount,
-          setCleanup: setCleanup
-        })
-      ) : null
+      Array.isArray(buttons) && buttons.length ? (0, _makeSpeedDialActions2['default'])({
+        buttons: buttons,
+        readOnly: dynamicReadOnly,
+        editable: editable,
+        baseApi: baseApi,
+        canonicalApi: canonicalApi,
+        params: params,
+        _id: _id,
+        feedbackCb: showFeedback,
+        editCb: makeFieldsEditable,
+        formCb: removeFieldsEditable,
+        cancelCb: cancelFieldsEditable,
+        newCB: makeFieldsDefault,
+        token: token,
+        getData: getData,
+        closeSpeedDial: closeSpeedDial,
+        updateValleList: updateValleList,
+        tabErrorCount: tabErrorCount,
+        setCleanup: setCleanup,
+        speedDial: speedDial
+      }) : null
     );
   } else {
 

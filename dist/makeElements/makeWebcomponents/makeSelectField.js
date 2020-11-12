@@ -44,7 +44,6 @@ exports['default'] = function (field) {
   return _react2['default'].createElement(
     'valle-select',
     _extends({
-      value: field.value ? field.value : null,
       'class': 'valleForm__select ' + String(customClass),
       label: field.label,
       'data-valle-field': '' + String(field.id),
@@ -78,6 +77,6 @@ exports['default'] = function (field) {
         return onBlur;
       }()
     }),
-    (0, _makeOptions2['default'])(field.options)
+    (0, _makeOptions2['default'])(field.options, field.value)
   );
 };

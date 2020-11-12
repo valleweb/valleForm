@@ -30,7 +30,8 @@ exports['default'] = function (_ref) {
       closeSpeedDial = _ref.closeSpeedDial,
       updateValleList = _ref.updateValleList,
       tabErrorCount = _ref.tabErrorCount,
-      setCleanup = _ref.setCleanup;
+      setCleanup = _ref.setCleanup,
+      speedDial = _ref.speedDial;
 
 
   // --------------
@@ -108,11 +109,19 @@ exports['default'] = function (_ref) {
   // Ceate a new register state
   // --------------
 
-  if (!readOnly && !editable) {
+  if (!readOnly && !editable && $createActions.length) {
     return _react2['default'].createElement(
-      'span',
-      { className: 'valleForm__speedDial__actions' },
-      $createActions
+      'valle-speed-dial',
+      {
+        id: 'valleSpeedDial',
+        'class': 'valleForm__speedDial',
+        ref: speedDial
+      },
+      _react2['default'].createElement(
+        'span',
+        { className: 'valleForm__speedDial__actions' },
+        $createActions
+      )
     );
   }
 
@@ -120,11 +129,19 @@ exports['default'] = function (_ref) {
   // Ready only state
   // --------------
 
-  if (readOnly && !editable) {
+  if (readOnly && !editable && $retrievalActions.length) {
     return _react2['default'].createElement(
-      'span',
-      { className: 'valleForm__speedDial__actions' },
-      $retrievalActions
+      'valle-speed-dial',
+      {
+        id: 'valleSpeedDial',
+        'class': 'valleForm__speedDial',
+        ref: speedDial
+      },
+      _react2['default'].createElement(
+        'span',
+        { className: 'valleForm__speedDial__actions' },
+        $retrievalActions
+      )
     );
   }
 
@@ -132,11 +149,19 @@ exports['default'] = function (_ref) {
   // Editable only state
   // --------------
 
-  if (!readOnly && editable) {
+  if (!readOnly && editable && $updateActions.length) {
     return _react2['default'].createElement(
-      'span',
-      { className: 'valleForm__speedDial__actions' },
-      $updateActions
+      'valle-speed-dial',
+      {
+        id: 'valleSpeedDial',
+        'class': 'valleForm__speedDial',
+        ref: speedDial
+      },
+      _react2['default'].createElement(
+        'span',
+        { className: 'valleForm__speedDial__actions' },
+        $updateActions
+      )
     );
   }
 };

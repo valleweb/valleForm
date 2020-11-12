@@ -20,6 +20,7 @@ export default ({
   updateValleList,
   tabErrorCount,
   setCleanup,
+  speedDial,
   }) => {
 
   // --------------
@@ -91,11 +92,21 @@ export default ({
   // Ceate a new register state
   // --------------
 
-  if (!readOnly && !editable) {
+  if (!readOnly && !editable && $createActions.length) {
     return (
-      <span className = "valleForm__speedDial__actions">
-        { $createActions }
-      </span>
+
+      <valle-speed-dial
+        id = "valleSpeedDial"
+        class = "valleForm__speedDial"
+        ref = { speedDial }
+      >
+
+        <span className = "valleForm__speedDial__actions">
+          { $createActions }
+        </span>
+
+      </valle-speed-dial>
+
     );
   }
 
@@ -103,11 +114,21 @@ export default ({
   // Ready only state
   // --------------
 
-  if (readOnly && !editable) {
+  if (readOnly && !editable && $retrievalActions.length) {
     return (
+
+      <valle-speed-dial
+        id = "valleSpeedDial"
+        class = "valleForm__speedDial"
+        ref = { speedDial }
+      >
+
       <span className = "valleForm__speedDial__actions">
         { $retrievalActions }
       </span>
+
+      </valle-speed-dial>
+
     );
   }
 
@@ -115,11 +136,21 @@ export default ({
   // Editable only state
   // --------------
 
-  if(!readOnly && editable) {
+  if(!readOnly && editable && $updateActions.length) {
     return (
+
+      <valle-speed-dial
+        id = "valleSpeedDial"
+        class = "valleForm__speedDial"
+        ref = { speedDial }
+      >
+
       <span className = "valleForm__speedDial__actions">
         { $updateActions }
       </span>
+
+      </valle-speed-dial>
+
     );
   }
 

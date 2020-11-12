@@ -76,11 +76,11 @@ const ValleForm = ({
    * 
    */
 
-	const changeVisibleScreen = () => {
+  const changeVisibleScreen = () => {
     filterByVisibleScreen
       ? setFilterByVisibleScreen(false)
       : setFilterByVisibleScreen(true);
-	}
+  }
 
   /**
    * Control speed dial open state
@@ -107,33 +107,33 @@ const ValleForm = ({
    * 
    */
 
-	const makeFieldsEditable = () => {
+  const makeFieldsEditable = () => {
     setDynamicReadOnly(false);
-		setEditable(true);
-		closeSpeedDial();
+    setEditable(true);
+    closeSpeedDial();
   }
   
   const removeFieldsEditable = () => {
     setDynamicReadOnly(true);
-		setEditable(false);
-		closeSpeedDial();
+    setEditable(false);
+    closeSpeedDial();
   }
   
   const cancelFieldsEditable = () => {
     cleanFields(_id);
     addFieldsValues(values, _id);
     setDynamicReadOnly(true);
-		setEditable(false);
-		closeSpeedDial();
+    setEditable(false);
+    closeSpeedDial();
   }
 
   const makeFieldsDefault = () => {
     cleanFields(_id, setCleanup);
     setDynamicReadOnly(false);
-		setEditable(false);
+    setEditable(false);
     closeSpeedDial();
     cleanOldFormValues();
-	}
+  }
 
   /**
    * Control feedbacks status
@@ -353,8 +353,8 @@ const ValleForm = ({
         {/* ------- Header ------- */}
 
         <Switch
-					label = "Limitar campos"
-					readOnly = { dynamicReadOnly }
+          label = "Limitar campos"
+          readOnly = { dynamicReadOnly }
           onChange = { changeVisibleScreen }
           _id = { `${_id}-switch` }
         />
@@ -379,36 +379,27 @@ const ValleForm = ({
 
         { (Array.isArray(buttons) && buttons.length) ? (
 
-          <valle-speed-dial
-            id = "valleSpeedDial"
-            class = "valleForm__speedDial"
-            ref = { speedDial }
-          >
-
-            {
-              makeSpeedDialActions({
-                buttons: buttons,
-                readOnly: dynamicReadOnly,
-                editable: editable,
-                baseApi: baseApi,
-                canonicalApi: canonicalApi,
-                params: params,
-                _id: _id,
-                feedbackCb: showFeedback,
-                editCb: makeFieldsEditable,
-                formCb: removeFieldsEditable,
-                cancelCb: cancelFieldsEditable,
-                newCB: makeFieldsDefault,
-                token,
-                getData,
-                closeSpeedDial,
-                updateValleList,
-                tabErrorCount,
-                setCleanup,
-              })
-            }
-
-          </valle-speed-dial>
+          makeSpeedDialActions({
+            buttons: buttons,
+            readOnly: dynamicReadOnly,
+            editable: editable,
+            baseApi: baseApi,
+            canonicalApi: canonicalApi,
+            params: params,
+            _id: _id,
+            feedbackCb: showFeedback,
+            editCb: makeFieldsEditable,
+            formCb: removeFieldsEditable,
+            cancelCb: cancelFieldsEditable,
+            newCB: makeFieldsDefault,
+            token,
+            getData,
+            closeSpeedDial,
+            updateValleList,
+            tabErrorCount,
+            setCleanup,
+            speedDial,
+          })
 
         ) : null }
 
@@ -420,7 +411,7 @@ const ValleForm = ({
     return ( $loading );
 
   }
-  
+
 }
 
 export default ValleForm;

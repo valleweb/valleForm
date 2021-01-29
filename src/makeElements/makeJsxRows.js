@@ -4,6 +4,7 @@ import MakeInputField from './makeWebcomponents/MakeInputField';
 import makeSelectField from './makeWebcomponents/makeSelectField';
 import Textarea from '../components/Textarea';
 import MarkdownEditor from '../components/MarkdownEditor';
+import UploadInput from '../components/UploadInput';
 
 export default (
   rows, 
@@ -12,7 +13,7 @@ export default (
   editable,
   token,
   _id,
-  baseApi,
+  baseApi,  
   params,
   setSnackBarStatus,
   ValleList,
@@ -30,6 +31,18 @@ export default (
       // --------------
       // Resolve react component
       // --------------
+
+      if(field.element === 'input' && field.type === 'file') {
+
+        // --------------
+        // Custom upload
+        // --------------
+
+        return (
+          <UploadInput />
+        );
+
+      }
 
       if(field.element === 'textarea') {
 

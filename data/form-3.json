@@ -17,29 +17,36 @@
         "lines":[
           [
             {
-              "case": null,
-              "id": "estadox",
-              "label": "Estado",
-              "placeholder": null,
+              "id": "arquivo",
+              "label": "Arquivos",
+              "placeholder": "",
               "element": "input",
-              "required": false,
-              "readonly": false,
-              "error_text": "Campo obrigatório",
-              "helper_text": "Texto aqui",
-              "visible_screen": true,
               "type": "file",
-              "upload": {
-                "image": true,
-                "max_size": "100k",
-                "accept": [".jpg", ".png"],
-                "multiple": true
-              },
-              "is_PK": false,
+              "required": false,
+              "maxlength": 1000,
+              "case": "",
               "mask": null,
-              "maxlength": 2,
-              "pattern": null,
+              "pattern": "",
+              "readonly": false,
+              "helper_text": "",
+              "error_text": "",
+              "visible_screen": false,
               "autocomplete": false,
-              "actions": null
+              "is_PK": false,
+              "actions": [],
+              "value": "",
+              "description": "Arquivos anexos ao chamado",
+              "upload": {
+                  "image": true,
+                  "max_size": "500k",
+                  "resolution_height_min": 10,
+                  "resolution_height_max": 500,
+                  "resolution_width_min": 10,
+                  "resolution_width_max": 500,
+                  "accept": ["*.*"],
+                  "multiple": true,
+                  "storage": "valle"
+              }
             }
           ]
         ]

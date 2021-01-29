@@ -402,17 +402,17 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-input@^2.5.5":
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.5.5.tgz#607bfe122982d569a91aa61354706cbd70c37190"
-  integrity sha512-aQ/fGaI7tF6o/Fff8EjKs08rrVkrQAy4Xaq0llJ0qttZ54o4yyZ44rL6DYG6SSPJ5b1uN43PNpUStHcK/yTkXg==
+"@valle/valle-input@^2.5.6":
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/@valle/valle-input/-/valle-input-2.5.6.tgz#3c4b031e71e470d195c0f6b6845f1e8a2c83454c"
+  integrity sha512-eDzHTtp2juHxdX7ybZf8T8YfSFeK40+9s1RJieNAunBOv1LqLz2+/AmNWTQtP/uGikyco5KtZe8icRdMWOrsBQ==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@valle/valle-select@^1.4.4":
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/@valle/valle-select/-/valle-select-1.4.4.tgz#d96155a190f069ce9fd980b51ea3aed587c283ba"
-  integrity sha512-qZa0cG7KEwTqu2UsrccmEsi84swQETGi2yuUnwxPWsQDl+UPPZOeFkjUPVxMF4pePBkKAJMqDJiDZknquJ3IPQ==
+"@valle/valle-select@^1.4.5":
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/@valle/valle-select/-/valle-select-1.4.5.tgz#a4209d7a5acca21e6628541642bc1363adbf4311"
+  integrity sha512-qpRIYrRsZYDXZJLFLjM4vo4MPO7jHznjWvkRAGuVW3WzUeDWmxi/aHEWeKvxJfxjucjLVk1PFv0aFNmpNIVI+g==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
@@ -4218,6 +4218,11 @@ functional-red-black-tree@^1.0.1:
 fuse.js@^3.0.1, fuse.js@^3.2.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.2.1.tgz#6320cb94ce56ec9755c89ade775bcdbb0358d425"
+
+gapi-script@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gapi-script/-/gapi-script-1.0.2.tgz#8bc6ffa475ad6b4080caa59acaad70c29da4a875"
+  integrity sha512-/WW6FrT2MUag641pM2vDJ3QbHlBKngsv5oLnd9UyplFUGtf4TxyiRGIJKawaH+cb8jXDXni+jNMH6SsL2PxbUQ==
 
 gauge@~2.7.3:
   version "2.7.4"

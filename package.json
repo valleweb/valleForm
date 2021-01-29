@@ -79,6 +79,7 @@
     "@valle/valle-input": "^2.5.6",
     "@valle/valle-select": "^1.4.5",
     "@valle/valle-speed-dial": "^1.0.3",
+    "gapi-script": "^1.0.2",
     "nanoid": "^3.1.16",
     "prop-types": "^15.5.10",
     "react": "^16.9.0",

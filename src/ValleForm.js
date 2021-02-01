@@ -13,7 +13,7 @@ import showErrorsCount from './tabErrorsControl/showErrorsCount';
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 const ValleForm = ({
@@ -32,6 +32,7 @@ const ValleForm = ({
   ValleList = null,
   updateValleList = null,
   cleanOldFormValues = null,
+  apiUpload,
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
@@ -42,14 +43,14 @@ const ValleForm = ({
 
   /**
    * Control tab error counter
-   * 
+   *
    */
 
   const [tabErrorsCount, setTabErrorsCount] = useState({});
 
   /**
    * Inject the parent states inside the tab error functions
-   * 
+   *
    */
 
   const tabErrorCount = tabErrorCountControls(
@@ -59,21 +60,21 @@ const ValleForm = ({
 
   /**
    * Control vizualization only and editable state
-   * 
+   *
    */
 
   useEffect(() => setDynamicReadOnly(readOnly), [readOnly]);
 
   /**
    * Control dynamic values
-   * 
+   *
    */
 
   useEffect(() => { if (values) cancelFieldsEditable() }, [values]);
-  
+
   /**
    * Control fields visibility
-   * 
+   *
    */
 
   const changeVisibleScreen = () => {
@@ -84,7 +85,7 @@ const ValleForm = ({
 
   /**
    * Control speed dial open state
-   * 
+   *
    */
 
   const speedDial = React.createRef();
@@ -104,7 +105,7 @@ const ValleForm = ({
 
   /**
    * Control fields states
-   * 
+   *
    */
 
   const makeFieldsEditable = () => {
@@ -112,13 +113,13 @@ const ValleForm = ({
     setEditable(true);
     closeSpeedDial();
   }
-  
+
   const removeFieldsEditable = () => {
     setDynamicReadOnly(true);
     setEditable(false);
     closeSpeedDial();
   }
-  
+
   const cancelFieldsEditable = () => {
     cleanFields(_id);
     addFieldsValues(values, _id);
@@ -137,7 +138,7 @@ const ValleForm = ({
 
   /**
    * Control feedbacks status
-   * 
+   *
    */
 
   const showFeedback = (text, type) => {
@@ -154,7 +155,7 @@ const ValleForm = ({
 
   /**
    * Control tabs visibility
-   * 
+   *
    */
 
   const showTab = index => {
@@ -163,7 +164,7 @@ const ValleForm = ({
 
   /**
    * Make Tabs titles
-   * 
+   *
    */
 
   const $tabsTitles = tabs.map((tab, index) => {
@@ -173,7 +174,7 @@ const ValleForm = ({
 
     /**
      * Get the tab error count
-     * 
+     *
      */
 
     const tabIdentifier = makeIdentifier(tab.title, index);
@@ -200,7 +201,7 @@ const ValleForm = ({
 
   /**
    * Make Tabs
-   * 
+   *
    */
 
   const $tabs = tabs.map((tab, index) => {
@@ -215,7 +216,7 @@ const ValleForm = ({
 
         /**
          * Multiple Groups
-         * 
+         *
          */
 
         $rows = tab.groups.map(group => {
@@ -236,6 +237,7 @@ const ValleForm = ({
             tabIdentifier,
             values,
             cleanup,
+            apiUpload,
           );
 
           return (
@@ -263,7 +265,7 @@ const ValleForm = ({
 
         /**
          * Single group
-         * 
+         *
          */
 
         $rows = makeJsxRows(
@@ -282,6 +284,7 @@ const ValleForm = ({
           tabIdentifier,
           values,
           cleanup,
+          apiUpload,
         );
 
       }
@@ -290,7 +293,7 @@ const ValleForm = ({
 
       /**
        * Default rows (Legacy mode)
-       * 
+       *
        */
 
       $rows = makeJsxRows(
@@ -309,6 +312,7 @@ const ValleForm = ({
         tabIdentifier,
         values,
         cleanup,
+        apiUpload,
       );
 
     }
@@ -318,7 +322,7 @@ const ValleForm = ({
 
   /**
    * Remvoe empty rows
-   * 
+   *
    */
 
     const $filteresRows = $rows.filter(row => row !== null);
@@ -340,7 +344,7 @@ const ValleForm = ({
 
   /**
    * Render ValleForm
-   * 
+   *
    */
 
   const rowsDataDone = (tabs.length > 0);
@@ -362,11 +366,11 @@ const ValleForm = ({
         {/* ------- Main ------- */}
 
         { !(tabs.length === 1) ? (
-        
+
           <div className = "valleForm__tabs__titles">
             { $tabsTitles }
           </div>
-        
+
         ) : null }
 
         { $tabs }

@@ -10,9 +10,9 @@ var _isSelect = require('../helpers/isSelect');
 
 var _isSelect2 = _interopRequireDefault(_isSelect);
 
-var _MakeInputField = require('./makeWebcomponents/MakeInputField');
+var _makeInputField = require('./makeWebcomponents/makeInputField');
 
-var _MakeInputField2 = _interopRequireDefault(_MakeInputField);
+var _makeInputField2 = _interopRequireDefault(_makeInputField);
 
 var _makeSelectField = require('./makeWebcomponents/makeSelectField');
 
@@ -25,6 +25,10 @@ var _Textarea2 = _interopRequireDefault(_Textarea);
 var _MarkdownEditor = require('../components/MarkdownEditor');
 
 var _MarkdownEditor2 = _interopRequireDefault(_MarkdownEditor);
+
+var _UploadInput = require('../components/UploadInput');
+
+var _UploadInput2 = _interopRequireDefault(_UploadInput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -43,6 +47,7 @@ exports['default'] = function (rows) {
   var tabIdentifier = arguments[12];
   var values = arguments[13];
   var cleanup = arguments[14];
+  var apiUpload = arguments[15];
   return rows.map(function (row, index) {
 
     var $fields = row.filter(function (field) {
@@ -52,6 +57,29 @@ exports['default'] = function (rows) {
       // --------------
       // Resolve react component
       // --------------
+
+      if (field.element === 'input' && field.type === 'file') {
+
+        // --------------
+        // Custom upload
+        // --------------
+
+        return _react2['default'].createElement(_UploadInput2['default'], {
+          field: field,
+          readOnly: readOnly,
+          editable: editable,
+          token: token,
+          _id: _id,
+          baseApi: baseApi,
+          params: params,
+          setSnackBarStatus: setSnackBarStatus,
+          ValleList: ValleList,
+          $loading: $loading,
+          tabErrorCountControls: tabErrorCountControls,
+          tabIdentifier: tabIdentifier,
+          apiUpload: apiUpload
+        });
+      }
 
       if (field.element === 'textarea') {
 
@@ -86,7 +114,7 @@ exports['default'] = function (rows) {
       // Resolve form webcomponents
       // --------------
 
-      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id, tabErrorCountControls, tabIdentifier) : _react2['default'].createElement(_MakeInputField2['default'], {
+      return (0, _isSelect2['default'])(field.element) ? resolveSelectSize(row, field, readOnly, editable, token, _id, tabErrorCountControls, tabIdentifier) : _react2['default'].createElement(_makeInputField2['default'], {
         field: field,
         readOnly: readOnly,
         editable: editable,
@@ -95,7 +123,6 @@ exports['default'] = function (rows) {
         baseApi: baseApi,
         params: params,
         setSnackBarStatus: setSnackBarStatus,
-        ValleList: ValleList,
         $loading: $loading,
         tabErrorCountControls: tabErrorCountControls,
         tabIdentifier: tabIdentifier

@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -45,6 +47,15 @@ var UploadInput = function UploadInput(_ref) {
       tabIdentifier = _ref.tabIdentifier,
       apiUpload = _ref.apiUpload;
 
+  /**
+   * -----
+   *
+   */
+
+  var _useState = (0, _react.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      pathValue = _useState2[0],
+      setPathValue = _useState2[1];
 
   /**
    * -----
@@ -81,6 +92,7 @@ var UploadInput = function UploadInput(_ref) {
 
       (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload).then(function (data) {
         console.log(data);
+        setPathValue(data.evento.caminho);
       })['catch'](function (error) {
         console.log(error);
       });
@@ -93,39 +105,46 @@ var UploadInput = function UploadInput(_ref) {
     'div',
     null,
     _react2['default'].createElement(
+      'label',
+      null,
+      ' ',
+      field.label,
+      ' '
+    ),
+    _react2['default'].createElement(
       'div',
       null,
-      _react2['default'].createElement(
-        'label',
-        null,
-        ' ',
-        field.label,
-        ' '
-      ),
       _react2['default'].createElement('input', _extends((_extends2 = {
-        'class': 'valleForm__upload-input',
-        type: 'file',
-        value: field.value ? field.value : null
-      }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'data-valle-field', field.id), _defineProperty(_extends2, 'ref', uploadInput), _defineProperty(_extends2, 'id', field.id), _defineProperty(_extends2, 'data-tabidentifier', tabIdentifier), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple))),
+        className: 'valleForm__upload-input',
+        type: 'file'
+      }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'ref', uploadInput), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple))),
       _react2['default'].createElement(
         'button',
         { onClick: startUpload },
         'upload'
+      ),
+      _react2['default'].createElement(
+        'button',
+        null,
+        'cancel'
       )
     ),
     _react2['default'].createElement(
       'div',
       null,
-      _react2['default'].createElement(
-        'span',
-        null,
-        ' progressbar '
-      ),
-      _react2['default'].createElement(
-        'button',
-        null,
-        ' cancel '
-      )
+      'Caminho:',
+      _react2['default'].createElement('input', {
+        className: 'valleForm__upload-input',
+        value: pathValue,
+        'data-valle-field': field.id,
+        id: field.id,
+        'data-tabidentifier': tabIdentifier
+      })
+    ),
+    _react2['default'].createElement(
+      'div',
+      null,
+      'Progresso:'
     ),
     _react2['default'].createElement(
       'span',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import getHash from '../rest/getHash';
 import upload from '../rest/upload';
 import normalizeProp from '../helpers/normalizeProp';
@@ -22,6 +22,13 @@ const UploadInput = ({
   tabIdentifier,
   apiUpload,
 }) => {
+
+  /**
+   * -----
+   *
+   */
+
+  const [pathValue, setPathValue] = useState('');
 
   /**
    * -----
@@ -60,6 +67,7 @@ const UploadInput = ({
         upload(data.evento.hash, currentInput.files, apiUpload.upload)
           .then(data => {
             console.log(data);
+            setPathValue(data.evento.caminho);
           })
           .catch(error => {
             console.log(error);
@@ -75,20 +83,16 @@ const UploadInput = ({
   return (
     <div>
 
+      <label> { field.label } </label>
+
       <div>
 
-        <label> { field.label } </label>
-
         <input
-          class = 'valleForm__upload-input'
+          className = 'valleForm__upload-input'
           type = 'file'
-          value = { field.value ? field.value : null }
           type = { field.type }
           placeholder = { field.placeholder }
-          data-valle-field = { field.id }
           ref = { uploadInput }
-          id = { field.id }
-          data-tabidentifier = { tabIdentifier }
           { ...normalizeProp('multiple', field.upload.multiple) }
         />
 
@@ -96,11 +100,28 @@ const UploadInput = ({
           upload
         </button>
 
+        <button>
+          cancel
+        </button>
+
       </div>
 
       <div>
-        <span> progressbar </span>
-        <button> cancel </button>
+
+        Caminho:
+
+        <input
+          className = 'valleForm__upload-input'
+          value = { pathValue }
+          data-valle-field = { field.id }
+          id = { field.id }
+          data-tabidentifier = { tabIdentifier }
+        />
+
+      </div>
+
+      <div>
+        Progresso:
       </div>
 
       <span> { field.helper_text } </span>

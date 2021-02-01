@@ -41,6 +41,7 @@ export default (
 
         return (
           <UploadInput
+            key = { index }
             field = { field }
             readOnly = { readOnly }
             editable = { editable }

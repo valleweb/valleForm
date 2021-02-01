@@ -65,6 +65,7 @@ exports['default'] = function (rows) {
         // --------------
 
         return _react2['default'].createElement(_UploadInput2['default'], {
+          key: index,
           field: field,
           readOnly: readOnly,
           editable: editable,

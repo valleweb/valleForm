@@ -26,7 +26,10 @@ const upload = (
    */
 
   const formData = new FormData();
-  formData.append('file_1.png', files[0]);
+
+  Array.from(files).forEach(file => {
+    formData.append(file.name, file);
+  });
 
   /**
    * HTTP POST

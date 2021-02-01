@@ -1,6 +1,7 @@
 import React from 'react';
 import getHash from '../rest/getHash';
 import upload from '../rest/upload';
+import normalizeProp from '../helpers/normalizeProp';
 
 /**
  * TODO: Add JSDocs
@@ -88,6 +89,7 @@ const UploadInput = ({
           ref = { uploadInput }
           id = { field.id }
           data-tabidentifier = { tabIdentifier }
+          { ...normalizeProp('multiple', field.upload.multiple) }
         />
 
         <button onClick = { startUpload }>

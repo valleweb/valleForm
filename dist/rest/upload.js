@@ -25,7 +25,10 @@ var upload = function upload(hash, files, api) {
    */
 
   var formData = new FormData();
-  formData.append('file_1.png', files[0]);
+
+  Array.from(files).forEach(function (file) {
+    formData.append(file.name, file);
+  });
 
   /**
    * HTTP POST

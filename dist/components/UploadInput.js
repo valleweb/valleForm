@@ -2,6 +2,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -14,6 +16,10 @@ var _upload = require('../rest/upload');
 
 var _upload2 = _interopRequireDefault(_upload);
 
+var _normalizeProp = require('../helpers/normalizeProp');
+
+var _normalizeProp2 = _interopRequireDefault(_normalizeProp);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -24,7 +30,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  */
 
 var UploadInput = function UploadInput(_ref) {
-  var _React$createElement;
+  var _extends2;
 
   var field = _ref.field,
       readOnly = _ref.readOnly,
@@ -96,11 +102,11 @@ var UploadInput = function UploadInput(_ref) {
         field.label,
         ' '
       ),
-      _react2['default'].createElement('input', (_React$createElement = {
+      _react2['default'].createElement('input', _extends((_extends2 = {
         'class': 'valleForm__upload-input',
         type: 'file',
         value: field.value ? field.value : null
-      }, _defineProperty(_React$createElement, 'type', field.type), _defineProperty(_React$createElement, 'placeholder', field.placeholder), _defineProperty(_React$createElement, 'data-valle-field', field.id), _defineProperty(_React$createElement, 'ref', uploadInput), _defineProperty(_React$createElement, 'id', field.id), _defineProperty(_React$createElement, 'data-tabidentifier', tabIdentifier), _React$createElement)),
+      }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'data-valle-field', field.id), _defineProperty(_extends2, 'ref', uploadInput), _defineProperty(_extends2, 'id', field.id), _defineProperty(_extends2, 'data-tabidentifier', tabIdentifier), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple))),
       _react2['default'].createElement(
         'button',
         { onClick: startUpload },

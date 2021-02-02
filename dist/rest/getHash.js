@@ -16,7 +16,8 @@ var getHash = function getHash(token, params, fieldId, apiRequest) {
   var method = 'POST';
 
   var headers = new Headers({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + String(token)
   });
 
   /**

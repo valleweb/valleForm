@@ -67,6 +67,11 @@ var UploadInput = function UploadInput(_ref) {
       uploadPercent = _useState6[0],
       setUploadPercent = _useState6[1];
 
+  var _useState7 = (0, _react.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      URLStorage = _useState8[0],
+      setURLStorage = _useState8[1];
+
   /**
    * -----
    *
@@ -101,6 +106,13 @@ var UploadInput = function UploadInput(_ref) {
        */
 
       (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload, setPathValue, setUploadPercent, setUploadStatus);
+
+      /**
+       * -----
+       *
+       */
+
+      setURLStorage(data.evento.URL_storage);
     })['catch'](function (error) {
 
       /**
@@ -221,8 +233,8 @@ var UploadInput = function UploadInput(_ref) {
       'excluir'
     ) : null,
     uploadStatus === 'complete' ? _react2['default'].createElement(
-      'button',
-      null,
+      'a',
+      { href: '' + String(URLStorage) + String(pathValue) },
       'Download'
     ) : null,
     _react2['default'].createElement(

@@ -31,6 +31,7 @@ const UploadInput = ({
   const [pathValue, setPathValue] = useState('');
   const [uploadStatus, setUploadStatus] = useState('awaiting-file');
   const [uploadPercent, setUploadPercent] = useState(0);
+  const [URLStorage, setURLStorage] = useState('');
 
   /**
    * -----
@@ -74,6 +75,13 @@ const UploadInput = ({
           setUploadPercent,
           setUploadStatus,
         );
+
+        /**
+         * -----
+         *
+         */
+
+        setURLStorage(data.evento.URL_storage);
 
       })
       .catch(error => {
@@ -230,9 +238,9 @@ const UploadInput = ({
 
       { uploadStatus === 'complete' ? (
 
-        <button>
+        <a href = {`${URLStorage}${pathValue}`}>
           Download
-        </button>
+        </a>
 
       ) : null }
 

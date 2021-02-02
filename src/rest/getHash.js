@@ -18,7 +18,8 @@ const getHash = (
   const method = 'POST';
 
   const headers = new Headers({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
   });
 
   /**

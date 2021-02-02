@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
  *
  */
 
-var upload = function upload(hash, files, api, setPathValue, setUploadPercent) {
+var upload = function upload(hash, files, api, setPathValue, setUploadPercent, setUploadStatus) {
 
   /**
    * Files data structure.
@@ -36,7 +36,8 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent) {
 
   xhr.upload.addEventListener('loadstart', function (e) {
 
-    console.log('Upload: Start request');
+    console.log('Upload: Start');
+    setUploadStatus('start');
   });
 
   /**
@@ -49,6 +50,7 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent) {
     console.log('Upload: Progress');
 
     var percentComplete = e.loaded / e.total * 100;
+    setUploadStatus('progress');
     setUploadPercent(percentComplete);
   });
 
@@ -62,6 +64,8 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent) {
     console.log('Upload: Complete');
 
     var response = JSON.parse(xhr.response);
+
+    setUploadStatus('complete');
     setPathValue(response.evento.caminho);
   });
 
@@ -73,6 +77,7 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent) {
   xhr.addEventListener('error', function (e) {
 
     console.log('Upload: Error');
+    setUploadStatus('error');
     console.log(e);
   });
 
@@ -84,6 +89,7 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent) {
   xhr.addEventListener('abort', function (e) {
 
     console.log('Upload: Abort');
+    setUploadStatus('abort');
     console.log(e);
   });
 

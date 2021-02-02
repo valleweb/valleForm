@@ -57,10 +57,15 @@ var UploadInput = function UploadInput(_ref) {
       pathValue = _useState2[0],
       setPathValue = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(0),
+  var _useState3 = (0, _react.useState)('awaiting-file'),
       _useState4 = _slicedToArray(_useState3, 2),
-      uploadPercent = _useState4[0],
-      setUploadPercent = _useState4[1];
+      uploadStatus = _useState4[0],
+      setUploadStatus = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      uploadPercent = _useState6[0],
+      setUploadPercent = _useState6[1];
 
   /**
    * -----
@@ -95,11 +100,63 @@ var UploadInput = function UploadInput(_ref) {
        *
        */
 
-      (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload, setPathValue, setUploadPercent);
+      (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload, setPathValue, setUploadPercent, setUploadStatus);
     })['catch'](function (error) {
+
+      /**
+       * -----
+       *
+       */
+
       console.log(error);
     });
   };
+
+  /**
+   * -----
+   *
+   */
+
+  var handleUploadInput = function handleUploadInput(e) {
+
+    e.target.value ? setUploadStatus('pre-upload') : setUploadStatus('awaiting-file');
+  };
+
+  /**
+   * -----
+   *
+   */
+
+  var backToCompleteUploadState = function backToCompleteUploadState() {
+
+    setUploadStatus('complete');
+    cleanVisualUploadInput();
+  };
+
+  /**
+   * -----
+   *
+   */
+
+  var cleanUploadInput = function cleanUploadInput() {}
+  // Delete file callback
+
+
+  /**
+   * -----
+   *
+   */
+
+  ;var cleanVisualUploadInput = function cleanVisualUploadInput() {
+
+    var currentInput = uploadInput.current;
+    currentInput.value = '';
+  };
+
+  /**
+   * -----
+   *
+   */
 
   return _react2['default'].createElement(
     'div',
@@ -117,17 +174,22 @@ var UploadInput = function UploadInput(_ref) {
       _react2['default'].createElement('input', _extends((_extends2 = {
         className: 'valleForm__upload-input',
         type: 'file'
-      }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'ref', uploadInput), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple))),
-      _react2['default'].createElement(
+      }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'ref', uploadInput), _defineProperty(_extends2, 'onChange', handleUploadInput), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple), {
+        disabled: uploadStatus === 'progress' || uploadStatus === 'start'
+      })),
+      uploadStatus !== 'complete' ? _react2['default'].createElement(
         'button',
-        { onClick: startUpload },
-        'upload'
-      ),
-      _react2['default'].createElement(
+        {
+          onClick: startUpload,
+          disabled: uploadStatus === 'awaiting-file' || uploadStatus === 'progress' || uploadStatus === 'start'
+        },
+        uploadStatus === 'pre-upload' && uploadPercent === 100 ? 'atualizar arquivo' : 'upload'
+      ) : null,
+      uploadStatus === 'pre-upload' && uploadPercent === 100 ? _react2['default'].createElement(
         'button',
-        null,
-        'cancel'
-      )
+        { onClick: backToCompleteUploadState },
+        'calcelar'
+      ) : null
     ),
     _react2['default'].createElement(
       'div',
@@ -141,12 +203,28 @@ var UploadInput = function UploadInput(_ref) {
         'data-tabidentifier': tabIdentifier
       })
     ),
-    _react2['default'].createElement(
+    uploadStatus !== 'awaiting-file' ? _react2['default'].createElement(
       'div',
       null,
       'Progresso: ',
-      String(uploadPercent) + '%'
-    ),
+      String(uploadPercent) + '%',
+      uploadStatus === 'progress' ? _react2['default'].createElement(
+        'button',
+        null,
+        'cancelar'
+      ) : null
+    ) : null,
+    pathValue ? pathValue : null,
+    uploadStatus === 'complete' ? _react2['default'].createElement(
+      'button',
+      null,
+      'excluir'
+    ) : null,
+    uploadStatus === 'complete' ? _react2['default'].createElement(
+      'button',
+      null,
+      'Download'
+    ) : null,
     _react2['default'].createElement(
       'span',
       null,

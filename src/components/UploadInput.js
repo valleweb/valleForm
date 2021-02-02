@@ -29,6 +29,7 @@ const UploadInput = ({
    */
 
   const [pathValue, setPathValue] = useState('');
+  const [uploadStatus, setUploadStatus] = useState('awaiting-file');
   const [uploadPercent, setUploadPercent] = useState(0);
 
   /**
@@ -71,14 +72,73 @@ const UploadInput = ({
           apiUpload.upload,
           setPathValue,
           setUploadPercent,
+          setUploadStatus,
         );
 
       })
       .catch(error => {
+
+        /**
+         * -----
+         *
+         */
+
         console.log(error);
+
       });
 
   }
+
+  /**
+   * -----
+   *
+   */
+
+  const handleUploadInput = e => {
+
+    e.target.value
+      ? setUploadStatus('pre-upload')
+      : setUploadStatus('awaiting-file')
+
+  }
+
+  /**
+   * -----
+   *
+   */
+
+  const backToCompleteUploadState = () => {
+
+    setUploadStatus('complete');
+    cleanVisualUploadInput();
+
+  }
+
+  /**
+   * -----
+   *
+   */
+
+  const cleanUploadInput = () => {
+    // Delete file callback
+  }
+
+  /**
+   * -----
+   *
+   */
+
+  const cleanVisualUploadInput = () => {
+
+    const currentInput = uploadInput.current;
+    currentInput.value = '';
+
+  }
+
+  /**
+   * -----
+   *
+   */
 
   return (
     <div>
@@ -93,16 +153,36 @@ const UploadInput = ({
           type = { field.type }
           placeholder = { field.placeholder }
           ref = { uploadInput }
+          onChange = { handleUploadInput }
           { ...normalizeProp('multiple', field.upload.multiple) }
+          disabled = { (uploadStatus === 'progress') || (uploadStatus === 'start') }
         />
 
-        <button onClick = { startUpload }>
-          upload
-        </button>
+        { uploadStatus !== 'complete' ? (
 
-        <button>
-          cancel
-        </button>
+          <button
+            onClick = { startUpload }
+            disabled = { (uploadStatus === 'awaiting-file') || (uploadStatus === 'progress') || (uploadStatus === 'start')}
+          >
+
+            {
+              (uploadStatus === 'pre-upload' && uploadPercent === 100)
+                ? 'atualizar arquivo'
+                : 'upload'
+            }
+
+          </button>
+
+        ) : null }
+
+
+        { uploadStatus === 'pre-upload' && uploadPercent === 100 ? (
+
+          <button onClick = { backToCompleteUploadState }>
+            calcelar
+          </button>
+
+        ) : null }
 
       </div>
 
@@ -120,9 +200,41 @@ const UploadInput = ({
 
       </div>
 
-      <div>
-        Progresso: { `${uploadPercent}%` }
-      </div>
+      { uploadStatus !== 'awaiting-file' ? (
+
+        <div>
+
+          Progresso: { `${uploadPercent}%` }
+
+          { uploadStatus === 'progress' ? (
+
+            <button>
+              cancelar
+            </button>
+
+          ) : null }
+
+        </div>
+
+      ) : null }
+
+      { pathValue ? pathValue : null }
+
+      { uploadStatus === 'complete' ? (
+
+        <button>
+          excluir
+        </button>
+
+      ) : null }
+
+      { uploadStatus === 'complete' ? (
+
+        <button>
+          Download
+        </button>
+
+      ) : null }
 
       <span> { field.helper_text } </span>
       <span> { field.error_text } </span>

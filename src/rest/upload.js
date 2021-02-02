@@ -9,6 +9,7 @@ const upload = (
   api,
   setPathValue,
   setUploadPercent,
+  setUploadStatus,
 ) => {
 
   /**
@@ -40,6 +41,7 @@ const upload = (
   xhr.upload.addEventListener('loadstart', e => {
 
     console.log('Upload: Start');
+    setUploadStatus('start');
 
   });
 
@@ -53,6 +55,7 @@ const upload = (
     console.log('Upload: Progress');
 
     let percentComplete = (e.loaded / e.total) * 100;
+    setUploadStatus('progress');
     setUploadPercent(percentComplete);
 
   });
@@ -67,6 +70,8 @@ const upload = (
     console.log('Upload: Complete');
 
     const response = JSON.parse(xhr.response);
+
+    setUploadStatus('complete');
     setPathValue(response.evento.caminho);
 
   });
@@ -79,6 +84,7 @@ const upload = (
   xhr.addEventListener('error', e => {
 
     console.log('Upload: Error');
+    setUploadStatus('error');
     console.log(e);
 
   });
@@ -91,6 +97,7 @@ const upload = (
   xhr.addEventListener('abort', e => {
 
     console.log('Upload: Abort');
+    setUploadStatus('abort');
     console.log(e);
 
   });

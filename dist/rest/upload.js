@@ -6,21 +6,10 @@ Object.defineProperty(exports, "__esModule", {
  *
  */
 
-var upload = function upload(hash, files, api) {
+var upload = function upload(hash, files, api, setPathValue, setUploadPercent) {
 
   /**
-   * HTTP POST
-   *
-   */
-
-  var method = 'POST';
-
-  var headers = new Headers({
-    'hash': hash
-  });
-
-  /**
-   * Request data structure
+   * Files data structure.
    *
    */
 
@@ -31,13 +20,79 @@ var upload = function upload(hash, files, api) {
   });
 
   /**
-   * HTTP POST
+   * Ajax configs
    *
    */
 
-  return fetch(api, { method: method, headers: headers, body: formData }).then(function (res) {
-    return res.json();
+  var xhr = new XMLHttpRequest();
+
+  xhr.open('post', api, true);
+  xhr.setRequestHeader('hash', hash);
+
+  /**
+   * Start request
+   *
+   */
+
+  xhr.upload.addEventListener('loadstart', function (e) {
+
+    console.log('Upload: Start request');
   });
+
+  /**
+   * Upload progress
+   *
+   */
+
+  xhr.addEventListener('progress', function (e) {
+
+    console.log('Upload: Progress');
+
+    var percentComplete = e.loaded / e.total * 100;
+    setUploadPercent(percentComplete);
+  });
+
+  /**
+   * Complete request
+   *
+   */
+
+  xhr.addEventListener('load', function () {
+
+    console.log('Upload: Complete');
+
+    var response = JSON.parse(xhr.response);
+    setPathValue(response.evento.caminho);
+  });
+
+  /**
+   * Request error
+   *
+   */
+
+  xhr.addEventListener('error', function (e) {
+
+    console.log('Upload: Error');
+    console.log(e);
+  });
+
+  /**
+   * Aborted request
+   *
+   */
+
+  xhr.addEventListener('abort', function (e) {
+
+    console.log('Upload: Abort');
+    console.log(e);
+  });
+
+  /**
+   * Send request
+   *
+   */
+
+  xhr.send(formData);
 };
 
 exports['default'] = upload;

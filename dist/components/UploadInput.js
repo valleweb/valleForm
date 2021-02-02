@@ -57,6 +57,11 @@ var UploadInput = function UploadInput(_ref) {
       pathValue = _useState2[0],
       setPathValue = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      uploadPercent = _useState4[0],
+      setUploadPercent = _useState4[1];
+
   /**
    * -----
    *
@@ -90,12 +95,7 @@ var UploadInput = function UploadInput(_ref) {
        *
        */
 
-      (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload).then(function (data) {
-        console.log(data);
-        setPathValue(data.evento.caminho);
-      })['catch'](function (error) {
-        console.log(error);
-      });
+      (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload, setPathValue, setUploadPercent);
     })['catch'](function (error) {
       console.log(error);
     });
@@ -144,7 +144,8 @@ var UploadInput = function UploadInput(_ref) {
     _react2['default'].createElement(
       'div',
       null,
-      'Progresso:'
+      'Progresso: ',
+      String(uploadPercent) + '%'
     ),
     _react2['default'].createElement(
       'span',

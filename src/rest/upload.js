@@ -7,21 +7,12 @@ const upload = (
   hash,
   files,
   api,
+  setPathValue,
+  setUploadPercent,
 ) => {
 
   /**
-   * HTTP POST
-   *
-   */
-
-  const method = 'POST';
-
-  const headers = new Headers({
-    'hash': hash
-  });
-
-  /**
-   * Request data structure
+   * Files data structure.
    *
    */
 
@@ -32,12 +23,84 @@ const upload = (
   });
 
   /**
-   * HTTP POST
+   * Ajax configs
    *
    */
 
-  return fetch(api, { method, headers, body: formData })
-    .then(res => res.json())
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('post', api, true);
+  xhr.setRequestHeader('hash', hash);
+
+  /**
+   * Start request
+   *
+   */
+
+  xhr.upload.addEventListener('loadstart', e => {
+
+    console.log('Upload: Start');
+
+  });
+
+  /**
+   * Upload progress
+   *
+   */
+
+  xhr.addEventListener('progress', e => {
+
+    console.log('Upload: Progress');
+
+    let percentComplete = (e.loaded / e.total) * 100;
+    setUploadPercent(percentComplete);
+
+  });
+
+  /**
+   * Complete request
+   *
+   */
+
+  xhr.addEventListener('load', () => {
+
+    console.log('Upload: Complete');
+
+    const response = JSON.parse(xhr.response);
+    setPathValue(response.evento.caminho);
+
+  });
+
+  /**
+   * Request error
+   *
+   */
+
+  xhr.addEventListener('error', e => {
+
+    console.log('Upload: Error');
+    console.log(e);
+
+  });
+
+  /**
+   * Aborted request
+   *
+   */
+
+  xhr.addEventListener('abort', e => {
+
+    console.log('Upload: Abort');
+    console.log(e);
+
+  });
+
+  /**
+   * Send request
+   *
+   */
+
+  xhr.send(formData);
 
 }
 

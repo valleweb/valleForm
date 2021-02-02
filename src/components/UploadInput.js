@@ -29,6 +29,7 @@ const UploadInput = ({
    */
 
   const [pathValue, setPathValue] = useState('');
+  const [uploadPercent, setUploadPercent] = useState(0);
 
   /**
    * -----
@@ -64,14 +65,13 @@ const UploadInput = ({
          *
          */
 
-        upload(data.evento.hash, currentInput.files, apiUpload.upload)
-          .then(data => {
-            console.log(data);
-            setPathValue(data.evento.caminho);
-          })
-          .catch(error => {
-            console.log(error);
-          });
+        upload(
+          data.evento.hash,
+          currentInput.files,
+          apiUpload.upload,
+          setPathValue,
+          setUploadPercent,
+        );
 
       })
       .catch(error => {
@@ -121,7 +121,7 @@ const UploadInput = ({
       </div>
 
       <div>
-        Progresso:
+        Progresso: { `${uploadPercent}%` }
       </div>
 
       <span> { field.helper_text } </span>

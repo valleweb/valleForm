@@ -172,81 +172,121 @@ var UploadInput = function UploadInput(_ref) {
 
   return _react2['default'].createElement(
     'div',
-    null,
-    _react2['default'].createElement(
-      'label',
-      null,
-      ' ',
-      field.label,
-      ' '
-    ),
+    { className: 'valleForm__upload' },
     _react2['default'].createElement(
       'div',
-      null,
+      { className: 'valleForm__upload__select-file' },
       _react2['default'].createElement('input', _extends((_extends2 = {
-        className: 'valleForm__upload-input',
+        className: 'valleForm__upload__input',
         type: 'file'
       }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'ref', uploadInput), _defineProperty(_extends2, 'onChange', handleUploadInput), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple), {
         disabled: uploadStatus === 'progress' || uploadStatus === 'start'
       })),
+      _react2['default'].createElement(
+        'label',
+        { className: 'valleForm__upload__label' },
+        ' ',
+        field.label,
+        ' '
+      ),
       uploadStatus !== 'complete' ? _react2['default'].createElement(
         'button',
         {
           onClick: startUpload,
-          disabled: uploadStatus === 'awaiting-file' || uploadStatus === 'progress' || uploadStatus === 'start'
+          disabled: uploadStatus === 'awaiting-file' || uploadStatus === 'progress' || uploadStatus === 'start',
+          className: 'valleForm__upload__button valleForm__upload__button--add'
         },
+        _react2['default'].createElement(
+          'svg',
+          { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
+          _react2['default'].createElement('path', { d: 'M8 10h-5l9-10 9 10h-5v10h-8v-10zm11 9v3h-14v-3h-2v5h18v-5h-2z' })
+        ),
         uploadStatus === 'pre-upload' && uploadPercent === 100 ? 'atualizar arquivo' : 'upload'
       ) : null,
       uploadStatus === 'pre-upload' && uploadPercent === 100 ? _react2['default'].createElement(
         'button',
-        { onClick: backToCompleteUploadState },
-        'calcelar'
+        {
+          onClick: backToCompleteUploadState,
+          className: 'valleForm__upload__button valleForm__upload__button--cancel'
+        },
+        _react2['default'].createElement(
+          'svg',
+          { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
+          _react2['default'].createElement('path', { d: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z', fill: '#fff' }),
+          _react2['default'].createElement('path', { d: 'M0 0h24v24H0z', fill: 'none' })
+        ),
+        'Cancelar'
       ) : null
     ),
-    _react2['default'].createElement(
-      'div',
-      null,
-      'Caminho:',
-      _react2['default'].createElement('input', {
-        className: 'valleForm__upload-input',
-        value: pathValue,
-        'data-valle-field': field.id,
-        id: field.id,
-        'data-tabidentifier': tabIdentifier
-      })
-    ),
+    _react2['default'].createElement('input', {
+      className: 'visual-hidden',
+      value: pathValue,
+      'data-valle-field': field.id,
+      id: field.id,
+      'data-tabidentifier': tabIdentifier
+    }),
     uploadStatus !== 'awaiting-file' ? _react2['default'].createElement(
       'div',
-      null,
-      'Progresso: ',
-      String(uploadPercent) + '%',
+      { className: 'valleForm__upload__progress' },
+      _react2['default'].createElement(
+        'div',
+        { className: 'valleForm__upload__progress__bar', style: { '--progress': String(uploadPercent) + '%' } },
+        _react2['default'].createElement(
+          'span',
+          { className: 'valleForm__upload__progress__percent' },
+          String(uploadPercent) + '%'
+        )
+      ),
       uploadStatus === 'progress' ? _react2['default'].createElement(
         'button',
-        null,
+        { className: 'valleForm__upload__button valleForm__upload__button--cancel' },
         'cancelar'
       ) : null
     ) : null,
-    pathValue ? pathValue : null,
-    uploadStatus === 'complete' ? _react2['default'].createElement(
-      'button',
-      null,
-      'excluir'
-    ) : null,
-    uploadStatus === 'complete' ? _react2['default'].createElement(
-      'a',
-      { href: '' + String(URLStorage) + String(pathValue) },
-      'Download'
-    ) : null,
+    _react2['default'].createElement(
+      'div',
+      { className: 'valleForm__upload__file-infos' },
+      _react2['default'].createElement(
+        'div',
+        { className: 'valleForm__upload__file-name' },
+        pathValue ? pathValue : null
+      ),
+      uploadStatus === 'complete' ? _react2['default'].createElement(
+        'button',
+        { className: 'valleForm__upload__button valleForm__upload__button--cancel' },
+        _react2['default'].createElement(
+          'svg',
+          { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
+          _react2['default'].createElement('path', { fill: 'none', d: 'M0 0h24v24H0V0z' }),
+          _react2['default'].createElement('path', { d: 'M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z', fill: '#fff' }),
+          _react2['default'].createElement('path', { fill: 'none', d: 'M0 0h24v24H0z' })
+        ),
+        'Excluir'
+      ) : null,
+      uploadStatus === 'complete' ? _react2['default'].createElement(
+        'a',
+        {
+          href: '' + String(URLStorage) + String(pathValue),
+          className: 'valleForm__upload__button'
+        },
+        _react2['default'].createElement(
+          'svg',
+          { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24' },
+          _react2['default'].createElement('path', { d: 'M12 21l-8-9h6v-12h4v12h6l-8 9zm9-1v2h-18v-2h-2v4h22v-4h-2z' })
+        ),
+        'Baixar'
+      ) : null
+    ),
     _react2['default'].createElement(
       'span',
-      null,
+      { className: 'valleForm__upload__helper-text' },
       ' ',
       field.helper_text,
       ' '
     ),
     _react2['default'].createElement(
       'span',
-      null,
+      { className: 'valleForm__upload__error-text' },
       ' ',
       field.error_text,
       ' '

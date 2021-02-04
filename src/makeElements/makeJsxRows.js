@@ -110,6 +110,7 @@ export default (
               baseApi = { baseApi }
               params = { params }
               setSnackBarStatus = { setSnackBarStatus }
+              ValleList = { ValleList }
               $loading = { $loading }
               tabErrorCountControls = { tabErrorCountControls }
               tabIdentifier = { tabIdentifier }

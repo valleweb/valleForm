@@ -124,6 +124,7 @@ exports['default'] = function (rows) {
         baseApi: baseApi,
         params: params,
         setSnackBarStatus: setSnackBarStatus,
+        ValleList: ValleList,
         $loading: $loading,
         tabErrorCountControls: tabErrorCountControls,
         tabIdentifier: tabIdentifier

@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 /**
  * TODO: Add JSDocs.
- * 
+ *
  */
 
 var Modal = function Modal(_ref) {

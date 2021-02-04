@@ -1167,10 +1167,14 @@
   overflow: hidden;
 }
 
+.valleForm__upload__progress__error {
+  background: #ff5582;
+}
+
 .valleForm__upload__progress__percent {
   position: relative;
   z-index: 2;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 14px;
 }
 
@@ -1190,6 +1194,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  /* min-height: 34px; */
   /* border: 1px solid red; */
 }
 
@@ -1208,7 +1213,7 @@
   justify-content: center;
   align-items: center;
   margin-left: 4px;
-  padding: 8px;
+  padding: 4px 6px;
   color: #fff;
   border: 1px solid rgba(0,0,0,.1);
   border-radius: 3px;
@@ -1224,6 +1229,10 @@
   fill: #fff;
   width: 16px;
   margin-right: 4px;
+}
+
+.valleForm__upload__button svg.valleForm__upload__button__icon {
+  width: 12px;
 }
 
 .valleForm__upload__button:hover {
@@ -1267,9 +1276,9 @@
 }
 
 .valleForm__upload__button--edit {
-  background: var(--editColor, #ff6a00);
+  background: var(--editColor, #ff964b);
 }
 
 .valleForm__upload__button--cancel {
-  background: var(--cancelColor, #ff0043);
+  background: var(--cancelColor, #ff5582);
 }

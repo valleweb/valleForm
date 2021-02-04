@@ -10,6 +10,7 @@ const upload = (
   setPathValue,
   setUploadPercent,
   setUploadStatus,
+  setSnackBarStatus,
 ) => {
 
   /**
@@ -70,6 +71,37 @@ const upload = (
     console.log('Upload: Complete');
 
     const response = JSON.parse(xhr.response);
+
+    /**
+     * Response error
+     *
+     */
+
+    if (xhr.status !== 200) {
+
+      console.log('Upload: Complete - error');
+      setUploadStatus('error');
+      setUploadPercent(0);
+
+      if(response.evento.mensagem) {
+
+        setSnackBarStatus({
+          show: true,
+          text: response.evento.mensagem,
+          type: 'error',
+        });
+
+      }
+
+      return;
+    }
+
+    /**
+     * Response OK
+     *
+     */
+
+    console.log('Upload: Complete - success');
 
     setUploadStatus('complete');
     setPathValue(response.evento.caminho);

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
  *
  */
 
-var upload = function upload(hash, files, api, setPathValue, setUploadPercent, setUploadStatus) {
+var upload = function upload(hash, files, api, setPathValue, setUploadPercent, setUploadStatus, setSnackBarStatus) {
 
   /**
    * Files data structure.
@@ -64,6 +64,36 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent, s
     console.log('Upload: Complete');
 
     var response = JSON.parse(xhr.response);
+
+    /**
+     * Response error
+     *
+     */
+
+    if (xhr.status !== 200) {
+
+      console.log('Upload: Complete - error');
+      setUploadStatus('error');
+      setUploadPercent(0);
+
+      if (response.evento.mensagem) {
+
+        setSnackBarStatus({
+          show: true,
+          text: response.evento.mensagem,
+          type: 'error'
+        });
+      }
+
+      return;
+    }
+
+    /**
+     * Response OK
+     *
+     */
+
+    console.log('Upload: Complete - success');
 
     setUploadStatus('complete');
     setPathValue(response.evento.caminho);

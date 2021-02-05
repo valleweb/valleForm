@@ -126,7 +126,8 @@ var Textarea = function Textarea(_ref) {
         'data-valle-required': field.required,
         'data-tabidentifier': tabIdentifier,
         onChange: onChange,
-        onScroll: onScroll
+        onScroll: onScroll,
+        'data-has-default-value': field.value ? true : null
       },
       field.value ? field.value : null
     ),

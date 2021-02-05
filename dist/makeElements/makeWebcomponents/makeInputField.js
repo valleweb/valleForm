@@ -57,7 +57,7 @@ exports['default'] = function (_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   var _useState = (0, _react.useState)(null),
@@ -72,7 +72,7 @@ exports['default'] = function (_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   var validadeField = function validadeField(field, action) {
@@ -81,7 +81,7 @@ exports['default'] = function (_ref) {
 
   /**
    * Verify editable mode
-   * 
+   *
    */
 
   var isDisabled = void 0;
@@ -94,14 +94,14 @@ exports['default'] = function (_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   var customDescriptionStyle = field.label == 'Descrição' ? 'valleForm__input--description' : '';
 
   /**
    * Find current action
-   * 
+   *
    */
 
   var is_exists_blur = void 0;
@@ -120,7 +120,7 @@ exports['default'] = function (_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   return _react2['default'].createElement(
@@ -131,6 +131,7 @@ exports['default'] = function (_ref) {
     },
     _react2['default'].createElement('valle-input', _extends({
       value: field.value ? field.value : null,
+      'data-has-default-value': field.value ? true : null,
       'class': 'valleForm__input ' + customDescriptionStyle,
       type: field.type,
       label: field.label,
@@ -149,7 +150,7 @@ exports['default'] = function (_ref) {
 
           /**
            * -----
-           * 
+           *
            */
 
           var currentElement = e.target; // Save the element reference

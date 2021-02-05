@@ -55,14 +55,15 @@ exports['default'] = function (field) {
       tooltip: field.description,
       tooltippos: 'top-right',
       tooltiplength: 'large',
-      'data-tabidentifier': tabIdentifier
+      'data-tabidentifier': tabIdentifier,
+      'data-has-default-value': field.value ? true : null
     }, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled), {
       onBlur: function () {
         function onBlur(e) {
 
           /**
            * -----
-           * 
+           *
            */
 
           var currentElement = e.target; // Save the element reference

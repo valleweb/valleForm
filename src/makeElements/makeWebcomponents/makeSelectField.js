@@ -35,13 +35,14 @@ export default (
       tooltippos = 'top-right'
       tooltiplength = 'large'
       data-tabidentifier = { tabIdentifier }
+      data-has-default-value = { field.value ? true : null }
       { ...normalizeRequired(field.required) }
       { ...normalizeReadOnly(isDisabled) }
       onBlur = { e => {
 
         /**
          * -----
-         * 
+         *
          */
 
         const currentElement = e.target; // Save the element reference

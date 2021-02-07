@@ -1,13 +1,14 @@
 import React from 'react';
 import isSelect from '../helpers/isSelect';
-import MakeInputField from './makeWebcomponents/MakeInputField';
+import MakeInputField from './makeWebcomponents/makeInputField';
 import makeSelectField from './makeWebcomponents/makeSelectField';
 import Textarea from '../components/Textarea';
 import MarkdownEditor from '../components/MarkdownEditor';
+import UploadInput from '../components/UploadInput';
 
 export default (
-  rows, 
-  filterByVisibleScreen = false, 
+  rows,
+  filterByVisibleScreen = false,
   readOnly = false,
   editable,
   token,
@@ -21,6 +22,7 @@ export default (
   tabIdentifier,
   values,
   cleanup,
+  apiUpload,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -30,6 +32,33 @@ export default (
       // --------------
       // Resolve react component
       // --------------
+
+      if(field.element === 'input' && field.type === 'file') {
+
+        // --------------
+        // Custom upload
+        // --------------
+
+        return (
+          <UploadInput
+            key = { index }
+            field = { field }
+            readOnly = { readOnly }
+            editable = { editable }
+            token = { token }
+            _id = { _id }
+            baseApi = { baseApi }
+            params = { params }
+            setSnackBarStatus = { setSnackBarStatus }
+            ValleList = { ValleList }
+            $loading = { $loading }
+            tabErrorCountControls = { tabErrorCountControls }
+            tabIdentifier = { tabIdentifier }
+            apiUpload = { apiUpload }
+          />
+        );
+
+      }
 
       if(field.element === 'textarea') {
 
@@ -69,10 +98,10 @@ export default (
       // Resolve form webcomponents
       // --------------
 
-      return isSelect(field.element) 
+      return isSelect(field.element)
         ? resolveSelectSize(row, field, readOnly, editable, token, _id, tabErrorCountControls, tabIdentifier)
         : (
-            <MakeInputField 
+            <MakeInputField
               field = { field }
               readOnly = { readOnly }
               editable = { editable }

@@ -34,14 +34,14 @@ const Textarea = ({
   useEffect(() => {
 
     const textArea = textAreaRef.current;
-    (textArea.dataset.valleError === 'true') ? setErr(true) : setErr(false) 
+    (textArea.dataset.valleError === 'true') ? setErr(true) : setErr(false);
 
   });
 
   // --------------
   // Custom UI
   // -------------
-      
+
   const errorStyle = err ? 'valleForm__textarea--error' : '';
   const disabledStyle = isDisabled ? 'valleForm__textarea--disabled' : '';
 
@@ -117,6 +117,7 @@ const Textarea = ({
         data-tabidentifier = { tabIdentifier }
         onChange = { onChange }
         onScroll = { onScroll }
+        data-has-default-value = { field.value ? true : null }
       >
         { field.value ? field.value : null }
       </textarea>

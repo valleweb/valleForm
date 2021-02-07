@@ -14,7 +14,9 @@ export default (_id, setCleanup) => {
     field.removeAttribute('error');
     field.removeAttribute('data-valle-error');
 
-    field.value = '';
+    if(!field.dataset.hasDefaultValue) {
+      field.value = '';
+    }
 
   });
 

@@ -24,7 +24,7 @@ export default ({
 
   /**
    * -----
-   * 
+   *
    */
 
   const [ modalData, setModalData ] = useState(null);
@@ -32,7 +32,7 @@ export default ({
 
   /**
    * -----
-   * 
+   *
    */
 
   const validadeField = (field, action) => {
@@ -51,7 +51,7 @@ export default ({
 
   /**
    * Verify editable mode
-   * 
+   *
    */
 
   let isDisabled;
@@ -64,7 +64,7 @@ export default ({
 
   /**
    * -----
-   * 
+   *
    */
 
   const customDescriptionStyle = (field.label == 'Descrição')
@@ -73,7 +73,7 @@ export default ({
 
   /**
    * Find current action
-   * 
+   *
    */
 
   let is_exists_blur;
@@ -93,7 +93,7 @@ export default ({
 
   /**
    * -----
-   * 
+   *
    */
 
   return (
@@ -104,6 +104,7 @@ export default ({
 
       <valle-input
         value = { field.value ? field.value : null }
+        data-has-default-value = { field.value ? true : null }
         class = { `valleForm__input ${customDescriptionStyle}` }
         type = { field.type }
         label = { field.label }
@@ -121,7 +122,7 @@ export default ({
 
           /**
            * -----
-           * 
+           *
            */
 
           const currentElement = e.target; // Save the element reference

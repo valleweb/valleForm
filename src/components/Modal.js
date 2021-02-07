@@ -3,7 +3,7 @@ import addFieldsValues from '../fieldsControl/addFieldsValues';
 
 /**
  * TODO: Add JSDocs.
- * 
+ *
  */
 
 const Modal = ({
@@ -81,7 +81,7 @@ const Modal = ({
 
         { /**
           * Heading.
-          * 
+          *
           */ }
 
         <div className = 'valleForm__modal__head'>
@@ -141,9 +141,9 @@ const Modal = ({
             />
 
           ) : $loading }
-  
+
         </div>
-  
+
       </valle-card>
 
     </div>

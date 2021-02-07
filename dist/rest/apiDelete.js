@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-        value: true
+  value: true
 });
 
 var _cleanFields = require('../fieldsControl/cleanFields');
@@ -14,98 +14,98 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  */
 
 var apiDelete = function apiDelete(baseApi, canonicalApi) {
-        var customParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-        var _id = arguments[3];
-        var feedbackCb = arguments[4];
-        var newCB = arguments[5];
-        var token = arguments[6];
-        var closeSpeedDial = arguments[7];
-        var updateValleList = arguments[8];
+  var customParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var _id = arguments[3];
+  var feedbackCb = arguments[4];
+  var newCB = arguments[5];
+  var token = arguments[6];
+  var closeSpeedDial = arguments[7];
+  var updateValleList = arguments[8];
 
 
-        /**
-         * API url
-         * 
-         */
+  /**
+   * API url
+   * 
+   */
 
-        var apiPath = '' + String(baseApi) + String(canonicalApi);
+  var apiPath = '' + String(baseApi) + String(canonicalApi);
 
-        /**
-         * Request configs
-         * 
-         */
+  /**
+   * Request configs
+   * 
+   */
 
-        var method = 'DELETE';
+  var method = 'DELETE';
 
-        var headers = new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(token)
-        });
+  var headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + String(token)
+  });
 
-        /**
-         * Resquest data structure
-         * 
-         */
+  /**
+   * Resquest data structure
+   * 
+   */
 
-        var body = JSON.stringify({
-                evento: Object.assign({}, customParams, {
-                        action: 'delete',
-                        dados: null
-                })
-        });
+  var body = JSON.stringify({
+    evento: Object.assign({}, customParams, {
+      action: 'delete',
+      dados: null
+    })
+  });
 
-        /**
-         * HTTP DELETE
-         * 
-         */
+  /**
+   * HTTP DELETE
+   * 
+   */
 
-        closeSpeedDial();
+  closeSpeedDial();
 
-        fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
-                return res.json();
-        }).then(function (data) {
+  fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
+    return res.json();
+  }).then(function (data) {
 
-                /**
-                 * Request success
-                 * 
-                 */
+    /**
+     * Request success
+     * 
+     */
 
-                feedbackCb(data.evento.mensagem, 'success');
-                newCB();
+    feedbackCb(data.evento.mensagem, 'success');
+    newCB();
 
-                /**
-                 * Update ValleList
-                 * 
-                 */
+    /**
+     * Update ValleList
+     * 
+     */
 
-                if (updateValleList) {
+    if (updateValleList) {
 
-                        var columns = [];
+      var columns = [];
 
-                        if (updateValleList.listData.list.columns) {
+      if (updateValleList.listData.list.columns) {
 
-                                console.log('Update vallelist with filters:');
-                                console.log(updateValleList.listData.list.columns);
+        console.log('Update vallelist with filters:');
+        console.log(updateValleList.listData.list.columns);
 
-                                columns = updateValleList.listData.list.columns;
-                        } else {
+        columns = updateValleList.listData.list.columns;
+      } else {
 
-                                console.log('Update vallelist');
-                        }
+        console.log('Update vallelist');
+      }
 
-                        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, null, null);
-                }
-        })['catch'](function (err) {
+      updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, null, null);
+    }
+  })['catch'](function (err) {
 
-                /**
-                 * Request error
-                 * 
-                 */
+    /**
+     * Request error
+     * 
+     */
 
-                console.log(err);
+    console.log(err);
 
-                feedbackCb('Erro interno no servidor', 'error');
-        });
+    feedbackCb('Erro interno no servidor', 'error');
+  });
 };
 
 exports['default'] = apiDelete;

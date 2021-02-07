@@ -37,7 +37,7 @@
 
 .valleForm__tabs__title:hover {
   cursor: pointer;
-  color: var(--highlight-color, rgb(5, 159, 183)); 
+  color: var(--highlight-color, rgb(5, 159, 183));
 }
 
 .valleForm__tabs__title:focus {
@@ -942,7 +942,7 @@
 }
 
 [aria-label][data-balloon-pos][data-balloon-break]:after {
-  white-space: pre; 
+  white-space: pre;
 }
 
 [aria-label][data-balloon-pos][data-balloon-break][data-balloon-length]:after {
@@ -1092,4 +1092,193 @@
 
 [aria-label][data-balloon-pos][data-balloon-length="fit"]:after {
   width: 100%;
+}
+
+/* ------- Upload ------- */
+
+.valleForm__upload {
+  border: 0;
+  box-sizing: border-box;
+  border: 2px solid var(--valle-input-border-color, rgb(166, 166, 166));
+  color: rgba(0, 0, 0, .87);
+  font-family: 'Roboto', sans-serif;
+  display: block;
+  font-size: 16px;
+  outline: 0;
+  width: 100%;
+  border-radius: 4px;
+  transition: border-color .1s linear;
+  margin: 29px 5px 0 5px;
+  padding: 16px 12px 16px 16px;
+  position: relative;
+  color: rgba(0,0,0,.54);
+}
+
+.valleForm__upload:hover {
+  border-color: #000;
+}
+
+/* .valleForm__upload:focus {
+  border-color: var(--valle-input-color, rgb(5, 159, 183));
+} */
+
+.valleForm__upload__label {
+  color: rgba(0, 0, 0, .54);
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  position: absolute;
+  transition: color .1s linear;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 0 4px;
+}
+
+.valleForm__upload__select-file {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* background: #ececec; */
+  padding: 8px;
+  border-radius: 4px;
+  /* border: 1px solid red; */
+  height: 58px;
+}
+
+.valleForm__upload__input {
+  margin-right: auto;
+}
+
+.valleForm__upload__progress {
+  box-sizing: border-box;
+  padding: 16px 0;
+  /* border: 1px solid red; */
+}
+
+.valleForm__upload__progress__bar {
+  background: #ececec;
+  border-radius: 4px;
+  text-align: center;
+  padding: 4px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.valleForm__upload__progress__error {
+  background: #ff5582;
+}
+
+.valleForm__upload__progress__percent {
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.valleForm__upload__progress__bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #b7f25f;
+  width: var(--progress);
+  height: 100%;
+  transition: width .1s;
+}
+
+.valleForm__upload__file-infos {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* min-height: 34px; */
+  /* border: 1px solid red; */
+}
+
+.valleForm__upload__file-name {
+  box-sizing: border-box;
+  margin-right: auto;
+  font-size: 14px;
+  color: rgba(0, 0, 0, .54);
+}
+
+
+.valleForm__upload__button {
+  font-size: 12px;
+  font-weight: 400;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+  padding: 4px 6px;
+  color: #fff;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 3px;
+  background-color: var(--highlight-color);
+  text-transform: uppercase;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.valleForm__upload__button svg {
+  fill: #fff;
+  width: 16px;
+  margin-right: 4px;
+}
+
+.valleForm__upload__button svg.valleForm__upload__button__icon {
+  width: 12px;
+}
+
+.valleForm__upload__button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.1));
+}
+
+.valleForm__upload__button:active {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.1));
+}
+
+.valleForm__upload__button:focus {
+  outline: none;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+              0 1px 10px 0 rgba(0, 0, 0, 0.12),
+              0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+
+.valleForm__upload__button[disabled] {
+  color: #979797;
+  background: #e1e1e1;
+  opacity: .7;
+}
+
+.valleForm__upload__button[disabled] svg {
+  fill: #979797;
+}
+
+.valleForm__upload__button[disabled]:hover {
+  cursor: auto;
+  background-image: none;
+  cursor: not-allowed;
+}
+
+.valleForm__upload__button[disabled]:active {
+  background-image: none;
+}
+
+.valleForm__upload__button--add {
+  background: var(--addColor, #7bcc02);
+}
+
+.valleForm__upload__button--edit {
+  background: var(--editColor, #ff964b);
+}
+
+.valleForm__upload__button--cancel {
+  background: var(--cancelColor, #ff5582);
 }

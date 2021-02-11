@@ -14,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 var apiCreate = function apiCreate(baseApi, canonicalApi) {
@@ -30,7 +30,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
   /**
    * Get all form values
-   * 
+   *
    */
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
@@ -39,14 +39,14 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
     /**
      * API url
-     * 
+     *
      */
 
     var apiPath = '' + String(baseApi) + String(canonicalApi);
 
     /**
      * Request configs
-     * 
+     *
      */
 
     var method = 'POST';
@@ -57,8 +57,8 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
     });
 
     /**
-     * Resquest data structure
-     * 
+     * Request data structure
+     *
      */
 
     var body = JSON.stringify({
@@ -69,7 +69,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
     /**
      * HTTP POST
-     * 
+     *
      */
 
     closeSpeedDial();
@@ -80,7 +80,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
       /**
        * Request success
-       * 
+       *
        */
 
       feedbackCb(data.evento.mensagem, 'success');
@@ -88,14 +88,14 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
       /**
        * Filter ValleList update by id_tabela
-       * 
+       *
        */
 
       if (updateValleList) {
 
         var columns = [];
 
-        if (data.evento.id_tabela) {
+        if (data.evento.id_tabela_filter) {
 
           console.log('Update vallelist with id_tabela');
 
@@ -106,18 +106,23 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
               valor_1: data.evento.id_tabela
             }
           }];
+        } else if (updateValleList.listData.list.columns) {
+
+          console.log('Update vallelist with filters');
+
+          columns = updateValleList.listData.list.columns;
         } else {
 
-          console.log('Update vallelist');
+          console.log('Update vallelist without id_tabela and filters');
         }
 
-        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, null, null);
+        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, fieldsParams, null, null);
       }
     })['catch'](function (err) {
 
       /**
        * Request error
-       * 
+       *
        */
 
       console.log(err);
@@ -128,7 +133,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
 
     /**
      * Form error
-     * 
+     *
      */
 
     feedbackCb('Erro ao preencher o formulário', 'error');

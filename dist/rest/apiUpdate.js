@@ -10,7 +10,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
@@ -26,7 +26,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
   /**
    * Get all form values
-   * 
+   *
    */
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
@@ -35,14 +35,14 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
     /**
      * API url
-     * 
+     *
      */
 
     var apiPath = '' + String(baseApi) + String(canonicalApi);
 
     /**
      * Request configs
-     * 
+     *
      */
 
     var method = 'PUT';
@@ -54,7 +54,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
     /**
      * Resquest data structure
-     * 
+     *
      */
 
     var body = JSON.stringify({
@@ -65,7 +65,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
     /**
      * HTTP PUT
-     * 
+     *
      */
     closeSpeedDial();
 
@@ -75,7 +75,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
       /**
        * Request success
-       * 
+       *
        */
 
       feedbackCb(data.evento.mensagem, 'success');
@@ -83,7 +83,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
       /**
        * Update ValleList
-       * 
+       *
        */
 
       if (updateValleList) {
@@ -98,16 +98,16 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
           columns = updateValleList.listData.list.columns;
         } else {
 
-          console.log('Update vallelist');
+          console.log('Update vallelist without filters');
         }
 
-        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, null, null);
+        updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, fieldsParams, null);
       }
     })['catch'](function (err) {
 
       /**
        * Request error
-       * 
+       *
        */
 
       console.log(err);
@@ -118,7 +118,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
 
     /**
      * Form error
-     * 
+     *
      */
 
     feedbackCb('Erro ao preencher o formulário', 'error');

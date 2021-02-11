@@ -28,6 +28,11 @@ var _shortid2 = _interopRequireDefault(_shortid);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+/**
+ * TODO: Add JSDocs
+ *
+ */
+
 exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDialActions(_ref) {
   var button = _ref.button,
       baseApi = _ref.baseApi,
@@ -48,6 +53,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       setCleanup = _ref.setCleanup;
 
 
+  /**
+   * -----
+   *
+   */
+
   if (button.action == 'save') {
     return _react2['default'].createElement(
       'valle-speed-dial-action',
@@ -59,7 +69,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, tabErrorCount, setCleanup);
+
+            (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, tabErrorCount, setCleanup);
           }
 
           return onClick;
@@ -72,6 +83,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       )
     );
   }
+
+  /**
+   * -----
+   *
+   */
 
   if (button.action == 'edit') {
     return _react2['default'].createElement(
@@ -92,6 +108,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
     );
   }
 
+  /**
+   * -----
+   *
+   */
+
   if (button.action == 'update') {
     return _react2['default'].createElement(
       'valle-speed-dial-action',
@@ -103,7 +124,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial, updateValleList, tabErrorCount);
+
+            (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial, updateValleList, tabErrorCount);
           }
 
           return onClick;
@@ -116,6 +138,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       )
     );
   }
+
+  /**
+   * -----
+   *
+   */
 
   if (button.action == 'cancel') {
     return _react2['default'].createElement(
@@ -136,6 +163,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
     );
   }
 
+  /**
+   * -----
+   *
+   */
+
   if (button.action == 'delete') {
     return _react2['default'].createElement(
       'valle-speed-dial-action',
@@ -147,7 +179,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'label-direction': 'left',
         onClick: function () {
           function onClick() {
-            return (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial, updateValleList);
+
+            (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial, updateValleList);
           }
 
           return onClick;
@@ -161,6 +194,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       )
     );
   }
+
+  /**
+   * -----
+   *
+   */
 
   if (button.action == 'new') {
     return _react2['default'].createElement(
@@ -179,6 +217,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       )
     );
   }
+
+  /**
+   * -----
+   *
+   */
 
   return _react2['default'].createElement(
     'valle-speed-dial-action',
@@ -201,7 +244,11 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
             _id: _id,
             endpoint: button.endpoint,
             feedbackCb: feedbackCb,
-            tabErrorCount: tabErrorCount
+            tabErrorCount: tabErrorCount,
+            closeSpeedDial: closeSpeedDial,
+            updateValleList: updateValleList,
+            setCleanup: setCleanup,
+            customParams: params
           };
 
           closeSpeedDial();

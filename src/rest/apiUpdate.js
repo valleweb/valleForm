@@ -2,7 +2,7 @@ import getFieldsParams from '../fieldsControl/getFieldsParams';
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 const apiUpdate = (
@@ -20,7 +20,7 @@ const apiUpdate = (
 
   /**
    * Get all form values
-   * 
+   *
    */
 
   const fieldsParams = getFieldsParams(_id, tabErrorCount);
@@ -29,14 +29,14 @@ const apiUpdate = (
 
     /**
      * API url
-     * 
+     *
      */
 
     const apiPath = `${baseApi}${canonicalApi}`;
 
     /**
      * Request configs
-     * 
+     *
      */
 
     const method = 'PUT';
@@ -48,7 +48,7 @@ const apiUpdate = (
 
     /**
      * Resquest data structure
-     * 
+     *
      */
 
     const body = JSON.stringify({
@@ -60,7 +60,7 @@ const apiUpdate = (
 
     /**
      * HTTP PUT
-     * 
+     *
      */
     closeSpeedDial();
 
@@ -70,7 +70,7 @@ const apiUpdate = (
 
         /**
          * Request success
-         * 
+         *
          */
 
         feedbackCb(data.evento.mensagem, 'success');
@@ -78,7 +78,7 @@ const apiUpdate = (
 
         /**
          * Update ValleList
-         * 
+         *
          */
 
         if(updateValleList) {
@@ -94,7 +94,7 @@ const apiUpdate = (
 
           } else {
 
-            console.log('Update vallelist');
+            console.log('Update vallelist without filters');
 
           }
 
@@ -114,7 +114,7 @@ const apiUpdate = (
             null,
             1,
             columns,
-            null,
+            fieldsParams,
             null,
           );
 
@@ -125,7 +125,7 @@ const apiUpdate = (
 
         /**
          * Request error
-         * 
+         *
          */
 
         console.log(err);
@@ -138,7 +138,7 @@ const apiUpdate = (
 
     /**
      * Form error
-     * 
+     *
      */
 
     feedbackCb('Erro ao preencher o formulário', 'error');

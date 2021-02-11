@@ -33,7 +33,7 @@ exports['default'] = function (_id, tabErrorCount) {
 
       /**
        * Mount tab errors count data
-       * 
+       *
        */
 
       tabErrorsCount = Object.assign({}, tabErrorsCount, _defineProperty({}, field.dataset.tabidentifier, Object.assign({}, tabErrorsCount[field.dataset.tabidentifier], _defineProperty({}, field.id, true))));
@@ -41,7 +41,7 @@ exports['default'] = function (_id, tabErrorCount) {
 
     /**
      * -----
-     * 
+     *
      */
 
     fieldsParams[field.dataset.valleField] = field.value ? field.value : null;
@@ -49,7 +49,7 @@ exports['default'] = function (_id, tabErrorCount) {
 
   /**
    * -----
-   * 
+   *
    */
 
   if (hasError) {

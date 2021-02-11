@@ -19,7 +19,12 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       _ref$endpoint = _ref.endpoint,
       endpoint = _ref$endpoint === undefined ? '' : _ref$endpoint,
       feedbackCb = _ref.feedbackCb,
-      tabErrorCount = _ref.tabErrorCount;
+      tabErrorCount = _ref.tabErrorCount,
+      closeSpeedDial = _ref.closeSpeedDial,
+      updateValleList = _ref.updateValleList,
+      setCleanup = _ref.setCleanup,
+      _ref$customParams = _ref.customParams,
+      customParams = _ref$customParams === undefined ? {} : _ref$customParams;
 
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
@@ -50,12 +55,18 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
         dados: fieldsParams,
         endpoint: endpoint
       }
-
     });
 
     /**
      * -----
-     * 
+     *
+     */
+
+    closeSpeedDial();
+
+    /**
+     * -----
+     *
      */
 
     if (action == 'custom_api' || action == 'custom_stp') {
@@ -64,18 +75,68 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
         return res.json();
       }).then(function (data) {
 
+        /**
+         * -----
+         *
+         */
+
         if (getData) {
           getData(data);
         }
 
+        /**
+         * -----
+         *
+         */
+
         if (data.evento.mensagem) {
           feedbackCb(data.evento.mensagem, 'success');
+        }
+
+        /**
+         * -----
+         *
+         */
+
+        cleanFields(_id, setCleanup);
+
+        /**
+         * -----
+         *
+         */
+
+        if (updateValleList) {
+
+          var columns = [];
+
+          if (data.evento.id_tabela_filter) {
+
+            console.log('Update vallelist with id_tabela');
+
+            columns = [{
+              id: "id_tabela",
+              filter: {
+                tipo_1: "=",
+                valor_1: data.evento.id_tabela
+              }
+            }];
+          } else if (updateValleList.listData.list.columns) {
+
+            console.log('Update vallelist with filters');
+
+            columns = updateValleList.listData.list.columns;
+          } else {
+
+            console.log('Update vallelist without id_tabela and filters');
+          }
+
+          updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, fieldsParams, null, null);
         }
       })['catch'](function () {
 
         /**
          * Request error
-         * 
+         *
          */
 
         feedbackCb('Erro interno no servidor', 'error');
@@ -97,7 +158,7 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
 
         /**
          * Request error
-         * 
+         *
          */
 
         feedbackCb('Erro interno no servidor', 'error');
@@ -107,7 +168,7 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
 
     /**
      * Form error
-     * 
+     *
      */
 
     feedbackCb('Erro ao preencher o formulário', 'error');

@@ -1,8 +1,8 @@
-import cleanFields from '../fieldsControl/cleanFields'
+import getFieldsParams from '../fieldsControl/getFieldsParams';
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 const apiDelete = (
@@ -15,18 +15,25 @@ const apiDelete = (
   token,
   closeSpeedDial,
   updateValleList,
-  ) => {
+) => {
+
+    /**
+     * Get all form values
+     *
+     */
+
+    const fieldsParams = getFieldsParams(_id);
 
     /**
      * API url
-     * 
+     *
      */
 
     const apiPath = `${baseApi}${canonicalApi}`;
 
     /**
      * Request configs
-     * 
+     *
      */
 
     const method = 'DELETE';
@@ -38,20 +45,20 @@ const apiDelete = (
 
     /**
      * Resquest data structure
-     * 
+     *
      */
 
     const body = JSON.stringify({
       evento: {
         ...customParams,
         action: 'delete',
-        dados: null
+        dados: fieldsParams,
       }
     });
 
     /**
      * HTTP DELETE
-     * 
+     *
      */
 
     closeSpeedDial();
@@ -62,62 +69,69 @@ const apiDelete = (
 
         /**
          * Request success
-         * 
+         *
          */
-        
+
         feedbackCb(data.evento.mensagem, 'success');
-        newCB();
+
 
         /**
          * Update ValleList
-         * 
+         *
          */
 
-      if(updateValleList) {
+        if(updateValleList) {
 
-        let columns = [];
+          let columns = [];
 
-        if(updateValleList.listData.list.columns) {
+          if(updateValleList.listData.list.columns) {
 
-          console.log('Update vallelist with filters:');
-          console.log(updateValleList.listData.list.columns);
+            console.log('Update vallelist with filters:');
+            console.log(updateValleList.listData.list.columns);
 
-          columns = updateValleList.listData.list.columns;
+            columns = updateValleList.listData.list.columns;
 
-        } else {
+          } else {
 
-          console.log('Update vallelist');
+            console.log('Update vallelist');
+
+          }
+
+          updateValleList.getListFromAPI(
+            customParams.id_usuario,
+            token,
+            customParams.identificador,
+            customParams.cliente_id,
+            customParams.empresa,
+            customParams.estabelecimento,
+            customParams.conexao,
+            customParams.sistema,
+            customParams.formulario,
+            true,
+            updateValleList.listData,
+            updateValleList.setListData,
+            null,
+            1,
+            columns,
+            fieldsParams,
+            null,
+          );
 
         }
 
-        updateValleList.getListFromAPI(
-          customParams.id_usuario,
-          token,
-          customParams.identificador,
-          customParams.cliente_id,
-          customParams.empresa,
-          customParams.estabelecimento,
-          customParams.conexao,
-          customParams.sistema,
-          customParams.formulario,
-          true,
-          updateValleList.listData,
-          updateValleList.setListData,
-          null,
-          1,
-          columns,
-          null,
-          null,
-        );
-    
-      }
+        /**
+         * ------
+         *
+         */
+
+        newCB();
 
       })
       .catch(err => {
 
         /**
          * Request error
-         * 
+         *
          */
 
         console.log(err);

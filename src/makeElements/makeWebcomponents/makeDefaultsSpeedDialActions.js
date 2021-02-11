@@ -5,6 +5,11 @@ import apiDelete from '../../rest/apiDelete';
 import apiCustomRequest from '../../rest/apiCustomRequest';
 import shortid from 'shortid';
 
+/**
+ * TODO: Add JSDocs
+ *
+ */
+
 export default makeDefaultsSpeedDialActions = ({
   button,
   baseApi,
@@ -22,7 +27,12 @@ export default makeDefaultsSpeedDialActions = ({
   updateValleList,
   tabErrorCount,
   setCleanup,
-  }) => {
+}) => {
+
+  /**
+   * -----
+   *
+   */
 
   if(button.action == 'save') {
     return (
@@ -32,7 +42,22 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () => apiCreate(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, tabErrorCount, setCleanup) }>
+        onClick = { () => {
+
+          apiCreate(
+            baseApi,
+            canonicalApi,
+            params,
+            feedbackCb,
+            token,
+            _id,
+            closeSpeedDial,
+            updateValleList,
+            tabErrorCount,
+            setCleanup,
+          )
+
+        } }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z"/>
@@ -42,6 +67,11 @@ export default makeDefaultsSpeedDialActions = ({
       </valle-speed-dial-action>
     )
   }
+
+  /**
+   * -----
+   *
+   */
 
   if(button.action == 'edit') {
     return (
@@ -62,6 +92,11 @@ export default makeDefaultsSpeedDialActions = ({
     )
   }
 
+  /**
+   * -----
+   *
+   */
+
   if(button.action == 'update') {
     return (
       <valle-speed-dial-action
@@ -70,7 +105,22 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () => apiUpdate(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial, updateValleList, tabErrorCount) }>
+        onClick = { () => {
+
+          apiUpdate(
+            baseApi,
+            canonicalApi,
+            params,
+            _id,
+            feedbackCb,
+            formCb,
+            token,
+            closeSpeedDial,
+            updateValleList,
+            tabErrorCount,
+          )
+
+        } }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z"/>
@@ -80,6 +130,11 @@ export default makeDefaultsSpeedDialActions = ({
       </valle-speed-dial-action>
     )
   }
+
+  /**
+   * -----
+   *
+   */
 
   if(button.action == 'cancel') {
     return (
@@ -100,6 +155,11 @@ export default makeDefaultsSpeedDialActions = ({
     )
   }
 
+  /**
+   * -----
+   *
+   */
+
   if(button.action == 'delete') {
     return (
       <valle-speed-dial-action
@@ -108,7 +168,21 @@ export default makeDefaultsSpeedDialActions = ({
         sloted
         label = { button.text }
         label-direction = "left"
-        onClick = { () =>  apiDelete(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial, updateValleList) }>
+        onClick = { () =>  {
+
+          apiDelete(
+            baseApi,
+            canonicalApi,
+            params,
+            _id,
+            feedbackCb,
+            newCB,
+            token,
+            closeSpeedDial,
+            updateValleList,
+          )
+
+        } }>
 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0V0z"/>
@@ -119,6 +193,11 @@ export default makeDefaultsSpeedDialActions = ({
       </valle-speed-dial-action>
     )
   }
+
+  /**
+   * -----
+   *
+   */
 
   if(button.action == 'new') {
     return (
@@ -137,6 +216,11 @@ export default makeDefaultsSpeedDialActions = ({
       </valle-speed-dial-action>
     )
   }
+
+  /**
+   * -----
+   *
+   */
 
   return (
     <valle-speed-dial-action
@@ -158,6 +242,10 @@ export default makeDefaultsSpeedDialActions = ({
           endpoint: button.endpoint,
           feedbackCb,
           tabErrorCount,
+          closeSpeedDial,
+          updateValleList,
+          setCleanup,
+          customParams: params,
         }
 
         closeSpeedDial();

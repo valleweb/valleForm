@@ -3,7 +3,7 @@ import cleanFields from '../fieldsControl/cleanFields';
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 const apiCreate = (
@@ -21,7 +21,7 @@ const apiCreate = (
 
   /**
    * Get all form values
-   * 
+   *
    */
 
   const fieldsParams = getFieldsParams(_id, tabErrorCount);
@@ -30,14 +30,14 @@ const apiCreate = (
 
     /**
      * API url
-     * 
+     *
      */
 
     const apiPath = `${baseApi}${canonicalApi}`;
 
     /**
      * Request configs
-     * 
+     *
      */
 
     const method = 'POST';
@@ -48,8 +48,8 @@ const apiCreate = (
     });
 
     /**
-     * Resquest data structure
-     * 
+     * Request data structure
+     *
      */
 
     const body = JSON.stringify({
@@ -61,7 +61,7 @@ const apiCreate = (
 
     /**
      * HTTP POST
-     * 
+     *
      */
 
     closeSpeedDial();
@@ -72,7 +72,7 @@ const apiCreate = (
 
         /**
          * Request success
-         * 
+         *
          */
 
         feedbackCb(data.evento.mensagem, 'success');
@@ -80,14 +80,14 @@ const apiCreate = (
 
         /**
          * Filter ValleList update by id_tabela
-         * 
+         *
          */
 
         if(updateValleList) {
 
           let columns = [];
 
-          if(data.evento.id_tabela) {
+          if(data.evento.id_tabela_filter) {
 
             console.log('Update vallelist with id_tabela');
 
@@ -99,9 +99,15 @@ const apiCreate = (
               }
             }];
 
+          } else if (updateValleList.listData.list.columns) {
+
+            console.log('Update vallelist with filters');
+
+            columns = updateValleList.listData.list.columns;
+
           } else {
 
-            console.log('Update vallelist');
+            console.log('Update vallelist without id_tabela and filters');
 
           }
 
@@ -121,6 +127,7 @@ const apiCreate = (
             null,
             1,
             columns,
+            fieldsParams,
             null,
             null,
           );
@@ -132,7 +139,7 @@ const apiCreate = (
 
         /**
          * Request error
-         * 
+         *
          */
 
         console.log(err);
@@ -140,12 +147,12 @@ const apiCreate = (
         feedbackCb('Erro interno no servidor', 'error');
 
       });
-    
+
   } else {
 
     /**
      * Form error
-     * 
+     *
      */
 
     feedbackCb('Erro ao preencher o formulário', 'error');

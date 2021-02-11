@@ -2,6 +2,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _getFieldsParams = require('../fieldsControl/getFieldsParams');
+
+var _getFieldsParams2 = _interopRequireDefault(_getFieldsParams);
+
 var _cleanFields = require('../fieldsControl/cleanFields');
 
 var _cleanFields2 = _interopRequireDefault(_cleanFields);
@@ -10,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 var apiDelete = function apiDelete(baseApi, canonicalApi) {
@@ -24,15 +28,22 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
 
 
   /**
+   * Get all form values
+   *
+   */
+
+  var fieldsParams = (0, _getFieldsParams2['default'])(_id);
+
+  /**
    * API url
-   * 
+   *
    */
 
   var apiPath = '' + String(baseApi) + String(canonicalApi);
 
   /**
    * Request configs
-   * 
+   *
    */
 
   var method = 'DELETE';
@@ -44,19 +55,19 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
 
   /**
    * Resquest data structure
-   * 
+   *
    */
 
   var body = JSON.stringify({
     evento: Object.assign({}, customParams, {
       action: 'delete',
-      dados: null
+      dados: fieldsParams
     })
   });
 
   /**
    * HTTP DELETE
-   * 
+   *
    */
 
   closeSpeedDial();
@@ -67,15 +78,14 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
 
     /**
      * Request success
-     * 
+     *
      */
 
     feedbackCb(data.evento.mensagem, 'success');
-    newCB();
 
     /**
      * Update ValleList
-     * 
+     *
      */
 
     if (updateValleList) {
@@ -93,13 +103,20 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
         console.log('Update vallelist');
       }
 
-      updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, null, null);
+      updateValleList.getListFromAPI(customParams.id_usuario, token, customParams.identificador, customParams.cliente_id, customParams.empresa, customParams.estabelecimento, customParams.conexao, customParams.sistema, customParams.formulario, true, updateValleList.listData, updateValleList.setListData, null, 1, columns, fieldsParams, null);
     }
+
+    /**
+     * ------
+     *
+     */
+
+    newCB();
   })['catch'](function (err) {
 
     /**
      * Request error
-     * 
+     *
      */
 
     console.log(err);

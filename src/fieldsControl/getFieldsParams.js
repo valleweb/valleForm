@@ -27,7 +27,7 @@ export default (_id, tabErrorCount) => {
 
       /**
        * Mount tab errors count data
-       * 
+       *
        */
 
       tabErrorsCount = {
@@ -42,7 +42,7 @@ export default (_id, tabErrorCount) => {
 
     /**
      * -----
-     * 
+     *
      */
 
     fieldsParams[field.dataset.valleField] = field.value ? field.value : null;
@@ -51,7 +51,7 @@ export default (_id, tabErrorCount) => {
 
   /**
    * -----
-   * 
+   *
    */
 
   if(hasError) {

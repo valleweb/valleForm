@@ -1,4 +1,5 @@
 import getFieldsParams from '../fieldsControl/getFieldsParams';
+import cleanFields from '../fieldsControl/cleanFields';
 
 const apiCustomRequest = ({
   getData,

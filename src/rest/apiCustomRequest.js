@@ -96,7 +96,7 @@ const apiCustomRequest = ({
          *
          */
 
-        if(updateValleList) {
+        if(updateValleList.listData) {
 
           let columns = [];
 

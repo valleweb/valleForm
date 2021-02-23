@@ -109,7 +109,7 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
          *
          */
 
-        if (updateValleList) {
+        if (updateValleList.listData) {
 
           var columns = [];
 

@@ -98,52 +98,56 @@ const apiCustomRequest = ({
 
         if(updateValleList.listData) {
 
-          let columns = [];
+            if(updateValleList.listData.list) {
 
-          if(data.evento.id_tabela_filter) {
+            let columns = [];
 
-            console.log('Update vallelist with id_tabela');
+            if(data.evento.id_tabela_filter) {
 
-            columns = [{
-              id: "id_tabela",
-              filter: {
-                tipo_1: "=",
-                valor_1: data.evento.id_tabela,
-              }
-            }];
+              console.log('Update vallelist with id_tabela');
 
-          } else if (updateValleList.listData.list.columns) {
+              columns = [{
+                id: "id_tabela",
+                filter: {
+                  tipo_1: "=",
+                  valor_1: data.evento.id_tabela,
+                }
+              }];
 
-            console.log('Update vallelist with filters');
+            } else if (updateValleList.listData.list.columns) {
 
-            columns = updateValleList.listData.list.columns;
+              console.log('Update vallelist with filters');
 
-          } else {
+              columns = updateValleList.listData.list.columns;
 
-            console.log('Update vallelist without id_tabela and filters');
+            } else {
+
+              console.log('Update vallelist without id_tabela and filters');
+
+            }
+
+            updateValleList.getListFromAPI(
+              customParams.id_usuario,
+              token,
+              customParams.identificador,
+              customParams.cliente_id,
+              customParams.empresa,
+              customParams.estabelecimento,
+              customParams.conexao,
+              customParams.sistema,
+              customParams.formulario,
+              true,
+              updateValleList.listData,
+              updateValleList.setListData,
+              null,
+              1,
+              columns,
+              fieldsParams,
+              null,
+              null,
+            );
 
           }
-
-          updateValleList.getListFromAPI(
-            customParams.id_usuario,
-            token,
-            customParams.identificador,
-            customParams.cliente_id,
-            customParams.empresa,
-            customParams.estabelecimento,
-            customParams.conexao,
-            customParams.sistema,
-            customParams.formulario,
-            true,
-            updateValleList.listData,
-            updateValleList.setListData,
-            null,
-            1,
-            columns,
-            fieldsParams,
-            null,
-            null,
-          );
 
         }
 

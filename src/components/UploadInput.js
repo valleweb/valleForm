@@ -155,6 +155,16 @@ const UploadInput = ({
 
   const disableUploadButtons = (uploadStatus === 'awaiting-file') || (uploadStatus === 'progress') || (uploadStatus === 'start');
 
+  // console.log('UPLOAD ================')
+  // console.log('Readonly: ' + readOnly)
+  // console.log('editable: ' + editable)
+  // console.log('baseApi: ' + baseApi)
+  // console.log('_id: ' + _id)
+  // console.log(field)
+  // console.log('Caminho: ' + '')
+  // console.log('pathValue: ' + pathValue)
+  // console.log('================')
+
   return (
     <div className = 'valleForm__upload'>
 

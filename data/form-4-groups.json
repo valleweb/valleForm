@@ -8,10 +8,10 @@
         "api": null,
         "buttons": [
           {
-            "action": "stp_list",
+            "action": "report",
             "id": "9141",
             "status": "create",
-            "text": "Processar"
+            "text": "Relatorio"
           }
         ],
         "groups": [

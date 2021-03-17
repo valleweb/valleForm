@@ -18,6 +18,10 @@ var _apiDelete = require('../../rest/apiDelete');
 
 var _apiDelete2 = _interopRequireDefault(_apiDelete);
 
+var _apiReport = require('../../rest/apiReport');
+
+var _apiReport2 = _interopRequireDefault(_apiReport);
+
 var _apiCustomRequest = require('../../rest/apiCustomRequest');
 
 var _apiCustomRequest2 = _interopRequireDefault(_apiCustomRequest);
@@ -214,6 +218,36 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'svg',
         { xmlns: 'http://www.w3.org/2000/svg', width: '20', height: '20', viewBox: '0 0 24 24' },
         _react2['default'].createElement('path', { fill: '#fff', d: 'M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z' })
+      )
+    );
+  }
+
+  /**
+   * -----
+   *
+   */
+
+  if (button.action == 'report') {
+    return _react2['default'].createElement(
+      'valle-speed-dial-action',
+      {
+        'class': '',
+        key: _shortid2['default'].generate(),
+        sloted: true,
+        label: button.text,
+        'label-direction': 'left',
+        onClick: function () {
+          function onClick() {
+
+            (0, _apiReport2['default'])(baseApi, params, feedbackCb, token, closeSpeedDial, button.id);
+          }
+
+          return onClick;
+        }() },
+      _react2['default'].createElement(
+        'svg',
+        { xmlns: 'http://www.w3.org/2000/svg', fill: '#fff', width: '19', height: '19', viewBox: '0 0 24 24' },
+        _react2['default'].createElement('path', { d: 'M22 13v-13h-20v24h8.409c4.857 0 3.335-8 3.335-8 3.009.745 8.256.419 8.256-3zm-4-7h-12v-1h12v1zm0 3h-12v-1h12v1zm0 3h-12v-1h12v1zm-2.091 6.223c2.047.478 4.805-.279 6.091-1.179-1.494 1.998-5.23 5.708-7.432 6.881 1.156-1.168 1.563-4.234 1.341-5.702z' })
       )
     );
   }

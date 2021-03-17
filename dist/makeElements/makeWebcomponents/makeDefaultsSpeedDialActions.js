@@ -239,7 +239,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         onClick: function () {
           function onClick() {
 
-            (0, _apiReport2['default'])(baseApi, params, feedbackCb, token, closeSpeedDial, button.id, action);
+            (0, _apiReport2['default'])(baseApi, params, feedbackCb, token, closeSpeedDial, button.id, button.action);
           }
 
           return onClick;

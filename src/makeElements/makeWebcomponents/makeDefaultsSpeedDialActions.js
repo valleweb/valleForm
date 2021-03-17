@@ -240,7 +240,7 @@ export default makeDefaultsSpeedDialActions = ({
             token,
             closeSpeedDial,
             button.id,
-            action,
+            button.action,
           )
 
         }}>

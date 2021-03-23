@@ -24,7 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 var MarkdownEditor = function MarkdownEditor(_ref) {
@@ -64,7 +64,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   (0, _react.useEffect)(function () {
@@ -77,7 +77,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   (0, _react.useEffect)(function () {
@@ -90,7 +90,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   var clean = function clean() {
@@ -102,7 +102,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   var showEditor = function showEditor() {
@@ -126,7 +126,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
 
   /**
    * -----
-   * 
+   *
    */
 
   (0, _react.useEffect)(function () {
@@ -135,7 +135,16 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
 
   /**
    * -----
-   * 
+   *
+   */
+
+  (0, _react.useEffect)(function () {
+    readOnly ? setEditorShow(false) : setEditorShow(true);
+  }, [readOnly]);
+
+  /**
+   * -----
+   *
    */
 
   var render = _react2['default'].createRef();
@@ -153,7 +162,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
     _react2['default'].createElement(
       'div',
       { className: 'valleForm__MarkdownEditor__headers' },
-      _react2['default'].createElement(
+      !readOnly ? _react2['default'].createElement(
         'div',
         { className: 'valleForm__MarkdownEditor__slider' },
         _react2['default'].createElement(
@@ -219,7 +228,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
             _react2['default'].createElement('path', { d: 'M18 6v-6h-18v18h6v6h18v-18h-6zm-16 10v-14h14v4h-10v10h-4z' })
           )
         )
-      ),
+      ) : null,
       _react2['default'].createElement(
         'button',
         {
@@ -244,7 +253,7 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
     _react2['default'].createElement(
       'div',
       { className: 'valleForm__MarkdownEditor__body' },
-      editorShow ? _react2['default'].createElement(
+      editorShow && !readOnly ? _react2['default'].createElement(
         'div',
         { className: 'valleForm__MarkdownEditor__editor ' + (!previewShow ? 'valleForm__MarkdownEditor__editor--full' : '') },
         _react2['default'].createElement(_Textarea2['default'], {

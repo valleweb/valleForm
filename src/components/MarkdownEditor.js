@@ -5,7 +5,7 @@ import gfm from 'remark-gfm';
 
 /**
  * TODO: Add JSDocs
- * 
+ *
  */
 
 const MarkdownEditor = ({
@@ -26,7 +26,7 @@ const MarkdownEditor = ({
 
   /**
    * -----
-   * 
+   *
    */
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const MarkdownEditor = ({
 
   /**
    * -----
-   * 
+   *
    */
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const MarkdownEditor = ({
 
   /**
    * -----
-   * 
+   *
    */
 
    const clean = () => {
@@ -64,7 +64,7 @@ const MarkdownEditor = ({
 
   /**
    * -----
-   * 
+   *
    */
 
   const showEditor = () => {
@@ -88,7 +88,7 @@ const MarkdownEditor = ({
 
   /**
    * -----
-   * 
+   *
    */
 
   useEffect(() => {
@@ -99,7 +99,18 @@ const MarkdownEditor = ({
 
   /**
    * -----
-   * 
+   *
+   */
+
+  useEffect(() => {
+    readOnly
+      ? setEditorShow(false)
+      : setEditorShow(true)
+  }, [readOnly]);
+
+  /**
+   * -----
+   *
    */
 
   const render = React.createRef();
@@ -112,68 +123,71 @@ const MarkdownEditor = ({
 
   }, [currentScroll]);
 
+
   return (
     <div className = {`valleForm__MarkdownEditor ${big ? 'valleForm__MarkdownEditor--big' : ''}`}>
 
       <div className = 'valleForm__MarkdownEditor__headers'>
 
-        <div className = 'valleForm__MarkdownEditor__slider'>
+        { !readOnly ? (
+          <div className = 'valleForm__MarkdownEditor__slider'>
 
-          <button
-            onClick = { showEditor }
-            disabled = { !previewShow }
-            className = 'valleForm__MarkdownEditor__button valleForm__MarkdownEditor__button--slider'
-            aria-label = 'Apenas editor'
-            data-balloon-pos = 'up-right'
-          >
-            <svg
-              className = 'valleForm__MarkdownEditor__icon'
-              xmlns = 'http://www.w3.org/2000/svg'
-              width = '24'
-              height = '24'
-              viewBox = '0 0 24 24'
+            <button
+              onClick = { showEditor }
+              disabled = { !previewShow }
+              className = 'valleForm__MarkdownEditor__button valleForm__MarkdownEditor__button--slider'
+              aria-label = 'Apenas editor'
+              data-balloon-pos = 'up-right'
             >
-              <path d = 'M11.362 2c4.156 0 2.638 6 2.638 6s6-1.65 6 2.457v11.543h-16v-20h7.362zm.827-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-10v-1h10v1zm0 2h-10v1h10v-1zm0 3h-10v1h10v-1z'/>
-            </svg>
-          </button>
+              <svg
+                className = 'valleForm__MarkdownEditor__icon'
+                xmlns = 'http://www.w3.org/2000/svg'
+                width = '24'
+                height = '24'
+                viewBox = '0 0 24 24'
+              >
+                <path d = 'M11.362 2c4.156 0 2.638 6 2.638 6s6-1.65 6 2.457v11.543h-16v-20h7.362zm.827-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-10v-1h10v1zm0 2h-10v1h10v-1zm0 3h-10v1h10v-1z'/>
+              </svg>
+            </button>
 
-          <button
-            onClick = { showPreview }
-            disabled = { !editorShow }
-            className = 'valleForm__MarkdownEditor__button valleForm__MarkdownEditor__button--slider'
-            aria-label = 'Apenas prévia'
-            data-balloon-pos = 'up-right'
-          >
-            <svg
-              className = 'valleForm__MarkdownEditor__icon'
-              xmlns = 'http://www.w3.org/2000/svg'
-              width = '24'
-              height = '24'
-              viewBox = '0 0 24 24'
+            <button
+              onClick = { showPreview }
+              disabled = { !editorShow }
+              className = 'valleForm__MarkdownEditor__button valleForm__MarkdownEditor__button--slider'
+              aria-label = 'Apenas prévia'
+              data-balloon-pos = 'up-right'
             >
-              <path d = 'M22 13v-13h-20v24h8.409c4.857 0 3.335-8 3.335-8 3.009.745 8.256.419 8.256-3zm-4-7h-12v-1h12v1zm0 3h-12v-1h12v1zm0 3h-12v-1h12v1zm-2.091 6.223c2.047.478 4.805-.279 6.091-1.179-1.494 1.998-5.23 5.708-7.432 6.881 1.156-1.168 1.563-4.234 1.341-5.702z'/>
-            </svg>
-          </button>
+              <svg
+                className = 'valleForm__MarkdownEditor__icon'
+                xmlns = 'http://www.w3.org/2000/svg'
+                width = '24'
+                height = '24'
+                viewBox = '0 0 24 24'
+              >
+                <path d = 'M22 13v-13h-20v24h8.409c4.857 0 3.335-8 3.335-8 3.009.745 8.256.419 8.256-3zm-4-7h-12v-1h12v1zm0 3h-12v-1h12v1zm0 3h-12v-1h12v1zm-2.091 6.223c2.047.478 4.805-.279 6.091-1.179-1.494 1.998-5.23 5.708-7.432 6.881 1.156-1.168 1.563-4.234 1.341-5.702z'/>
+              </svg>
+            </button>
 
-          <button
-            onClick = { showSplit }
-            disabled = { previewShow && editorShow }
-            className = 'valleForm__MarkdownEditor__button valleForm__MarkdownEditor__button--slider'
-            aria-label = 'Editor e prévia'
-            data-balloon-pos = 'up-right'
-          >
-            <svg
-              className = 'valleForm__MarkdownEditor__icon'
-              xmlns = 'http://www.w3.org/2000/svg'
-              width = '24'
-              height = '24'
-              viewBox = '0 0 24 24'
+            <button
+              onClick = { showSplit }
+              disabled = { previewShow && editorShow }
+              className = 'valleForm__MarkdownEditor__button valleForm__MarkdownEditor__button--slider'
+              aria-label = 'Editor e prévia'
+              data-balloon-pos = 'up-right'
             >
-              <path d = 'M18 6v-6h-18v18h6v6h18v-18h-6zm-16 10v-14h14v4h-10v10h-4z'/>
-            </svg>
-          </button>
+              <svg
+                className = 'valleForm__MarkdownEditor__icon'
+                xmlns = 'http://www.w3.org/2000/svg'
+                width = '24'
+                height = '24'
+                viewBox = '0 0 24 24'
+              >
+                <path d = 'M18 6v-6h-18v18h6v6h18v-18h-6zm-16 10v-14h14v4h-10v10h-4z'/>
+              </svg>
+            </button>
 
-        </div>
+          </div>
+        ) : null }
 
         <button
           onClick = { toggleBig }
@@ -196,7 +210,7 @@ const MarkdownEditor = ({
 
       <div className = 'valleForm__MarkdownEditor__body'>
 
-        { editorShow ? (
+        { (editorShow && !readOnly)? (
 
           <div className = {`valleForm__MarkdownEditor__editor ${ !previewShow ? 'valleForm__MarkdownEditor__editor--full' : ''}`}>
             <Textarea

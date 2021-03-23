@@ -36,7 +36,7 @@ const ValleForm = ({
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
-  const [editable, setEditable] = useState(false); // For makeSpeedDialActionsl use
+  const [editable, setEditable] = useState(false); // For makeSpeedDialActions use
   const [filterByVisibleScreen, setFilterByVisibleScreen] = useState(false);
   const [visibleTab, setVisibleTab] = useState(0);
   const [cleanup, setCleanup] = useState(null);
@@ -59,7 +59,7 @@ const ValleForm = ({
   )
 
   /**
-   * Control vizualization only and editable state
+   * Control visualization only and editable state
    *
    */
 
@@ -321,7 +321,7 @@ const ValleForm = ({
     const tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
 
   /**
-   * Remvoe empty rows
+   * Remove empty rows
    *
    */
 

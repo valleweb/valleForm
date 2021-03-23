@@ -84,7 +84,7 @@ var ValleForm = function ValleForm(_ref) {
   var _useState3 = (0, _react.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
       editable = _useState4[0],
-      setEditable = _useState4[1]; // For makeSpeedDialActionsl use
+      setEditable = _useState4[1]; // For makeSpeedDialActions use
 
 
   var _useState5 = (0, _react.useState)(false),
@@ -120,7 +120,7 @@ var ValleForm = function ValleForm(_ref) {
   var tabErrorCount = (0, _tabErrorCountControls2['default'])(tabErrorsCount, setTabErrorsCount);
 
   /**
-   * Control vizualization only and editable state
+   * Control visualization only and editable state
    *
    */
 
@@ -330,7 +330,7 @@ var ValleForm = function ValleForm(_ref) {
     var tabVisibility = isVisibleTab ? 'valleForm__tabs__tab--visible' : '';
 
     /**
-     * Remvoe empty rows
+     * Remove empty rows
      *
      */
 

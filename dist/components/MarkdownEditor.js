@@ -138,15 +138,6 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
    *
    */
 
-  (0, _react.useEffect)(function () {
-    readOnly ? setEditorShow(false) : setEditorShow(true);
-  }, [readOnly]);
-
-  /**
-   * -----
-   *
-   */
-
   var render = _react2['default'].createRef();
 
   (0, _react.useEffect)(function () {
@@ -280,13 +271,18 @@ var MarkdownEditor = function MarkdownEditor(_ref) {
       ) : null,
       previewShow ? _react2['default'].createElement(
         'div',
-        { className: 'valleForm__MarkdownEditor__preview ' + (!editorShow ? 'valleForm__MarkdownEditor__preview--full' : '') },
+        { className: 'valleForm__MarkdownEditor__preview ' + (!editorShow || readOnly ? 'valleForm__MarkdownEditor__preview--full' : '') },
         _react2['default'].createElement(
           'div',
           { className: 'valleForm__MarkdownEditor__render', ref: render },
           _react2['default'].createElement(
             _reactMarkdown2['default'],
-            { plugins: [_remarkGfm2['default']], className: 'markdown-render' },
+            {
+              skipHtml: false,
+              plugins: [_remarkGfm2['default']],
+              className: 'markdown-render',
+              allowDangerousHtml: true
+            },
             markdownText
           )
         )

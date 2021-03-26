@@ -102,17 +102,6 @@ const MarkdownEditor = ({
    *
    */
 
-  useEffect(() => {
-    readOnly
-      ? setEditorShow(false)
-      : setEditorShow(true)
-  }, [readOnly]);
-
-  /**
-   * -----
-   *
-   */
-
   const render = React.createRef();
 
   useEffect(() => {
@@ -209,8 +198,8 @@ const MarkdownEditor = ({
       </div>
 
       <div className = 'valleForm__MarkdownEditor__body'>
+        { (editorShow && !readOnly )? (
 
-        { (editorShow && !readOnly)? (
 
           <div className = {`valleForm__MarkdownEditor__editor ${ !previewShow ? 'valleForm__MarkdownEditor__editor--full' : ''}`}>
             <Textarea
@@ -228,11 +217,16 @@ const MarkdownEditor = ({
 
         { previewShow ? (
 
-          <div className = {`valleForm__MarkdownEditor__preview ${ !editorShow ? 'valleForm__MarkdownEditor__preview--full' : ''}`}>
+          <div className = {`valleForm__MarkdownEditor__preview ${ (!editorShow || readOnly) ? 'valleForm__MarkdownEditor__preview--full' : ''}`}>
 
             <div className = 'valleForm__MarkdownEditor__render' ref = { render }>
 
-              <ReactMarkdown plugins = {[gfm]} className = 'markdown-render'>
+              <ReactMarkdown
+                skipHtml = { false }
+                plugins = {[gfm]}
+                className = 'markdown-render'
+                allowDangerousHtml = { true }
+              >
                 { markdownText }
               </ReactMarkdown>
 

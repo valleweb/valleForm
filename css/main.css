@@ -806,6 +806,10 @@
   margin-left: -1em
 }
 
+.markdown-render span {
+  background: #fbfb00;
+}
+
 /* --- Table --- */
 
 .markdown-render table {

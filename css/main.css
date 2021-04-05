@@ -447,6 +447,11 @@
   white-space: nowrap;
 }
 
+.valleForm__speedDial__copy {
+  --valle-speed-dial-action-fab-color: var(--highlight-color, rgb(5, 159, 183));
+  white-space: nowrap;
+}
+
 .valleForm__snackbar {
   --width: 568px;
   align-items: center;

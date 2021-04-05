@@ -136,6 +136,13 @@ const ValleForm = ({
     cleanOldFormValues();
   }
 
+  const copyFieldsValuesAndMakeDefault = () => {
+    setDynamicReadOnly(false);
+    setEditable(false);
+    closeSpeedDial();
+    cleanOldFormValues();
+  }
+
   /**
    * Control feedbacks status
    *
@@ -396,6 +403,7 @@ const ValleForm = ({
             formCb: removeFieldsEditable,
             cancelCb: cancelFieldsEditable,
             newCB: makeFieldsDefault,
+            copyCB: copyFieldsValuesAndMakeDefault,
             token,
             getData,
             closeSpeedDial,

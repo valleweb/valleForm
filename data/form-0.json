@@ -22,6 +22,13 @@
           "status": "retrieval"
         },
         {
+          "text": "Copiar para novo",
+          "action": "copy",
+          "type": "",
+          "icon": "",
+          "status": "retrieval"
+        },
+        {
           "text": "Editar",
           "action": "edit",
           "type": "",
@@ -54,8 +61,7 @@
         [
           {
             "case": null,
-
-            "id": "estado",            
+            "id": "estado",
             "label": "Estado",
             "placeholder": null,
             "element": "input",
@@ -82,7 +88,7 @@
             ]
           }
         ],
-        [ 
+        [
           {
             "case": null,
             "element": "input",
@@ -112,7 +118,7 @@
             ]
           }
         ],
-        [ 
+        [
           {
             "case": null,
             "element": "input",
@@ -219,6 +225,6 @@
           }
         ]
       ]
-    } 
+    }
   ]
 }

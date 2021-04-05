@@ -15,6 +15,18 @@
           "status": "create"
         },
         {
+          "text": "Enviar e-mail de confirmação",
+          "action": "email",
+          "type": "",
+          "icon": "",
+          "status": "create",
+          "email": {
+            "from": "",
+            "subject": "",
+            "content": ""
+          }
+        },
+        {
           "text": "Novo cadastro",
           "action": "new",
           "type": "",
@@ -189,6 +201,26 @@
             "id": "regiao",
             "is_PK": false,
             "label": "Região",
+            "mask": null,
+            "maxlength": 20,
+            "pattern": null,
+            "placeholder": null,
+            "readonly": false,
+            "required": false,
+            "type": "text",
+            "visible_screen": true,
+            "autocomplete": false,
+            "actions" : [
+            ]
+          },
+          {
+            "case": null,
+            "element": "input",
+            "error_text": null,
+            "helper_text": null,
+            "id": "email",
+            "is_PK": false,
+            "label": "E-mail",
             "mask": null,
             "maxlength": 20,
             "pattern": null,

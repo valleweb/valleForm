@@ -16,15 +16,10 @@
         },
         {
           "text": "Enviar e-mail de confirmação",
-          "action": "email",
+          "action": "email_confirmation",
           "type": "",
           "icon": "",
-          "status": "create",
-          "email": {
-            "from": "",
-            "subject": "",
-            "content": ""
-          }
+          "status": "retrieval"
         },
         {
           "text": "Novo cadastro",

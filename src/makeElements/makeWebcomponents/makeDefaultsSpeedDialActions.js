@@ -283,7 +283,7 @@ export default makeDefaultsSpeedDialActions = ({
    *
    */
 
-   if(button.action == 'email') {
+   if(button.action == 'email_confirmation') {
     return (
       <valle-speed-dial-action
         class = "valleForm__speedDial__copy"
@@ -295,14 +295,10 @@ export default makeDefaultsSpeedDialActions = ({
 
           apiEmail(
             baseApi,
-            params,
             _id,
             feedbackCb,
             token,
             closeSpeedDial,
-            button.id,
-            button.action,
-            button.email,
           )
 
         } }>

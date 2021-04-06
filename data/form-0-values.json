@@ -6,5 +6,6 @@
 	"regiao": "a",
 	"codigo_ibge": "a",
 	"tipo_site": "a",
-	"textarea": "aaa"
+	"textarea": "aaa",
+  "email": "exemplo@email.com"
 }

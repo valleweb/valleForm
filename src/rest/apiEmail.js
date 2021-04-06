@@ -7,14 +7,10 @@ import getFieldsParamsWithNoValidations from '../fieldsControl/getFieldsParamsWi
 
 const apiEmail = (
   baseApi,
-  customParams = {},
   _id,
   feedbackCb,
   token,
   closeSpeedDial,
-  button_id,
-  action,
-  email,
 ) => {
 
   /**
@@ -49,7 +45,7 @@ const apiEmail = (
    *
    */
 
-   const apiPath = `${baseApi}/send-email`;
+   const apiPath = `${baseApi}/send-confirmation-email`;
 
    /**
     * Request configs
@@ -59,8 +55,8 @@ const apiEmail = (
    const method = 'POST';
 
    const headers = new Headers({
-     'Content-Type': 'application/json',
-     'Authorization': `Bearer ${token}`
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
    });
 
    /**
@@ -70,15 +66,7 @@ const apiEmail = (
 
    const body = JSON.stringify({
      evento: {
-       ...customParams,
-       button_id: button_id,
-       action: action,
-       email: {
-        from: email.from,
-        to: emailTo,
-        subject: email.subject,
-        content: email.content,
-      },
+       email_to: emailTo,
      }
    });
 

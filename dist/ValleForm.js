@@ -198,6 +198,13 @@ var ValleForm = function ValleForm(_ref) {
     cleanOldFormValues();
   };
 
+  var copyFieldsValuesAndMakeDefault = function copyFieldsValuesAndMakeDefault() {
+    setDynamicReadOnly(false);
+    setEditable(false);
+    closeSpeedDial();
+    cleanOldFormValues();
+  };
+
   /**
    * Control feedbacks status
    *
@@ -394,6 +401,7 @@ var ValleForm = function ValleForm(_ref) {
         formCb: removeFieldsEditable,
         cancelCb: cancelFieldsEditable,
         newCB: makeFieldsDefault,
+        copyCB: copyFieldsValuesAndMakeDefault,
         token: token,
         getData: getData,
         closeSpeedDial: closeSpeedDial,

@@ -22,6 +22,10 @@ var _apiReport = require('../../rest/apiReport');
 
 var _apiReport2 = _interopRequireDefault(_apiReport);
 
+var _apiEmail = require('../../rest/apiEmail');
+
+var _apiEmail2 = _interopRequireDefault(_apiEmail);
+
 var _apiCustomRequest = require('../../rest/apiCustomRequest');
 
 var _apiCustomRequest2 = _interopRequireDefault(_apiCustomRequest);
@@ -48,6 +52,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       cancelCb = _ref.cancelCb,
       formCb = _ref.formCb,
       newCB = _ref.newCB,
+      copyCB = _ref.copyCB,
       token = _ref.token,
       _ref$getData = _ref.getData,
       getData = _ref$getData === undefined ? null : _ref$getData,
@@ -227,6 +232,29 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
    *
    */
 
+  if (button.action == 'copy') {
+    return _react2['default'].createElement(
+      'valle-speed-dial-action',
+      {
+        'class': 'valleForm__speedDial__copy',
+        key: _shortid2['default'].generate(),
+        sloted: true,
+        label: button.text,
+        'label-direction': 'left',
+        onClick: copyCB },
+      _react2['default'].createElement(
+        'svg',
+        { xmlns: 'http://www.w3.org/2000/svg', width: '20', height: '20', viewBox: '0 0 24 24' },
+        _react2['default'].createElement('path', { fill: '#fff', d: 'M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2zm18-8h-3v-3h-2v3h-3v2h3v3h2v-3h3v-2z' })
+      )
+    );
+  }
+
+  /**
+   * -----
+   *
+   */
+
   if (button.action == 'report') {
     return _react2['default'].createElement(
       'valle-speed-dial-action',
@@ -248,6 +276,36 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         'svg',
         { xmlns: 'http://www.w3.org/2000/svg', fill: '#fff', width: '19', height: '19', viewBox: '0 0 24 24' },
         _react2['default'].createElement('path', { d: 'M22 13v-13h-20v24h8.409c4.857 0 3.335-8 3.335-8 3.009.745 8.256.419 8.256-3zm-4-7h-12v-1h12v1zm0 3h-12v-1h12v1zm0 3h-12v-1h12v1zm-2.091 6.223c2.047.478 4.805-.279 6.091-1.179-1.494 1.998-5.23 5.708-7.432 6.881 1.156-1.168 1.563-4.234 1.341-5.702z' })
+      )
+    );
+  }
+
+  /**
+   * -----
+   *
+   */
+
+  if (button.action == 'email_confirmation') {
+    return _react2['default'].createElement(
+      'valle-speed-dial-action',
+      {
+        'class': 'valleForm__speedDial__copy',
+        key: _shortid2['default'].generate(),
+        sloted: true,
+        label: button.text,
+        'label-direction': 'left',
+        onClick: function () {
+          function onClick() {
+
+            (0, _apiEmail2['default'])(baseApi, _id, feedbackCb, token, closeSpeedDial);
+          }
+
+          return onClick;
+        }() },
+      _react2['default'].createElement(
+        'svg',
+        { xmlns: 'http://www.w3.org/2000/svg', width: '20', height: '20', viewBox: '0 0 24 24' },
+        _react2['default'].createElement('path', { fill: '#fff', d: 'M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z' })
       )
     );
   }

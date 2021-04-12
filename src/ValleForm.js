@@ -33,6 +33,7 @@ const ValleForm = ({
   updateValleList = null,
   cleanOldFormValues = null,
   apiUpload,
+  debug,
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
@@ -245,6 +246,7 @@ const ValleForm = ({
             values,
             cleanup,
             apiUpload,
+            debug,
           );
 
           return (
@@ -292,6 +294,7 @@ const ValleForm = ({
           values,
           cleanup,
           apiUpload,
+          debug,
         );
 
       }
@@ -320,6 +323,7 @@ const ValleForm = ({
         values,
         cleanup,
         apiUpload,
+        debug,
       );
 
     }
@@ -363,12 +367,16 @@ const ValleForm = ({
 
         {/* ------- Header ------- */}
 
-        <Switch
-          label = "Limitar campos"
-          readOnly = { dynamicReadOnly }
-          onChange = { changeVisibleScreen }
-          _id = { `${_id}-switch` }
-        />
+        { debug ? (
+
+          <Switch
+            label = "Limitar campos"
+            readOnly = { dynamicReadOnly }
+            onChange = { changeVisibleScreen }
+            _id = { `${_id}-switch` }
+          />
+
+        ) : null }
 
         {/* ------- Main ------- */}
 

@@ -20,6 +20,7 @@ export default ({
   $loading,
   tabErrorCountControls,
   tabIdentifier,
+  debug,
 }) => {
 
   /**
@@ -169,6 +170,7 @@ export default ({
             $loading = { $loading }
             _id = { _id }
             setCurrentFilledFields = { setCurrentFilledFields }
+            debug = { debug }
           />
         ) : null
       }

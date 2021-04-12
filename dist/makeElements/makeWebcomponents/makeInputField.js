@@ -53,7 +53,8 @@ exports['default'] = function (_ref) {
       ValleList = _ref.ValleList,
       $loading = _ref.$loading,
       tabErrorCountControls = _ref.tabErrorCountControls,
-      tabIdentifier = _ref.tabIdentifier;
+      tabIdentifier = _ref.tabIdentifier,
+      debug = _ref.debug;
 
   /**
    * -----
@@ -189,7 +190,8 @@ exports['default'] = function (_ref) {
       ValleList: ValleList,
       $loading: $loading,
       _id: _id,
-      setCurrentFilledFields: setCurrentFilledFields
+      setCurrentFilledFields: setCurrentFilledFields,
+      debug: debug
     }) : null
   );
 };

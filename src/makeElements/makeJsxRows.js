@@ -23,6 +23,7 @@ export default (
   values,
   cleanup,
   apiUpload,
+  debug,
   ) => rows.map((row, index) => {
 
   const $fields = row
@@ -114,6 +115,7 @@ export default (
               $loading = { $loading }
               tabErrorCountControls = { tabErrorCountControls }
               tabIdentifier = { tabIdentifier }
+              debug = { debug }
             />
           );
 

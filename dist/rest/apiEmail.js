@@ -39,7 +39,6 @@ var apiEmail = function apiEmail(baseApi, _id, feedbackCb, token, closeSpeedDial
    */
 
   if (!emailTo) {
-    console.log('d');
     feedbackCb('Campo e-mail não encontrado ou não preenchido', 'error');
     return;
   }

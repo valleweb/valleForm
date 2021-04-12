@@ -48,6 +48,7 @@ exports['default'] = function (rows) {
   var values = arguments[13];
   var cleanup = arguments[14];
   var apiUpload = arguments[15];
+  var debug = arguments[16];
   return rows.map(function (row, index) {
 
     var $fields = row.filter(function (field) {
@@ -127,7 +128,8 @@ exports['default'] = function (rows) {
         ValleList: ValleList,
         $loading: $loading,
         tabErrorCountControls: tabErrorCountControls,
-        tabIdentifier: tabIdentifier
+        tabIdentifier: tabIdentifier,
+        debug: debug
       });
     });
 

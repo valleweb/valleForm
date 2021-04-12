@@ -29,7 +29,8 @@ var Modal = function Modal(_ref) {
       ValleList = _ref.ValleList,
       $loading = _ref.$loading,
       _id = _ref._id,
-      setCurrentFilledFields = _ref.setCurrentFilledFields;
+      setCurrentFilledFields = _ref.setCurrentFilledFields,
+      debug = _ref.debug;
 
   var _useState = (0, _react.useState)({
     currentForm: data.evento.formulario,
@@ -157,7 +158,8 @@ var Modal = function Modal(_ref) {
           listData: listData,
           setListData: setListData,
           readOnly: listData.list.readonly,
-          dados: data.evento.dados
+          dados: data.evento.dados,
+          debug: debug
         }) : $loading
       )
     )

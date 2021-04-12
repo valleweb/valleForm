@@ -35,7 +35,6 @@ const apiEmail = (
    */
 
   if (!emailTo) {
-    console.log('d')
     feedbackCb('Campo e-mail não encontrado ou não preenchido', 'error');
     return;
   }

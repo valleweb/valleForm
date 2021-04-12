@@ -74,7 +74,8 @@ var ValleForm = function ValleForm(_ref) {
       updateValleList = _ref$updateValleList === undefined ? null : _ref$updateValleList,
       _ref$cleanOldFormValu = _ref.cleanOldFormValues,
       cleanOldFormValues = _ref$cleanOldFormValu === undefined ? null : _ref$cleanOldFormValu,
-      apiUpload = _ref.apiUpload;
+      apiUpload = _ref.apiUpload,
+      debug = _ref.debug;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -294,7 +295,7 @@ var ValleForm = function ValleForm(_ref) {
 
         $rows = tab.groups.map(function (group) {
 
-          var $groupRows = (0, _makeJsxRows2['default'])(group.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup, apiUpload);
+          var $groupRows = (0, _makeJsxRows2['default'])(group.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup, apiUpload, debug);
 
           return _react2['default'].createElement(
             'div',
@@ -321,7 +322,7 @@ var ValleForm = function ValleForm(_ref) {
          *
          */
 
-        $rows = (0, _makeJsxRows2['default'])(tab.groups[0].lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup, apiUpload);
+        $rows = (0, _makeJsxRows2['default'])(tab.groups[0].lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup, apiUpload, debug);
       }
     } else {
 
@@ -330,7 +331,7 @@ var ValleForm = function ValleForm(_ref) {
        *
        */
 
-      $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup, apiUpload);
+      $rows = (0, _makeJsxRows2['default'])(tab.lines, filterByVisibleScreen, dynamicReadOnly, editable, token, _id, baseApi, params, setSnackBarStatus, ValleList, $loading, tabErrorCount, tabIdentifier, values, cleanup, apiUpload, debug);
     }
 
     var isVisibleTab = visibleTab === index;
@@ -371,12 +372,12 @@ var ValleForm = function ValleForm(_ref) {
     return _react2['default'].createElement(
       'div',
       { className: 'valleForm', id: _id },
-      _react2['default'].createElement(_Switch2['default'], {
+      debug ? _react2['default'].createElement(_Switch2['default'], {
         label: 'Limitar campos',
         readOnly: dynamicReadOnly,
         onChange: changeVisibleScreen,
         _id: String(_id) + '-switch'
-      }),
+      }) : null,
       !(tabs.length === 1) ? _react2['default'].createElement(
         'div',
         { className: 'valleForm__tabs__titles' },

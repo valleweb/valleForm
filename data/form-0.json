@@ -1,257 +1,708 @@
 {
-  "title": "Manutenção de Estados",
-  "tabs": [
-    {
-      "title":"Manutenção de Estados",
-      "form": "frmEstados",
-      "id": "frmEstados",
-      "api": null,
-      "buttons": [
+      "version": 0,
+      "title": "Cadastro de Usuários",
+      "tabs": [
         {
-          "text": "Salvar",
-          "action": "save",
-          "type": "",
-          "icon": "",
-          "status": "create"
-        },
-        {
-          "text": "Enviar e-mail de confirmação",
-          "action": "email_confirmation",
-          "type": "",
-          "icon": "",
-          "status": "retrieval"
-        },
-        {
-          "text": "Novo cadastro",
-          "action": "new",
-          "type": "",
-          "icon": "",
-          "status": "retrieval"
-        },
-        {
-          "text": "Copiar para novo",
-          "action": "copy",
-          "type": "",
-          "icon": "",
-          "status": "retrieval"
-        },
-        {
-          "text": "Editar",
-          "action": "edit",
-          "type": "",
-          "icon": "",
-          "status": "retrieval"
-        },
-        {
-          "text": "Salvar alteraçōes",
-          "action": "update",
-          "type": "",
-          "icon": "",
-          "status": "update"
-        },
-        {
-          "text": "Cancelar",
-          "action": "cancel",
-          "type": "",
-          "icon": "",
-          "status": "update"
-        },
-        {
-          "text": "Excluir",
-          "action": "delete",
-          "type": "",
-          "icon": "",
-          "status": "update"
+          "title": "Padrão",
+          "form": "frmUsuarios",
+          "id": "padrão",
+          "api": "/api/form-0",
+          "buttons": [
+            {
+              "id": "5691",
+              "text": "Cancelar",
+              "action": "cancel",
+              "status": "update"
+            },
+            {
+              "id": "6832",
+              "text": "Excluir",
+              "action": "delete",
+              "status": "update"
+            },
+            {
+              "id": "3409",
+              "text": "Editar",
+              "action": "edit",
+              "status": "retrieval"
+            },
+            {
+              "id": "2268",
+              "text": "Incluir",
+              "action": "new",
+              "status": "retrieval"
+            },
+            {
+              "id": "1127",
+              "text": "Salvar",
+              "action": "save",
+              "status": "create"
+            },
+            {
+              "id": "4550",
+              "text": "Salvar Alterações",
+              "action": "update",
+              "status": "update"
+            }
+          ],
+          "lines": [
+            [
+              {
+                "id": "cgc_cpf",
+                "label": "CPF / CNPJ",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": true,
+                "maxlength": 20,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "@CPF_CNPJ",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": true,
+                "autocomplete": false,
+                "is_PK": true,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "id_tabela",
+                "label": "Id Tabela",
+                "placeholder": "",
+                "element": "input",
+                "type": "number",
+                "required": true,
+                "maxlength": 0,
+                "case": "",
+                "mask": null,
+                "pattern": "#,##0",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": true,
+                "autocomplete": false,
+                "is_PK": true,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": true
+              },
+              {
+                "id": "usuario",
+                "label": "Usuario",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": true,
+                "maxlength": 200,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": true,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ],
+            [
+              {
+                "id": "nome",
+                "label": "Nome",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": true,
+                "maxlength": 8000,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": true,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "sobrenome",
+                "label": "Sobrenome",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": true,
+                "maxlength": 8000,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": true,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ],
+            [
+              {
+                "id": "data_nascimento",
+                "label": "Data Nascimento",
+                "placeholder": "",
+                "element": "input",
+                "type": "date",
+                "required": true,
+                "maxlength": 10,
+                "case": "",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": true,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "liberado",
+                "label": "Liberado",
+                "placeholder": "",
+                "element": "select",
+                "type": "text",
+                "required": false,
+                "maxlength": 3,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false,
+                "options": [
+                  {
+                    "text": "Selecione",
+                    "value": ""
+                  },
+                  {
+                    "text": "Sim",
+                    "value": "Sim"
+                  },
+                  {
+                    "text": "Não",
+                    "value": "Não"
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "id": "email_autenticacao",
+                "label": "Email Autenticacao",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 20,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "email_porta_smtp",
+                "label": "Email Porta Smtp",
+                "placeholder": "",
+                "element": "input",
+                "type": "number",
+                "required": false,
+                "maxlength": 0,
+                "case": "",
+                "mask": null,
+                "pattern": "#,##0",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "email_senha",
+                "label": "Email Senha",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 50,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "email_smtp",
+                "label": "Email Smtp",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 60,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ],
+            [
+              {
+                "id": "mostra_sql",
+                "label": "Mostra Sql",
+                "placeholder": "",
+                "element": "select",
+                "type": "text",
+                "required": false,
+                "maxlength": 3,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false,
+                "options": [
+                  {
+                    "text": "Selecione",
+                    "value": ""
+                  },
+                  {
+                    "text": "Sim",
+                    "value": "Sim"
+                  },
+                  {
+                    "text": "Não",
+                    "value": "Não"
+                  }
+                ]
+              },
+              {
+                "id": "trocar_senha",
+                "label": "Trocar Senha",
+                "placeholder": "",
+                "element": "select",
+                "type": "text",
+                "required": false,
+                "maxlength": 3,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false,
+                "options": [
+                  {
+                    "text": "Selecione",
+                    "value": ""
+                  },
+                  {
+                    "text": "Sim",
+                    "value": "Sim"
+                  },
+                  {
+                    "text": "Não",
+                    "value": "Não"
+                  }
+                ]
+              },
+              {
+                "id": "validade_senha",
+                "label": "Validade Senha",
+                "placeholder": "",
+                "element": "input",
+                "type": "number",
+                "required": false,
+                "maxlength": 0,
+                "case": "",
+                "mask": null,
+                "pattern": "#,##0",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "data_limite_acesso",
+                "label": "Data Limite Acesso",
+                "placeholder": "",
+                "element": "input",
+                "type": "date",
+                "required": false,
+                "maxlength": 10,
+                "case": "",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ],
+            [
+              {
+                "id": "celular",
+                "label": "Celular",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 20,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "tempo_timeout",
+                "label": "Tempo Timeout",
+                "placeholder": "",
+                "element": "input",
+                "type": "number",
+                "required": false,
+                "maxlength": 0,
+                "case": "",
+                "mask": null,
+                "pattern": "#,##0",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "logradouro",
+                "label": "Logradouro",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 8000,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "cep",
+                "label": "Cep",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 10,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ],
+            [
+              {
+                "id": "numero_endereco",
+                "label": "Numero Endereco",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 8000,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "complemento_endereco",
+                "label": "Complemento Endereco",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 8000,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "cidade",
+                "label": "Cidade",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 50,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "estado",
+                "label": "Estado",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 2,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ],
+            [
+              {
+                "id": "pais",
+                "label": "Pais",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 50,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "usuario_gmail",
+                "label": "Usuario Gmail",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 8000,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              },
+              {
+                "id": "chave_api_gmail",
+                "label": "Chave Api Gmail",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 8000,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ],
+            [
+              {
+                "id": "whatsapp",
+                "label": "Whatsapp",
+                "placeholder": "",
+                "element": "input",
+                "type": "text",
+                "required": false,
+                "maxlength": 20,
+                "case": "ProperCase",
+                "mask": null,
+                "pattern": "",
+                "readonly": false,
+                "helper_text": "",
+                "error_text": "",
+                "visible_screen": false,
+                "autocomplete": false,
+                "is_PK": false,
+                "actions": [],
+                "value": "",
+                "description": "",
+                "hidden": false
+              }
+            ]
+          ]
         }
       ],
-      "lines":[
-        [
-          {
-            "case": null,
-            "id": "estado",
-            "label": "Estado",
-            "placeholder": null,
-            "element": "input",
-            "required": true,
-            "readonly": true,
-            "error_text": "Campo obrigatório",
-            "helper_text": "Texto aqui",
-            "visible_screen": false,
-            "type": "text",
-            "is_PK": false,
-            "mask": null,
-            "maxlength": 2,
-            "pattern": null,
-            "autocomplete": false,
-            "actions" : [
-              {
-                "action": "exists",
-                "data": null
-              },
-              {
-                "action": "find",
-                "data": null
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "case": null,
-            "element": "input",
-            "error_text": "Campo obrigatório",
-            "helper_text": "Texto aqui",
-            "id": "descricao",
-            "is_PK": true,
-            "label": "Descrição",
-            "mask": null,
-            "maxlength": 50,
-            "pattern": null,
-            "placeholder": null,
-            "readonly": false,
-            "required": true,
-            "type": "text",
-            "visible_screen": true,
-            "autocomplete": false,
-            "actions" : [
-              {
-                "action": "exists",
-                "data": null
-              },
-              {
-                "action": "find",
-                "data": null
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "case": null,
-            "element": "input",
-            "error_text": null,
-            "helper_text": null,
-            "id": "codigo_gia",
-            "is_PK": false,
-            "label": "Código GIA",
-            "mask": null,
-            "maxlength": 2,
-            "pattern": null,
-            "placeholder": null,
-            "readonly": false,
-            "required": false,
-            "type": "text",
-            "visible_screen": true,
-            "autocomplete": false,
-            "actions" : [
-              {
-                "action": "exists",
-                "data": null
-              },
-              {
-                "action": "find",
-                "data": null
-              }
-            ]
-          },
-          {
-            "case": null,
-            "element": "select",
-            "error_text": null,
-            "helper_text": null,
-            "id": "zfm_alc",
-            "is_PK": true,
-            "label": "ZFM/ALC",
-            "mask": null,
-            "maxlength": 10,
-            "pattern": null,
-            "placeholder": null,
-            "readonly": false,
-            "required": true,
-            "type": "text",
-            "visible_screen": true,
-            "autocomplete": false,
-            "actions" : [
-            ],
-            "options": [
-              {
-                "value":"Selecione",
-                "text":"Selecione"
-              },
-              {
-                "value":"Sim",
-                "text":"Sim"
-              },
-              {
-                "value":"Não",
-                "text":"Não"
-              }
-            ]
-          },
-          {
-            "case": null,
-            "element": "input",
-            "error_text": null,
-            "helper_text": null,
-            "id": "regiao",
-            "is_PK": false,
-            "label": "Região",
-            "mask": null,
-            "maxlength": 20,
-            "pattern": null,
-            "placeholder": null,
-            "readonly": false,
-            "required": false,
-            "type": "text",
-            "visible_screen": true,
-            "autocomplete": false,
-            "actions" : [
-            ]
-          },
-          {
-            "case": null,
-            "element": "input",
-            "error_text": null,
-            "helper_text": null,
-            "id": "email",
-            "is_PK": false,
-            "label": "E-mail",
-            "mask": null,
-            "maxlength": 20,
-            "pattern": null,
-            "placeholder": null,
-            "readonly": false,
-            "required": false,
-            "type": "text",
-            "visible_screen": true,
-            "autocomplete": false,
-            "actions" : [
-            ]
-          }
-        ],
-        [
-          {
-            "id": "textarea",
-            "label": "Descrição",
-            "placeholder": "Texto longo aqui",
-            "element": "textarea",
-            "type": "markdown",
-            "is_PK": false,
-            "required": false,
-            "maxlength": 7,
-            "case": "ProperCase",
-            "mask": null,
-            "pattern": null,
-            "readonly": false,
-            "helper_text": "Texto completo",
-            "error_text": "Campo obrigatório",
-            "visible_screen": true,
-            "autocomplete": false,
-            "actions" : [
-            ]
-          }
-        ]
-      ]
+      "form": "frmUsuarios",
+      "description": ""
     }
-  ]
-}

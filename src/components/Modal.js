@@ -17,6 +17,7 @@ const Modal = ({
   $loading,
   _id,
   setCurrentFilledFields,
+  debug,
 }) => {
 
   const [ listData, setListData ] = useState({
@@ -138,6 +139,7 @@ const Modal = ({
               setListData = { setListData }
               readOnly = { listData.list.readonly }
               dados = { data.evento.dados }
+              debug = { debug }
             />
 
           ) : $loading }

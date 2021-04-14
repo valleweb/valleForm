@@ -20,6 +20,10 @@ var _Switch = require('./components/Switch');
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
+var _StickerLabel = require('./components/StickerLabel');
+
+var _StickerLabel2 = _interopRequireDefault(_StickerLabel);
+
 var _addFieldsValues = require('./fieldsControl/addFieldsValues');
 
 var _addFieldsValues2 = _interopRequireDefault(_addFieldsValues);
@@ -75,7 +79,8 @@ var ValleForm = function ValleForm(_ref) {
       _ref$cleanOldFormValu = _ref.cleanOldFormValues,
       cleanOldFormValues = _ref$cleanOldFormValu === undefined ? null : _ref$cleanOldFormValu,
       apiUpload = _ref.apiUpload,
-      debug = _ref.debug;
+      debug = _ref.debug,
+      search = _ref.search;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -372,6 +377,11 @@ var ValleForm = function ValleForm(_ref) {
     return _react2['default'].createElement(
       'div',
       { className: 'valleForm', id: _id },
+      _react2['default'].createElement(_StickerLabel2['default'], {
+        readOnly: dynamicReadOnly,
+        editable: editable,
+        search: search
+      }),
       debug ? _react2['default'].createElement(_Switch2['default'], {
         label: 'Limitar campos',
         readOnly: dynamicReadOnly,

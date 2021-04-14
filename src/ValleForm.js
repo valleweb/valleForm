@@ -4,6 +4,7 @@ import makeJsxRows from './makeElements/makeJsxRows';
 import makeSpeedDialActions from './makeElements/makeWebcomponents/makeSpeedDialActions';
 
 import Switch from './components/Switch';
+import StickerLabel from './components/StickerLabel';
 
 import addFieldsValues from './fieldsControl/addFieldsValues';
 import cleanFields from './fieldsControl/cleanFields';
@@ -34,6 +35,7 @@ const ValleForm = ({
   cleanOldFormValues = null,
   apiUpload,
   debug,
+  search,
   }) => {
 
   const [dynamicReadOnly, setDynamicReadOnly] = useState(false);
@@ -364,6 +366,14 @@ const ValleForm = ({
 
     return (
       <div className = "valleForm" id = { _id } >
+
+        {/* ------- Sticker Label ------- */}
+
+        <StickerLabel
+          readOnly = { dynamicReadOnly }
+          editable = { editable }
+          search = { search }
+        />
 
         {/* ------- Header ------- */}
 

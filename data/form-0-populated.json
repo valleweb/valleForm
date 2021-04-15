@@ -70,7 +70,7 @@
 					"label": "Descrição",
 					"placeholder": "Text here",
 					"element": "input",
-					"type": "text",
+					"type": "number",
 					"required": true,
 					"maxlength": 7,
 					"case": "ProperCase",

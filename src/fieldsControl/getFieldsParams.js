@@ -19,8 +19,13 @@ export default (_id, tabErrorCount) => {
       hasError = true;
     }
 
+    const isRequired = (field.required || field.dataset.valleRequired == 'true');
+    const isFalse = !field.value;
+    const isZero = field.value === 0;
+    const isEmptyString = field.value === '';
+
     // Global required validation
-    if((field.required || field.dataset.valleRequired == 'true') && (!field.value || field.value == '')) {
+    if(isRequired && ((isFalse && !isZero) || isEmptyString)) {
       hasError = true;
       field.setAttribute('error', 'true');
       field.setAttribute('data-valle-error', 'true');
@@ -45,7 +50,7 @@ export default (_id, tabErrorCount) => {
      *
      */
 
-    fieldsParams[field.dataset.valleField] = field.value ? field.value : null;
+    fieldsParams[field.dataset.valleField] = (field.value || field.value === 0 ) ? field.value : null;
 
   })
 

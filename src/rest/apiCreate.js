@@ -17,6 +17,7 @@ const apiCreate = (
   updateValleList,
   tabErrorCount,
   setCleanup,
+  setLoading,
 ) => {
 
   /**
@@ -60,11 +61,23 @@ const apiCreate = (
     });
 
     /**
-     * HTTP POST
+     * -----
      *
      */
 
     closeSpeedDial();
+
+    /**
+     * -----
+     *
+     */
+
+    setLoading(true);
+
+    /**
+     * HTTP POST
+     *
+     */
 
     fetch(apiPath, { method, headers, body })
       .then(res => res.json())
@@ -74,6 +87,8 @@ const apiCreate = (
          * Request success
          *
          */
+
+        setLoading(false);
 
         feedbackCb(data.evento.mensagem, 'success');
         cleanFields(_id, setCleanup);
@@ -142,7 +157,7 @@ const apiCreate = (
          *
          */
 
-        console.log(err);
+        setLoading(false);
 
         feedbackCb('Erro interno no servidor', 'error');
 

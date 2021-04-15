@@ -28,7 +28,8 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       updateValleList = _ref.updateValleList,
       setCleanup = _ref.setCleanup,
       _ref$customParams = _ref.customParams,
-      customParams = _ref$customParams === undefined ? {} : _ref$customParams;
+      customParams = _ref$customParams === undefined ? {} : _ref$customParams,
+      setLoading = _ref.setLoading;
 
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
@@ -73,11 +74,20 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
      *
      */
 
+    setLoading(true);
+
+    /**
+     * -----
+     *
+     */
+
     if (action == 'custom_api' || action == 'custom_stp') {
 
       fetch(String(baseApi) + '/generic-action', { method: method, headers: headers, body: body }).then(function (res) {
         return res.json();
       }).then(function (data) {
+
+        setLoading(false);
 
         /**
          * -----
@@ -146,6 +156,8 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
          *
          */
 
+        setLoading(false);
+
         feedbackCb('Erro interno no servidor', 'error');
       });;
     } else {
@@ -153,6 +165,8 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       fetch(String(baseApi) + '/form-filter', { method: method, headers: headers, body: body }).then(function (res) {
         return res.json();
       }).then(function (data) {
+
+        setLoading(false);
 
         if (getData) {
           getData(data);
@@ -167,6 +181,8 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
          * Request error
          *
          */
+
+        setLoading(false);
 
         feedbackCb('Erro interno no servidor', 'error');
       });

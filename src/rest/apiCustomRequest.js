@@ -16,6 +16,7 @@ const apiCustomRequest = ({
   updateValleList,
   setCleanup,
   customParams = {},
+  setLoading,
 }) => {
 
   const fieldsParams = getFieldsParams(_id, tabErrorCount);
@@ -60,11 +61,20 @@ const apiCustomRequest = ({
      *
      */
 
+    setLoading(true);
+
+    /**
+     * -----
+     *
+     */
+
     if(action == 'custom_api' || action == 'custom_stp') {
 
       fetch(`${baseApi}/generic-action`, { method, headers, body })
       .then(res => res.json())
       .then(data => {
+
+        setLoading(false);
 
         /**
          * -----
@@ -159,6 +169,8 @@ const apiCustomRequest = ({
          *
          */
 
+        setLoading(false);
+
         feedbackCb('Erro interno no servidor', 'error');
 
       });;
@@ -168,6 +180,8 @@ const apiCustomRequest = ({
       fetch(`${baseApi}/form-filter`, { method, headers, body })
       .then(res => res.json())
       .then(data => {
+
+        setLoading(false);
 
         if(getData) {
           getData(data);
@@ -184,6 +198,8 @@ const apiCustomRequest = ({
          * Request error
          *
          */
+
+        setLoading(false);
 
         feedbackCb('Erro interno no servidor', 'error');
 

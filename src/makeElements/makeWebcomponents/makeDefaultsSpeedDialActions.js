@@ -30,6 +30,7 @@ export default makeDefaultsSpeedDialActions = ({
   updateValleList,
   tabErrorCount,
   setCleanup,
+  setLoading,
 }) => {
 
   /**
@@ -58,6 +59,7 @@ export default makeDefaultsSpeedDialActions = ({
             updateValleList,
             tabErrorCount,
             setCleanup,
+            setLoading,
           )
 
         } }>
@@ -121,6 +123,7 @@ export default makeDefaultsSpeedDialActions = ({
             closeSpeedDial,
             updateValleList,
             tabErrorCount,
+            setLoading,
           )
 
         } }>
@@ -183,6 +186,7 @@ export default makeDefaultsSpeedDialActions = ({
             token,
             closeSpeedDial,
             updateValleList,
+            setLoading,
           )
 
         } }>
@@ -266,6 +270,7 @@ export default makeDefaultsSpeedDialActions = ({
             closeSpeedDial,
             button.id,
             button.action,
+            setLoading,
           )
 
         }}>
@@ -299,6 +304,7 @@ export default makeDefaultsSpeedDialActions = ({
             feedbackCb,
             token,
             closeSpeedDial,
+            setLoading,
           )
 
         } }>
@@ -340,6 +346,7 @@ export default makeDefaultsSpeedDialActions = ({
           updateValleList,
           setCleanup,
           customParams: params,
+          setLoading,
         }
 
         closeSpeedDial();

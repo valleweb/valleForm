@@ -11,6 +11,7 @@ const apiEmail = (
   feedbackCb,
   token,
   closeSpeedDial,
+  setLoading,
 ) => {
 
   /**
@@ -44,39 +45,51 @@ const apiEmail = (
    *
    */
 
-   const apiPath = `${baseApi}/send-confirmation-email`;
+  const apiPath = `${baseApi}/send-confirmation-email`;
 
    /**
     * Request configs
     *
     */
 
-   const method = 'POST';
+  const method = 'POST';
 
-   const headers = new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-   });
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  });
 
    /**
     * Request data structure
     *
     */
 
-   const body = JSON.stringify({
+  const body = JSON.stringify({
      evento: {
-       email_to: emailTo,
+      email_to: emailTo,
      }
    });
 
-   /**
-    * HTTP POST
-    *
-    */
+  /**
+   * -----
+   *
+   */
 
-   closeSpeedDial();
+  closeSpeedDial();
 
-   fetch(apiPath, { method, headers, body })
+  /**
+   * -----
+   *
+   */
+
+  setLoading(true);
+
+  /**
+   * HTTP POST
+   *
+   */
+
+  fetch(apiPath, { method, headers, body })
      .then(res => res.json())
      .then(data => {
 
@@ -85,7 +98,9 @@ const apiEmail = (
         *
         */
 
-       feedbackCb(data.evento.mensagem, 'success');
+        setLoading(false);
+
+        feedbackCb(data.evento.mensagem, 'success');
 
      })
      .catch(err => {
@@ -95,9 +110,9 @@ const apiEmail = (
         *
         */
 
-       console.log(err);
+        setLoading(false);
 
-       feedbackCb('Erro interno no servidor', 'error');
+        feedbackCb('Erro interno no servidor', 'error');
 
      });
 

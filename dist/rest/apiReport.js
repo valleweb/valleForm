@@ -13,6 +13,7 @@ var apiReport = function apiReport(baseApi) {
   var closeSpeedDial = arguments[4];
   var button_id = arguments[5];
   var action = arguments[6];
+  var setLoading = arguments[7];
 
 
   /**
@@ -47,11 +48,23 @@ var apiReport = function apiReport(baseApi) {
   });
 
   /**
-   * HTTP POST
+   * -----
    *
    */
 
   closeSpeedDial();
+
+  /**
+   * -----
+   *
+   */
+
+  setLoading(true);
+
+  /**
+   * HTTP POST
+   *
+   */
 
   fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
     return res.json();
@@ -62,6 +75,8 @@ var apiReport = function apiReport(baseApi) {
      *
      */
 
+    setLoading(false);
+
     feedbackCb(data.evento.mensagem, 'success');
   })['catch'](function (err) {
 
@@ -70,7 +85,7 @@ var apiReport = function apiReport(baseApi) {
      *
      */
 
-    console.log(err);
+    setLoading(false);
 
     feedbackCb('Erro interno no servidor', 'error');
   });

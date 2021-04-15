@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  *
  */
 
-var apiEmail = function apiEmail(baseApi, _id, feedbackCb, token, closeSpeedDial) {
+var apiEmail = function apiEmail(baseApi, _id, feedbackCb, token, closeSpeedDial, setLoading) {
 
   /**
    * -----
@@ -74,11 +74,23 @@ var apiEmail = function apiEmail(baseApi, _id, feedbackCb, token, closeSpeedDial
   });
 
   /**
-   * HTTP POST
+   * -----
    *
    */
 
   closeSpeedDial();
+
+  /**
+   * -----
+   *
+   */
+
+  setLoading(true);
+
+  /**
+   * HTTP POST
+   *
+   */
 
   fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
     return res.json();
@@ -89,6 +101,8 @@ var apiEmail = function apiEmail(baseApi, _id, feedbackCb, token, closeSpeedDial
      *
      */
 
+    setLoading(false);
+
     feedbackCb(data.evento.mensagem, 'success');
   })['catch'](function (err) {
 
@@ -97,7 +111,7 @@ var apiEmail = function apiEmail(baseApi, _id, feedbackCb, token, closeSpeedDial
      *
      */
 
-    console.log(err);
+    setLoading(false);
 
     feedbackCb('Erro interno no servidor', 'error');
   });

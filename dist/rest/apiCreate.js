@@ -26,6 +26,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
   var updateValleList = arguments[7];
   var tabErrorCount = arguments[8];
   var setCleanup = arguments[9];
+  var setLoading = arguments[10];
 
 
   /**
@@ -68,11 +69,23 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
     });
 
     /**
-     * HTTP POST
+     * -----
      *
      */
 
     closeSpeedDial();
+
+    /**
+     * -----
+     *
+     */
+
+    setLoading(true);
+
+    /**
+     * HTTP POST
+     *
+     */
 
     fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();
@@ -82,6 +95,8 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
        * Request success
        *
        */
+
+      setLoading(false);
 
       feedbackCb(data.evento.mensagem, 'success');
       (0, _cleanFields2['default'])(_id, setCleanup);
@@ -125,7 +140,7 @@ var apiCreate = function apiCreate(baseApi, canonicalApi) {
        *
        */
 
-      console.log(err);
+      setLoading(false);
 
       feedbackCb('Erro interno no servidor', 'error');
     });

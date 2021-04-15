@@ -21,6 +21,7 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
   var token = arguments[6];
   var closeSpeedDial = arguments[7];
   var updateValleList = arguments[8];
+  var setLoading = arguments[9];
 
 
   /**
@@ -62,11 +63,23 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
   });
 
   /**
-   * HTTP DELETE
+   * -----
    *
    */
 
   closeSpeedDial();
+
+  /**
+   * -----
+   *
+   */
+
+  setLoading(true);
+
+  /**
+   * HTTP DELETE
+   *
+   */
 
   fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
     return res.json();
@@ -76,6 +89,8 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
      * Request success
      *
      */
+
+    setLoading(false);
 
     feedbackCb(data.evento.mensagem, 'success');
 
@@ -115,7 +130,7 @@ var apiDelete = function apiDelete(baseApi, canonicalApi) {
      *
      */
 
-    console.log(err);
+    setLoading(false);
 
     feedbackCb('Erro interno no servidor', 'error');
   });

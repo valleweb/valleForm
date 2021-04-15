@@ -22,6 +22,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
   var closeSpeedDial = arguments[7];
   var updateValleList = arguments[8];
   var tabErrorCount = arguments[9];
+  var setLoading = arguments[10];
 
 
   /**
@@ -64,10 +65,23 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
     });
 
     /**
+     * -----
+     *
+     */
+
+    closeSpeedDial();
+
+    /**
+     * -----
+     *
+     */
+
+    setLoading(true);
+
+    /**
      * HTTP PUT
      *
      */
-    closeSpeedDial();
 
     fetch(apiPath, { method: method, headers: headers, body: body }).then(function (res) {
       return res.json();
@@ -77,6 +91,8 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
        * Request success
        *
        */
+
+      setLoading(false);
 
       feedbackCb(data.evento.mensagem, 'success');
       formCb();
@@ -110,7 +126,7 @@ var apiUpdate = function apiUpdate(baseApi, canonicalApi) {
        *
        */
 
-      console.log(err);
+      setLoading(false);
 
       feedbackCb('Erro interno no servidor', 'error');
     });

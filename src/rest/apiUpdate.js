@@ -16,6 +16,7 @@ const apiUpdate = (
   closeSpeedDial,
   updateValleList,
   tabErrorCount,
+  setLoading,
 ) => {
 
   /**
@@ -59,10 +60,23 @@ const apiUpdate = (
     });
 
     /**
+     * -----
+     *
+     */
+
+    closeSpeedDial();
+
+    /**
+     * -----
+     *
+     */
+
+    setLoading(true);
+
+    /**
      * HTTP PUT
      *
      */
-    closeSpeedDial();
 
     fetch(apiPath, { method, headers, body })
       .then(res => res.json())
@@ -72,6 +86,8 @@ const apiUpdate = (
          * Request success
          *
          */
+
+        setLoading(false);
 
         feedbackCb(data.evento.mensagem, 'success');
         formCb();
@@ -128,7 +144,7 @@ const apiUpdate = (
          *
          */
 
-        console.log(err);
+        setLoading(false);
 
         feedbackCb('Erro interno no servidor', 'error');
 

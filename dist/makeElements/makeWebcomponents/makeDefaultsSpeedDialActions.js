@@ -59,7 +59,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       closeSpeedDial = _ref.closeSpeedDial,
       updateValleList = _ref.updateValleList,
       tabErrorCount = _ref.tabErrorCount,
-      setCleanup = _ref.setCleanup;
+      setCleanup = _ref.setCleanup,
+      setLoading = _ref.setLoading;
 
 
   /**
@@ -79,7 +80,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         onClick: function () {
           function onClick() {
 
-            (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, tabErrorCount, setCleanup);
+            (0, _apiCreate2['default'])(baseApi, canonicalApi, params, feedbackCb, token, _id, closeSpeedDial, updateValleList, tabErrorCount, setCleanup, setLoading);
           }
 
           return onClick;
@@ -134,7 +135,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         onClick: function () {
           function onClick() {
 
-            (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial, updateValleList, tabErrorCount);
+            (0, _apiUpdate2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, formCb, token, closeSpeedDial, updateValleList, tabErrorCount, setLoading);
           }
 
           return onClick;
@@ -189,7 +190,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         onClick: function () {
           function onClick() {
 
-            (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial, updateValleList);
+            (0, _apiDelete2['default'])(baseApi, canonicalApi, params, _id, feedbackCb, newCB, token, closeSpeedDial, updateValleList, setLoading);
           }
 
           return onClick;
@@ -267,7 +268,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         onClick: function () {
           function onClick() {
 
-            (0, _apiReport2['default'])(baseApi, params, feedbackCb, token, closeSpeedDial, button.id, button.action);
+            (0, _apiReport2['default'])(baseApi, params, feedbackCb, token, closeSpeedDial, button.id, button.action, setLoading);
           }
 
           return onClick;
@@ -297,7 +298,7 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
         onClick: function () {
           function onClick() {
 
-            (0, _apiEmail2['default'])(baseApi, _id, feedbackCb, token, closeSpeedDial);
+            (0, _apiEmail2['default'])(baseApi, _id, feedbackCb, token, closeSpeedDial, setLoading);
           }
 
           return onClick;
@@ -340,7 +341,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
             closeSpeedDial: closeSpeedDial,
             updateValleList: updateValleList,
             setCleanup: setCleanup,
-            customParams: params
+            customParams: params,
+            setLoading: setLoading
           };
 
           closeSpeedDial();

@@ -11,6 +11,7 @@ const apiReport = (
   closeSpeedDial,
   button_id,
   action,
+  setLoading,
 ) => {
 
   /**
@@ -46,11 +47,23 @@ const apiReport = (
   });
 
   /**
-   * HTTP POST
+   * -----
    *
    */
 
   closeSpeedDial();
+
+  /**
+   * -----
+   *
+   */
+
+  setLoading(true);
+
+  /**
+   * HTTP POST
+   *
+   */
 
   fetch(apiPath, { method, headers, body })
     .then(res => res.json())
@@ -60,6 +73,8 @@ const apiReport = (
        * Request success
        *
        */
+
+      setLoading(false);
 
       feedbackCb(data.evento.mensagem, 'success');
 
@@ -71,7 +86,7 @@ const apiReport = (
        *
        */
 
-      console.log(err);
+      setLoading(false);
 
       feedbackCb('Erro interno no servidor', 'error');
 

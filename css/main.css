@@ -453,6 +453,25 @@
   white-space: nowrap;
 }
 
+.valleForm__speedDial--loading {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .valleForm__speedDial__loader {
+  border: 1px solid red;
+} */
+
+.valleForm__speedDial__loader path {
+  fill: var(--highlight-color, rgb(5, 159, 183));
+}
+
+/* .valleForm__speedDial__loader svg {
+  width: 80px;
+} */
+
 .valleForm__snackbar {
   --width: 568px;
   align-items: center;

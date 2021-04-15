@@ -15,6 +15,7 @@ const apiDelete = (
   token,
   closeSpeedDial,
   updateValleList,
+  setLoading,
 ) => {
 
     /**
@@ -57,11 +58,23 @@ const apiDelete = (
     });
 
     /**
-     * HTTP DELETE
+     * -----
      *
      */
 
     closeSpeedDial();
+
+    /**
+     * -----
+     *
+     */
+
+    setLoading(true);
+
+    /**
+     * HTTP DELETE
+     *
+     */
 
     fetch(apiPath, { method, headers, body })
       .then(res => res.json())
@@ -71,6 +84,8 @@ const apiDelete = (
          * Request success
          *
          */
+
+        setLoading(false);
 
         feedbackCb(data.evento.mensagem, 'success');
 
@@ -134,7 +149,7 @@ const apiDelete = (
          *
          */
 
-        console.log(err);
+        setLoading(false);
 
         feedbackCb('Erro interno no servidor', 'error')
 

@@ -472,6 +472,16 @@
   width: 80px;
 } */
 
+.valleForm__speedDial__custom--insert {
+  --valle-speed-dial-action-fab-color: var(--addColor, #7bcc02);
+  white-space: nowrap;
+}
+
+.valleForm__speedDial__custom--search {
+  --valle-speed-dial-action-fab-color: var(--searchColor, #37E3BB);
+  white-space: nowrap;
+}
+
 .valleForm__snackbar {
   --width: 568px;
   align-items: center;
@@ -1392,6 +1402,6 @@
   color: #fff;
 }
 .valleForm__mode-label--search {
-  background: #34E1B8;
+  background: var(--searchColor, #37E3BB);
   color: #333333;
 }

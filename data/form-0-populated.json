@@ -13,6 +13,20 @@
 				"icon": "",
 				"status": "create"
 			},
+      {
+				"text": "Salvar custom",
+				"action": "custom",
+				"type": "",
+				"icon": "insert",
+				"status": "create"
+			},
+      {
+				"text": "Pesquisar",
+				"action": "custom",
+				"type": "",
+				"icon": "search",
+				"status": "create"
+			},
 			{
 				"text": "Novo cadastro",
 				"action": "new",

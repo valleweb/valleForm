@@ -322,9 +322,32 @@ export default makeDefaultsSpeedDialActions = ({
    *
    */
 
+  let dynamicIcon = (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="#fff" d="M8 10h-5l9-10 9 10h-5v10h-8v-10zm8 12h-8v2h8v-2z"/>
+    </svg>
+  );
+
+  if (button.icon === 'insert') {
+    dynamicIcon = (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#fff"/>
+      </svg>
+    );
+  }
+
+  if (button.icon === 'search') {
+    dynamicIcon = (
+      <svg fill = "#fff" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/>
+      </svg>
+    );
+  }
+
   return (
     <valle-speed-dial-action
-      class = ""
+      class = {`valleForm__speedDial__custom--${button.icon}`}
       key = { shortid.generate() }
       sloted
       label = { button.text }
@@ -354,9 +377,7 @@ export default makeDefaultsSpeedDialActions = ({
 
       }}>
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <path fill="#fff" d="M8 10h-5l9-10 9 10h-5v10h-8v-10zm8 12h-8v2h8v-2z"/>
-        </svg>
+      { dynamicIcon }
 
     </valle-speed-dial-action>
   )

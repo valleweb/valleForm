@@ -1147,6 +1147,14 @@
   border-color: #000;
 }
 
+.valleForm__upload--disabled {
+  border-color: rgba(0, 0, 0, .12);
+}
+
+.valleForm__upload--disabled:hover {
+  border-color: rgba(0, 0, 0, .12);
+}
+
 /* .valleForm__upload:focus {
   border-color: var(--valle-input-color, rgb(5, 159, 183));
 } */

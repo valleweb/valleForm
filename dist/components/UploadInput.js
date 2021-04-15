@@ -74,6 +74,22 @@ var UploadInput = function UploadInput(_ref) {
       setURLStorage = _useState8[1];
 
   /**
+   * Control readOnly sate in editable mode.
+   *
+   */
+
+  var isDisabled = void 0;
+
+  if (editable) {
+    isDisabled = readOnly ? true : field.is_PK;
+  } else {
+    isDisabled = readOnly;
+  }
+
+  console.log('UPLOAD');
+  console.log(readOnly);
+
+  /**
    * -----
    *
    */
@@ -188,7 +204,7 @@ var UploadInput = function UploadInput(_ref) {
 
   return _react2['default'].createElement(
     'div',
-    { className: 'valleForm__upload' },
+    { className: 'valleForm__upload ' + (isDisabled ? 'valleForm__upload--disabled' : '') },
     _react2['default'].createElement(
       'div',
       { className: 'valleForm__upload__select-file' },
@@ -196,7 +212,7 @@ var UploadInput = function UploadInput(_ref) {
         className: 'valleForm__upload__input',
         type: 'file'
       }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'ref', uploadInput), _defineProperty(_extends2, 'onChange', handleUploadInput), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple), {
-        disabled: uploadStatus === 'progress' || uploadStatus === 'start'
+        disabled: uploadStatus === 'progress' || uploadStatus === 'start' || isDisabled
       })),
       _react2['default'].createElement(
         'label',

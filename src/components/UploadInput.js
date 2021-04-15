@@ -35,6 +35,22 @@ const UploadInput = ({
   const [URLStorage, setURLStorage] = useState('');
 
   /**
+   * Control readOnly sate in editable mode.
+   *
+   */
+
+  let isDisabled;
+
+  if(editable) {
+    isDisabled = readOnly ? true : field.is_PK;
+  } else {
+    isDisabled = readOnly;
+  }
+
+  console.log('UPLOAD')
+  console.log(readOnly)
+
+  /**
    * -----
    *
    */
@@ -166,7 +182,7 @@ const UploadInput = ({
   // console.log('================')
 
   return (
-    <div className = 'valleForm__upload'>
+    <div className = {`valleForm__upload ${isDisabled ? 'valleForm__upload--disabled' : ''}`}>
 
       <div className = 'valleForm__upload__select-file'>
 
@@ -183,7 +199,7 @@ const UploadInput = ({
           ref = { uploadInput }
           onChange = { handleUploadInput }
           { ...normalizeProp('multiple', field.upload.multiple) }
-          disabled = { (uploadStatus === 'progress') || (uploadStatus === 'start') }
+          disabled = { (uploadStatus === 'progress') || (uploadStatus === 'start') || isDisabled }
         />
 
         <label className = 'valleForm__upload__label'>

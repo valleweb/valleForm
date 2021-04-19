@@ -209,6 +209,7 @@ const UploadInput = ({
           onChange = { handleUploadInput }
           { ...normalizeProp('multiple', field.upload.multiple) }
           disabled = { (uploadStatus === 'progress') || (uploadStatus === 'start') || isDisabled }
+          id = { `${_id}-${field.id}-upload` }
         />
 
         <label className = 'valleForm__upload__label'>
@@ -221,6 +222,8 @@ const UploadInput = ({
           data-valle-field = { field.id }
           id = { field.id }
           data-tabidentifier = { tabIdentifier }
+          data-fake-upload-ref = { `${_id}-${field.id}-upload` }
+          data-upload-file-name-ref = { `${_id}-${field.id}-file-name` }
         />
 
         {/**
@@ -392,7 +395,7 @@ const UploadInput = ({
 
       <div  className = 'valleForm__upload__file-infos'>
 
-        <div className = 'valleForm__upload__file-name'>
+        <div className = 'valleForm__upload__file-name' id = { `${_id}-${field.id}-file-name` }>
           {
             pathValue
               ? 'Arquivo(s) no servidor: ' + pathValue.split('/')[pathValue.split('/').length - 1]

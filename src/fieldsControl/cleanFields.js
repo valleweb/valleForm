@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import cleanUploadInput from '../helpers/cleanUploadInput';
 
 export default (_id, setCleanup) => {
 
@@ -16,6 +17,10 @@ export default (_id, setCleanup) => {
 
     if(!field.dataset.hasDefaultValue) {
       field.value = '';
+    }
+
+    if(field.dataset.fakeUploadRef) {
+      cleanUploadInput(formScope, field.dataset);
     }
 
   });

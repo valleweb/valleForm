@@ -1189,7 +1189,7 @@
   justify-content: flex-end;
   align-items: center;
   /* background: #ececec; */
-  padding: 8px;
+  /* padding: 8px; */
   border-radius: 4px;
   /* border: 1px solid red; */
   height: 58px;
@@ -1250,6 +1250,10 @@
   margin-right: auto;
   font-size: 14px;
   color: rgba(0, 0, 0, .54);
+}
+
+.valleForm__upload__buttons-container {
+  display: flex;
 }
 
 .valleForm__upload__button {

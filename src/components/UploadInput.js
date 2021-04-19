@@ -56,6 +56,7 @@ const UploadInput = ({
     if(readOnly) {
       setUploadStatus('awaiting-file')
       setUploadPercent(0)
+      setPathValue('')
     }
 
   }, [readOnly])
@@ -228,6 +229,7 @@ const UploadInput = ({
           data-tabidentifier = { tabIdentifier }
           data-fake-upload-ref = { `${_id}-${field.id}-upload` }
           data-upload-file-name-ref = { `${_id}-${field.id}-file-name` }
+          data-download = { `${_id}-${field.id}-download` }
           ref = { uploadHiddenInput }
         />
 
@@ -237,9 +239,9 @@ const UploadInput = ({
          *
          */}
 
-        { uploadStatus !== 'complete' ? (
+        { uploadStatus !== 'complete' && !readOnly ? (
 
-          pathValue ? ( // Selected file for the second time
+          pathValue && !readOnly ? ( // Selected file for the second time
 
             /**
              * Update file.
@@ -247,7 +249,7 @@ const UploadInput = ({
              *
              */
 
-            <span>
+            <span class="valleForm__upload__buttons-container">
 
               <button
                 onClick = { startUpload }
@@ -304,24 +306,26 @@ const UploadInput = ({
              *
              */
 
-            <button
-              onClick = { startUpload }
-              disabled = { disableUploadButtons }
-              className = 'valleForm__upload__button valleForm__upload__button--add'
-            >
-
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='24'
-                height='24'
-                viewBox='0 0 24 24'
+            ( !disableUploadButtons ? (
+              <button
+                onClick = { startUpload }
+                // disabled = { disableUploadButtons }
+                className = 'valleForm__upload__button valleForm__upload__button--add'
               >
-                <path d='M8 10h-5l9-10 9 10h-5v10h-8v-10zm11 9v3h-14v-3h-2v5h18v-5h-2z'/>
-              </svg>
 
-              Upload
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                >
+                  <path d='M8 10h-5l9-10 9 10h-5v10h-8v-10zm11 9v3h-14v-3h-2v5h18v-5h-2z'/>
+                </svg>
 
-            </button>
+                Upload
+
+              </button>
+            ) : null )
 
           )
 
@@ -379,7 +383,7 @@ const UploadInput = ({
             *
             */}
 
-          { uploadStatus === 'progress' ? (
+          { uploadStatus === 'progress' && !readOnly ? (
 
             <button className = 'valleForm__upload__button valleForm__upload__button--cancel'>
               Cancelar
@@ -440,12 +444,13 @@ const UploadInput = ({
           *
           */}
 
-        { (uploadStatus === 'complete') ? (
+        {/* { (uploadStatus === 'complete') || readOnly ? ( */}
 
           <button
-            // href = {`${URLStorage}${pathValue}`}
+            id = { `${_id}-${field.id}-download` }
             className = 'valleForm__upload__button'
             onClick = { () => download(baseApi, token, params, field.id, pathValue) }
+            disabled = { (uploadPercent !== 100) }
           >
 
             <svg
@@ -461,7 +466,7 @@ const UploadInput = ({
 
           </button>
 
-        ) : null }
+        {/* ) : null } */}
 
       </div>
 

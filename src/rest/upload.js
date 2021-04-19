@@ -55,9 +55,9 @@ const upload = (
 
     console.log('Upload: Progress');
 
-    let percentComplete = (e.loaded / e.total) * 100;
+    // let percentComplete = (e.loaded / e.total) * 100;
     setUploadStatus('progress');
-    setUploadPercent(percentComplete);
+    // setUploadPercent(percentComplete);
 
   });
 
@@ -69,6 +69,7 @@ const upload = (
   xhr.addEventListener('load', () => {
 
     console.log('Upload: Complete');
+    setUploadPercent(100);
 
     const response = JSON.parse(xhr.response);
 

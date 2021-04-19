@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import getHash from '../rest/getHash';
 import upload from '../rest/upload';
 import normalizeProp from '../helpers/normalizeProp';
@@ -49,6 +49,15 @@ const UploadInput = ({
 
   console.log('UPLOAD')
   console.log(readOnly)
+
+  useEffect(() => {
+
+    if(readOnly) {
+      setUploadStatus('awaiting-file')
+      setUploadPercent(0)
+    }
+
+  }, [readOnly])
 
   /**
    * -----
@@ -320,7 +329,7 @@ const UploadInput = ({
         *
         */}
 
-      { uploadStatus !== 'awaiting-file' ? (
+      { (uploadStatus !== 'awaiting-file') ? (
 
         <div className = 'valleForm__upload__progress'>
 

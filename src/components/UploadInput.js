@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import getHash from '../rest/getHash';
 import upload from '../rest/upload';
+import download from '../rest/download';
 import normalizeProp from '../helpers/normalizeProp';
 
 /**
@@ -104,6 +105,7 @@ const UploadInput = ({
           setSnackBarStatus,
           uploadHiddenInput.current,
           fileName.current,
+          setPathValue,
         );
 
         /**
@@ -438,11 +440,12 @@ const UploadInput = ({
           *
           */}
 
-        { uploadStatus === 'complete' ? (
+        { (uploadStatus === 'complete') ? (
 
-          <a
-            href = {`${URLStorage}${pathValue}`}
+          <button
+            // href = {`${URLStorage}${pathValue}`}
             className = 'valleForm__upload__button'
+            onClick = { () => download(baseApi, token, params, field.id, pathValue) }
           >
 
             <svg
@@ -456,7 +459,7 @@ const UploadInput = ({
 
             Baixar
 
-          </a>
+          </button>
 
         ) : null }
 

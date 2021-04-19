@@ -12,6 +12,7 @@ const upload = (
   setSnackBarStatus,
   inputRef,
   fileNameRef,
+  setPathValue,
 ) => {
 
   /**
@@ -109,6 +110,7 @@ const upload = (
 
     inputRef.value = response.evento.caminho;
     fileNameRef.innerText = response.evento.caminho;
+    setPathValue(response.evento.caminho);
 
   });
 

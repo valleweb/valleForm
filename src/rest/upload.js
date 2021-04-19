@@ -7,10 +7,11 @@ const upload = (
   hash,
   files,
   api,
-  setPathValue,
   setUploadPercent,
   setUploadStatus,
   setSnackBarStatus,
+  inputRef,
+  fileNameRef,
 ) => {
 
   /**
@@ -105,7 +106,9 @@ const upload = (
     console.log('Upload: Complete - success');
 
     setUploadStatus('complete');
-    setPathValue(response.evento.caminho);
+
+    inputRef.value = response.evento.caminho;
+    fileNameRef.innerText = response.evento.caminho;
 
   });
 

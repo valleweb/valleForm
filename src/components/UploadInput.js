@@ -65,6 +65,8 @@ const UploadInput = ({
    */
 
   const uploadInput = React.createRef();
+  const uploadHiddenInput = React.createRef();
+  const fileName = React.createRef();
 
   /**
    * -----
@@ -97,10 +99,11 @@ const UploadInput = ({
           data.evento.hash,
           currentInput.files,
           apiUpload.upload,
-          setPathValue,
           setUploadPercent,
           setUploadStatus,
           setSnackBarStatus,
+          uploadHiddenInput.current,
+          fileName.current,
         );
 
         /**
@@ -218,12 +221,12 @@ const UploadInput = ({
 
         <input
           className = 'visual-hidden'
-          value = { pathValue }
           data-valle-field = { field.id }
           id = { field.id }
           data-tabidentifier = { tabIdentifier }
           data-fake-upload-ref = { `${_id}-${field.id}-upload` }
           data-upload-file-name-ref = { `${_id}-${field.id}-file-name` }
+          ref = { uploadHiddenInput }
         />
 
         {/**
@@ -395,12 +398,13 @@ const UploadInput = ({
 
       <div  className = 'valleForm__upload__file-infos'>
 
-        <div className = 'valleForm__upload__file-name' id = { `${_id}-${field.id}-file-name` }>
-          {
+        <div ref = { fileName } className = 'valleForm__upload__file-name' id = { `${_id}-${field.id}-file-name` }>
+          {/* {
             pathValue
               ? 'Arquivo(s) no servidor: ' + pathValue.split('/')[pathValue.split('/').length - 1]
               : 'Ainda não há arquivo(s) no servidor'
-          }
+          } */}
+          Ainda não há arquivo(s) no servidor
         </div>
 
         {/**

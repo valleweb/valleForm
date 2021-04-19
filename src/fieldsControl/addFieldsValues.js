@@ -1,3 +1,6 @@
+import cleanUploadInput from '../helpers/cleanUploadInput';
+import populateUploadInput from '../helpers/populateUploadInput';
+
 export default (defaultFieldsValues, _id) => {
 
   // -----------
@@ -20,6 +23,10 @@ export default (defaultFieldsValues, _id) => {
       // console.log(field.id)
       // console.log(defaultFieldsValues[fieldKey])
       // console.log('---------------')
+
+      if(field.dataset.fakeUploadRef) {
+        populateUploadInput(formScope, field.dataset, defaultFieldsValues[fieldKey])
+      }
 
       field.value = defaultFieldsValues[fieldKey];
     }

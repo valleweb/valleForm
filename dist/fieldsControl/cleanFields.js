@@ -4,6 +4,12 @@ Object.defineProperty(exports, "__esModule", {
 
 var _nanoid = require('nanoid');
 
+var _cleanUploadInput = require('../helpers/cleanUploadInput');
+
+var _cleanUploadInput2 = _interopRequireDefault(_cleanUploadInput);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 exports['default'] = function (_id, setCleanup) {
 
   // -----------
@@ -20,6 +26,10 @@ exports['default'] = function (_id, setCleanup) {
 
     if (!field.dataset.hasDefaultValue) {
       field.value = '';
+    }
+
+    if (field.dataset.fakeUploadRef) {
+      (0, _cleanUploadInput2['default'])(formScope, field.dataset);
     }
   });
 

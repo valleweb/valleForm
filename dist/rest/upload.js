@@ -1,12 +1,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _formatFilename = require('../helpers/formatFilename');
+
+var _formatFilename2 = _interopRequireDefault(_formatFilename);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 /**
  * TODO: Add JSDocs
  *
  */
 
-var upload = function upload(hash, files, api, setPathValue, setUploadPercent, setUploadStatus, setSnackBarStatus) {
+var upload = function upload(hash, files, api, setUploadPercent, setUploadStatus, setSnackBarStatus, inputRef, fileNameRef, setPathValue) {
 
   /**
    * Files data structure.
@@ -49,9 +56,9 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent, s
 
     console.log('Upload: Progress');
 
-    var percentComplete = e.loaded / e.total * 100;
+    // let percentComplete = (e.loaded / e.total) * 100;
     setUploadStatus('progress');
-    setUploadPercent(percentComplete);
+    // setUploadPercent(percentComplete);
   });
 
   /**
@@ -62,6 +69,7 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent, s
   xhr.addEventListener('load', function () {
 
     console.log('Upload: Complete');
+    setUploadPercent(100);
 
     var response = JSON.parse(xhr.response);
 
@@ -96,6 +104,9 @@ var upload = function upload(hash, files, api, setPathValue, setUploadPercent, s
     console.log('Upload: Complete - success');
 
     setUploadStatus('complete');
+
+    inputRef.value = response.evento.caminho;
+    fileNameRef.innerText = (0, _formatFilename2['default'])(response.evento.caminho);
     setPathValue(response.evento.caminho);
   });
 

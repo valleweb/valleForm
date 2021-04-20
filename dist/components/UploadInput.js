@@ -18,6 +18,10 @@ var _upload = require('../rest/upload');
 
 var _upload2 = _interopRequireDefault(_upload);
 
+var _download = require('../rest/download');
+
+var _download2 = _interopRequireDefault(_download);
+
 var _normalizeProp = require('../helpers/normalizeProp');
 
 var _normalizeProp2 = _interopRequireDefault(_normalizeProp);
@@ -73,6 +77,11 @@ var UploadInput = function UploadInput(_ref) {
       URLStorage = _useState8[0],
       setURLStorage = _useState8[1];
 
+  var _useState9 = (0, _react.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      downloadButtonRef = _useState10[0],
+      setDownloadButtonRef = _useState10[1];
+
   /**
    * Control readOnly sate in editable mode.
    *
@@ -94,7 +103,50 @@ var UploadInput = function UploadInput(_ref) {
    *
    */
 
+  (0, _react.useEffect)(function () {
+
+    if (readOnly) {
+      setUploadStatus('awaiting-file');
+      setUploadPercent(0);
+      setPathValue('');
+    }
+  }, [readOnly]);
+
+  /**
+   * -----
+   *
+   */
+
+  (0, _react.useEffect)(function () {
+
+    var buttonDownload = document.getElementById(String(_id) + '-' + String(field.id) + '-download');
+
+    if (buttonDownload) {
+      buttonDownload.disabled = true;
+      setDownloadButtonRef(buttonDownload);
+    }
+  }, []);
+
+  /**
+   * -----
+   *
+   */
+
+  (0, _react.useEffect)(function () {
+
+    if (uploadStatus === 'complete') {
+      downloadButtonRef.disabled = false;
+    }
+  }, [uploadStatus]);
+
+  /**
+   * -----
+   *
+   */
+
   var uploadInput = _react2['default'].createRef();
+  var uploadHiddenInput = _react2['default'].createRef();
+  var fileName = _react2['default'].createRef();
 
   /**
    * -----
@@ -122,7 +174,7 @@ var UploadInput = function UploadInput(_ref) {
        *
        */
 
-      (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload, setPathValue, setUploadPercent, setUploadStatus, setSnackBarStatus);
+      (0, _upload2['default'])(data.evento.hash, currentInput.files, apiUpload.upload, setUploadPercent, setUploadStatus, setSnackBarStatus, uploadHiddenInput.current, fileName.current, setPathValue);
 
       /**
        * -----
@@ -212,7 +264,8 @@ var UploadInput = function UploadInput(_ref) {
         className: 'valleForm__upload__input',
         type: 'file'
       }, _defineProperty(_extends2, 'type', field.type), _defineProperty(_extends2, 'placeholder', field.placeholder), _defineProperty(_extends2, 'ref', uploadInput), _defineProperty(_extends2, 'onChange', handleUploadInput), _extends2), (0, _normalizeProp2['default'])('multiple', field.upload.multiple), {
-        disabled: uploadStatus === 'progress' || uploadStatus === 'start' || isDisabled
+        disabled: uploadStatus === 'progress' || uploadStatus === 'start' || isDisabled,
+        id: String(_id) + '-' + String(field.id) + '-upload'
       })),
       _react2['default'].createElement(
         'label',
@@ -221,12 +274,15 @@ var UploadInput = function UploadInput(_ref) {
       ),
       _react2['default'].createElement('input', {
         className: 'visual-hidden',
-        value: pathValue,
         'data-valle-field': field.id,
         id: field.id,
-        'data-tabidentifier': tabIdentifier
+        'data-tabidentifier': tabIdentifier,
+        'data-fake-upload-ref': String(_id) + '-' + String(field.id) + '-upload',
+        'data-upload-file-name-ref': String(_id) + '-' + String(field.id) + '-file-name',
+        'data-download': String(_id) + '-' + String(field.id) + '-download',
+        ref: uploadHiddenInput
       }),
-      uploadStatus !== 'complete' ? pathValue ? // Selected file for the second time
+      uploadStatus !== 'complete' && !readOnly ? pathValue && !readOnly ? // Selected file for the second time
 
       /**
        * Update file.
@@ -236,7 +292,7 @@ var UploadInput = function UploadInput(_ref) {
 
       _react2['default'].createElement(
         'span',
-        null,
+        { 'class': 'valleForm__upload__buttons-container' },
         _react2['default'].createElement(
           'button',
           {
@@ -284,12 +340,12 @@ var UploadInput = function UploadInput(_ref) {
        *
        */
 
-      _react2['default'].createElement(
+      !disableUploadButtons ? _react2['default'].createElement(
         'button',
         {
-          onClick: startUpload,
-          disabled: disableUploadButtons,
-          className: 'valleForm__upload__button valleForm__upload__button--add'
+          onClick: startUpload
+          // disabled = { disableUploadButtons }
+          , className: 'valleForm__upload__button valleForm__upload__button--add'
         },
         _react2['default'].createElement(
           'svg',
@@ -302,7 +358,7 @@ var UploadInput = function UploadInput(_ref) {
           _react2['default'].createElement('path', { d: 'M8 10h-5l9-10 9 10h-5v10h-8v-10zm11 9v3h-14v-3h-2v5h18v-5h-2z' })
         ),
         'Upload'
-      ) : null
+      ) : null : null
     ),
     uploadStatus !== 'awaiting-file' ? _react2['default'].createElement(
       'div',
@@ -341,7 +397,7 @@ var UploadInput = function UploadInput(_ref) {
           String(uploadPercent) + '%'
         )
       ),
-      uploadStatus === 'progress' ? _react2['default'].createElement(
+      uploadStatus === 'progress' && !readOnly ? _react2['default'].createElement(
         'button',
         { className: 'valleForm__upload__button valleForm__upload__button--cancel' },
         'Cancelar'
@@ -352,8 +408,8 @@ var UploadInput = function UploadInput(_ref) {
       { className: 'valleForm__upload__file-infos' },
       _react2['default'].createElement(
         'div',
-        { className: 'valleForm__upload__file-name' },
-        pathValue ? 'Arquivo(s) no servidor: ' + pathValue.split('/')[pathValue.split('/').length - 1] : 'Ainda não há arquivo(s) no servidor'
+        { ref: fileName, className: 'valleForm__upload__file-name', id: String(_id) + '-' + String(field.id) + '-file-name' },
+        'Ainda n\xE3o h\xE1 arquivo(s) no servidor'
       ),
       uploadStatus === 'complete' ? _react2['default'].createElement(
         'button',
@@ -372,11 +428,18 @@ var UploadInput = function UploadInput(_ref) {
         ),
         'Excluir'
       ) : null,
-      uploadStatus === 'complete' ? _react2['default'].createElement(
-        'a',
+      _react2['default'].createElement(
+        'button',
         {
-          href: '' + String(URLStorage) + String(pathValue),
-          className: 'valleForm__upload__button'
+          id: String(_id) + '-' + String(field.id) + '-download',
+          className: 'valleForm__upload__button',
+          onClick: function () {
+            function onClick(event) {
+              return (0, _download2['default'])(baseApi, token, params, field.id, pathValue, event);
+            }
+
+            return onClick;
+          }()
         },
         _react2['default'].createElement(
           'svg',
@@ -389,7 +452,7 @@ var UploadInput = function UploadInput(_ref) {
           _react2['default'].createElement('path', { d: 'M12 21l-8-9h6v-12h4v12h6l-8 9zm9-1v2h-18v-2h-2v4h22v-4h-2z' })
         ),
         'Baixar'
-      ) : null
+      )
     ),
     _react2['default'].createElement(
       'span',

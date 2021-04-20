@@ -43,7 +43,7 @@ var download = function download(baseApi, token, params, id, pathValue, event) {
    */
 
   fetch(String(baseApi) + '/download', { method: method, headers: headers, body: body }).then(function (res) {
-    return res.json();
+    return res.blob();
   }).then(function (data) {
 
     /**
@@ -51,9 +51,7 @@ var download = function download(baseApi, token, params, id, pathValue, event) {
     *
     */
 
-    var newBlob = new Blob([data], { type: 'octet/stream' });
-
-    _fileSaver2['default'].saveAs(newBlob, 'download.zip');
+    _fileSaver2['default'].saveAs(data, 'download.zip', { type: 'application/zip' });
   })['catch'](function (err) {
 
     /**

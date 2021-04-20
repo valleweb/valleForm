@@ -36,7 +36,7 @@ const download = (baseApi, token, params, id, pathValue, event) => {
    */
 
     fetch(`${baseApi}/download`, { method, headers, body })
-    .then(res => res.json())
+    .then(res => res.blob())
     .then(data => {
 
       /**
@@ -44,9 +44,7 @@ const download = (baseApi, token, params, id, pathValue, event) => {
       *
       */
 
-      const newBlob = new Blob([data], {type: 'octet/stream'});
-
-      FileSaver.saveAs(newBlob, 'download.zip')
+      FileSaver.saveAs(data, 'download.zip', {type: 'application/zip'})
 
     })
     .catch(err => {

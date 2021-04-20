@@ -5,11 +5,15 @@ import FileSaver from 'file-saver';
  *
  */
 
-const download = (baseApi, token, params, id, pathValue) => {
+const download = (baseApi, token, params, id, pathValue, event) => {
 
   console.log('===========================')
   console.log('download')
   console.log('===========================')
+
+  if(!pathValue) {
+    pathValue = event.target.dataset.pathTarget
+  }
 
   const method = 'POST';
 

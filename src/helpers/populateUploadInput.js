@@ -7,6 +7,7 @@ const populateUploadInput = (formScope, dataset, fileNameText) => {
 
   if(fileNameText && download) {
     download.disabled = false;
+    download.dataset.pathTarget = fileNameText
   }
 
 }

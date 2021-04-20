@@ -34,6 +34,7 @@ const UploadInput = ({
   const [uploadStatus, setUploadStatus] = useState('awaiting-file');
   const [uploadPercent, setUploadPercent] = useState(0);
   const [URLStorage, setURLStorage] = useState('');
+  const [downloadButtonRef, setDownloadButtonRef] = useState('');
 
   /**
    * Control readOnly sate in editable mode.
@@ -51,6 +52,11 @@ const UploadInput = ({
   console.log('UPLOAD')
   console.log(readOnly)
 
+  /**
+   * -----
+   *
+   */
+
   useEffect(() => {
 
     if(readOnly) {
@@ -60,6 +66,35 @@ const UploadInput = ({
     }
 
   }, [readOnly])
+
+  /**
+   * -----
+   *
+   */
+
+  useEffect(() => {
+
+    const buttonDownload = document.getElementById(`${_id}-${field.id}-download`);
+
+    if(buttonDownload) {
+      buttonDownload.disabled = true;
+      setDownloadButtonRef(buttonDownload)
+    }
+
+  }, [])
+
+  /**
+   * -----
+   *
+   */
+
+  useEffect(() => {
+
+    if(uploadStatus === 'complete') {
+      downloadButtonRef.disabled = false;
+    }
+
+  }, [uploadStatus])
 
   /**
    * -----
@@ -449,8 +484,7 @@ const UploadInput = ({
           <button
             id = { `${_id}-${field.id}-download` }
             className = 'valleForm__upload__button'
-            onClick = { () => download(baseApi, token, params, field.id, pathValue) }
-            disabled = { (uploadPercent !== 100) }
+            onClick = { (event) => download(baseApi, token, params, field.id, pathValue, event) }
           >
 
             <svg

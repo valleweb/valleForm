@@ -9,6 +9,7 @@ const cleanUploadInput = (formScope, dataset) => {
 
   if(download) {
     download.disabled = true;
+    download.dataset.pathTarget = ''
   }
 
 }

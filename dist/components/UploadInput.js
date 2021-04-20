@@ -22,6 +22,10 @@ var _download = require('../rest/download');
 
 var _download2 = _interopRequireDefault(_download);
 
+var _deleteFile = require('../rest/deleteFile');
+
+var _deleteFile2 = _interopRequireDefault(_deleteFile);
+
 var _normalizeProp = require('../helpers/normalizeProp');
 
 var _normalizeProp2 = _interopRequireDefault(_normalizeProp);
@@ -222,16 +226,29 @@ var UploadInput = function UploadInput(_ref) {
    *
    */
 
-  var cleanUploadInput = function cleanUploadInput() {}
-  // Delete file callback
+  var cleanUploadInput = function cleanUploadInput() {
 
+    setUploadStatus('awaiting-file');
+    setUploadPercent(0);
+    setPathValue('');
+
+    var fakeUploadInput = document.querySelector('#' + String(_id) + '-' + String(field.id) + '-upload');
+    var fileName = document.querySelector('#' + String(_id) + '-' + String(field.id) + '-file-name');
+    var download = document.querySelector('#' + String(_id) + '-' + String(field.id) + '-download');
+
+    fakeUploadInput.value = '';
+    fileName.innerText = 'Ainda não há arquivo(s) no servidor';
+
+    download.disabled = true;
+    download.dataset.pathTarget = '';
+  };
 
   /**
    * -----
    *
    */
 
-  ;var cleanVisualUploadInput = function cleanVisualUploadInput() {
+  var cleanVisualUploadInput = function cleanVisualUploadInput() {
 
     var currentInput = uploadInput.current;
     currentInput.value = '';
@@ -413,7 +430,16 @@ var UploadInput = function UploadInput(_ref) {
       ),
       uploadStatus === 'complete' ? _react2['default'].createElement(
         'button',
-        { className: 'valleForm__upload__button valleForm__upload__button--cancel' },
+        {
+          className: 'valleForm__upload__button valleForm__upload__button--cancel',
+          onClick: function () {
+            function onClick() {
+              return (0, _deleteFile2['default'])(baseApi, token, params, field.id, pathValue, setSnackBarStatus, cleanUploadInput);
+            }
+
+            return onClick;
+          }()
+        },
         _react2['default'].createElement(
           'svg',
           {

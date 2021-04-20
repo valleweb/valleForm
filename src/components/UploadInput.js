@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import getHash from '../rest/getHash';
 import upload from '../rest/upload';
 import download from '../rest/download';
+import deleteFile from '../rest/deleteFile';
 import normalizeProp from '../helpers/normalizeProp';
 
 /**
@@ -199,7 +200,21 @@ const UploadInput = ({
    */
 
   const cleanUploadInput = () => {
-    // Delete file callback
+
+    setUploadStatus('awaiting-file')
+    setUploadPercent(0)
+    setPathValue('')
+
+    const fakeUploadInput = document.querySelector(`#${_id}-${field.id}-upload`);
+    const fileName = document.querySelector(`#${_id}-${field.id}-file-name`);
+    const download = document.querySelector(`#${_id}-${field.id}-download`);
+
+    fakeUploadInput.value = '';
+    fileName.innerText = 'Ainda não há arquivo(s) no servidor';
+
+    download.disabled = true;
+    download.dataset.pathTarget = ''
+
   }
 
   /**
@@ -455,7 +470,10 @@ const UploadInput = ({
 
         { uploadStatus === 'complete' ? (
 
-          <button className = 'valleForm__upload__button valleForm__upload__button--cancel'>
+          <button
+            className = 'valleForm__upload__button valleForm__upload__button--cancel'
+            onClick = { () => deleteFile(baseApi, token, params, field.id, pathValue, setSnackBarStatus, cleanUploadInput) }
+          >
 
             <svg
               xmlns = 'http://www.w3.org/2000/svg'

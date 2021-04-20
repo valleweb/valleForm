@@ -232,9 +232,14 @@ var UploadInput = function UploadInput(_ref) {
     setUploadPercent(0);
     setPathValue('');
 
-    var fakeUploadInput = document.querySelector('#' + String(_id) + '-' + String(field.id) + '-upload');
-    var fileName = document.querySelector('#' + String(_id) + '-' + String(field.id) + '-file-name');
-    var download = document.querySelector('#' + String(_id) + '-' + String(field.id) + '-download');
+    var formScope = document.getElementById(_id);
+
+    var fakeUploadInput = formScope.querySelector('#' + String(_id) + '-' + String(field.id) + '-upload');
+    var fileName = formScope.querySelector('#' + String(_id) + '-' + String(field.id) + '-file-name');
+    var download = formScope.querySelector('#' + String(_id) + '-' + String(field.id) + '-download');
+    var input = formScope.querySelector('#' + String(field.id));
+
+    input.value = '';
 
     fakeUploadInput.value = '';
     fileName.innerText = 'Ainda não há arquivo(s) no servidor';

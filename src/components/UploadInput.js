@@ -205,9 +205,14 @@ const UploadInput = ({
     setUploadPercent(0)
     setPathValue('')
 
-    const fakeUploadInput = document.querySelector(`#${_id}-${field.id}-upload`);
-    const fileName = document.querySelector(`#${_id}-${field.id}-file-name`);
-    const download = document.querySelector(`#${_id}-${field.id}-download`);
+    const formScope =  document.getElementById(_id);
+
+    const fakeUploadInput = formScope.querySelector(`#${_id}-${field.id}-upload`);
+    const fileName = formScope.querySelector(`#${_id}-${field.id}-file-name`);
+    const download = formScope.querySelector(`#${_id}-${field.id}-download`);
+    const input = formScope.querySelector(`#${field.id}`);
+
+    input.value = '';
 
     fakeUploadInput.value = '';
     fileName.innerText = 'Ainda não há arquivo(s) no servidor';

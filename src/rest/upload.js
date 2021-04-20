@@ -1,3 +1,5 @@
+import formatFileName from '../helpers/formatFilename';
+
 /**
  * TODO: Add JSDocs
  *
@@ -109,7 +111,7 @@ const upload = (
     setUploadStatus('complete');
 
     inputRef.value = response.evento.caminho;
-    fileNameRef.innerText = response.evento.caminho;
+    fileNameRef.innerText = formatFileName(response.evento.caminho);
     setPathValue(response.evento.caminho);
 
   });

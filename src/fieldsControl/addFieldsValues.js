@@ -1,5 +1,6 @@
 import cleanUploadInput from '../helpers/cleanUploadInput';
 import populateUploadInput from '../helpers/populateUploadInput';
+import populatePlate from '../helpers/populatePlate';
 
 export default (defaultFieldsValues, _id) => {
 
@@ -26,6 +27,10 @@ export default (defaultFieldsValues, _id) => {
 
       if(field.dataset.fakeUploadRef) {
         populateUploadInput(formScope, field.dataset, defaultFieldsValues[fieldKey])
+      }
+
+      if(field.dataset.plate) {
+        populatePlate(formScope,  defaultFieldsValues[fieldKey])
       }
 
       field.value = defaultFieldsValues[fieldKey];

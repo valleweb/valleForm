@@ -1409,3 +1409,136 @@
   background: var(--searchColor, #37E3BB);
   color: #333333;
 }
+
+/* ------- Plate ------- */
+
+.valleForm__plate-container {
+  width: calc(100% - 10px);
+  border: 2px solid rgba(0, 0, 0, .12);
+  border-radius: 4px;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.valleForm__plate-container--readOnly {
+  opacity: .1;
+}
+
+.valleForm__plate {
+  --plate-color: #000;
+  width: 620px;
+  height: 200px;
+  border: 12px solid var(--plate-color);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 790px) {
+  .valleForm__plate {
+    transform: scale(.6);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .valleForm__plate {
+    transform: scale(.4);
+  }
+}
+
+/* transform: scale(1); */
+
+.valleForm__plate--small {
+  width: 380px;
+  height: 300px;
+}
+
+.valleForm__plate--Preta {
+  --plate-color: #000;
+}
+
+.valleForm__plate--Vermelha {
+  --plate-color: #c8102e;
+}
+
+.valleForm__plate--Azul {
+  --plate-color: #0033a0;;
+}
+
+.valleForm__plate--Dourada {
+  --plate-color: #f2aa00;
+}
+
+.valleForm__plate--Cinza {
+  --plate-color: #898788;
+}
+
+.valleForm__plate--Verde {
+  --plate-color: #007a53;
+}
+
+.valleForm__plate__header {
+  width: 100%;
+  height: 50px;
+  background: #0736a2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.valleForm__plate__header__mercosul {
+  position: relative;
+  width: 50px;
+  height: 100%;
+}
+
+.valleForm__plate__header__mercosul svg {
+  position: absolute;
+  left: -50px;
+}
+
+.valleForm__plate__header__country-name {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+
+.valleForm__plate__header__flag svg {
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+
+.valleForm__plate__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 45px);
+  color: var(--plate-color);
+  font-size: 80px;
+  font-weight: 700;
+  font-family: 'GL-Nummernschild-Eng medium';
+  letter-spacing: 10px;
+}
+
+.valleForm__plate__number--small {
+  flex-direction: column;
+  line-height: 110px;
+}
+
+.valleForm__plate__country {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}

@@ -8,6 +8,10 @@ var _cleanUploadInput = require('../helpers/cleanUploadInput');
 
 var _cleanUploadInput2 = _interopRequireDefault(_cleanUploadInput);
 
+var _cleanPlate = require('../helpers/cleanPlate');
+
+var _cleanPlate2 = _interopRequireDefault(_cleanPlate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (_id, setCleanup) {
@@ -30,6 +34,10 @@ exports['default'] = function (_id, setCleanup) {
 
     if (field.dataset.fakeUploadRef) {
       (0, _cleanUploadInput2['default'])(formScope, field.dataset);
+    }
+
+    if (field.dataset.plate) {
+      (0, _cleanPlate2['default'])(formScope);
     }
   });
 

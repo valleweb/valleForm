@@ -30,6 +30,10 @@ var _UploadInput = require('../components/UploadInput');
 
 var _UploadInput2 = _interopRequireDefault(_UploadInput);
 
+var _Plate = require('../components/Plate');
+
+var _Plate2 = _interopRequireDefault(_Plate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 exports['default'] = function (rows) {
@@ -58,6 +62,18 @@ exports['default'] = function (rows) {
       // --------------
       // Resolve react component
       // --------------
+
+      if (field.element === 'placa') {
+
+        // --------------
+        // Custom Plate
+        // --------------
+
+        return _react2['default'].createElement(_Plate2['default'], {
+          id: field.id,
+          readOnly: readOnly
+        });
+      }
 
       if (field.element === 'input' && field.type === 'file') {
 
@@ -131,7 +147,9 @@ exports['default'] = function (rows) {
         tabIdentifier: tabIdentifier,
         debug: debug
       });
-    });
+    }).filter(function (field) {
+      return field;
+    }); // Remove empty fields
 
     return $fields.length ? _react2['default'].createElement(
       'div',

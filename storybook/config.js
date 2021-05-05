@@ -5,6 +5,7 @@ import '@valle/valle-input';
 import '@valle/valle-select';
 import '@valle/valle-speed-dial';
 import '@valle/valle-card';
+import './style.css';
 
 function loadStories() {
   require('../stories/ValleForm.js');

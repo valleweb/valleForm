@@ -1,0 +1,8 @@
+@font-face {font-family: "GL-Nummernschild-Eng medium";
+  src: url("../fonts/GL-Nummernschild-Eng/847fa5d5b42c01863cf287a3418f69bb.eot"); /* IE9*/
+  src: url("../fonts/GL-Nummernschild-Eng/847fa5d5b42c01863cf287a3418f69bb.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("../fonts/GL-Nummernschild-Eng/847fa5d5b42c01863cf287a3418f69bb.woff2") format("woff2"), /* chrome、firefox */
+  url("../fonts/GL-Nummernschild-Eng/847fa5d5b42c01863cf287a3418f69bb.woff") format("woff"), /* chrome、firefox */
+  url("../fonts/GL-Nummernschild-Eng/847fa5d5b42c01863cf287a3418f69bb.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("../fonts/GL-Nummernschild-Eng/847fa5d5b42c01863cf287a3418f69bb.svg#GL-Nummernschild-Eng medium") format("svg"); /* iOS 4.1- */
+}

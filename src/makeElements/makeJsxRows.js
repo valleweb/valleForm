@@ -5,6 +5,7 @@ import makeSelectField from './makeWebcomponents/makeSelectField';
 import Textarea from '../components/Textarea';
 import MarkdownEditor from '../components/MarkdownEditor';
 import UploadInput from '../components/UploadInput';
+import Plate from '../components/Plate';
 
 export default (
   rows,
@@ -33,6 +34,21 @@ export default (
       // --------------
       // Resolve react component
       // --------------
+
+      if(field.element === 'placa') {
+
+        // --------------
+        // Custom Plate
+        // --------------
+
+          return (
+            <Plate
+              id = { field.id }
+              readOnly = { readOnly }
+            />
+          )
+
+      }
 
       if(field.element === 'input' && field.type === 'file') {
 
@@ -120,6 +136,7 @@ export default (
           );
 
     })
+    .filter(field => field) // Remove empty fields
 
     return $fields.length ? (
       <div

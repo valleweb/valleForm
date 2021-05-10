@@ -4,7 +4,6 @@ Object.defineProperty(exports, "__esModule", {
 var populatePlate = function populatePlate(formScope, value) {
 
   var obj = JSON.parse(value);
-  console.log(obj);
 
   if (obj.cor_placa && obj.tipo && obj.placa) {
 
@@ -13,12 +12,18 @@ var populatePlate = function populatePlate(formScope, value) {
 
     plate.classList.add('valleForm__plate--' + String(obj.cor_placa.trim()));
 
-    if (obj.tipo === 'Pequena') {
+    if (obj.tipo.toLowerCase() == 'pequena') {
+
       plateNumber.classList.add('valleForm__plate__number--small');
       plate.classList.add('valleForm__plate--small');
 
       plateNumber.innerHTML = '<div>' + String(obj.placa.substring(0, 3)) + '</div><div>' + String(obj.placa.substring(3, 7)) + '</div>';
+    } else if (obj.tipo.toLowerCase() == 'mini') {
+
+      plate.classList.add('valleForm__plate--mini');
+      plateNumber.innerText = obj.placa;
     } else {
+
       plateNumber.innerText = obj.placa;
     }
   }

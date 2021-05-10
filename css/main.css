@@ -1439,6 +1439,10 @@
   flex-shrink: 0;
 }
 
+.valleForm__plate--mini {
+  transform: scale(.85);
+}
+
 @media screen and (max-width: 790px) {
   .valleForm__plate {
     transform: scale(.6);

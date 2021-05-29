@@ -60,7 +60,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
       updateValleList = _ref.updateValleList,
       tabErrorCount = _ref.tabErrorCount,
       setCleanup = _ref.setCleanup,
-      setLoading = _ref.setLoading;
+      setLoading = _ref.setLoading,
+      shouldClean = _ref.shouldClean;
 
 
   /**
@@ -365,7 +366,8 @@ exports['default'] = makeDefaultsSpeedDialActions = function makeDefaultsSpeedDi
             updateValleList: updateValleList,
             setCleanup: setCleanup,
             customParams: params,
-            setLoading: setLoading
+            setLoading: setLoading,
+            shouldClean: shouldClean
           };
 
           closeSpeedDial();

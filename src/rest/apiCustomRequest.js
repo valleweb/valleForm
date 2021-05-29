@@ -17,6 +17,7 @@ const apiCustomRequest = ({
   setCleanup,
   customParams = {},
   setLoading,
+  shouldClean,
 }) => {
 
   const fieldsParams = getFieldsParams(_id, tabErrorCount);
@@ -95,11 +96,13 @@ const apiCustomRequest = ({
         }
 
         /**
-         * -----
+         * Only clean when insert mode.
          *
          */
 
-        cleanFields(_id, setCleanup);
+        if(shouldClean) {
+          cleanFields(_id, setCleanup);
+        }
 
         /**
          * -----

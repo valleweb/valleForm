@@ -31,6 +31,7 @@ export default makeDefaultsSpeedDialActions = ({
   tabErrorCount,
   setCleanup,
   setLoading,
+  shouldClean,
 }) => {
 
   /**
@@ -370,6 +371,7 @@ export default makeDefaultsSpeedDialActions = ({
           setCleanup,
           customParams: params,
           setLoading,
+          shouldClean,
         }
 
         closeSpeedDial();

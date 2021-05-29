@@ -10,7 +10,7 @@ var populatePlate = function populatePlate(formScope, value) {
     var plate = formScope.querySelector('.valleForm__plate');
     var plateNumber = formScope.querySelector('.valleForm__plate__number');
 
-    plate.classList.add('valleForm__plate--' + String(obj.cor_placa.trim()));
+    plate.classList.add('valleForm__plate--' + String(obj.cor_placa.trim().toLowerCase()));
 
     if (obj.tipo.toLowerCase() == 'pequena') {
 

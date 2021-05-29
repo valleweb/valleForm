@@ -29,7 +29,8 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
       setCleanup = _ref.setCleanup,
       _ref$customParams = _ref.customParams,
       customParams = _ref$customParams === undefined ? {} : _ref$customParams,
-      setLoading = _ref.setLoading;
+      setLoading = _ref.setLoading,
+      shouldClean = _ref.shouldClean;
 
 
   var fieldsParams = (0, _getFieldsParams2['default'])(_id, tabErrorCount);
@@ -108,11 +109,13 @@ var apiCustomRequest = function apiCustomRequest(_ref) {
         }
 
         /**
-         * -----
+         * Only clean when insert mode.
          *
          */
 
-        (0, _cleanFields2['default'])(_id, setCleanup);
+        if (shouldClean) {
+          (0, _cleanFields2['default'])(_id, setCleanup);
+        }
 
         /**
          * -----

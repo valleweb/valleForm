@@ -68,7 +68,8 @@ exports['default'] = function (_ref) {
       updateValleList: updateValleList,
       tabErrorCount: tabErrorCount,
       setCleanup: setCleanup,
-      setLoading: setLoading
+      setLoading: setLoading,
+      shouldClean: true
     });
   });
 

@@ -55,6 +55,7 @@ export default ({
       tabErrorCount,
       setCleanup,
       setLoading,
+      shouldClean: true,
     }));
 
   const $retrievalActions = buttons

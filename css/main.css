@@ -1462,27 +1462,27 @@
   height: 300px;
 }
 
-.valleForm__plate--Preta {
+.valleForm__plate--preta {
   --plate-color: #000;
 }
 
-.valleForm__plate--Vermelha {
+.valleForm__plate--vermelha {
   --plate-color: #c8102e;
 }
 
-.valleForm__plate--Azul {
+.valleForm__plate--azul {
   --plate-color: #0033a0;;
 }
 
-.valleForm__plate--Dourada {
+.valleForm__plate--dourada {
   --plate-color: #f2aa00;
 }
 
-.valleForm__plate--Cinza {
+.valleForm__plate--cinza {
   --plate-color: #898788;
 }
 
-.valleForm__plate--Verde {
+.valleForm__plate--verde {
   --plate-color: #007a53;
 }
 

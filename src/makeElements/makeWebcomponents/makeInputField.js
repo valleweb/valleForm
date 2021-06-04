@@ -138,6 +138,7 @@ export default ({
 
         } }
         pattern = { field.pattern }
+        mask = { field.mask }
         tooltip = { field.description }
         tooltippos = 'top-right'
         tooltiplength = 'large'

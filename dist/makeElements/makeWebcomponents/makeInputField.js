@@ -1,3 +1,4 @@
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -166,6 +167,7 @@ exports['default'] = function (_ref) {
         return onBlur;
       }(),
       pattern: field.pattern,
+      mask: field.mask,
       tooltip: field.description,
       tooltippos: 'top-right',
       tooltiplength: 'large'

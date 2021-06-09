@@ -1,3 +1,5 @@
+import patternUnformater from '../helpers/patternUnformater';
+
 export default (_id, tabErrorCount) => {
 
   // -----------
@@ -50,7 +52,12 @@ export default (_id, tabErrorCount) => {
      *
      */
 
-    fieldsParams[field.dataset.valleField] = (field.value || field.value === 0 ) ? field.value : null;
+    console.log(field.mask)
+    if(field.mask) {
+      fieldsParams[field.dataset.valleField] = patternUnformater(field.mask, (field.value || field.value === 0 ) ? field.value : null);
+    } else {
+      fieldsParams[field.dataset.valleField] = (field.value || field.value === 0 ) ? field.value : null;
+    }
 
   })
 

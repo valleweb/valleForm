@@ -1,6 +1,7 @@
 import cleanUploadInput from '../helpers/cleanUploadInput';
 import populateUploadInput from '../helpers/populateUploadInput';
 import populatePlate from '../helpers/populatePlate';
+import patternFormater from '../helpers/patternFormater';
 
 export default (defaultFieldsValues, _id) => {
 
@@ -33,7 +34,12 @@ export default (defaultFieldsValues, _id) => {
         populatePlate(formScope,  defaultFieldsValues[fieldKey])
       }
 
-      field.value = defaultFieldsValues[fieldKey];
+      if(field.mask) {
+        field.value = patternFormater(field.mask, defaultFieldsValues[fieldKey]);
+      } else {
+        field.value = defaultFieldsValues[fieldKey];
+      }
+
     }
 
   });

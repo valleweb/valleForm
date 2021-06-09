@@ -1,7 +1,12 @@
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _patternUnformater = require('../helpers/patternUnformater');
+
+var _patternUnformater2 = _interopRequireDefault(_patternUnformater);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -50,7 +55,12 @@ exports['default'] = function (_id, tabErrorCount) {
      *
      */
 
-    fieldsParams[field.dataset.valleField] = field.value || field.value === 0 ? field.value : null;
+    console.log(field.mask);
+    if (field.mask) {
+      fieldsParams[field.dataset.valleField] = (0, _patternUnformater2['default'])(field.mask, field.value || field.value === 0 ? field.value : null);
+    } else {
+      fieldsParams[field.dataset.valleField] = field.value || field.value === 0 ? field.value : null;
+    }
   });
 
   /**

@@ -1,4 +1,3 @@
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -14,6 +13,10 @@ var _populateUploadInput2 = _interopRequireDefault(_populateUploadInput);
 var _populatePlate = require('../helpers/populatePlate');
 
 var _populatePlate2 = _interopRequireDefault(_populatePlate);
+
+var _patternFormater = require('../helpers/patternFormater');
+
+var _patternFormater2 = _interopRequireDefault(_patternFormater);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -48,7 +51,11 @@ exports['default'] = function (defaultFieldsValues, _id) {
         (0, _populatePlate2['default'])(formScope, defaultFieldsValues[fieldKey]);
       }
 
-      field.value = defaultFieldsValues[fieldKey];
+      if (field.mask) {
+        field.value = (0, _patternFormater2['default'])(field.mask, defaultFieldsValues[fieldKey]);
+      } else {
+        field.value = defaultFieldsValues[fieldKey];
+      }
     }
   });
 };

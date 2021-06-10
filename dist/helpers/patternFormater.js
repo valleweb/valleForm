@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var patternFormater = function patternFormater(pattern, data) {
 
-  if (pattern[0] === 'X') {
+  if (pattern[0] === 'X' && data) {
 
     var regex = '';
 
@@ -17,7 +17,7 @@ var patternFormater = function patternFormater(pattern, data) {
     return String(data).replace(new RegExp(regex), pattern);
   }
 
-  if (pattern[0] === '#') {
+  if (pattern[0] === '#' && data) {
 
     if (pattern.indexOf('.') === -1) {
       console.log('not found .');

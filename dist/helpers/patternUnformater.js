@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var patternUnformater = function patternUnformater(pattern, data) {
 
-  if (pattern[0] === '#') {
+  if (pattern[0] === '#' && data) {
 
     console.log('patternUnformater:');
     console.log(data);

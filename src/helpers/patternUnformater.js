@@ -1,6 +1,6 @@
 const patternUnformater = (pattern, data) => {
 
-  if (pattern[0] === '#') {
+  if (pattern[0] === '#' && data) {
 
     console.log('patternUnformater:')
     console.log(data)

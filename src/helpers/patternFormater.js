@@ -1,6 +1,6 @@
 const patternFormater = (pattern, data) => {
 
-  if (pattern[0] === 'X') {
+  if (pattern[0] === 'X' && data) {
 
     let regex = '';
 
@@ -15,7 +15,7 @@ const patternFormater = (pattern, data) => {
 
   }
 
-  if (pattern[0] === '#') {
+  if (pattern[0] === '#'&& data) {
 
     if (pattern.indexOf('.') === -1) {
       console.log('not found .')

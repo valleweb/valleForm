@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "@valle/valle-card": "^1.0.0",
-    "@valle/valle-input": "^2.5.6",
+    "@valle/valle-input": "^2.7.0",
     "@valle/valle-select": "^1.4.5",
     "@valle/valle-speed-dial": "^1.0.3",
     "file-saver": "^2.0.5",

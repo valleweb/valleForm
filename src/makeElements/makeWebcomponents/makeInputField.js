@@ -145,7 +145,7 @@ export default ({
         { ...normalizeRequired(field.required) }
         { ...normalizeReadOnly(isDisabled) }
         { ...normalizeCaseProp(field.case) }
-        { ...normalizeMask(field.mask) }
+        { ...normalizeMask(field.type) }
       >
       </valle-input>
 

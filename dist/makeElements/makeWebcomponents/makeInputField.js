@@ -170,7 +170,7 @@ exports['default'] = function (_ref) {
       tooltip: field.description,
       tooltippos: 'top-right',
       tooltiplength: 'large'
-    }, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled), (0, _normalizeCaseProp2['default'])(field['case']), (0, _normalizeMask2['default'])(field.mask))),
+    }, (0, _normalizeRequired2['default'])(field.required), (0, _normalizeReadOnly2['default'])(isDisabled), (0, _normalizeCaseProp2['default'])(field['case']), (0, _normalizeMask2['default'])(field.type))),
     is_find ? _react2['default'].createElement(_SearchButton2['default'], {
       isDisabled: isDisabled,
       onClick: function () {

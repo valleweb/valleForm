@@ -52,7 +52,6 @@ export default (_id, tabErrorCount) => {
      *
      */
 
-    console.log(field.mask)
     if(field.mask) {
       fieldsParams[field.dataset.valleField] = patternUnformater(field.mask, (field.value || field.value === 0 ) ? field.value : null);
     } else {

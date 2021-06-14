@@ -11,6 +11,8 @@ var patternUnformater = function patternUnformater(pattern, data) {
     console.log(data.replace(/,/g, "."));
     return String(data).replace(/\./g, "").replace(/\,/g, ".");
   }
+
+  return data;
 };
 
 exports['default'] = patternUnformater;

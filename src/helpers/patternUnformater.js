@@ -9,6 +9,9 @@ const patternUnformater = (pattern, data) => {
     return String(data).replace(/\./g, "").replace(/\,/g, ".")
 
   }
+
+  return data;
+
 }
 
 export default patternUnformater;

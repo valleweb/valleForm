@@ -46,46 +46,43 @@ var Modal = function Modal(_ref) {
     console.log('id_tabela:');
     console.log(id_tabela);
 
-    var rowData = listData.list.data.filter(function (row) {
-      return row[0] == id_tabela;
+    var method = 'POST';
+
+    var headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + String(token)
     });
 
-    console.log('rowData:');
-    console.log(rowData);
-
-    var dados = {};
-
-    rowData[0].forEach(function (col, i) {
-      dados[listData.list.columns[i].id.toLowerCase()] = {
-        value: col,
-        populate: listData.list.columns[i].populate
-      };
-    });
-
-    console.log('dados:');
-    console.log(dados);
-
-    console.log('_id:');
-    console.log(_id);
-
-    console.log('=======================');
-
-    var filteredDados = {};
-
-    Object.keys(dados).forEach(function (id) {
-
-      if (dados[id].populate) {
-        filteredDados[id] = dados[id].value;
+    var body = JSON.stringify({
+      evento: {
+        token: token,
+        id_usuario: params.id_usuario,
+        identificador: params.identificador,
+        cliente_id: params.cliente_id,
+        empresa: params.empresa,
+        estabelecimento: params.estabelecimento,
+        conexao: params.conexao,
+        sistema: params.sistema,
+        formulario: data.evento.formulario,
+        location: true,
+        id_tabela: id_tabela
       }
     });
 
-    console.log('Dados filtrados:');
-    console.log(filteredDados);
+    fetch(String(baseApi) + '/view', { method: method, headers: headers, body: body })
+    //.then(responseStatusHandler) // Error handler
+    .then(function (res) {
+      return res.json();
+    }).then(function (data) {
 
-    setCurrentFilledFields(filteredDados);
+      setCurrentFilledFields(data.evento.dados);
 
-    (0, _addFieldsValues2['default'])(filteredDados, _id);
-    setModalData(null);
+      (0, _addFieldsValues2['default'])(data.evento.dados, _id);
+      setModalData(null);
+    });
+
+    console.log('_id:');
+    console.log(_id);
   };
 
   return _react2['default'].createElement(

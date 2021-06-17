@@ -31,47 +31,44 @@ const Modal = ({
     console.log('id_tabela:');
     console.log(id_tabela);
 
-   const rowData = listData.list.data.filter(row => {
-      return row[0] == id_tabela;
-    })
+    const method = 'POST';
 
-    console.log('rowData:');
-    console.log(rowData);
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
 
-    const dados = {};
-
-    rowData[0].forEach((col, i) => {
-      dados[listData.list.columns[i].id.toLowerCase()] = {
-        value: col,
-        populate: listData.list.columns[i].populate,
+    const body = JSON.stringify({
+      evento:{
+        token: token,
+        id_usuario: params.id_usuario,
+        identificador: params.identificador,
+        cliente_id: params.cliente_id,
+        empresa: params.empresa,
+        estabelecimento: params.estabelecimento,
+        conexao: params.conexao,
+        sistema: params.sistema,
+        formulario: data.evento.formulario,
+        location: true,
+        id_tabela: id_tabela,
       }
     });
 
-    console.log('dados:');
-    console.log(dados);
+
+    fetch(`${baseApi}/view`, { method, headers, body })
+    //.then(responseStatusHandler) // Error handler
+    .then(res => res.json())
+    .then(data => {
+
+      setCurrentFilledFields(data.evento.dados);
+
+      addFieldsValues(data.evento.dados, _id);
+      setModalData(null);
+
+    });
 
     console.log('_id:');
     console.log(_id);
-
-    console.log('=======================');
-
-    const filteredDados = {};
-
-    Object.keys(dados).forEach(id => {
-
-      if(dados[id].populate) {
-        filteredDados[id] = dados[id].value;
-      }
-
-    });
-
-    console.log('Dados filtrados:');
-    console.log(filteredDados);
-
-    setCurrentFilledFields(filteredDados);
-
-    addFieldsValues(filteredDados, _id);
-    setModalData(null);
 
   }
 

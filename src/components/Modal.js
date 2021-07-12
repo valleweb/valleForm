@@ -18,6 +18,7 @@ const Modal = ({
   _id,
   setCurrentFilledFields,
   debug,
+  inputRef,
 }) => {
 
   const [ listData, setListData ] = useState({
@@ -63,9 +64,14 @@ const Modal = ({
       setCurrentFilledFields(data.evento.dados);
 
       addFieldsValues(data.evento.dados, _id);
+
       setModalData(null);
 
     });
+
+    if(inputRef.current) {
+      inputRef.current.shadowRoot.childNodes[3].focus();
+    }
 
     console.log('_id:');
     console.log(_id);
@@ -92,7 +98,15 @@ const Modal = ({
             className = 'valleForm__modal__button'
             aria-label = 'Fechar'
             data-balloon-pos = 'left'
-            onClick = { () => setModalData(null) }
+            onClick = { () => {
+
+              if(inputRef.current) {
+                inputRef.current.shadowRoot.childNodes[3].focus();
+              }
+
+              setModalData(null);
+
+            }}
           >
 
             <svg

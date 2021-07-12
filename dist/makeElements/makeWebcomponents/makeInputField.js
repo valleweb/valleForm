@@ -76,6 +76,13 @@ exports['default'] = function (_ref) {
    *
    */
 
+  var input = _react2['default'].createRef();
+
+  /**
+   * -----
+   *
+   */
+
   var validadeField = function validadeField(field, action) {
     (0, _apiValidations2['default'])(baseApi, token, params, field, action, _id, setModalData, setSnackBarStatus, currentFilledFields);
   };
@@ -143,6 +150,7 @@ exports['default'] = function (_ref) {
       maxlength: field.maxlength,
       id: '' + String(field.id),
       'data-tabidentifier': tabIdentifier,
+      ref: input,
       onBlur: function () {
         function onBlur(e) {
 
@@ -192,7 +200,8 @@ exports['default'] = function (_ref) {
       $loading: $loading,
       _id: _id,
       setCurrentFilledFields: setCurrentFilledFields,
-      debug: debug
+      debug: debug,
+      inputRef: input
     }) : null
   );
 };

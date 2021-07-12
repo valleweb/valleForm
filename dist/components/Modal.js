@@ -30,7 +30,8 @@ var Modal = function Modal(_ref) {
       $loading = _ref.$loading,
       _id = _ref._id,
       setCurrentFilledFields = _ref.setCurrentFilledFields,
-      debug = _ref.debug;
+      debug = _ref.debug,
+      inputRef = _ref.inputRef;
 
   var _useState = (0, _react.useState)({
     currentForm: data.evento.formulario,
@@ -78,8 +79,13 @@ var Modal = function Modal(_ref) {
       setCurrentFilledFields(data.evento.dados);
 
       (0, _addFieldsValues2['default'])(data.evento.dados, _id);
+
       setModalData(null);
     });
+
+    if (inputRef.current) {
+      inputRef.current.shadowRoot.childNodes[3].focus();
+    }
 
     console.log('_id:');
     console.log(_id);
@@ -107,7 +113,12 @@ var Modal = function Modal(_ref) {
             'data-balloon-pos': 'left',
             onClick: function () {
               function onClick() {
-                return setModalData(null);
+
+                if (inputRef.current) {
+                  inputRef.current.shadowRoot.childNodes[3].focus();
+                }
+
+                setModalData(null);
               }
 
               return onClick;

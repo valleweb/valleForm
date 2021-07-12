@@ -36,6 +36,13 @@ export default ({
    *
    */
 
+  const input = React.createRef();
+
+  /**
+   * -----
+   *
+   */
+
   const validadeField = (field, action) => {
     apiValidations(
       baseApi,
@@ -116,6 +123,7 @@ export default ({
         maxlength = { field.maxlength }
         id = { `${field.id}` }
         data-tabidentifier = { tabIdentifier }
+        ref = { input }
         onBlur = { e => {
 
           if(is_exists_blur) validadeField(field, 'exists_blur');
@@ -172,6 +180,7 @@ export default ({
             _id = { _id }
             setCurrentFilledFields = { setCurrentFilledFields }
             debug = { debug }
+            inputRef = { input }
           />
         ) : null
       }
